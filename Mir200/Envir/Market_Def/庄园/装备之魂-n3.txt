@@ -1,0 +1,576 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 16
+#ACT
+MOV U42 17
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<进化您的法宝/SCOLOR=250>抽取<命格装备/SCOLOR=250>\
+<也可以让您的装备闪闪发光，与众不同！/SCOLOR=253>\
+<进化碎片出产基本都在堕落神域哦！/SCOLOR=70> \
+
+学习完毕，接下来去找<公告牌/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#ACT
+break
+#SAY
+你已经在我这里学习过了，快去找<公告牌/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<进化您的法宝/SCOLOR=250>抽取<命格装备/SCOLOR=250>\
+<也可以让您的装备闪闪发光，与众不同！/SCOLOR=253>\
+<进化碎片出产基本都在堕落神域哦！/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+
+#IF
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+在这里可以开启神佑系统，以及将新手法宝进阶\
+进阶需要<进化碎片>\
+<注：进化碎片在堕落神域可爆出>\
+;<免费开启神佑/@神佑>\
+<法宝进阶/@法宝>　　<装备发光/@装备发光>\ 
+<获取命格装备/@命格装备>　　<回收命格装备/@回收命格装备>\
+
+
+[@回收命格装备]
+#IF
+#act
+TakeBagItem 命格·破军·金|命格·破军·木|命格·破军·火|命格·破军·水|命格·破军·土|命格·玄灵·金|命格·玄灵·木|命格·玄灵·火|命格·玄灵·水|命格·玄灵·土|命格·守护·金|命格·守护·木|命格·守护·火|命格·守护·水|命格·守护·土 46 0 0 0 0 N52 0
+MOV N54 <$STR(N52)>
+MOV N57 <$STR(N52)>
+MUL N54 300
+MUL N57 2000
+GAMEGLORY + <$STR(N57)>
+GAMEDIAMOND + <$STR(N54)>
+SENDMSG 6 成功回收<$STR(N52)>个命格,获得:荣誉<$STR(N52)>个,金刚石<$STR(N54)>个!
+SENDMSG 0 玩家【%s】成功回收<$STR(N52)>个命格,|获得:荣誉<$STR(N52)>个,金刚石<$STR(N54)>个..
+break
+
+
+[@命格装备]
+领取命格需要3000荣誉+500点金刚石\
+
+<抽取随机命格/@随机命格>\
+
+
+[@随机命格]
+#IF
+CHECKGAMEGLORY > 2999
+CHECKGAMEDIAMOND > 499
+#ACT
+GAMEGLORY - 3000
+GAMEDIAMOND - 500
+GetRandomText ..\QuestDiary\数据文件\命格.txt S118
+Give <$STR(S118)>
+SendNewLineMsg 0 251 0 15 100 10 1 玩家【%s】消耗大量荣誉和金刚石，抽取到了命格：【<$STR(S118)>】..
+break
+#ELSEACT
+MessageBox 抽取需要3000点荣誉、500点金刚石。
+break
+
+[@装备发光]
+可以将装备消耗1元宝进行锤炼!从而可以使装备闪闪光1\
+发光是没有失败的请你放心锤炼！暂时不能锤炼武器，头盔和衣服\
+<特别注意>:请把装备带到相应的位置。已经发光的装备请不要再锤炼\ 
+          我会照样收取你的元宝噢^_^小心被我骗了元宝。可没人管的\ \ 
+<项链闪光/@3S>          <右手闪光/@5S>            <左手闪光/@6S>\ 
+<勋章闪光/@2S>          <右戒闪光/@7S>            <左戒闪光/@8S>\ 
+<毒符闪光/@9S>          <腰带闪光/@10S>            <靴子闪光/@11S>\
+<取消闪光/@取消>          <关    闭/@exit>\ 
+
+[@取消]
+#IF
+#say
+\ \
+\ \
+<取消项链闪光/@13S>        <取消右手闪光/@15S>        <取消左手闪光/@16S>\ 
+<取消勋章闪光/@12S>        <取消右戒闪光/@17S>        <取消左戒闪光/@18S>\ 
+<取消毒符闪光/@19S>        <取消腰带闪光/@20S>        <取消靴子闪光/@21S>\
+<返    回/@main>\ 
+
+[@21S]
+#IF
+#ACT
+SETITEMSLIGHT 11 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@20S]
+#IF
+#ACT
+SETITEMSLIGHT 10 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@12S]
+#IF
+#ACT
+SETITEMSLIGHT 2 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@15S]
+#IF
+#ACT
+SETITEMSLIGHT 5 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@16S]
+#IF
+#ACT
+SETITEMSLIGHT 6 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@19S]
+#IF
+#ACT
+SETITEMSLIGHT 9 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@17S]
+#IF
+#ACT
+SETITEMSLIGHT 7 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@18S]
+#IF
+#ACT
+SETITEMSLIGHT 8 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@13S]
+#IF
+#ACT
+SETITEMSLIGHT 3 0
+SENDMSG 6 提示：装备已经取消发光！请鉴赏！
+
+[@11S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 11 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+
+[@10S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 10 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+
+[@2S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 2 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@3S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 3 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@5S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 5 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@6S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 6 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@7S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 7 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@8S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 8 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@9S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 9 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@10S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 10 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@11S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 11 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break
+[@12S]
+#IF
+CHECKGAMEGOLD > 0
+#ACT
+SETITEMSLIGHT 12 1
+GAMEGOLD - 1
+SENDMSG 6 提示：装备我已经给你锤炼闪闪发光了赶紧观赏一下吧！
+;SendTopMsg 250 0 〖提示〗玩家<$USERNAME>使用装备发光系统锤炼出闪闪发光的装备，你还不行动起来吗？
+break
+#ELSEACT
+MESSAGEBOX [错误信息]：你的元宝不足.或者你装备栏没该物品！
+break 
+
+
+[@法宝]
+#SAY
+您好呀，如果您有<进化碎片>这种东西的话，\
+我可以帮你把装备进化成更高阶段哟！\
+<注：进化碎片在堕落神域可爆出>\
+一阶升二阶需要-<【50个进化碎片+金条一根】/SCOLOR=250>\
+二阶升三阶需要-<【200个进化碎片+金条一根】/SCOLOR=250>\
+三阶升四阶需要-<【500个进化碎片+金条一根】/SCOLOR=250>\
+四阶升十方需要-<【888个进化碎片+金砖+100个传奇碎片】/SCOLOR=250>\
+首先请你拿下法宝，然后点击下面的对话：\
+<法宝升阶/@法宝升阶>
+
+[@法宝升阶]
+#ACT
+OPENUPGRADEDLG 法宝进阶
+
+[@UpgradeDlgItem]
+#if
+EQUAL <$DLGITEM.NAME> 圣者·一阶炼魂
+#act
+MOV S115 圣者·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 圣者·二阶定魂
+#act
+MOV S115 圣者·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 圣者·三阶觉醒
+#act
+MOV S115 圣者·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+
+#if
+EQUAL <$DLGITEM.NAME> 圣者·四阶惊天
+#act
+MOV S115 圣者·十方俱灭
+goto @高级进阶
+break
+
+
+
+
+#if
+EQUAL <$DLGITEM.NAME> 剑姬·一阶炼魂
+#act
+MOV S115 剑姬·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 剑姬·二阶定魂
+#act
+MOV S115 剑姬·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 剑姬·三阶觉醒
+#act
+MOV S115 剑姬·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 剑姬·四阶惊天
+#act
+MOV S115 剑姬·十方俱灭
+goto @高级进阶
+break
+
+
+#if
+EQUAL <$DLGITEM.NAME> 烈焰·一阶炼魂
+#act
+MOV S115 烈焰·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 烈焰·二阶定魂
+#act
+MOV S115 烈焰·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 烈焰·三阶觉醒
+#act
+MOV S115 烈焰·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 烈焰·四阶惊天
+#act
+MOV S115 烈焰·十方俱灭
+goto @高级进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 寒冰·一阶炼魂
+#act
+MOV S115 寒冰·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 寒冰·二阶定魂
+#act
+MOV S115 寒冰·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 寒冰·三阶觉醒
+#act
+MOV S115 寒冰·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 寒冰·四阶惊天
+#act
+MOV S115 寒冰·十方俱灭
+goto @高级进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 阴阳·一阶炼魂
+#act
+MOV S115 阴阳·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 阴阳·二阶定魂
+#act
+MOV S115 阴阳·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 阴阳·三阶觉醒
+#act
+MOV S115 阴阳·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 阴阳·四阶惊天
+#act
+MOV S115 阴阳·十方俱灭
+goto @高级进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 魅姬·一阶炼魂
+#act
+MOV S115 魅姬·二阶定魂
+MOV P3 50
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 魅姬·二阶定魂
+#act
+MOV S115 魅姬·三阶觉醒
+MOV P3 200
+goto @进阶
+break
+
+#if
+EQUAL <$DLGITEM.NAME> 魅姬·三阶觉醒
+#act
+MOV S115 魅姬·四阶惊天
+MOV P3 500
+goto @进阶
+break
+
+
+#if
+EQUAL <$DLGITEM.NAME> 魅姬·四阶惊天
+#act
+MOV S115 魅姬·十方俱灭
+goto @高级进阶
+break
+
+
+#if
+#act
+RECLAIMITEM
+SENDMSG 6 你放入的东西我不认识，不好意思！！
+break
+
+
+[@进阶]
+#if
+checkitem 进化碎片 <$STR(p3)>
+checkitem 金条 1
+#act
+TAKEDLGITEM
+GiveStateItem <$STR(S115)> 1 1 1 0 1 1
+take 进化碎片 <$STR(p3)>
+take 金条 1
+SENDMSG 6 恭喜您，法宝进阶成功！！
+break
+#ELSEACT
+RECLAIMITEM
+SENDMSG 6 你没有进化碎片<$STR(p3)>并且缺少一根金条！！
+break
+
+
+[@高级进阶]
+#if
+checkitem 进化碎片 888
+checkitem 金砖 1
+checkitem 传奇碎片 100
+#act
+TAKEDLGITEM
+GiveStateItem <$STR(S115)> 1 1 1 0 1 1
+take 进化碎片 888
+take 金砖 1
+take 传奇碎片 100
+SENDMSG 6 恭喜您，法宝进阶成功！！
+break
+#ELSEACT
+RECLAIMITEM
+SENDMSG 6 你没有进化碎片888块并且缺少一根金砖和100传奇碎片！！
+break
+
+
+[@神佑]
+#if
+CheckShowGodBless
+#act
+break
+#SAY
+您的神佑已经点亮了，请不要重复点击\
+<返回/@main>
+
+
+#if
+checkgold 10000
+#act
+take 金币 10000
+ShowGodBless 1
+SENDMSG 6 神佑开启成功！
+#ELSESAY
+开启神佑需要1万金币！

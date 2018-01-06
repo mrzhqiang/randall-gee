@@ -1,0 +1,89 @@
+[@main]
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\副本次数.txt [<$USERNAME>]
+#ACT
+MOV U27 20
+MOV U41 30
+MOV U40 3
+CALCVAR HUMAN 副本次数 = 3
+SAVEVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+LOADVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+
+#if
+#SAY
+名称： <元宝生肖副本/FCOLOR=254>    时间： <60分钟/FCOLOR=254>\
+难度： <★★★★★★★★★★★★★★★★/FCOLOR=254>\
+规则： <单人进入/FCOLOR=254> 等级： <30级以上/FCOLOR=254>\
+出产： <元宝、生肖装备/FCOLOR=254>\
+条件： <每天仅可召唤三十次、每次召唤消费200荣誉/FCOLOR=254>\ \
+您今天可召唤 <$STR(U41)> 次，您当前元宝数：<$GAMEGOLD> 您所剩荣誉：<$GAMEGLORY>\
+<本地图是单人副本，请注意准备好一切所需物品/FCOLOR=254>\
+<开启元宝副本/@开元宝>           <结束对话/@exit>\
+
+
+[@开元宝]
+#IF
+CANMOVEECTYPE 元宝副本
+#ACT
+SENDMSG 5 您已经创建了副本，请等待冷却！冷却时间10秒！
+break
+
+#IF
+CHECKLEVELEX > 29
+LARGE U41 0
+CheckGold 30000
+#act
+take 金币 30000
+CREATEECTYPE 元宝副本 20
+break
+#ELSEACT
+MESSAGEBOX 创建失败，您的金币不足3万！或者元宝次数用尽！\或者您未满30级！
+break
+
+
+
+
+
+[@CreateEctype_NoExists]
+#IF
+#ACT
+MESSAGEBOX 创建副本地图失败，副本不存在！
+
+[@CreateEctype_Fail]
+#IF
+#ACT
+MESSAGEBOX 创建副本失败，副本人数已满，请稍候再试！
+
+
+[@CreateEctype_IN]
+#IF
+#ACT
+SENDMSG 5 副本地图已经创建完成，可以直接进入了。
+
+[@CreateEctype_IN_Time]
+#IF
+#ACT
+SENDMSG 5 副本已经存在..无法创建。
+
+[@CreateEctype_OK]
+#IF
+#ACT
+MOVEECTYPE 元宝副本 20 25
+SENDMSG 5 副本地图创建成功，并初始化地图怪物成功。
+SENDMSG 5 副本地图创建成功，并初始化地图事件成功。
+
+[@MoveEctype_Fail_Time]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败，超过可传送时间
+
+[@MoveEctype_Fail]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败
+
+[@MoveEctype_OK]
+#IF
+#ACT
+SENDMSG 5 已传送到副本地图
+

@@ -1,0 +1,21 @@
+[@装备1特效]
+{
+#ACT
+GetAllCustomItemValue 11 N$额外经验 N$额外经验百分比
+GetAllCustomItemValue 12 N$额外金币 N$额外金币百分比
+goto @特效1实现
+
+[@特效1实现]
+#IF
+NOT EQUAL <$STR(N$额外经验)> 0
+#ACT
+CHANGEEXP + <$STR(N$额外经验)>
+
+#IF
+NOT EQUAL <$STR(N$额外金币)> 0
+#ACT
+GIVE 金币 <$STR(N$额外金币)>
+
+
+
+}

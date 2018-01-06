@@ -1,0 +1,23 @@
+[@main]
+#IF
+Check [209] 1
+LARGE N10 7
+#ACT
+set [209] 0
+give 藏宝盒
+give 任务卡 10
+give 重铸石
+GAMEGLORY + 30
+Mul N8 15000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+give 金币 <$Str(N8)>
+SendMsg 0 {每日任务|151:0:1}：玩家{%s|227:0:1}干净利落地完成了{讨伐任务|254:0:1}，获得了{<$Str(N8)>+任务卡10张+藏宝盒+重铸石+<$Str(N8)>金币！|223:0:1}
+MOV N10 0
+break
+#IF
+Check [209] 1
+SMALL N10 9
+#ACT
+inc N10 1
+SENDMSG 6 提示：每日讨伐任务有效打怪数量+1.当前已击杀<$STR(N10)>.总共需击杀9只.
+break

@@ -1,0 +1,264 @@
+[@main]
+你要刷什么怪物？请自己小心..\\\ 
+<我要开始刷怪/@可进入>\  \
+<领取完全清剿奖励/@奖励>\ \
+<我要回家不杀了！/@3>\ \
+<好的，我去击杀吧！/@exit>\
+
+[@奖励]
+#IF
+EQUAL U29 1
+CheckMapMonCount <$FBMAP> = 0 1
+#ACT
+MOV N7 0
+Mul N7 15000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+mapmove n3 333 330
+CREDITPOINT + 3
+MOV S$副本状态 已完成
+MOV U29 0
+close
+#ELSEACT
+MOV N7 0
+Mul N7 15000 <$LEVEL>
+messagebox 您并没有刷怪喔！\或者未清除地图内的怪物！\当前可获得奖励：<$Str(N7)>经验+3点声望!
+break
+
+[@3]
+#IF
+#ACT
+mapmove n3 330 330
+MOV U29 0
+break
+
+
+[@可进入]
+#IF
+EQUAL U29 0
+#SAY
+请选择，<提示：BOSS模式为只刷1只BOSS！无小怪，额外消耗10精力>\
+难度：\
+<40级副本/@40级>需要5点声望！ 出产：<祖玛、赤月装备><40级BOSS模式/@只刷40>\
+<50级副本/@50级>需要10点荣誉！出产：<沃玛、赤月装备><50级BOSS模式/@只刷50>\
+<60级副本/@60级>需要10点金刚石！出产：<逆火等散件以及三龙套装装备><60级BOSS模式/@只刷60>\
+<70级副本/@70级>需要5元宝！出产：<皓月套装、时装首饰装备><70级BOSS模式/@只刷70>\
+<80级副本/@80级>需要10元宝！出产：<诛仙套装、时装首饰装备><80级BOSS模式/@只刷80>\
+<90级副本/@90级>需要40元宝！出产：<神龙套装、时装首饰装备><90级BOSS模式/@只刷90>\
+#ACT
+break
+#ELSEACT
+messagebox 您已经刷怪了，不要重复刷哦！
+break
+
+[@40级]
+#IF
+EQUAL U29 0
+CHECKCREDITPOINT > 4
+#ACT
+CREDITPOINT - 5
+MOV S51 祖玛卫士
+MOV S52 祖玛雕像
+MOV S53 祖玛弓箭手3
+MOV S54 祖玛卫士0
+MOV S55 祖玛教主
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您没有3点声望。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@50级]
+#IF
+EQUAL U29 0
+CHECKGAMEGLORY > 9
+#ACT
+GAMEGLORY - 10
+MOV S51 花吻蜘蛛
+MOV S52 黑锷蜘蛛
+MOV S53 月魔蜘蛛
+MOV S54 邪恶巨人
+MOV S55 赤月恶魔
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10点荣誉。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@60级]
+#IF
+EQUAL U29 0
+CHECKGAMEDIAMOND > 9
+#ACT
+GAMEDIAMOND - 10
+MOV S51 黑狐
+MOV S52 赤狐
+MOV S53 狐月之眼
+MOV S54 火尾黑狐王
+MOV S55 狐月天珠
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10点金刚石。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@70级]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 4
+#ACT
+GAMEGOLD - 5
+MOV S51 瘟疫毒牙
+MOV S52 瘟疫鱼人
+MOV S53 瘟疫使者
+MOV S54 瘟疫长老
+MOV S55 瘟疫统帅
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有5元元宝。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@80级]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 9
+#ACT
+GAMEGOLD - 10
+MOV S51 血池战将
+MOV S52 血池战士
+MOV S53 血池兵役
+MOV S54 血池守卫
+MOV S55 血灵教主
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10元元宝。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@90级]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 39
+#ACT
+GAMEGOLD - 40
+MOV S51 神龙战士
+MOV S52 神龙魔怪
+MOV S53 神龙魔像
+MOV S54 真龙护卫
+MOV S55 真龙教主
+goto @刷怪
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有40元元宝。\或者你已经刷过怪了！无法刷怪！
+break
+
+
+
+[@只刷40]
+#IF
+EQUAL U29 0
+CHECKCREDITPOINT > 4
+LARGE U26 9
+#ACT
+DEC U26 10
+CREDITPOINT - 5
+MOV S55 祖玛教主
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您没有3点声望+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@只刷50]
+#IF
+EQUAL U29 0
+CHECKGAMEGLORY > 9
+LARGE U26 9
+#ACT
+DEC U26 10
+GAMEGLORY - 10
+MOV S55 赤月恶魔
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10点荣誉+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@只刷60]
+#IF
+EQUAL U29 0
+CHECKGAMEDIAMOND > 9
+LARGE U26 9
+#ACT
+DEC U26 10
+GAMEDIAMOND - 10
+MOV S55 狐月天珠
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10点金刚石+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@只刷70]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 4
+LARGE U26 9
+#ACT
+DEC U26 10
+GAMEGOLD - 5
+MOV S55 瘟疫统帅
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有5元元宝+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@只刷80]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 9
+LARGE U26 9
+#ACT
+DEC U26 10
+GAMEGOLD - 10
+MOV S55 血灵教主
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有10元元宝+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@只刷90]
+#IF
+EQUAL U29 0
+CHECKGAMEGOLD > 39
+LARGE U26 9
+#ACT
+DEC U26 10
+GAMEGOLD - 40
+MOV S55 真龙教主
+goto @只刷BOSS
+break
+#ELSEACT
+MESSAGEBOX 对不起，您并没有40元元宝+10精力。\或者你已经刷过怪了！无法刷怪！
+break
+
+[@刷怪]
+#ACT
+MobEctypeMon SELF 21 31 <$STR(S51)> 14 3
+MobEctypeMon SELF 21 31 <$STR(S52)> 9 3
+MobEctypeMon SELF 21 31 <$STR(S53)> 9 3
+MobEctypeMon SELF 21 31 <$STR(S54)> 9 3
+MobEctypeMon SELF 21 31 <$STR(S55)> 1 1
+MOV U29 1
+CLOSE
+break
+
+
+[@只刷BOSS]
+#ACT
+MobEctypeMon SELF 21 31 <$STR(S55)> 1 1
+MOV U29 1
+CLOSE
+break

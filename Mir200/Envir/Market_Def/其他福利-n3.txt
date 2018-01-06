@@ -1,0 +1,783 @@
+[@main]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,224,125>║║<年/AUTOCOLOR=155,168,253,224,125>║║<行/AUTOCOLOR=155,168,253,224,125>║║<大/AUTOCOLOR=155,168,253,224,125>║║<运/AUTOCOLOR=155,168,253,224,125>║║<财/AUTOCOLOR=155,168,253,224,125>║║<神/AUTOCOLOR=155,168,253,224,125>║║<来/AUTOCOLOR=155,168,253,224,125>║║<敲/AUTOCOLOR=155,168,253,224,125>║║<门/AUTOCOLOR=155,168,253,224,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+这里是<全服福利>，当前礼包购买人数：<$STR(G6)>\
+每当礼包购买人数达到<1，5，10，20，50，100>时，即可领取。\
+查询等级奖励：<等级奖励/@等级>      \
+您可以进行以下操作：<购买超级福利礼包/@支付>    <散人领取超级福利/@领取超级福利>\
+福利内容查询：<查看超级福利礼包/@具体说明>      <查看散人可领取的福利/@其他超级福利>\
+
+[@具体说明]
+福利礼包需要<充值达到30元>方可购买，<购买需要花费30元宝>。\
+福利礼包包含：\
+<进化碎片×10>、<十颗碧水龍睛珠×2>、<鉴定图纸[极品]×5>、<书页×50>\
+<随机宝石袋×8>、<超大聚灵珠×2>、<随机宠物一只>\
+<返回/@福利>
+
+[@其他超级福利]
+当有<1人>购买时，全服每人可领取<绑定书页一张>\
+当有<5人>购买时，全服每人可领取<绑定金条一块>\
+当有<10人>购买时，全服每人可领取<绑定鉴定图纸[极品]×3>\
+当有<20人>购买时，全服每人可领取<绑定随机宝石袋×3>\
+当有<50人>购买时，全服每人可领取<元宝20元>\
+当有<100人>购买时，全服每人可领取<随机命格+随机宝石袋×3>\
+<注意：只有等级达到60级的玩家方可领取超级福利!>\
+<返回/@福利>
+
+
+[@支付]
+#IF
+EQUAL U3 0
+CHECKVAR HUMAN 元宝充值 > 29
+CHECKGAMEGOLD > 29
+#ACT
+GAMEGOLD - 30
+give 超级福利礼包
+MOV U3 1
+INC G6 1
+SendNewLineMsg 0 249 0 15 100 10 1 土豪玩家<$USERNAME>购买了超级福利礼包!花费了30元宝！||目前福利礼包购买人数：<$STR(G6)>
+break
+#elsesay
+对不起，您可能没有充值达到30元\
+或者您身上的元宝不足30元\
+或者您已经购买过了！您已经充值:<$HUMAN(元宝充值)>\
+
+
+[@领取超级福利]
+#IF
+CHECKLEVELEX < 60
+#ACT
+MessageBox 对不起，60级以下玩家不允许领取！
+break
+
+#IF
+LARGE G6 0
+EQUAL U7 0
+#ACT
+GiveStateItem 书页 1 1 0 0 1 1 1
+MOV U7 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了一阶超级福利，获得书页1张！
+break
+
+#IF
+LARGE G6 4
+EQUAL U8 0
+#ACT
+GiveStateItem 金条 1 1 0 0 1 1 1
+MOV U8 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了二阶超级福利，获得金条一块！
+break
+
+#IF
+LARGE G6 9
+EQUAL U9 0
+#ACT
+GiveStateItem 鉴定图纸[极品] 1 1 0 0 1 1 1
+GiveStateItem 鉴定图纸[极品] 1 1 0 0 1 1 1
+GiveStateItem 鉴定图纸[极品] 1 1 0 0 1 1 1
+MOV U9 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了三阶超级福利，获得鉴定图纸[极品]三张！
+break
+
+#IF
+LARGE G6 19
+EQUAL U10 0
+#ACT
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+MOV U10 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了四阶超级福利，获得随机宝石袋三袋！
+break
+
+#IF
+LARGE G6 49
+EQUAL U11 0
+#ACT
+GAMEGOLD + 20
+MOV U11 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了五阶超级福利，获得20元宝！
+break
+
+#IF
+LARGE G6 99
+EQUAL U12 0
+#ACT
+GetRandomText ..\QuestDiary\数据文件\命格.txt S118
+GiveStateItem <$STR(S118)> 1 1 0 0 1 1 1
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+GiveStateItem 随机宝石袋 1 1 0 0 1 1 1
+MOV U12 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>领取了顶级超级福利，获得<$STR(S118)>+随机宝石袋三袋！
+break
+#elseACT
+messagebox 对不起，当前服务器超级礼包购买人数不足.\或者您已经领取过当前阶段的奖励了！\
+break
+
+
+[@等级]
+#IF
+ISADMIN
+#SAY
+您好管理员 这里是开区奖励您需要：<我要回复数据./@回复>  <充值奖励/@充值>\
+<> <奖励：/SCOLOR=250> <马上领取/@65>  <65级奖品/SCOLOR=249>   <洗点符一张/SCOLOR=70>     <剩余名额/SCOLOR=253>【 <$STR(G400)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@70>  <70级奖品/SCOLOR=249>   <200元宝/SCOLOR=70>        <剩余名额/SCOLOR=253>【 <$STR(G401)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@75>  <75级奖品/SCOLOR=249>   <宠物精元×5颗/SCOLOR=70>  <剩余名额/SCOLOR=253>【 <$STR(G402)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@80>  <80级奖品/SCOLOR=249>   <重铸石×50颗/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G403)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@85>  <85级奖品/SCOLOR=249>   <随机命格一件/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G404)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@90>  <90级奖品/SCOLOR=249>   <成长宝珠×30颗/SCOLOR=70> <剩余名额/SCOLOR=253>【 <$STR(G405)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@95>  <95级奖品/SCOLOR=249>   <500元宝/SCOLOR=70>        <剩余名额/SCOLOR=253>【 <$STR(G406)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@100> <100级奖品/SCOLOR=249>   <大还丹×500颗/SCOLOR=70>  <剩余名额/SCOLOR=253>【 <$STR(G407)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@110> <105级奖品/SCOLOR=249>   <汗血宝马一匹/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G408)>】\
+#ACT
+break
+
+#IF
+#ACT
+break
+#say
+<冲级奖励>  \
+<> <奖励：/SCOLOR=250> <马上领取/@65>  <65级奖品/SCOLOR=249>   <洗点符一张/SCOLOR=70>     <剩余名额/SCOLOR=253>【 <$STR(G400)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@70>  <70级奖品/SCOLOR=249>   <200元宝/SCOLOR=70>        <剩余名额/SCOLOR=253>【 <$STR(G401)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@75>  <75级奖品/SCOLOR=249>   <宠物精元×5颗/SCOLOR=70>  <剩余名额/SCOLOR=253>【 <$STR(G402)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@80>  <80级奖品/SCOLOR=249>   <重铸石×50颗/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G403)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@85>  <85级奖品/SCOLOR=249>   <随机命格一件/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G404)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@90>  <90级奖品/SCOLOR=249>   <成长宝珠×30颗/SCOLOR=70> <剩余名额/SCOLOR=253>【 <$STR(G405)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@95>  <95级奖品/SCOLOR=249>   <500元宝/SCOLOR=70>        <剩余名额/SCOLOR=253>【 <$STR(G406)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@100> <100级奖品/SCOLOR=249>   <大还丹×500颗/SCOLOR=70>  <剩余名额/SCOLOR=253>【 <$STR(G407)>】\
+<> <奖励：/SCOLOR=250> <马上领取/@110> <105级奖品/SCOLOR=249>   <汗血宝马一匹/SCOLOR=70>   <剩余名额/SCOLOR=253>【 <$STR(G408)>】\
+
+
+
+[@回复]
+#IF
+ISADMIN
+#ACT
+MOV G400 300
+MOV G401 200
+MOV G402 150
+MOV G403 70
+MOV G404 35
+MOV G405 20
+MOV G406 10
+MOV G407 5
+MOV G408 3
+goto @main
+break
+#elsesay
+你不是管理，不要来捣乱。
+
+
+
+
+
+[@充值]
+#IF
+#ACT
+break
+#say
+<冲级奖励/@main>  <充值奖励>        当前已充值：<$HUMAN(元宝充值)>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲1>  <充值30元/SCOLOR=249>    <洗点符一张/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲2>  <充值50元/SCOLOR=249>    <宠物精元×10/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲3>  <充值100元/SCOLOR=249>   <大还丹×300/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲4>  <充值200元/SCOLOR=249>   <碧水莲花一件/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲5>  <充值300元/SCOLOR=249>   <鉴定图纸[极品]×30/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲6>  <充值500元/SCOLOR=249>   <重铸石×999+999元宝/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲7>  <充值700元/SCOLOR=249>   <金龙马一匹/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲8>  <充值900元/SCOLOR=249>   <终极至尊宠物一件/SCOLOR=70>\
+<> <奖励：/SCOLOR=250> <马上领取/@冲9>  <充值1000元/SCOLOR=249>  <超级传送麻痹戒或超级魔道麻痹戒或齐天大圣时装一套/SCOLOR=70>\
+<ItemShow:1156:1:0:0:1><ItemShow:1157:1:0:0:1><ItemShow:1158:1:0:0:1>\
+
+
+[@冲1]
+#IF
+CHECKVAR HUMAN 元宝充值 > 29
+check [211] 0
+CHECKBAGSIZE 1
+#ACT
+give 洗点符
+SET [211] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取30元充值奖励【洗点符】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到30元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+[@冲2]
+#IF
+CHECKVAR HUMAN 元宝充值 > 49
+check [212] 0
+CHECKBAGSIZE 1
+#ACT
+give 宠物精元 10
+SET [212] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取50元充值奖励【宠物精元×10】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到50元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@冲3]
+#IF
+CHECKVAR HUMAN 元宝充值 > 99
+check [213] 0
+CHECKBAGSIZE 1
+#ACT
+give 大还丹 300
+SET [213] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取100元充值奖励【大还丹×300】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到100元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+
+[@冲4]
+#IF
+CHECKVAR HUMAN 元宝充值 > 199
+check [214] 0
+CHECKBAGSIZE 1
+#ACT
+give 碧水莲花
+SET [214] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取200元充值奖励【碧水莲花】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到200元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@冲5]
+#IF
+CHECKVAR HUMAN 元宝充值 > 299
+check [215] 0
+CHECKBAGSIZE 30
+#ACT
+give 鉴定图纸[极品] 30
+SET [215] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取300元充值奖励【鉴定图纸[极品]】30张，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到300元>\<您已经领取过了！>\<背包空间不足30格！>
+break
+
+
+[@冲6]
+#IF
+CHECKVAR HUMAN 元宝充值 > 499
+check [216] 0
+CHECKBAGSIZE 1
+#ACT
+give 重铸石 999
+gamegold + 999
+SET [216] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取500元充值奖励【重铸石×999+999元宝】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到500元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@冲7]
+#IF
+CHECKVAR HUMAN 元宝充值 > 699
+check [217] 0
+CHECKBAGSIZE 1
+#ACT
+give 金龙马
+SET [217] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取700元充值奖励【金龙马】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到700元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@冲8]
+#IF
+CHECKVAR HUMAN 元宝充值 > 899
+check [218] 0
+CHECKBAGSIZE 1
+#ACT
+GIVE 至尊 1
+LINKGIVEITEM
+GetRandomText ..\QuestDiary\数据文件\宠物\5顶级宠物.txt S9
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：至尊绝品，打开包裹看看你的新宠物蛋吧...
+SET [218] 1
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取900元充值奖励【至尊品质宠物：<$STR(S9)>】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到900元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@冲9]
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+check [219] 0
+CHECKBAGSIZE 1
+#SAY
+您选择您要的：\
+<超级传送麻痹戒/@传送麻痹>  或  <超级魔道麻痹戒/@魔道麻痹>  或  <齐天大圣时装/@大圣>\
+<只能3选1>
+
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到1000元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@传送麻痹]
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+check [219] 0
+CHECKBAGSIZE 1
+#ACT
+SET [219] 1
+give 超级传送麻痹戒
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取1000元充值奖励【超级传送麻痹戒】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到1000元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+[@魔道麻痹]
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+check [219] 0
+CHECKBAGSIZE 1
+#ACT
+SET [219] 1
+give 超级魔道麻痹戒
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取1000元充值奖励【超级魔道麻痹戒】一份，感谢他对服务器的赞助！
+break
+#elseACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到1000元>\<您已经领取过了！>\<背包空间不足1格！>
+break
+
+
+[@大圣]
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+check [219] 0
+CHECKBAGSIZE 2
+gender man
+#ACT
+SET [219] 1
+give 金箍棒
+give 齐天(男)
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取1000元充值奖励【金箍棒+齐天(男)】一份，感谢他对服务器的赞助！
+break
+
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+check [219] 0
+CHECKBAGSIZE 2
+gender WOMAN
+#ACT
+SET [219] 1
+give 金箍棒
+give 齐天(女)
+GuildNoticeMsg 255 167 土豪玩家：『<$USERNAME>』领取1000元充值奖励【金箍棒+齐天(女)】一份，感谢他对服务器的赞助！
+break
+
+#IF
+#ACT
+MESSAGEBOX 对不起，领取失败！\<您充值未到1000元>\<您已经领取过了！>\<背包空间不足2格！>
+break
+
+
+
+
+
+
+[@65]
+#if
+CHECKLEVELEX > 64
+#act
+goto @65a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G400)>个剩余名额！<离开/@exit>\
+[@65a]
+#if
+check [400] 0
+#act
+goto @65b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@65b]
+#if
+CHECKLEVELEX > 64
+check [400] 0
+LARGE G400 0
+#act
+goto @65c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@65c]
+#if
+CHECKLEVELEX > 64
+check [400] 0
+LARGE G400 0
+#act
+give 洗点符
+DEC G400 1
+SET [400] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到65级并领取【洗点符】，现在65级冲级奖励名额还剩<$STR(G400)>个！
+
+
+
+[@70]
+#if
+CHECKLEVELEX > 69
+#act
+goto @70a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G401)>个剩余名额！<离开/@exit>\
+[@70a]
+#if
+check [401] 0
+#act
+goto @70b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@70b]
+#if
+CHECKLEVELEX > 69
+check [401] 0
+LARGE G401 0
+#act
+goto @70c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@70c]
+#if
+CHECKLEVELEX > 69
+check [401] 0
+LARGE G401 0
+#act
+gamegold + 200
+DEC G401 1
+SET [401] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到70级并领取【200元宝】，现在70级冲级奖励名额还剩<$STR(G401)>个！
+
+
+
+[@75]
+#if
+CHECKLEVELEX > 74
+#act
+goto @75a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G402)>个剩余名额！<离开/@exit>\
+[@75a]
+#if
+check [402] 0
+#act
+goto @75b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@75b]
+#if
+CHECKLEVELEX > 74
+check [402] 0
+LARGE G402 0
+#act
+goto @75c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@75c]
+#if
+CHECKLEVELEX > 74
+check [402] 0
+LARGE G402 0
+#act
+give 宠物精元 5
+DEC G402 1
+SET [402] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到75级并领取【宠物精元×5】，现在75级冲级奖励名额还剩<$STR(G402)>个！
+
+
+
+[@80]
+#if
+CHECKLEVELEX > 79
+#act
+goto @80a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G403)>个剩余名额！<离开/@exit>\
+[@80a]
+#if
+check [403] 0
+#act
+goto @80b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@80b]
+#if
+CHECKLEVELEX > 79
+check [403] 0
+LARGE G403 0
+#act
+goto @80c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@80c]
+#if
+CHECKLEVELEX > 64
+check [403] 0
+LARGE G403 0
+#act
+give 重铸石 50
+DEC G403 1
+SET [403] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到80级并领取【重铸石×50】，现在80级冲级奖励名额还剩<$STR(G403)>个！
+
+
+
+[@85]
+#if
+CHECKLEVELEX > 84
+#act
+goto @85a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G404)>个剩余名额！<离开/@exit>\
+[@85a]
+#if
+check [404] 0
+#act
+goto @85b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@85b]
+#if
+CHECKLEVELEX > 84
+check [404] 0
+LARGE G404 0
+#act
+goto @85c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@85c]
+#if
+CHECKLEVELEX > 84
+check [404] 0
+LARGE G404 0
+#act
+GetRandomText ..\QuestDiary\数据文件\命格.txt S118
+Give <$STR(S118)>
+DEC G404 1
+SET [404] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到85级并领取【<$STR(S118)>】，现在85级冲级奖励名额还剩<$STR(G404)>个！
+
+
+
+[@90]
+#if
+CHECKLEVELEX > 89
+#act
+goto @90a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G405)>个剩余名额！<离开/@exit>\
+[@90a]
+#if
+check [405] 0
+#act
+goto @90b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@90b]
+#if
+CHECKLEVELEX > 89
+check [405] 0
+LARGE G405 0
+#act
+goto @90c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@90c]
+#if
+CHECKLEVELEX > 89
+check [405] 0
+LARGE G405 0
+#act
+give 成长型宝珠 30
+DEC G405 1
+SET [405] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到90级并领取【成长型宝珠×30】，现在90级冲级奖励名额还剩<$STR(G405)>个！
+
+
+
+[@95]
+#if
+CHECKLEVELEX > 94
+#act
+goto @95a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G406)>个剩余名额！<离开/@exit>\
+[@95a]
+#if
+check [406] 0
+#act
+goto @95b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@95b]
+#if
+CHECKLEVELEX > 94
+check [406] 0
+LARGE G406 0
+#act
+goto @95c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@95c]
+#if
+CHECKLEVELEX > 94
+check [406] 0
+LARGE G406 0
+#act
+gamegold + 500
+DEC G406 1
+SET [406] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到95级并领取【500元宝】，现在95级冲级奖励名额还剩<$STR(G406)>个！
+
+
+[@100]
+#if
+CHECKLEVELEX > 99
+#act
+goto @100a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G407)>个剩余名额！<离开/@exit>\
+[@100a]
+#if
+check [407] 0
+#act
+goto @100b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@100b]
+#if
+CHECKLEVELEX > 99
+check [407] 0
+LARGE G407 0
+#act
+goto @100c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@100c]
+#if
+CHECKLEVELEX > 99
+check [407] 0
+LARGE G407 0
+#act
+give 大还丹 500
+DEC G407 1
+SET [407] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到100级并领取【大还丹×500】，现在100级冲级奖励名额还剩<$STR(G407)>个！
+
+
+[@110]
+#if
+CHECKLEVELEX > 104
+#act
+goto @110a
+#elsesay
+你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\
+本级别奖励还有<$STR(G408)>个剩余名额！<离开/@exit>\
+[@110a]
+#if
+check [408] 0
+#act
+goto @110b
+#elsesay
+等等，我看看。。。\
+这位朋友，你好象领取过了吧？\
+虽然我眼神不太好使但是你的长相太突出了，\
+我一看就看出来是你了。。。\
+<离开/@exit>\
+[@110b]
+#if
+CHECKLEVELEX > 104
+check [408] 0
+LARGE G408 0
+#act
+goto @110c
+#elsesay
+对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。\
+<离开/@exit>\
+[@110c]
+#if
+CHECKLEVELEX > 104
+check [408] 0
+LARGE G408 0
+#act
+give 汗血马
+DEC G408 1
+SET [408] 1
+goto @main
+GuildNoticeMsg 255 167 『<$USERNAME>』顺利冲到105级并领取【汗血马】，现在105级冲级奖励名额还剩<$STR(G408)>个！

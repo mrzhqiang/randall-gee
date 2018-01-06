@@ -1,0 +1,56 @@
+[@main]
+#SAY
+您可以在我这里直接传送到以下区域\
+传送到：<石原/@石原>\
+传送到：<石原洞穴/@石原洞>\
+传送到：<半兽人陵墓/@半兽人>\
+传送到：<瘟疫沼泽/@瘟疫>\
+传送费用10万金币+1声望一次。
+
+[@石原]
+#IF
+CheckGold 800000
+CHECKCREDITPOINT > 1
+CHECKLEVELEX > 59
+#ACT
+take 金币 80000
+CREDITPOINT - 2
+mapmove bsr01
+#ELSEACT
+messagebox 对不起，进入石原地图需要8万金币，2点声望！并且需要60级以上！
+
+[@石原洞]
+#IF
+CheckGold 300000
+CHECKCREDITPOINT > 1
+CHECKLEVELEX > 59
+#ACT
+take 金币 300000
+CREDITPOINT - 1
+mapmove bsr01
+#ELSEACT
+messagebox 对不起，进入石原洞穴需要30万金币，1点声望！并且需要60级以上！
+
+[@半兽人]
+#IF
+CheckGold 300000
+CHECKCREDITPOINT > 1
+CHECKLEVELEX > 59
+#ACT
+take 金币 300000
+CREDITPOINT - 1
+mapmove bsrlm01
+#ELSEACT
+messagebox 对不起，进入半兽人陵墓需要30万金币，1点声望！并且需要60级以上！
+
+[@瘟疫]
+#IF
+CheckGold 300000
+CHECKCREDITPOINT > 1
+CHECKLEVELEX > 69
+#ACT
+take 金币 300000
+CREDITPOINT - 1
+mapmove wyzz
+#ELSEACT
+messagebox 对不起，进入石原洞穴需要30万金币，1点声望！并且需要70级以上！

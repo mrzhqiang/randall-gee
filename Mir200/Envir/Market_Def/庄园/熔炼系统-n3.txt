@@ -1,0 +1,2135 @@
+[@main]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<在这里可以将魔龙以上的装备熔炼成金刚石/SCOLOR=250>\
+<请注意：熔炼采用一键熔炼。直接回收所有魔龙以上物品>\
+         <请注意存贵重物品，以免误熔！！！>\
+您当前的金刚石数量：<$GAMEDIAMOND>\
+<一键熔炼/@一键>   <金刚石兑换/@换>  <离开/@exit>  \
+
+[@换]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<在这里可以将金刚石兑换成其他物品/SCOLOR=250>\
+您当前的金刚石数量：<$GAMEDIAMOND>\
+您可以选择兑换以下物品.\
+<兑换/@经验><经验> <兑换/@坐骑>坐骑:<枣红马>\
+<兑换/@荣誉><荣誉> <兑换/@千年>千年寒冰 <兑换/@莲花><碧水莲花>\
+
+
+
+
+
+
+
+[@荣誉]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<在这里可以将金刚石兑换成其他物品/SCOLOR=250>\
+您当前的金刚石数量：<$GAMEDIAMOND>\
+1颗金刚石可兑换20点荣誉。\
+您要兑换：\
+<1点换20点荣誉/@1点荣誉>	<5点换100点荣誉/@5点荣誉>	<10点换200点荣誉/@10点荣誉>	<100点换2000点荣誉/@100点荣誉>\
+
+
+[@1点荣誉]
+#IF
+CHECKGAMEDIAMOND > 1
+#ACT
+GAMEDIAMOND - 1
+GAMEGLORY + 20
+goto @荣誉
+SENDMSG 6 提示：兑换成功，您获得20点荣誉。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@5点荣誉]
+#IF
+CHECKGAMEDIAMOND > 4
+#ACT
+GAMEDIAMOND - 5
+GAMEGLORY + 100
+goto @荣誉
+SENDMSG 6 提示：兑换成功，您获得100点荣誉。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@10点荣誉]
+#IF
+CHECKGAMEDIAMOND > 9
+#ACT
+GAMEDIAMOND - 10
+GAMEGLORY + 200
+goto @荣誉
+SENDMSG 6 提示：兑换成功，您获得200点荣誉。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@100点荣誉]
+#IF
+CHECKGAMEDIAMOND > 99
+#ACT
+GAMEDIAMOND - 100
+GAMEGLORY + 2000
+goto @荣誉
+SENDMSG 6 提示：兑换成功，您获得2000点荣誉。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+
+
+
+
+[@坐骑]
+#IF
+CHECKGAMEDIAMOND > 1999
+#ACT
+GAMEDIAMOND - 2000
+give 枣红马
+SENDMSG 6 提示：兑换成功，您获得<枣红马>.您剩余金刚石：<$GAMEDIAMOND>
+goto @换
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上兑换了枣红马一匹。真是羡煞旁人！！
+#ELSEACT
+MESSAGEBOX 金刚石不足！兑换枣红马需要2000点金刚石！
+
+
+
+[@千年]
+#IF
+CHECKGAMEDIAMOND > 3999
+#ACT
+GAMEDIAMOND - 4000
+give 千年寒冰
+SENDMSG 6 提示：兑换成功，您获得<千年寒冰>.您剩余金刚石：<$GAMEDIAMOND>
+goto @换
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上兑换了千年寒冰。真是羡煞旁人！！
+#ELSEACT
+MESSAGEBOX 金刚石不足！兑换千年寒冰需要4000点金刚石！
+
+[@莲花]
+#IF
+CHECKGAMEDIAMOND > 999
+#ACT
+GAMEDIAMOND - 1000
+give 碧水莲花
+SENDMSG 6 提示：兑换成功，您获得<碧水莲花>.您剩余金刚石：<$GAMEDIAMOND>
+goto @换
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上兑换了碧水莲花。真是羡煞旁人！！
+#ELSEACT
+MESSAGEBOX 金刚石不足！兑换碧水莲花需要1000点金刚石！
+
+
+
+
+[@元宝]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<在这里可以将金刚石兑换成其他物品/SCOLOR=250>\
+您当前的金刚石数量：<$GAMEDIAMOND>\
+10颗金刚石可兑换1点元宝。\
+您要兑换：\
+<2点元宝扣10点/@1点元宝>	<10点元宝扣50点/@5点元宝>	<20点元宝扣100点/@10点元宝>	<200点元宝扣1000点/@100点元宝>\
+
+
+[@1点元宝]
+#IF
+CHECKGAMEDIAMOND > 9
+#ACT
+GAMEDIAMOND - 10
+GAMEGOLD + 2
+goto @元宝
+SENDMSG 6 提示：兑换成功，您获得2点元宝。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@5点元宝]
+#IF
+CHECKGAMEDIAMOND > 49
+#ACT
+GAMEDIAMOND - 50
+GAMEGOLD + 10
+goto @元宝
+SENDMSG 6 提示：兑换成功，您获得10点元宝。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@10点元宝]
+#IF
+CHECKGAMEDIAMOND > 99
+#ACT
+GAMEDIAMOND - 100
+GAMEGOLD + 20
+goto @元宝
+SENDMSG 6 提示：兑换成功，您获得20点元宝。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@100点元宝]
+#IF
+CHECKGAMEDIAMOND > 999
+#ACT
+GAMEDIAMOND - 1000
+GAMEGOLD + 200
+goto @元宝
+SENDMSG 6 提示：兑换成功，您获得200点元宝。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+
+[@坐骑]
+#IF
+CHECKGAMEDIAMOND > 1999
+#ACT
+GAMEDIAMOND - 2000
+give 枣红马
+SENDMSG 6 提示：兑换成功，您获得<枣红马>.您剩余金刚石：<$GAMEDIAMOND>
+goto @换
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上兑换了枣红马一匹。真是羡煞旁人！！
+#ELSEACT
+MESSAGEBOX 金刚石不足！兑换枣红马需要2000点金刚石！
+
+
+
+
+[@经验]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<在这里可以将金刚石兑换成其他物品/SCOLOR=250>\
+您当前的金刚石数量：<$GAMEDIAMOND>\
+1颗金刚石可兑换10万经验。\
+您要兑换：\
+<1点换10万/@1点>	<5点换55万/@5点>	<10点换120万/@10点>	<100点换1300万/@100点>\
+
+[@1点]
+#IF
+CHECKGAMEDIAMOND > 1
+#ACT
+GAMEDIAMOND - 1
+CHANGEEXP + 100000
+goto @经验
+SENDMSG 6 提示：兑换成功，您获得10万经验。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@5点]
+#IF
+CHECKGAMEDIAMOND > 4
+#ACT
+GAMEDIAMOND - 5
+CHANGEEXP + 550000
+goto @经验
+SENDMSG 6 提示：兑换成功，您获得55万经验。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@10点]
+#IF
+CHECKGAMEDIAMOND > 9
+#ACT
+GAMEDIAMOND - 10
+CHANGEEXP + 1200000
+goto @经验
+SENDMSG 6 提示：兑换成功，您获得120万经验。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+[@100点]
+#IF
+CHECKGAMEDIAMOND > 99
+#ACT
+GAMEDIAMOND - 100
+CHANGEEXP + 13000000
+goto @经验
+SENDMSG 6 提示：兑换成功，您获得1300万经验。您剩余金刚石：<$GAMEDIAMOND>\
+#ELSEACT
+MESSAGEBOX 金刚石不足！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@一键]
+#IF
+#ACT
+mov p2 0
+goto @收魔龙
+
+[@收魔龙]
+#IF
+checkitem 天龙火衣(男) 1
+#act
+take 天龙火衣(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 天龙火衣(女) 1
+#act
+take 天龙火衣(女) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+
+#IF
+checkitem 天龙神剑 1
+#act
+take 天龙神剑 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+
+#IF
+checkitem 天龙头盔 1
+#act
+take 天龙头盔 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+
+#IF
+checkitem 天龙项链 1
+#act
+take 天龙项链 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 天龙手镯 1
+#act
+take 天龙手镯 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 天龙戒指 1
+#act
+take 天龙戒指 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 天龙腰带 1
+#act
+take 天龙腰带 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 天龙靴子 1
+#act
+take 天龙靴子 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 红宝石 1
+#act
+take 红宝石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 绿神石 1
+#act
+take 绿神石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 紫宝石 1
+#act
+take 紫宝石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 蓝神石 1
+#act
+take 蓝神石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 青宝石 1
+#act
+take 青宝石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+#IF
+checkitem 黄神石 1
+#act
+take 黄神石 1
+inc p2 1
+INC P3 1
+GAMEDIAMOND + 1
+goto @收魔龙
+
+#IF
+checkitem 神·红宝石 1
+#act
+take 神·红宝石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+#IF
+checkitem 神·绿神石 1
+#act
+take 神·绿神石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+#IF
+checkitem 神·紫宝石 1
+#act
+take 神·紫宝石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+#IF
+checkitem 神·蓝神石 1
+#act
+take 神·蓝神石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+#IF
+checkitem 神·青宝石 1
+#act
+take 神·青宝石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+#IF
+checkitem 神·黄神石 1
+#act
+take 神·黄神石 1
+inc p2 3
+INC P3 1
+GAMEDIAMOND + 3
+goto @收魔龙
+
+
+
+
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+
+#IF
+checkitem 暗咒道袍(女) 1
+#act
+take 暗咒道袍(女) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 聚魔法衣(男) 1
+#act
+take 聚魔法衣(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 聚魔法衣(女) 1
+#act
+take 聚魔法衣(女) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 虎啸战甲(男) 1
+#act
+take 虎啸战甲(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 虎啸战甲(女) 1
+#act
+take 虎啸战甲(女) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 黄金裁决 1
+#act
+take 黄金裁决 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 狂雷战盔 1
+#act
+take 狂雷战盔 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 狂雷项链 1
+#act
+take 狂雷项链 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 狂雷战戒 1
+#act
+take 狂雷战戒 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 狂雷护腕 1
+#act
+take 狂雷护腕 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 狂雷腰带 1
+#act
+take 狂雷腰带 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 狂雷战靴 1
+#act
+take 狂雷战靴 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 紫金嗜魂法杖 1
+#act
+take 紫金嗜魂法杖 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 逆火魔盔 1
+#act
+take 逆火魔盔 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 逆火项链 1
+#act
+take 逆火项链 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 逆火魔戒 1
+#act
+take 逆火魔戒 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 逆火护腕 1
+#act
+take 逆火护腕 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 逆火腰带 1
+#act
+take 逆火腰带 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 逆火魔靴 1
+#act
+take 逆火魔靴 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 赤金逍遥扇 1
+#act
+take 赤金逍遥扇 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 通云道盔 1
+#act
+take 通云道盔 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 通云项链 1
+#act
+take 通云项链 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 通云道戒 1
+#act
+take 通云道戒 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 通云护腕 1
+#act
+take 通云护腕 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 暗咒道袍(男) 1
+#act
+take 暗咒道袍(男) 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 通云腰带 1
+#act
+take 通云腰带 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+#IF
+checkitem 通云道靴 1
+#act
+take 通云道靴 1
+inc p2 2
+INC P3 1
+GAMEDIAMOND + 2
+goto @收魔龙
+
+#IF
+checkitem 炎龙刃 1
+#act
+take 炎龙刃 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+
+#IF
+checkitem 炎龙战盔 1
+#act
+take 炎龙战盔 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 炎龙项链 1
+#act
+take 炎龙项链 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 炎龙战戒 1
+#act
+take 炎龙战戒 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 炎龙护腕 1
+#act
+take 炎龙护腕 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 炎龙腰带 1
+#act
+take 炎龙腰带 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 炎龙战靴 1
+#act
+take 炎龙战靴 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙杖 1
+#act
+take 雷龙杖 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 雷龙魔盔 1
+#act
+take 雷龙魔盔 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙项链 1
+#act
+take 雷龙项链 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙魔戒 1
+#act
+take 雷龙魔戒 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙护腕 1
+#act
+take 雷龙护腕 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙腰带 1
+#act
+take 雷龙腰带 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 雷龙魔靴 1
+#act
+take 雷龙魔靴 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙刺 1
+#act
+take 青龙刺 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 青龙道盔 1
+#act
+take 青龙道盔 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙项链 1
+#act
+take 青龙项链 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙道戒 1
+#act
+take 青龙道戒 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙护腕 1
+#act
+take 青龙护腕 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙腰带 1
+#act
+take 青龙腰带 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 青龙道靴 1
+#act
+take 青龙道靴 1
+inc p2 4
+INC P3 1
+GAMEDIAMOND + 4
+goto @收魔龙
+#IF
+checkitem 御龙盔甲(男) 1
+#act
+take 御龙盔甲(男) 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 御龙盔甲(女) 1
+#act
+take 御龙盔甲(女) 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者头盔 1
+#act
+take 王者头盔 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者项链 1
+#act
+take 王者项链 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者戒指 1
+#act
+take 王者戒指 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者护腕 1
+#act
+take 王者护腕 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者腰带 1
+#act
+take 王者腰带 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者之靴 1
+#act
+take 王者之靴 1
+inc p2 8
+INC P3 1
+GAMEDIAMOND + 8
+goto @收魔龙
+#IF
+checkitem 王者之杖 1
+#act
+take 王者之杖 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者之剑 1
+#act
+take 王者之剑 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者之刃 1
+#act
+take 王者之刃 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者战甲(男) 1
+#act
+take 王者战甲(男) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者战甲(女) 1
+#act
+take 王者战甲(女) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者魔衣(男) 1
+#act
+take 王者魔衣(男) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者魔衣(女) 1
+#act
+take 王者魔衣(女) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者道袍(男) 1
+#act
+take 王者道袍(男) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 王者道袍(女) 1
+#act
+take 王者道袍(女) 1
+inc p2 16
+INC P3 1
+GAMEDIAMOND + 16
+goto @收魔龙
+#IF
+checkitem 传奇之冠 1
+#act
+take 传奇之冠 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+
+#IF
+checkitem 传奇项链 1
+#act
+take 传奇项链 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+#IF
+checkitem 传奇之戒 1
+#act
+take 传奇之戒 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+#IF
+checkitem 传奇护腕 1
+#act
+take 传奇护腕 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+#IF
+checkitem 传奇腰带 1
+#act
+take 传奇腰带 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+
+#IF
+checkitem 传奇之靴 1
+#act
+take 传奇之靴 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+#IF
+checkitem 传奇勋章 1
+#act
+take 传奇勋章 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+#IF
+checkitem 传奇神杖 1
+#act
+take 传奇神杖 1
+inc p2 24
+INC P3 1
+GAMEDIAMOND + 24
+goto @收魔龙
+#IF
+checkitem 传奇神扇 1
+#act
+take 传奇神扇 1
+inc p2 24
+INC P3 1
+GAMEDIAMOND + 24
+goto @收魔龙
+#IF
+checkitem 传奇神剑 1
+#act
+take 传奇神剑 1
+inc p2 24
+INC P3 1
+GAMEDIAMOND + 24
+goto @收魔龙
+#IF
+checkitem 传奇神甲(男) 1
+#act
+take 传奇神甲(男) 1
+inc p2 24
+INC P3 1
+GAMEDIAMOND + 24
+goto @收魔龙
+#IF
+checkitem 传奇神甲(女) 1
+#act
+take 传奇神甲(女) 1
+inc p2 24
+INC P3 1
+GAMEDIAMOND + 24
+goto @收魔龙
+#IF
+checkitem 传奇面巾 1
+#act
+take 传奇面巾 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+
+#IF
+checkitem 传奇印 1
+#act
+take 传奇印 1
+inc p2 12
+INC P3 1
+GAMEDIAMOND + 12
+goto @收魔龙
+
+#IF
+checkitem 皓月印 1
+#act
+take 皓月印 1
+INC P3 1
+inc p2 18
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月之冠 1
+#act
+take 皓月之冠 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月项链 1
+#act
+take 皓月项链 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月之戒 1
+#act
+take 皓月之戒 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月护腕 1
+#act
+take 皓月护腕 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月腰带 1
+#act
+take 皓月腰带 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+
+#IF
+checkitem 皓月之靴 1
+#act
+take 皓月之靴 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月勋章 1
+#act
+take 皓月勋章 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+#IF
+checkitem 皓月魔杖 1
+#act
+take 皓月魔杖 1
+inc p2 36
+INC P3 1
+GAMEDIAMOND + 36
+goto @收魔龙
+
+#IF
+checkitem 皓月羽扇 1
+#act
+take 皓月羽扇 1
+inc p2 36
+INC P3 1
+GAMEDIAMOND + 36
+goto @收魔龙
+#IF
+checkitem 皓月神剑 1
+#act
+take 皓月神剑 1
+inc p2 36
+INC P3 1
+GAMEDIAMOND + 36
+goto @收魔龙
+#IF
+checkitem 皓月神甲(男) 1
+#act
+take 皓月神甲(男) 1
+inc p2 36
+INC P3 1
+GAMEDIAMOND + 36
+goto @收魔龙
+#IF
+checkitem 皓月神甲(女) 1
+#act
+take 皓月神甲(女) 1
+inc p2 36
+INC P3 1
+GAMEDIAMOND + 36
+goto @收魔龙
+#IF
+checkitem 皓月面巾 1
+#act
+take 皓月面巾 1
+inc p2 18
+INC P3 1
+GAMEDIAMOND + 18
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙头盔 1
+#act
+take 诛仙头盔 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+#IF
+checkitem 诛仙项链 1
+#act
+take 诛仙项链 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+#IF
+checkitem 诛仙戒指 1
+#act
+take 诛仙戒指 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+
+#IF
+checkitem 诛仙护腕 1
+#act
+take 诛仙护腕 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙腰带 1
+#act
+take 诛仙腰带 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙之靴 1
+#act
+take 诛仙之靴 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙勋章 1
+#act
+take 诛仙勋章 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙魔杖 1
+#act
+take 诛仙魔杖 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙宝扇 1
+#act
+take 诛仙宝扇 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙战刃 1
+#act
+take 诛仙战刃 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+
+#IF
+checkitem 诛仙项链 1
+#act
+take 诛仙项链 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+#IF
+checkitem 诛仙魔衣(女) 1
+#act
+take 诛仙魔衣(女) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙魔衣(男) 1
+#act
+take 诛仙魔衣(男) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙道袍(女) 1
+#act
+take 诛仙道袍(女) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙道袍(男) 1
+#act
+take 诛仙道袍(男) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙战甲(男) 1
+#act
+take 诛仙战甲(男) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙战甲(女) 1
+#act
+take 诛仙战甲(女) 1
+inc p2 44
+INC P3 1
+GAMEDIAMOND + 44
+goto @收魔龙
+
+#IF
+checkitem 诛仙面巾 1
+#act
+take 诛仙面巾 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+#IF
+checkitem 诛仙印 1
+#act
+take 诛仙印 1
+inc p2 22
+INC P3 1
+GAMEDIAMOND + 22
+goto @收魔龙
+
+
+
+#IF
+checkitem 神龙头盔 1
+#act
+take 神龙头盔 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+#IF
+checkitem 神龙项链 1
+#act
+take 神龙项链 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+#IF
+checkitem 神龙戒指 1
+#act
+take 神龙戒指 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+
+#IF
+checkitem 神龙护腕 1
+#act
+take 神龙护腕 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+#IF
+checkitem 神龙腰带 1
+#act
+take 神龙腰带 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+#IF
+checkitem 神龙之靴 1
+#act
+take 神龙之靴 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+#IF
+checkitem 神龙勋章 1
+#act
+take 神龙勋章 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+#IF
+checkitem 神龙魔杖 1
+#act
+take 神龙魔杖 1
+inc p2 56
+INC P3 1
+GAMEDIAMOND + 56
+goto @收魔龙
+
+
+#IF
+checkitem 神龙宝扇 1
+#act
+take 神龙宝扇 1
+inc p2 56
+INC P3 1
+GAMEDIAMOND + 56
+goto @收魔龙
+
+
+#IF
+checkitem 神龙战刃 1
+#act
+take 神龙战刃 1
+inc p2 56
+INC P3 1
+GAMEDIAMOND + 56
+goto @收魔龙
+
+
+#IF
+checkitem 神龙项链 1
+#act
+take 神龙项链 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+#IF
+checkitem 神龙圣甲(男) 1
+#act
+take 神龙圣甲(男) 1
+inc p2 56
+INC P3 1
+GAMEDIAMOND + 56
+goto @收魔龙
+
+#IF
+checkitem 神龙圣甲(女) 1
+#act
+take 神龙圣甲(女) 1
+inc p2 56
+INC P3 1
+GAMEDIAMOND + 56
+goto @收魔龙
+
+#IF
+checkitem 神龙面巾 1
+#act
+take 神龙面巾 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+#IF
+checkitem 神龙印 1
+#act
+take 神龙印 1
+inc p2 28
+INC P3 1
+GAMEDIAMOND + 28
+goto @收魔龙
+
+
+
+#IF
+checkitem 真龙头盔 1
+#act
+take 真龙头盔 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+#IF
+checkitem 真龙项链 1
+#act
+take 真龙项链 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+#IF
+checkitem 真龙戒指 1
+#act
+take 真龙戒指 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+
+#IF
+checkitem 真龙护腕 1
+#act
+take 真龙护腕 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+#IF
+checkitem 真龙腰带 1
+#act
+take 真龙腰带 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+#IF
+checkitem 真龙靴子 1
+#act
+take 真龙靴子 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+#IF
+checkitem 真龙勋章 1
+#act
+take 真龙勋章 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+#IF
+checkitem 真龙法杖 1
+#act
+take 真龙法杖 1
+inc p2 64
+INC P3 1
+GAMEDIAMOND + 64
+goto @收魔龙
+
+
+#IF
+checkitem 真龙羽扇 1
+#act
+take 真龙羽扇 1
+inc p2 64
+INC P3 1
+GAMEDIAMOND + 64
+goto @收魔龙
+
+
+#IF
+checkitem 真龙战刃 1
+#act
+take 真龙战刃 1
+inc p2 64
+INC P3 1
+GAMEDIAMOND + 64
+goto @收魔龙
+
+
+#IF
+checkitem 真龙项链 1
+#act
+take 真龙项链 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+#IF
+checkitem 真龙神甲(男) 1
+#act
+take 真龙神甲(男) 1
+inc p2 64
+INC P3 1
+GAMEDIAMOND + 64
+goto @收魔龙
+
+#IF
+checkitem 真龙神甲(女) 1
+#act
+take 真龙神甲(女) 1
+inc p2 64
+INC P3 1
+GAMEDIAMOND + 64
+goto @收魔龙
+
+#IF
+checkitem 真龙面巾 1
+#act
+take 真龙面巾 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+#IF
+checkitem 真龙印 1
+#act
+take 真龙印 1
+inc p2 32
+INC P3 1
+GAMEDIAMOND + 32
+goto @收魔龙
+
+
+
+
+
+#IF
+checkitem 灵蛇头盔 1
+#act
+take 灵蛇头盔 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+#IF
+checkitem 灵蛇项链 1
+#act
+take 灵蛇项链 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+#IF
+checkitem 灵蛇戒指 1
+#act
+take 灵蛇戒指 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+
+
+#IF
+checkitem 灵蛇护腕 1
+#act
+take 灵蛇护腕 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇腰带 1
+#act
+take 灵蛇腰带 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇靴子 1
+#act
+take 灵蛇靴子 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇勋章 1
+#act
+take 灵蛇勋章 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇法杖 1
+#act
+take 灵蛇法杖 1
+inc p2 70
+INC P3 1
+GAMEDIAMOND + 70
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇羽扇 1
+#act
+take 灵蛇羽扇 1
+inc p2 70
+INC P3 1
+GAMEDIAMOND + 70
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇战刃 1
+#act
+take 灵蛇战刃 1
+inc p2 70
+INC P3 1
+GAMEDIAMOND + 70
+goto @收魔龙
+
+
+#IF
+checkitem 灵蛇项链 1
+#act
+take 灵蛇项链 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+#IF
+checkitem 灵蛇神甲(男) 1
+#act
+take 灵蛇神甲(男) 1
+inc p2 70
+INC P3 1
+GAMEDIAMOND + 70
+goto @收魔龙
+
+#IF
+checkitem 灵蛇神甲(女) 1
+#act
+take 灵蛇神甲(女) 1
+inc p2 70
+INC P3 1
+GAMEDIAMOND + 70
+goto @收魔龙
+
+#IF
+checkitem 灵蛇面巾 1
+#act
+take 灵蛇面巾 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+#IF
+checkitem 灵蛇印 1
+#act
+take 灵蛇印 1
+inc p2 35
+INC P3 1
+GAMEDIAMOND + 35
+goto @收魔龙
+
+#IF
+checkitem 神羊头盔 1
+#act
+take 神羊头盔 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+#IF
+checkitem 神羊项链 1
+#act
+take 神羊项链 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+#IF
+checkitem 神羊戒指 1
+#act
+take 神羊戒指 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+
+#IF
+checkitem 神羊护腕 1
+#act
+take 神羊护腕 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+#IF
+checkitem 神羊腰带 1
+#act
+take 神羊腰带 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+#IF
+checkitem 神羊靴子 1
+#act
+take 神羊靴子 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+#IF
+checkitem 神羊勋章 1
+#act
+take 神羊勋章 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+#IF
+checkitem 神羊法杖 1
+#act
+take 神羊法杖 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+
+#IF
+checkitem 神羊道剑 1
+#act
+take 神羊道剑 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+
+#IF
+checkitem 神羊战刃 1
+#act
+take 神羊战刃 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+
+#IF
+checkitem 神羊项链 1
+#act
+take 神羊项链 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+#IF
+checkitem 神羊战甲(男) 1
+#act
+take 神羊战甲(男) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+#IF
+checkitem 神羊战甲(女) 1
+#act
+take 神羊战甲(女) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+#IF
+checkitem 神羊法衣(男) 1
+#act
+take 神羊法衣(男) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+#IF
+checkitem 神羊法衣(女) 1
+#act
+take 神羊法衣(女) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+
+#IF
+checkitem 神羊道袍(男) 1
+#act
+take 神羊道袍(男) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+#IF
+checkitem 神羊道袍(女) 1
+#act
+take 神羊道袍(女) 1
+inc p2 80
+INC P3 1
+GAMEDIAMOND + 80
+goto @收魔龙
+
+#IF
+checkitem 神羊面巾 1
+#act
+take 神羊面巾 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+#IF
+checkitem 神羊印 1
+#act
+take 神羊印 1
+inc p2 40
+INC P3 1
+GAMEDIAMOND + 40
+goto @收魔龙
+
+
+#IF
+LARGE p2 300
+#ACT
+goto @结算1
+
+#IF
+LARGE p2 0
+#ACT
+goto @结算
+
+
+#IF
+EQUAL p2 0
+#SAY
+没装备不要瞎鸡巴点！
+#ACT
+break
+
+[@结算1]
+#IF
+LARGE p2 299
+random 2
+#ACT
+give 金砖
+INC G49 <$STR(P3)>
+LoadVar HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+CALCVAR HUMAN 回收元宝 + <$STR(P3)>
+SAVEVAR HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上熔炼<$STR(P3)>件装备，意外获得了一块金砖！
+MOV P2 0
+MOV P3 0
+break
+
+#IF
+LARGE p2 299
+#ACT
+give 金条 2
+INC G49 <$STR(P3)>
+LoadVar HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+CALCVAR HUMAN 回收元宝 + <$STR(P3)>
+SAVEVAR HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上熔炼<$STR(P3)>件装备，获得了<$STR(P2)>块金刚石和二块金条！
+MOV P2 0
+MOV P3 0
+break
+
+
+[@结算]
+#IF
+LARGE p2 0
+#ACT
+INC G49 <$STR(P3)>
+LoadVar HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+CALCVAR HUMAN 回收元宝 + <$STR(P3)>
+SAVEVAR HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在熔炼炉上熔炼<$STR(P3)>件装备，获得了<$STR(P2)>块金刚石！
+MOV P2 0
+MOV P3 0
+break
+
+
+
+
+
+
+
+

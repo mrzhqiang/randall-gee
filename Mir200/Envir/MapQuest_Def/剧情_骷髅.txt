@@ -1,0 +1,35 @@
+[@main]
+#IF
+Check [117] 1
+Check [118] 0
+LARGE N10 8
+#ACT
+set [118] 1
+SENDMSG 6 提示：您已经完成了击杀。回比奇找服装店老板娘吧！
+MESSAGEBOX 【支线任务】：寻找精灵头盔\您收到一封铁匠的飞鸽传书\是这样的。因为我听说你要去探索古墓\那我这里正好需要一件<精灵头盔>\在<骷髅精灵>身上可以获得...\您能帮我拿到吗？ @确定1 @取消
+break
+
+#IF
+Check [117] 1
+Check [118] 0
+SMALL N10 10
+#ACT
+inc N10 1
+SENDMSG 6 提示：击杀骷髅数量 + 1.当前已击杀<$Str(N10)>
+break
+
+
+[@确定1]
+#ACT
+set [119] 1
+SENDMSG 6 提示：您接受了铁匠的请求。赶紧去三层找骷髅精灵吧！
+MESSAGEBOX 您接受了铁匠的请求。赶紧去三层找骷髅精灵吧！
+break
+
+[@取消]
+#ACT
+set [120] 1
+SENDMSG 6 提示：您拒绝了铁匠的请求
+MESSAGEBOX 您拒绝了铁匠的请求
+break
+

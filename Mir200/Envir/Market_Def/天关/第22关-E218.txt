@@ -1,0 +1,26 @@
+[@main]
+恭喜你进入第二十二关，想要从我这里过去的话，\
+就要清除一定数量的怪物才行!\ \
+<下一关/@下一关> 
+
+[@下一关]
+#IF
+CheckMapHumanCount E219 = 0
+CheckMapMonCount E218 = 0 1
+#ACT
+CLEARMAPMON E219
+MongenEx E219 19 20 堕落法师 3 5
+MongenEx E219 19 20 堕落祭司 3 5
+MongenEx E219 19 20 深渊牛魔祭司 3 1
+mapmove E219
+SENDDELAYMSG 闯关时间剩余%s秒 180 249 1 @闯关失败
+close
+#ELSEACT
+messagebox 清除地图内的怪物后才能继续闯关！\或者下一关正在被挑战，请稍后！
+
+[@闯关失败]
+#IF
+#ACT
+mapmove n3 330 333
+messagebox 时间已到，本次闯关失败！
+break

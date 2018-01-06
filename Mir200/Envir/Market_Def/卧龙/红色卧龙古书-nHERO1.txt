@@ -1,0 +1,5 @@
+[@main]
+#IF
+#ACT
+OPENBOOKS 4
+break

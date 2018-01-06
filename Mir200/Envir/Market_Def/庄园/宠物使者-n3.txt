@@ -1,0 +1,1625 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 4
+#ACT
+MOV U42 5
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<重置宠物属性/SCOLOR=250>只需<2元宝/SCOLOR=250>\
+<当属性不满意，可以多次重铸，属性最高不超过资质属性/SCOLOR=253>\
+在这里可以用<宠物精元+10元宝可以获得随机宠物一只/SCOLOR=253> \
+
+学习完毕，接下来去找<洪荒之力/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<洪荒之力/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<重置宠物属性/SCOLOR=250>只需<2元宝/SCOLOR=250>\
+<当属性不满意，可以多次重铸，属性最高不超过资质属性/SCOLOR=253>\
+在这里可以用<宠物精元+10元宝可以获得随机宠物一只/SCOLOR=253> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#IF
+#ACT
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 9 3400 0 4 0 0 1 300 15 1
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|250#该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      
+
+
+
+
+
+[@兑换精元]
+#if
+CheckItem 至尊 1
+#ACT
+TAKE 至尊 1
+GIVE 宠物精元 2
+goto @兑换精元
+SENDMSG 5 消耗一个至尊绝品,你成功换取2颗宠物精元...
+SENDMSG 0 玩家[<$USERNAME>]消耗了至尊绝品宠物，换取了[2]颗宠物精元...
+break
+
+#if
+CheckItem 绝品三重 1
+#ACT
+TAKE 绝品三重 1
+GIVE 宠物精元 1
+goto @兑换精元
+SENDMSG 5 消耗一个至尊绝品,你成功换取1颗宠物精元...
+SENDMSG 0 玩家[<$USERNAME>]消耗了绝品三重宠物，换取了[1]颗宠物精元...
+break
+
+#if
+CheckItem 绝品二重 1
+#ACT
+TAKE 绝品二重 1
+GIVE 宠物精元 1
+goto @兑换精元
+SENDMSG 5 消耗一个绝品二重,你成功换取500万经验...
+SENDMSG 0 玩家[<$USERNAME>]消耗了绝品二重宠物，换取了[1]颗宠物精元...
+break
+
+#if
+CheckItem 绝品一重 1
+#ACT
+TAKE 绝品一重 1
+GIVE 宠物精元 1
+goto @兑换精元
+SENDMSG 5 消耗一个绝品一重,你成功换取100点荣誉...
+SENDMSG 0 玩家[<$USERNAME>]消耗了绝品一重宠物，换取了[1]颗宠物精元...
+break
+
+
+#IF
+#ACT
+GOTO @main
+SENDMSG 5 您身上的宠物品质太低，无法兑换...
+break
+
+
+
+
+
+
+
+[@抽取宠物]
+#if
+NOT CheckItem 宠物精元 2
+#ACT
+SENDMSG 6 对不起，您没有宠物精元2个，无法抽取！
+break
+
+#if
+NOT CHECKBAGSIZE 2
+#ACT
+SENDMSG 6 对不起，您已经没有背包空间了，无法抽取！
+break
+
+#IF
+CHECKGAMEGOLD < 10
+#ACT
+SENDMSG 6 对不起，您没有10元宝，无法洗练！
+break
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 100
+#ACT
+GIVE 至尊 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：至尊绝品，打开包裹看看你的新宠物蛋吧...
+SENDMSG 0 玩家[<$USERNAME>]竟然抽到了传说中的宠物<$STR(S9)>·至尊绝品，真是幸运...
+SENDMSG 0 玩家[<$USERNAME>]竟然抽到了传说中的宠物<$STR(S9)>·至尊绝品，真是幸运...
+SENDMSG 0 玩家[<$USERNAME>]竟然抽到了传说中的宠物<$STR(S9)>·至尊绝品，真是幸运...
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 90
+#ACT
+GIVE 绝品三重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：绝品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 60
+#ACT
+GIVE 绝品二重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：绝品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 50
+#ACT
+GIVE 绝品一重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：绝品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 40
+#ACT
+GIVE 极品三重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：极品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 30
+#ACT
+GIVE 极品二重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：极品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 20
+#ACT
+GIVE 极品一重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：极品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 10
+#ACT
+GIVE 珍品三重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：珍品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 5
+#ACT
+GIVE 珍品二重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：珍品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+CheckItem 宠物精元 2
+CHECKGAMEGOLD > 9
+random 1
+#ACT
+GIVE 珍品一重 1
+TAKE 宠物精元 2
+GAMEGOLD - 10
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功抽取<$STR(S9)>，品质：珍品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+
+
+
+
+[@宠物修炼4]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 龍睛珠 1
+#ACT
+SENDMSG 6 对不起，您没有龍睛珠，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 4 = 100
+#ACT
+SENDMSG 6 对不起，宠物MP已经达到满资质100点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 4 > 100
+#ACT
+SENDMSG 6 对不起，宠物MP已经最高资质100点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 4 < 100
+CheckItem 龍睛珠 1
+#ACT
+take 龍睛珠 1
+LockUpdateItem 29
+SetCustomItemValue 29 4 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物MP　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+
+
+[@宠物修炼3]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 任务卡 1
+#ACT
+SENDMSG 6 对不起，您没有任务卡，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 3 = 100
+#ACT
+SENDMSG 6 对不起，宠物HP已经达到满资质100点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 3 > 100
+#ACT
+SENDMSG 6 对不起，宠物HP已经最高资质100点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 3 < 100
+CheckItem 任务卡 1
+#ACT
+take 任务卡 1
+LockUpdateItem 29
+SetCustomItemValue 29 3 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物HP　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+
+[@宠物修炼2]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 宠物精元 1
+#ACT
+SENDMSG 6 对不起，您没有宠物精元，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 2 = <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物道术已经达到满资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 2 > <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物道术已经超过总资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 2 < <$STR(N19)>
+CheckItem 宠物精元 1
+#ACT
+take 宠物精元 1
+LockUpdateItem 29
+SetCustomItemValue 29 2 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物道术　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+
+
+
+[@宠物修炼0]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 宠物精元 1
+#ACT
+SENDMSG 6 对不起，您没有宠物精元，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 0 = <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物攻击已经达到满资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 0 > <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物攻击已经超过总资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 0 < <$STR(N19)>
+CheckItem 宠物精元 1
+#ACT
+take 宠物精元 1
+LockUpdateItem 29
+SetCustomItemValue 29 0 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物攻击　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+
+
+[@宠物修炼1]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 宠物精元 1
+#ACT
+SENDMSG 6 对不起，您没有宠物精元，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 1 = <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物魔法已经达到满资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 1 > <$STR(N19)>
+#ACT
+SENDMSG 6 对不起，宠物魔法已经超过总资质<$STR(N19)>点，无法继续喂养！
+break
+
+#if
+CheckCustomItemValue 29 1 < <$STR(N19)>
+CheckItem 宠物精元 1
+#ACT
+take 宠物精元 1
+LockUpdateItem 29
+SetCustomItemValue 29 1 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物魔法　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+[@宠物修炼5]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#if
+NOT CheckItem 罗汉果[喂宠] 1
+#ACT
+SENDMSG 6 对不起，您没有罗汉果[喂宠]，无法喂养！
+break
+
+#if
+CheckCustomItemValue 29 5 > 199
+#ACT
+SENDMSG 6 对不起，宠物寿命已经超过200点，无法继续喂养！
+break
+
+#if
+CheckItem 罗汉果[喂宠] 1
+#ACT
+take 罗汉果[喂宠] 1
+LockUpdateItem 29
+SetCustomItemValue 29 5 + 1
+SENDMSG 6 〖提示〗喂养<$G_FASHIONCHARM>成功;宠物寿命　+　1
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 新手宠物
+MOV S$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 初级宠物
+MOV S$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 中级宠物
+MOV S$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 高级宠物
+MOV S$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名)>
+#ACT
+MOV S$宠物品质 顶级宠物
+MOV S$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC S$宠物品质 ·平淡无奇
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      \
+
+
+
+
+[@重置属性]
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+MESSAGEBOX 你的宠物没戴在身上。
+BREAK
+
+#IF
+CHECKGAMEGOLD < 2
+#ACT
+SENDMSG 6 对不起，您没有2元宝，无法洗练！
+break
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物
+#ACT
+MOV S$宠物名字 <$G_FASHIONCHARM>
+DEC S$宠物名字 宠物·
+#ELSEACT
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 1
+MOV N$宠物中转 6
+MOV S$宠物品质 新手宠物
+MOV N$宠物头像 3406:9:16:28
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 2
+MOV N$宠物中转 11
+MOV S$宠物品质 初级宠物
+MOV N$宠物头像 1403:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 3
+MOV N$宠物中转 16
+MOV S$宠物品质 中级宠物
+MOV N$宠物头像 1404:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 4
+MOV N$宠物中转 21
+MOV S$宠物品质 高级宠物
+MOV N$宠物头像 1402:33:16:26
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 5
+MOV N$宠物中转 26
+MOV S$宠物品质 顶级宠物
+MOV N$宠物头像 1400:33:16:26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC N$宠物中转 0
+MOV N$宠物HP 50
+MOV N$宠物MP 50
+MOV N$宠物寿命 50
+INC S$宠物品质 ·平淡无奇
+
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC N$宠物中转 1
+MOV N$宠物HP 52
+MOV N$宠物MP 52
+MOV N$宠物寿命 60
+INC S$宠物品质 ·珍品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC N$宠物中转 2
+MOV N$宠物HP 54
+MOV N$宠物MP 54
+MOV N$宠物寿命 70
+INC S$宠物品质 ·珍品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC N$宠物中转 3
+MOV N$宠物HP 55
+MOV N$宠物MP 55
+MOV N$宠物寿命 80
+INC S$宠物品质 ·珍品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC N$宠物中转 3
+MOV N$宠物HP 58
+MOV N$宠物MP 58
+MOV N$宠物寿命 90
+INC S$宠物品质 ·极品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC N$宠物中转 4
+MOV N$宠物HP 60
+MOV N$宠物MP 60
+MOV N$宠物寿命 100
+INC S$宠物品质 ·极品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC N$宠物中转 5
+MOV N$宠物HP 62
+MOV N$宠物MP 62
+MOV N$宠物寿命 110
+INC S$宠物品质 ·极品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC N$宠物中转 5
+MOV N$宠物HP 64
+MOV N$宠物MP 64
+MOV N$宠物寿命 120
+INC S$宠物品质 ·绝品一重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC N$宠物中转 6
+MOV N$宠物HP 67
+MOV N$宠物MP 67
+MOV N$宠物寿命 130
+INC S$宠物品质 ·绝品二重
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC N$宠物中转 7
+MOV N$宠物HP 70
+MOV N$宠物MP 70
+MOV N$宠物寿命 140
+INC S$宠物品质 ·绝品三重
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC N$宠物中转 9
+MOV N$宠物HP 80
+MOV N$宠物MP 80
+MOV N$宠物寿命 150
+INC S$宠物品质 ·至尊绝品
+
+#IF
+#ACT
+LockUpdateItem 29
+
+SetCustomItemText 29 <Img:2:39:0:0>[宠物主人]:<$USERNAME>
+SetCustomItemTextColor 29 249
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 0 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 0 0 243
+SetCustomItemAbil 29 0 1 3
+SetCustomItemAbil 29 0 2 3
+
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 1 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 1 0 243
+SetCustomItemAbil 29 1 1 4
+SetCustomItemAbil 29 1 2 4
+
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 2 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 2 0 243
+SetCustomItemAbil 29 2 1 5
+SetCustomItemAbil 29 2 2 5
+
+MOVR N$宠物随机 10 <$STR(N$宠物HP)>
+SetCustomItemValue 29 3 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 3 0 243
+SetCustomItemAbil 29 3 1 6
+SetCustomItemAbil 29 3 2 6
+
+MOVR N$宠物随机 10 <$STR(N$宠物MP)>
+SetCustomItemValue 29 4 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 4 0 243
+SetCustomItemAbil 29 4 1 7
+SetCustomItemAbil 29 4 2 7
+
+DEC N$宠物中转 1
+SetCustomItemValue 29 6 = <$STR(N$宠物中转)>
+SetCustomItemAbil 29 6 0 243
+SetCustomItemAbil 29 6 1 15
+SetCustomItemAbil 29 6 2 15
+Updateitem 29
+MOV S$宠物名 <$G_FASHIONCHARM>
+DEC S$宠物名 宠物·
+GetCustomItemValue 29 0 <$STR(N13)> <$STR(N999)>
+GetCustomItemValue 29 1 <$STR(N14)> <$STR(N999)>
+GetCustomItemValue 29 2 <$STR(N15)> <$STR(N999)>
+GetCustomItemValue 29 3 <$STR(N16)> <$STR(N999)>
+GetCustomItemValue 29 4 <$STR(N17)> <$STR(N999)>
+GetCustomItemValue 29 5 <$STR(N18)> <$STR(N999)>
+GetCustomItemValue 29 6 <$STR(N19)> <$STR(N999)>
+MOV S$攻击 <$STR(N13)>
+MOV S$魔法 <$STR(N14)>
+MOV S$道术 <$STR(N15)>
+MOV S$hp <$STR(N16)>
+MOV S$mp <$STR(N17)>
+MOV S$寿命 <$STR(N18)>
+MOV S$资质 <$STR(N19)>
+SetStringBlank <$STR(S$攻击)> 5 1
+SetStringBlank <$STR(S$魔法)> 5 1
+SetStringBlank <$STR(S$道术)> 5 1
+SetStringBlank <$STR(S$hp)> 5 1
+SetStringBlank <$STR(S$mp)> 5 1
+SetStringBlank <$STR(S$寿命)> 5 1
+SetStringBlank <$STR(S$资质)> 5 1
+gamegold - 2
+SENDMSG 6 提示：您的<$G_FASHIONCHARM>重置已成功！消耗2元宝，剩余元宝:<$GAMEGOLD>
+BREAK
+#SAY
+<Img:<$STR(S$宠物头像)>>\
+　　　                   宠物名字: {<$STR(S$宠物名)>/FCOLOR=150}\
+　　　 　　　 　　　     攻    击: <$STR(S$攻击)><修炼攻击|250#使用“宠物精元”，使宠物攻击+1^249#最高不超过资质属性！/@宠物修炼0>\
+　　　 　　　 　　　     魔    法: <$STR(S$魔法)><修炼魔法|250#使用“宠物精元”，使宠物魔法+1^249#最高不超过资质属性！/@宠物修炼1>\
+　　　 　　　 　　　     道    术: <$STR(S$道术)><修炼道术|250#使用“宠物精元”，使宠物道术+1^249#最高不超过资质属性！/@宠物修炼2>\
+　　　 　　　 　　　     H      P: <$STR(S$hp)><修炼HP值|250#使用“任务卡”，使宠物HP+1^249#最高不超过100点！/@宠物修炼3>\
+　　　 　　　 　　　     M      P: <$STR(S$mp)><修炼MP值|250#使用“龍睛珠”，使宠物MP+1^249#最高不超过100点！/@宠物修炼4>\
+　　　 　　　 　　　     宠物寿命: <$STR(S$寿命)><喂养寿命|250#使用罗汉果[喂宠]，使宠物寿命+1^249#最高不超过200点！/@宠物修炼5>\
+　　　 　　　 　　　     资质上限: <$STR(S$资质)><天生属性|该属性为宠物资质上限，其他属性最高不超过该属性！>\
+　　　 　　　 　　　     <宠物属性重置.|重置需要2元宝！/@重置属性>   <换取精元|250#回收至尊绝品,绝品一-三重,兑换成宠物精元/@兑换精元>\
+　　{<$STR(S$宠物品质)>/FCOLOR=250}　 <刷新属性/@main>      <抽取宠物蛋|消耗“宠物精元”+10元宝抽取一枚宠物蛋/@抽取宠物qwe>\
+
+
+
+
+

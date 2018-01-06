@@ -1,0 +1,213 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 12
+#ACT
+MOV U42 13
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<进行每日押镖任务/SCOLOR=250>押镖可获得<经验+元宝/SCOLOR=250>\
+<当押镖路途较长时，会获得额外金币和额外元宝/SCOLOR=253>\
+<每日最多押镖10次，通过任务卡，每日最多可押镖11次！/SCOLOR=70> \
+
+学习完毕，接下来去找<土豪红包/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<土豪红包/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<进行每日押镖任务/SCOLOR=250>押镖可获得<经验+元宝/SCOLOR=250>\
+<当押镖路途较长时，会获得额外金币和额外元宝/SCOLOR=253>\
+<每日最多押镖10次，通过任务卡，每日最多可押镖11次！/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#OR
+LARGE <$HOUR> 21
+SMALL <$HOUR> 8
+#ACT
+break
+#SAY
+对不起，亲爱的玩家每天<9点-22点才可以押镖/SCOLOR=250>\
+<时间不早，早点休息吧！/SCOLOR=253>\
+！\
+<谢谢您/@exit>\
+
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\押镖次数.txt [<$USERNAME>]
+#ACT
+CALCVAR HUMAN 押镖上限 = 3
+SAVEVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 押镖次数 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 镖车刷新次数 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 镖车等级 ..\QuestDiary\标记数据\押镖次数.txt
+#ELSEACT
+LOADVAR HUMAN 押镖次数 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 镖车刷新次数 ..\QuestDiary\标记数据\押镖次数.txt
+LOADVAR HUMAN 镖车等级 ..\QuestDiary\标记数据\押镖次数.txt
+
+#IF
+EQUAL S$镖车几率 
+NOT CHECKVAR HUMAN 镖车等级 = 
+#ACT
+MOV S$镖车几率 <$HUMAN(镖车等级)>
+
+#IF
+EQUAL S$镖车几率 
+#ACT
+GETRANDOMLINETEXT ..\QuestDiary\功能设置\镖车几率配置.txt <$STR(S$镖车几率)>
+CALCVAR HUMAN 镖车等级 = <$STR(S$镖车几率)>
+SAVEVAR HUMAN 镖车等级 ..\QuestDiary\标记数据\押镖次数.txt
+
+#IF
+Check [191] 0
+#ACT
+GETRANDOMLINETEXT ..\QuestDiary\功能设置\镖车几率配置.txt <$STR(S$镖车几率)>
+CALCVAR HUMAN 镖车等级 = <$STR(S$镖车几率)>
+SAVEVAR HUMAN 镖车等级 ..\QuestDiary\标记数据\押镖次数.txt
+SET [191] 1
+GOTO @main_1
+#ELSEACT
+GOTO @main_1
+
+[@main_1]
+#OR
+LARGE <$HOUR> 21
+SMALL <$HOUR> 8
+#ACT
+break
+#SAY
+对不起，亲爱的玩家每天<9点-22点才可以押镖/SCOLOR=250>\
+<时间不早，早点休息吧！/SCOLOR=253>\
+！\
+<谢谢您/@exit>\
+
+
+#IF
+CHECKLEVELEX < 35
+#ACT
+MessageBox 对不起，35级以下玩家不允许押镖！
+break
+
+#IF
+#say
+1、每次接需要40W金币的押金。押镖成功后押金返还!\
+　 杀镖车的玩家得20W金币。\
+2、共四种镖车:\
+　 普通镖车：<2W*等级>经验    高级镖车：<4W*等级>经验\
+　 超级镖车：<8W*等级>经验    无敌镖车：<12W*等级>经验\
+<注意：接受镖车后,刷新镖车会导致任务直接失败!!!!!!!!!!!!!>\
+　 每天可接镖：{<$HUMAN(押镖上限)>/FCOLOR=249}次  　 你已经押镖：{<$HUMAN(押镖次数)>/FCOLOR=249}次\\
+　 当前镖车等级：{<$STR(S$镖车几率)>/FCOLOR=250}\
+<我要押镖|我要押镖/@我要押镖>　　<刷新镖车等级|刷新镖车等级需要8W金币/@刷新镖车等级>　　>>>><购买押镖次数|需要20W金币购买一次押镖/@购买次数><<<<<<\
+
+
+[@购买次数]
+#IF
+CHECKVAR HUMAN 押镖上限 < 10
+#ACT
+#ELSEACT
+MESSAGEBOX 为了防止你精尽人亡，每天押镖最大上限为10次！\可通过任务卡购买第11次押镖！
+break
+
+#IF
+checkgold 200000
+#ACT
+take 金币 200000
+CALCVAR HUMAN 押镖上限 + 1
+SAVEVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+GOTO @main
+#ELSEACT
+MESSAGEBOX 购买次数每增加1次需20W金币！
+break
+
+[@押镖令]
+#IF
+CHECKVAR HUMAN 押镖上限 < 20
+#ACT
+#ELSEACT
+MESSAGEBOX 为了防止你精尽人亡，每天押镖最大上限为20次！
+break
+
+#IF
+checkitem 押镖令 1
+#ACT
+take 押镖令 1
+CALCVAR HUMAN 押镖上限 + 1
+SAVEVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+GOTO @main
+#ELSEACT
+MESSAGEBOX 购买次数每增加1次需要1个押镖令！
+break
+
+
+
+[@刷新镖车等级]
+#IF
+CHECKVAR HUMAN 镖车刷新次数 < 10
+#ACT
+MESSAGEBOX 注意：\　\请在<接镖之前/FCOLOR=249>刷新镖车，\　\<接镖后/FCOLOR=250>刷新会导致任务失败！！   @确定8888 @取消
+#ELSEACT
+MESSAGEBOX 刷新镖车等级每天最多只能刷新10次！
+break
+
+[@确定8888]
+#IF
+checkgold 80000
+#ACT
+take 金币 80000
+SET [191] 0
+CALCVAR HUMAN 镖车刷新次数 + 1
+SAVEVAR HUMAN 镖车刷新次数 ..\QuestDiary\标记数据\押镖次数.txt
+SENDMSG	6 刷新镖车等级成功，今天你已经刷新镖车等级<$HUMAN(镖车刷新次数)>次！
+SetOffTimer 10
+GOTO @main
+#ELSEACT
+MESSAGEBOX 刷新镖车等级需要8W金币！
+break
+
+
+[@我要押镖]
+#IF
+checkgold 400000
+#ACT
+#ELSEACT
+MESSAGEBOX 需要缴纳40W金币作为押金！
+break
+
+#IF
+NOT CHECKSLAVENAME 普通镖车
+NOT CHECKSLAVENAME 高级镖车
+NOT CHECKSLAVENAME 超级镖车
+NOT CHECKSLAVENAME 无敌镖车
+#ACT
+#ELSEACT
+MESSAGEBOX 请先把镖车安全押送到目的地再来！
+break
+
+#IF
+CHECKVAR HUMAN 押镖次数 < <$HUMAN(押镖上限)>
+#ACT
+GETRANDOMLINETEXT ..\QuestDiary\功能设置\镖车目的地配置.txt <$STR(S$镖车目的地)>
+take 金币 400000
+CALCVAR HUMAN 押镖次数 + 1
+SAVEVAR HUMAN 押镖次数 ..\QuestDiary\标记数据\押镖次数.txt
+RECALLMOB <$STR(S$镖车几率)> 7 300 0
+SetOnTimer 10 1
+SENDMSG	0 <$USERNAME>接受了押镖任务，领取了一辆<$STR(S$镖车几率)>大家快去劫镖！
+SendCenterMsg 249 255 请赶快把镖车送到目的地(<$STR(S$镖车目的地)>)，剩余时间%d. 0 1200 @押镖时间限制
+Close
+#ELSEACT
+MESSAGEBOX 你今天押镖的次数已经耗尽了，请明天再来吧！
+
+
+
+

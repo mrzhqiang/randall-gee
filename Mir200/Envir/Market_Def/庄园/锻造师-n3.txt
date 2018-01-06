@@ -1,0 +1,539 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 15
+#ACT
+MOV U42 16
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<打造各种物品/SCOLOR=250>例如<超级特戒、传奇装备、诛仙装备等/SCOLOR=250>\
+<点击打造物品，即可知道配方，收集所需物品即可打造完成！/SCOLOR=253>\
+<这里也可以打造精元、传送符、忍术消耗品、图纸等等/SCOLOR=70> \
+
+学习完毕，接下来去找<装备起魂/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#ACT
+break
+#SAY
+你已经在我这里学习过了，快去找<装备起魂/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<打造各种物品/SCOLOR=250>例如<超级特戒、传奇装备、诛仙装备等/SCOLOR=250>\
+<点击打造物品，即可知道配方，收集所需物品即可打造完成！/SCOLOR=253>\
+<这里也可以打造精元、传送符、忍术消耗品、图纸等等/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+你想锻造什么东西？\
+<斗笠/@斗笠>   <军鼓/@军鼓>   <宝石/@宝石>  <勋章/@勋章>   <忍术用品/@忍>   <图纸/@图纸>   <镜花水月/@FoundryItem_镜花水月>\
+装备系列：<三龙系列/@龙系>  <传奇系列/@传奇>  <诛仙系列/@诛仙>  <真龙系列/@真龙>      <神羊印/@FoundryItem_神羊印>\
+特殊系列：<坐骑打造/@坐骑>  <超级戒指/@特戒>  <神行符[传送]/@FoundryItem_神行符[传送]>  <宠物精元/@FoundryItem_宠物精元>\
+
+
+
+[@特戒]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+\<ItemShow:1015:1:0:0:1/@FoundryItem_超级传送复活戒> <ItemShow:1016:1:0:0:1/@FoundryItem_超级传送麻痹戒> <ItemShow:1017:1:0:0:1/@FoundryItem_超级传送复活戒> <ItemShow:1018:1:0:0:1/@FoundryItem_超级魔道麻痹戒> <ItemShow:1019:1:0:0:1/@FoundryItem_防复活戒指>\ \ \
+ <返回/@main>\
+
+[@诛仙]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+\<ItemShow:608:1:0:0:1/@FoundryItem_诛仙勋章> <ItemShow:612:1:0:0:1/@FoundryItem_诛仙战甲(男)> <ItemShow:613:1:0:0:1/@FoundryItem_诛仙战甲(女)> <ItemShow:629:1:0:0:1/@FoundryItem_诛仙道袍(女)>\ \ \
+\<ItemShow:630:1:0:0:1/@FoundryItem_诛仙道袍(男)> <ItemShow:631:1:0:0:1/@FoundryItem_诛仙魔衣(女)> <ItemShow:632:1:0:0:1/@FoundryItem_诛仙魔衣(男)>\ \ \ <返回/@main>\
+
+
+
+
+[@坐骑]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+\<ItemShow:1071:1:0:0:1> <ItemShow:1072:1:0:0:1> <ItemShow:1073:1:0:0:1> <ItemShow:1074:1:0:0:1/@FoundryItem_汗血马> <ItemShow:1075:1:0:0:1/@FoundryItem_白龙马> <ItemShow:1076:1:0:0:1/@FoundryItem_迎亲马> <ItemShow:1077:1:0:0:1/@FoundryItem_金龙马>\ \ \
+	 	<返回/@main>\
+
+
+[@忍]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成手里剑/@FoundryItem_手里剑>	<合成起爆符/@FoundryItem_起爆符>\
+ 	 	 	 	 	 	<返回/@main>\
+
+[@真龙]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+	<ItemShow:635:1:0:0:1/@FoundryItem_真龙战刃>	<ItemShow:636:1:0:0:1/@FoundryItem_真龙法杖>	<ItemShow:637:1:0:0:1/@FoundryItem_真龙羽扇>	<ItemShow:638:1:0:0:1/@FoundryItem_真龙头盔>	<ItemShow:639:1:0:0:1/@FoundryItem_真龙面巾>	<ItemShow:640:1:0:0:1/@FoundryItem_真龙项链>	<ItemShow:641:1:0:0:1/@FoundryItem_真龙护腕>\ \ \
+<ItemShow:642:1:0:0:1/@FoundryItem_真龙戒指>	<ItemShow:643:1:0:0:1/@FoundryItem_真龙腰带>	<ItemShow:644:1:0:0:1/@FoundryItem_真龙靴子>	<ItemShow:645:1:0:0:1/@FoundryItem_真龙神甲(男)>	<ItemShow:646:1:0:0:1/@FoundryItem_真龙神甲(女)>	<ItemShow:647:1:0:0:1/@FoundryItem_真龙勋章>	<ItemShow:648:1:0:0:1/@FoundryItem_真龙印>	<返回/@main>\ \ \
+
+
+
+[@传奇]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成传奇神杖/@FoundryItem_传奇神杖>	<合成传奇之冠/@FoundryItem_传奇之冠>	<合成传奇之戒/@FoundryItem_传奇之戒>	<合成传奇项链/@FoundryItem_传奇项链>\
+<合成传奇护腕/@FoundryItem_传奇护腕>	<合成传奇腰带/@FoundryItem_传奇腰带>	<合成传奇之靴/@FoundryItem_传奇之靴>	<合成传奇神甲(男)/@FoundryItem_传奇神甲(男)>\
+<合成传奇神甲(女)/@FoundryItem_传奇神甲(女)> <合成传奇勋章/@FoundryItem_传奇勋章>	<合成传奇神扇/@FoundryItem_传奇神扇>	<合成传奇神剑/@FoundryItem_传奇神剑>\
+<合成传奇面巾/@FoundryItem_传奇面巾>	<合成传奇印/@FoundryItem_传奇印>\
+ 	 	 	 	 	 	<返回/@main>\
+
+[@龙系]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成炎龙刃/@FoundryItem_炎龙刃>	<合成炎龙战盔/@FoundryItem_炎龙战盔>	<合成炎龙战戒/@FoundryItem_炎龙战戒>	<合成炎龙项链/@FoundryItem_炎龙项链>\
+<合成炎龙护腕/@FoundryItem_炎龙护腕>	<合成炎龙腰带/@FoundryItem_炎龙腰带>	<合成炎龙战靴/@FoundryItem_炎龙战靴>	<合成御龙男甲/@FoundryItem_御龙盔甲(男)>\
+<合成御龙女衣/@FoundryItem_御龙盔甲(女)> \
+<雷龙系列/@雷龙>	<青龙系列/@青龙>	<返回/@main>\
+
+[@雷龙]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成雷龙杖/@FoundryItem_雷龙杖>	<合成雷龙魔盔/@FoundryItem_雷龙魔盔>	<合成雷龙项链/@FoundryItem_雷龙项链>	<合成雷龙魔戒/@FoundryItem_雷龙魔戒>\
+<合成雷龙护腕/@FoundryItem_雷龙护腕>	<合成雷龙腰带/@FoundryItem_雷龙腰带>	<合成雷龙魔靴/@FoundryItem_雷龙魔靴>	<合成御龙男甲/@FoundryItem_御龙盔甲(男)>\
+<合成御龙女衣/@FoundryItem_御龙盔甲(女)> \
+<炎龙系列/@龙系>	<青龙系列/@青龙>	<返回/@main>\
+
+[@青龙]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成青龙刺/@FoundryItem_青龙刺>	<合成青龙道盔/@FoundryItem_青龙道盔>	<合成青龙项链/@FoundryItem_青龙项链>	<合成青龙道戒/@FoundryItem_青龙道戒>\
+<合成青龙护腕/@FoundryItem_青龙护腕>	<合成青龙腰带/@FoundryItem_青龙腰带>	<合成青龙道靴/@FoundryItem_青龙道靴>	<合成御龙男甲/@FoundryItem_御龙盔甲(男)>\
+<合成御龙女衣/@FoundryItem_御龙盔甲(女)> \
+<炎龙系列/@龙系>	<雷龙系列/@雷龙>	<返回/@main>\
+
+
+[@图纸]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成鉴定图纸[普通]/@FoundryItem_鉴定图纸[普通]>\
+<合成鉴定图纸[高级]/@FoundryItem_鉴定图纸[高级]>\
+<合成鉴定图纸[极品]/@FoundryItem_鉴定图纸[极品]>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回/@main>\
+
+
+[@宝石]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成红宝石+1/@FoundryItem_红宝石+1>	<合成红宝石+2/@FoundryItem_红宝石+2>	<合成红宝石+3/@FoundryItem_红宝石+3>	<合成神·红宝石/@FoundryItem_神·红宝石>\
+<合成紫宝石+1/@FoundryItem_紫宝石+1>	<合成紫宝石+2/@FoundryItem_紫宝石+2>	<合成紫宝石+3/@FoundryItem_紫宝石+3>	<合成神·紫宝石/@FoundryItem_神·紫宝石>\
+<合成绿神石+1/@FoundryItem_绿神石+1>	<合成绿神石+2/@FoundryItem_绿神石+2>	<合成绿神石+3/@FoundryItem_绿神石+3>	<合成神·绿神石/@FoundryItem_神·绿神石>\
+<合成蓝神石+1/@FoundryItem_蓝神石+1>	<合成蓝神石+2/@FoundryItem_蓝神石+2>	<合成蓝神石+3/@FoundryItem_蓝神石+3>	<合成神·蓝神石/@FoundryItem_神·蓝神石>\
+<合成黄神石+1/@FoundryItem_黄神石+1>	<合成黄神石+2/@FoundryItem_黄神石+2>	<合成黄神石+3/@FoundryItem_黄神石+3>	<合成神·黄神石/@FoundryItem_神·黄神石>\
+<合成青宝石+1/@FoundryItem_青宝石+1>	<合成青宝石+2/@FoundryItem_青宝石+2>	<合成青宝石+3/@FoundryItem_青宝石+3>	<合成神·青宝石/@FoundryItem_神·青宝石>	<返回主菜单/@main>\
+
+
+[@FoundryItem_]
+#IF
+CheckFoundryItem %FoundryItem
+#ACT
+GiveFoundryItem %FoundryItem
+goto @main
+#ELSEACT
+SendMsg 5 缺少合成物品<%Item>
+ShowFoundryItem %FoundryItem
+goto @main
+
+[@FoundryFail]
+#ACT
+SendMsg 5 合成 <%Item> 失败!
+
+[@FoundryOK]
+#ACT
+SendMsg 0 玩家『<$USERNAME>』，合成【 <%Item> 】成功，实力更上一层楼！
+
+[@ShowItem_]
+<$ShowItem>
+
+
+[@勋章]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+想要领取荣誉勋章的话你必须要有荣誉值+相应物品，\
+当你有了足够的荣誉值之后就可以找我兑换了,\ \
+<领取指定勋章/@领取指定勋章>\
+<领取随机勋章/@领取随机勋章>                  <返回/@main>\
+[@领取指定勋章]
+#CALL [\荣誉勋章\指定兑换.txt] @指定勋章
+[@领取随机勋章]
+#CALL [\荣誉勋章\随机兑换.txt] @随机勋章
+[@荣誉值]
+各级勋章                     随机兑换条件\
+一级荣誉勋章（11－15号勋章） 需要荣誉值20点\
+二级荣誉勋章（21－25号勋章） 需要荣誉值40点\
+三级荣誉勋章（31－35号勋章） 需要荣誉值60点\
+四级荣誉勋章（41－45号勋章） 需要荣誉值80点\ \
+<返回/@随机勋章>
+
+[@斗笠]
+这里你可以合成指定的斗笠。<世界BOSS>也掉落斗笠\
+【<查看指定领取各级勋章需要的荣誉值/@斗笠123>】\
+<斗笠13号/@斗笠13号>  <斗笠14号/@斗笠14号>  <斗笠15号/@斗笠15号>  <斗笠23号/@斗笠23号>  <斗笠24号/@斗笠24号>  <斗笠25号/@斗笠25号>\ 
+<斗笠33号/@斗笠33号>  <斗笠34号/@斗笠34号>  <斗笠35号/@斗笠35号>  <斗笠43号/@斗笠43号>  <斗笠44号/@斗笠44号>  <斗笠45号/@斗笠45号>\
+<斗笠53号/@斗笠53号>  <斗笠54号/@斗笠54号>  <斗笠55号/@斗笠55号>\
+<卧灵斗笠/@卧灵斗笠>          <魔火斗笠/@魔火斗笠>          <盛世斗笠/@盛世斗笠>\
+<返回/@main>\
+
+[@斗笠123]
+职业斗笠                 指定兑换条件\
+一级斗笠（13－15号斗笠） 需要荣誉值80点+相应职业相应<魔龙手镯/@魔龙手镯>\
+二级斗笠（23－25号斗笠） 需要荣誉值120点+相应职业相应一级斗笠\
+三级斗笠（33－35号斗笠） 需要荣誉值280点+相应职业相应二级斗笠\
+四级斗笠（43－45号斗笠） 需要荣誉值350点+相应职业相应三级斗笠\
+五级斗笠（53－55号斗笠） 需要荣誉值450点+相应职业相应四级斗笠\
+卧灵斗笠 需要500点荣誉+53号+54号+55号斗笠.\
+魔火斗笠 需要800点荣誉+卧灵斗笠\
+盛世斗笠 需要1200点荣誉+魔火斗笠    　　      <返回/@斗笠>\
+
+[@魔龙手镯]
+战士：雷霆护腕.\
+法师：烈焰护腕.\
+道士：光芒护腕.\
+<返回/@123>\
+
+[@盛世斗笠]
+#IF
+CHECKGAMEGLORY > 1199
+checkitem 魔火斗笠 1
+#act
+GAMEGLORY - 1200
+take 魔火斗笠 1
+give 盛世斗笠 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@魔火斗笠]
+#IF
+CHECKGAMEGLORY > 799
+checkitem 卧灵斗笠 1
+#act
+GAMEGLORY - 800
+take 卧灵斗笠 1
+give 魔火斗笠 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@卧灵斗笠]
+#IF
+CHECKGAMEGLORY > 499
+checkitem 斗笠53号 1
+checkitem 斗笠54号 1
+checkitem 斗笠55号 1
+#act
+GAMEGLORY - 500
+take 斗笠53号 1
+take 斗笠54号 1
+take 斗笠55号 1
+give 卧灵斗笠 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠55号]
+#IF
+CHECKGAMEGLORY > 449
+checkitem 斗笠45号 1
+#act
+GAMEGLORY - 450
+take 斗笠45号 1
+give 斗笠55号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+
+
+[@斗笠54号]
+#IF
+CHECKGAMEGLORY > 449
+checkitem 斗笠44号 1
+#act
+GAMEGLORY - 450
+take 斗笠44号 1
+give 斗笠54号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+
+
+[@斗笠53号]
+#IF
+CHECKGAMEGLORY > 449
+checkitem 斗笠43号 1
+#act
+GAMEGLORY - 450
+take 斗笠43号 1
+give 斗笠53号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+
+
+[@斗笠45号]
+#IF
+CHECKGAMEGLORY > 349
+checkitem 斗笠35号 1
+#act
+GAMEGLORY - 350
+take 斗笠35号 1
+give 斗笠45号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+
+[@斗笠44号]
+#IF
+CHECKGAMEGLORY > 349
+checkitem 斗笠34号 1
+#act
+GAMEGLORY - 350
+take 斗笠34号 1
+give 斗笠44号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠43号]
+#IF
+CHECKGAMEGLORY > 349
+checkitem 斗笠33号 1
+#act
+GAMEGLORY - 350
+take 斗笠33号 1
+give 斗笠43号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠33号]
+#IF
+CHECKGAMEGLORY > 279
+checkitem 斗笠23号 1
+#act
+GAMEGLORY - 280
+take 斗笠23号 1
+give 斗笠33号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠34号]
+#IF
+CHECKGAMEGLORY > 279
+checkitem 斗笠24号 1
+#act
+GAMEGLORY - 280
+take 斗笠24号 1
+give 斗笠34号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠35号]
+#IF
+CHECKGAMEGLORY > 279
+checkitem 斗笠25号 1
+#act
+GAMEGLORY - 280
+take 斗笠25号 1
+give 斗笠35号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠25号]
+#IF
+CHECKGAMEGLORY > 119
+checkitem 斗笠15号 1
+#act
+GAMEGLORY - 120
+take 斗笠15号 1
+give 斗笠25号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠24号]
+#IF
+CHECKGAMEGLORY > 119
+checkitem 斗笠14号 1
+#act
+GAMEGLORY - 120
+take 斗笠14号 1
+give 斗笠24号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+[@斗笠23号]
+#IF
+CHECKGAMEGLORY > 119
+checkitem 斗笠13号 1
+#act
+GAMEGLORY - 120
+take 斗笠13号 1
+give 斗笠23号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠13号]
+#IF
+CHECKGAMEGLORY > 79
+checkitem 雷霆护腕 1
+#act
+GAMEGLORY - 80
+take 雷霆护腕 1
+give 斗笠13号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠14号]
+#IF
+CHECKGAMEGLORY > 79
+checkitem 烈焰护腕 1
+#act
+GAMEGLORY - 80
+take 烈焰护腕 1
+give 斗笠14号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+[@斗笠15号]
+#IF
+CHECKGAMEGLORY > 79
+checkitem 光芒护腕 1
+#act
+GAMEGLORY - 80
+take 光芒护腕 1
+give 斗笠15号 1
+SENDMSG 6 兑换成功.您当前的荣誉值:<$GAMEGLORY>
+break
+#SAY
+兑换成功！拿好了，别掉了。\ \
+<确定/@exit>
+#ELSESAY
+荣誉值或材料不够无法换取。
+
+
+
+
+[@军鼓]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<合成二级军鼓(战)/@FoundryItem_二级军鼓(战)>	<合成二级军鼓(法)/@FoundryItem_二级军鼓(法)>	<合成二级军鼓(道)/@FoundryItem_二级军鼓(道)>	　<卧/@FoundryItem_卧灵军鼓>	　<魔/@FoundryItem_魔火军鼓>\\
+<合成三级军鼓(战)/@FoundryItem_三级军鼓(战)>	<合成三级军鼓(法)/@FoundryItem_三级军鼓(法)>	<合成三级军鼓(道)/@FoundryItem_三级军鼓(道)>	　<灵/@FoundryItem_卧灵军鼓>	　<火/@FoundryItem_魔火军鼓>\\
+<合成四级军鼓(战)/@FoundryItem_四级军鼓(战)>	<合成四级军鼓(法)/@FoundryItem_四级军鼓(法)>	<合成四级军鼓(道)/@FoundryItem_四级军鼓(道)>	　<军/@FoundryItem_卧灵军鼓>	　<军/@FoundryItem_魔火军鼓>\\
+<合成五级军鼓(战)/@FoundryItem_五级军鼓(战)>	<合成五级军鼓(法)/@FoundryItem_五级军鼓(法)>	<合成五级军鼓(道)/@FoundryItem_五级军鼓(道)>	　<鼓/@FoundryItem_卧灵军鼓>	　<鼓/@FoundryItem_魔火军鼓>\\
+<合成六级军鼓(战)/@FoundryItem_六级军鼓(战)>	<合成六级军鼓(法)/@FoundryItem_六级军鼓(法)>	<合成六级军鼓(道)/@FoundryItem_六级军鼓(道)>	<合成盛世军鼓/@FoundryItem_盛世军鼓>\
+<合成七级军鼓(战)/@FoundryItem_七级军鼓(战)>	<合成七级军鼓(法)/@FoundryItem_七级军鼓(法)>	<合成七级军鼓(道)/@FoundryItem_七级军鼓(道)>	<返回主菜单/@main>\

@@ -1,0 +1,17 @@
+[@main]
+你好，前面就是神龙帝国了\
+一定要小心。\\
+
+<进入神龙帝国/@go>  \ 
+
+
+[@go]
+#if
+CHECKFENGHAO 出神入化
+CHECKFENGHAO 任务狂人
+#act
+CLOSE
+MAPMOVE sldg  354 65
+#ELSEACT
+MESSAGEBOX 您并没有完成剧情任务，以及闯过生死劫，不能进入帝国！
+break

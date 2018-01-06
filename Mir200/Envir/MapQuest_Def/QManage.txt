@@ -1,0 +1,2117 @@
+[@Login]
+#IF
+ISNEWHUMAN
+#SAY
+您刚刚来到这个大陆.一切都不熟悉.\
+您可以去找<助手>接受主线任务.\ \
+<温馨提示：>本服<没有技能书>！\ \
+<一切技能>都需要<点击上方《技能》图标，使用书页+技能点学习技能/FCOLOR=250>\ \
+<好的我了解了！【回答新手提问获得起步经验】/@技能提示>\
+#ACT
+#CALL [\游戏登陆\登陆脚本.txt] @登陆设置
+#CALL [\功能设置\定义变量.txt] @定义变量
+ADDBUTTON 39 1 481 481 481 165 40 0 -1 251#赞助服务\251#用于使用赞助服务
+ADDBUTTON 39 2 497 497 497 110 35 0 -1 251#签到服务\251#用于签到服务
+ADDBUTTON 39 3 490 490 490 225 33 0 -1 251#技能加点
+ADDBUTTON 39 4 470 470 470 50  30 0 -1 251#买卖物品\251#暂未开放
+ADDBUTTON 39 5 511 511 511 280 32 0 -1 251#装备炼化与装备精纯
+ADDBUTTON 39 6 507 507 507 360 33 0 -1 251#可远程存储物品
+ADDBUTTON 39 7 534 534 534 440 35 0 -1 251#接受领取跑环
+ADDBUTTON 39 8 509 509 509 490 20 0 -1 251#龙魂体魄
+ADDBUTTON 39 10 289 290 291 -5 20 0 -1 251#开关
+MOV N$高度坐标 <$ClientHeight>
+DEC N$高度坐标 150
+ADDBUTTON 40 11 4 4 4 3 <$STR(N$高度坐标)> 0 -1 251#表情
+ADDBUTTON 9 9 1605 1605 1606 28 28 3 仓库 251#可远程存储物品
+ADDBUTTON 39 12 574 575 576 115 270 3 -1 251#整理背包
+ADDBUTTON 39 15 462 462 462 580 19 0 -1 251#野外BOSS
+ADDBUTTON 0 16 1076 1076 1076 -2 100 0 -1 251#查询自身详细元素属性
+PLAYMAGICBALLEFFECT 18 1300 14 100 -1 0 1 0 0 0
+PLAYMAGICBALLEFFECT 18 1320 14 100 -1 1 1 0 0 0
+#CALL [\功能设置\新手法宝.txt] @新手法宝
+MOV T1 可以获取
+MOV T9 关闭自动
+SetOnTimer 6 60
+MOV T17 开启
+MOV U48 3
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+ShowGodBless 1
+activationcasket 1
+SetSndacasket 1
+SENDMSG 6 【恭喜】：恭喜您，开启了《首饰盒》，现在您可以将法宝放入首饰盒里了！
+break
+
+#IF
+CHECKLEVELEX > 0
+#ACT
+#CALL [\游戏登陆\登陆脚本.txt] @登陆设置
+#CALL [\功能设置\定义变量.txt] @定义变量
+ADDBUTTON 39 1 481 481 481 165 40 0 -1 251#赞助服务\251#用于使用赞助服务
+ADDBUTTON 39 2 497 497 497 110 35 0 -1 251#签到服务\251#用于签到服务
+ADDBUTTON 39 3 490 490 490 225 33 0 -1 251#技能加点
+ADDBUTTON 39 4 470 470 470 50  30 0 -1 251#买卖物品\251#暂未开放
+ADDBUTTON 39 5 511 511 511 280 32 0 -1 251#装备炼化与装备精纯
+ADDBUTTON 39 6 507 507 507 360 33 0 -1 251#可远程存储物品
+ADDBUTTON 39 7 534 534 534 440 35 0 -1 251#接受领取跑环
+ADDBUTTON 39 8 509 509 509 490 20 0 -1 251#龙魂体魄
+ADDBUTTON 39 10 289 290 291 -5 20 0 -1 251#开关
+MOV N$高度坐标 <$ClientHeight>
+DEC N$高度坐标 150
+ADDBUTTON 40 11 4 4 4 3 <$STR(N$高度坐标)> 0 -1 251#表情
+ADDBUTTON 9 9 1605 1605 1606 28 28 3 仓库 251#可远程存储物品
+ADDBUTTON 39 12 574 575 576 115 270 3 -1 251#整理背包
+ADDBUTTON 39 15 462 462 462 580 19 0 -1 251#野外BOSS
+ADDBUTTON 0 16 1076 1076 1076 -2 100 0 -1 251#查询自身详细元素属性
+PLAYMAGICBALLEFFECT 18 1300 14 100 -1 0 1 0 0 0
+PLAYMAGICBALLEFFECT 18 1320 14 100 -1 1 1 0 0 0
+MOV U13 0
+MOV U6 0
+MOV T1 可以获取
+MOV T9 关闭自动
+MOV T17 开启
+SetOnTimer 6 60
+;SendMsg 7 服务器目前封印状态：65级<$STR(A170)>,80级<$STR(A171)>,95级<$STR(A172)>,110级<$STR(A173)>
+
+
+
+#IF
+Equal U20 1
+#ACT
+MOV N80 <$MAXDC>
+MOV N81 <$MAXMC>
+MOV N82 <$MAXSC>
+DIV N80 10
+DIV N81 10
+DIV N82 10
+ChangeHumAbility 6 + <$STR(N80)> 99999
+ChangeHumAbility 8 + <$STR(N81)> 99999
+ChangeHumAbility 9 + <$STR(N82)> 99999
+ChangeHumAbility 11 + 100 99999
+ChangeHumAbility 12 + 200 99999
+SendMsg 6 洪荒之力已经开启，攻击+<$STR(N80)>，魔法+<$STR(N81)>，道术+<$STR(N82)>，HP+100，MP+200，持续时间99999秒，如果效果消失，请重新上线获取！
+
+#if
+CheckItem 符文：法力潮汐 1
+#ACT
+SetOnTimer 31 5
+
+#if
+CheckItem 符文：星穹暴涨 1
+#ACT
+SetOnTimer 32 40
+
+#if
+CheckItem 符文：嗜血狂魔 1
+#ACT
+SetOnTimer 33 2
+
+#if
+CheckItem 符文：无尽潜能 1
+#ACT
+SetOnTimer 34 5
+
+
+
+
+[@OnTimer34]
+#if
+CheckItem 符文：无尽潜能 1
+#ACT
+MOV N300 <$MP>
+DIV N300 30
+goto @职业增加
+break
+#ELSEACT
+ChangeHumAbility 6 = 0
+ChangeHumAbility 8 = 0
+ChangeHumAbility 10 = 0
+SetOFFTimer 34
+SendMsg 6 特效触发失败，并未携带[符文：无尽潜能]！携带后重新登陆即可！
+BREAK
+
+[@职业增加]
+#if
+CHECKJOB warrior
+#act
+ChangeHumAbility 6 = 0
+ChangeHumAbility 6 + <$STR(N300)> 5
+BREAK
+
+#if
+CHECKJOB wizard
+#act
+ChangeHumAbility 8 = 0
+ChangeHumAbility 8 + <$STR(N300)> 5
+BREAK
+
+#if
+CHECKJOB taoist
+#act
+ChangeHumAbility 10 = 0
+ChangeHumAbility 10 + <$STR(N300)> 5
+BREAK
+
+
+
+[@OnTimer33]
+#if
+CheckItem 符文：嗜血狂魔 1
+CheckHpPer < 20
+#ACT
+ChangeSpeed 2 4 10
+break
+
+#if
+CheckItem 符文：嗜血狂魔 1
+CheckHpPer < 50
+#ACT
+ChangeSpeed 2 3 10
+break
+
+#if
+CheckItem 符文：嗜血狂魔 1
+CheckHpPer > 80
+#ACT
+break
+#ELSEACT
+SetOFFTimer 33
+SendMsg 6 特效触发失败，并未携带[符文：嗜血狂魔]！携带后重新登陆即可！
+BREAK
+
+
+
+
+[@技能提示]
+#SAY
+既然您已经知道了，那么考考您！\
+<本服的技能从哪里习得？答对可获得300点经验>\ \
+
+<A.打书获得！/@技能提示错>\ \
+<B.点击上方《技能》图标，使用书页+技能点学习技能/@技能提示对>\ \
+<C.升级就会获得！/@技能提示错>\ \
+<不想回答，我要接取新手任务/@自动寻路到助手>
+
+[@技能提示错]
+#SAY
+<回答错误>！\
+正确答案是：<点击上方《技能》图标，使用书页+技能点学习技能/FCOLOR=250> ！\
+现在您可以去找<助手>接受主线任务.\
+<任务菜单按钮在界面右下角区域>\
+<助手一般在新人村的村口.>\
+赶紧去把!\ \
+<自动寻路到助手...接取任务/@自动寻路到助手>
+
+[@技能提示对]
+#SAY
+<回答正确>！\
+请牢牢记住：<点击上方《技能》图标，使用书页+技能点学习技能/FCOLOR=250> ！\
+现在您可以去找<助手>接受主线任务.\
+<任务菜单按钮在界面右下角区域>\
+<助手一般在新人村的村口.>\
+赶紧去把!\ \
+<自动寻路到助手...接取任务/@自动寻路到助手>
+#ACT
+ChangeExp + 300
+SendMsg 6 恭喜你答对了，奖励300经验！
+break
+
+[@OnTimer6]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SetOFFTimer 6
+break
+
+#if
+#ACT
+INC U26 1
+goto @种草检测
+SendMsg 6 获得精力　+　1，当前精力值为：<$STR(U26)>
+break
+
+[@种草检测]
+#OR
+EQUAL T41 无植物
+EQUAL T41 
+#ACT
+break
+
+#IF
+large U34 0
+EQUAL T40 缺水
+#ACT
+DEC U34 1
+DEC U28 1
+SendMsg 6 大事不好！您的种植物<$STR(T41)>因为缺水，收成减少1棵，请前往维护，剩余收成<$STR(U28)>
+break
+
+#IF
+large U34 0
+EQUAL T40 长虫
+#ACT
+DEC U34 1
+DEC U28 1
+SendMsg 6 大事不好！您的种植物<$STR(T41)>因为长虫，收成减少1棵，请前往维护，剩余收成<$STR(U28)>
+break
+
+#IF
+EQUAL U34 0
+#ACT
+MOV T40 已成熟
+SendMsg 6 您的种植物<$STR(T41)>已经成熟，请前往摘取
+break
+
+#if
+large U34 0
+random 55
+#ACT
+DEC U34 1
+MOV T40 缺水
+SendMsg 6 大事不好！您的种植物<$STR(T41)>现在缺水了，请前往浇水，剩余收成<$STR(U28)>
+break
+
+#if
+large U34 0
+random 55
+#ACT
+DEC U34 1
+MOV T40 长虫
+SendMsg 6 大事不好！您的种植物<$STR(T41)>现在长虫了，请前往捉虫，剩余收成<$STR(U28)>
+break
+
+#if
+large U34 0
+#ACT
+DEC U34 1
+break
+
+
+[@OnTimer40]
+#IF
+CHECKMAPNAME n3
+#ACT
+ClearPlayEffect
+SetOFFTimer 40
+StopAutoPlayGame
+SendMsg 6 安全区停止挂机......
+SendMsg 6 安全区停止挂机......
+SendMsg 6 安全区停止挂机......
+SendMsg 6 安全区停止挂机......
+BREAK
+
+#if
+LARGE U26 0
+#ACT
+DEC U26 1
+BREAK
+#ELSEACT
+ClearPlayEffect
+SetOFFTimer 40
+StopAutoPlayGame
+SendMsg 6 停止挂机，没有足够的精力点进行挂机！
+BREAK
+
+
+
+
+
+
+[@OnTimer13]
+#IF
+EQUAL S20 <$X>
+#ACT
+#ELSEACT
+SENDMSG 7 由于你已移动，赌博已关闭！
+SetOffTimer 13
+CLEARDELAYGOTO
+close
+
+
+
+
+
+[@OnTimer32]
+#if
+CheckItem 符文：星穹暴涨 1
+#ACT
+ChangeHumAbility 1 + 30 20
+ChangeHumAbility 2 + 30 20
+ChangeHumAbility 3 + 30 20
+ChangeHumAbility 4 + 30 20
+ChangeHumAbility 5 + 30 20
+ChangeHumAbility 6 + 30 20
+ChangeHumAbility 7 + 30 20
+ChangeHumAbility 8 + 30 20
+ChangeHumAbility 9 + 30 20
+ChangeHumAbility 10 + 30 20
+ChangeHumAbility 11 + 100 20
+ChangeHumAbility 12 + 100 20
+BREAK
+#ELSEACT
+SetOFFTimer 32
+SendMsg 6 特效触发失败，并未携带[符文：星穹暴涨]！携带后重新登陆即可！
+BREAK
+
+
+[@OnTimer31]
+#if
+CheckItem 符文：法力潮汐 1
+#ACT
+AddMpPer + 5
+BREAK
+#ELSEACT
+SetOFFTimer 31
+SendMsg 6 特效触发失败，并未携带[符文：法力潮汐]！携带后重新登陆即可！
+BREAK
+
+
+
+
+
+[@自动寻路到助手]
+#ACT
+GotoNow 623 609
+break
+
+
+
+[@Startup]
+#IF
+EQUAL G400 0
+#ACT
+MOV A170 青龙封印
+MOV A171 白虎封印
+MOV A172 玄武封印
+MOV A173 朱雀封印
+MOV G400 300
+MOV G401 200
+MOV G402 150
+MOV G403 70
+MOV G404 35
+MOV G405 20
+MOV G406 10
+MOV G407 5
+MOV G408 3
+MOV A451 关闭
+MOV A150
+MOV A151
+MOV A152
+MOV G150
+MOV G151
+MOV G152
+MOV G153
+MOV G221 0
+MOV G220 0
+MOV G231 0
+MOV G230 0
+MOV G241 0
+MOV G240 0
+MOV G251 0
+MOV G250 0
+MOV N$第一格
+MOV N$第二格
+MOV N$第三格
+MOV N$第四格
+MOV N$第五格
+MOV N$第六格
+MOV N$第七格
+MOV N$第八格
+MOV N$第九格
+MOV N$第十格
+MOVR N$第一格 1 68
+MOVR N$第二格 1 68
+MOVR N$第三格 1 68
+MOVR N$第四格 1 68
+MOVR N$第五格 1 68
+MOVR N$第六格 1 68
+MOVR N$第七格 1 68
+MOVR N$第八格 1 68
+MOVR N$第九格 1 68
+MOVR N$第十格 1 68
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第一格)> A20 G30 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第二格)> A21 G31 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第三格)> A22 G32  
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第四格)> A23 G33 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第五格)> A24 G34
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第六格)> A25 G35
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第七格)> A26 G36
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第八格)> A27 G37 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第九格)> A28 G38  
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第十格)> A29 G39  
+GetRandomText ..\QuestDiary\皇榜\物品.txt S33
+MOV A19 <$STR(S33)>
+MOVR G19 1 11
+break
+#ELSEACT
+MOV A451 关闭
+MOV A150
+MOV A151
+MOV A152
+MOV G150
+MOV G151
+MOV G152
+MOV G153
+MOV G221 0
+MOV G220 0
+MOV G231 0
+MOV G230 0
+MOV G241 0
+MOV G240 0
+MOV G251 0
+MOV G250 0
+break
+
+
+
+[@发红包]
+#IF
+RANDOM 4
+#ACT
+SENDDELAYMSG 发红包剩余时间【%s】！  61  224 0 @停止红包3
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60 
+#SAY
+<> \ 
+<>  土豪玩家 <$STR(A150)> 发红包啦\
+　　　　　　　　　　　　　　　　　　<抢红包/@抢aaa>\
+#ACT
+break
+
+#IF
+RANDOM 3
+#ACT
+SENDDELAYMSG 发红包剩余时间【%s】！  61  224 0 @停止红包3
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60 
+#SAY
+<> \ 
+<>  土豪玩家 <$STR(A150)> 发红包啦\
+　　　　　<抢红包/@抢aaa>\
+#ACT
+break
+
+#IF
+RANDOM 2
+#ACT
+SENDDELAYMSG 发红包剩余时间【%s】！  61  224 0 @停止红包3
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60 
+#SAY
+<> \ 
+<>  土豪玩家 <$STR(A150)> 发红包啦\　　\
+　　　　　　　　　　<抢红包/@抢aaa>\
+#ACT
+break
+
+
+#IF
+RANDOM 1
+#ACT
+SENDDELAYMSG 发红包剩余时间【%s】！  61  224 0 @停止红包3
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60
+SendCenterMsg 180 251 土豪<$STR(A150)>发红包啦,抢红包剩余时间【%d】 0 60 
+#SAY
+<> \ 
+<>  土豪玩家 <$STR(A150)> 发红包啦\
+　　　　　　　<抢红包/@抢aaa>\
+#ACT
+break
+
+
+[@停止红包3]
+#if
+#ACT
+MOV A150
+MOV A151
+MOV A152
+MOV G150
+MOV G151
+MOV G152
+MOV G153
+break
+
+
+
+[@抢aaa]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CHECKLEVELEX < 50
+#ACT
+MessageBox 对不起，50级以下玩家不允抢红包！
+break
+
+#IF
+NOT EQUAL A151 开启
+#ACT
+close
+MessageBox 抢红包时间已过,期待下次吧
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\红包机器码.txt <$MACHINEID>
+#ACT
+close
+MessageBox 对不起,同机器不允许抢红包!
+break
+
+#IF
+large G151 0
+#ACT
+DEC G151 1
+DEC G153 <$STR(G150)>
+GAMEGOLD + <$STR(G150)>
+<$STR(A150)>.CHANGEEXP + <$STR(G152)>
+<$STR(A150)>.SENDMSG 7 你发放的红包被接收.系统赠送你<$STR(G152)>经验 250 249
+<$STR(A150)>.CALCVAR HUMAN QHP + <$STR(G150)>
+<$STR(A150)>.SAVEVAR HUMAN QHP ..\QuestDiary\标记数据\变量数据.txt
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>眼疾手快，抢到了土豪<$STR(A150)>发的红包,||获得<$STR(G150)>元宝,红包剩余<$STR(G151)>份!
+close
+#ELSEACT
+MessageBox 红包已经被抢完了,请等下次吧
+break
+
+;______________________________________________________________________________________
+
+
+
+
+[@OnTimer46]
+#IF
+CHECKMAPNAME PP
+LARGE U26 0
+#ACT
+DEC U26 1
+ChangeExp + 30000
+SendMsg 5 你成功获得了泡点经验3万!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+SetOFFTimer 46
+SendMsg 6 停止泡点，您离开了泡点地图，或者您精力不足！
+BREAK
+
+[@OnTimer43]
+#IF
+CHECKMAPNAME PP
+CHECKGAMEGOLD > 1
+#ACT
+GAMEGOLD - 1
+ChangeExp + 500000
+SendMsg 5 你成功获得了泡点经验50万!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+SetOFFTimer 43
+SendMsg 6 停止泡点，您离开了泡点地图，或者您元宝不足！
+BREAK
+
+
+[@OnTimer42]
+#IF
+CHECKMAPNAME PP
+CHECKGAMEGIRD > 1
+#ACT
+GAMEGIRD - 1
+ChangeExp + 100000
+SendMsg 5 你成功获得了泡点经验100000点!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+SetOFFTimer 42
+SendMsg 6 停止泡点，您离开了泡点地图，或者您灵符不足！
+BREAK
+
+
+[@OnTimer41]
+#if
+CHECKMAPNAME PP
+CHECKGAMEGLORY > 1
+#ACT
+GAMEGLORY - 1
+ChangeExp + 38888
+SendMsg 5 你成功获得了泡点经验3888点!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+SetOFFTimer 41
+SendMsg 6 停止泡点，您离开了泡点地图，或者您荣誉不足！
+BREAK
+
+
+[@OnTimer1]
+#IF
+CHECKMAPNAME PP
+CheckGold 20000
+#ACT
+take 金币 20000
+ChangeExp + 50000
+SendMsg 5 你成功获得了泡点经验50000点!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+setofftimer 1
+SendMsg 5 你离开了泡点地图,或者金币不足20000,泡点已经关闭!
+break
+
+
+
+[@OnTimer10]
+#IF
+CHECKSLAVENAME <$STR(S$镖车几率)>
+#ACT
+#ELSEACT
+SET [191] 0
+SetOffTimer 10
+CLEARDELAYGOTO 1
+MESSAGEBOX 押镖失败！你的<$STR(S$镖车几率)>已被劫了！
+break
+
+
+
+[@OnTimer3]
+#IF
+CHECKMAPNAME PP
+#ACT
+ChangeExp + 180000
+SendMsg 5 你成功获得了泡点经验18万点!
+BREAK
+#ELSEACT
+MOV T1 可以获取
+setofftimer 3
+SendMsg 5 你离开了泡点地图,泡点已经关闭!
+;___________________________________________________________________________________________________________________________
+
+[@抢水1]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+
+#IF
+CHECKLEVELEX > 10
+#ACT
+SetOnTimer 2 1
+#SAY
+-------------------------------------------------\
+活动名称：★★★★★财神的恩赐★★★★\
+活动时间：每天19点30、20点30两次\
+活动规则：呆在地图里\
+活动奖励：大量经验\
+活动时间：10分钟\
+　　　　　　　　╔════════╗\
+　　　　　　　　║    <我要前往/@抢水传送>    ║\
+　　　　　　　　╚════════╝\
+-------------------------------------------------\
+
+
+[@抢水传送]
+#IF
+CHECKLEVELEX > 10
+#ACT
+MOV T1 空
+MAPMOVE G002
+SENDMSG 0 玩家<$USERNAME>到参加财神的恩赐去了，来势汹汹大家小心啊！
+#ELSEACT
+BREAK
+
+[@停止抢水1]
+#IF
+CHECKMAPNAME G002
+#ACT
+SetOffTimer 2
+MAPMOVE n3 330 330
+#ELSEACT
+MOV T1 可以获取
+SetOffTimer 2
+BREAK
+
+[@OnTimer2]
+#IF
+random 500
+Equal A3 正在进行
+CHECKMAPNAME G002
+#ACT
+MOV N7 0
+Mul N7 5000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+gamegold + 1
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>在泡点的时候，意外被1元元宝砸到了脑袋！真是幸运！
+SendMsg 5 经验增加<$Str(N7)>　+　1元宝。
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 > 10
+#ACT
+MOV N7 0
+Mul N7 3200 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数10人以上，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 10
+#ACT
+MOV N7 0
+Mul N7 3300 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数10人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 9
+#ACT
+MOV N7 0
+Mul N7 3500 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数9人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 8
+#ACT
+MOV N7 0
+Mul N7 3800 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数8人，人越少，经验越多！
+BREAK
+
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 7
+#ACT
+MOV N7 0
+Mul N7 4200 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数7人，人越少，经验越多！
+BREAK
+
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 6
+#ACT
+MOV N7 0
+Mul N7 4800 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数6人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 5
+#ACT
+MOV N7 0
+Mul N7 5300 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数5人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 4
+#ACT
+MOV N7 0
+Mul N7 5600 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数4人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 3
+#ACT
+MOV N7 0
+Mul N7 6000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数3人，人越少，经验越多！
+BREAK
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 2
+#ACT
+MOV N7 0
+Mul N7 6800 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数2人，人越少，经验越多！
+BREAK
+
+
+#IF
+Equal A3 正在进行
+CHECKMAPNAME G002
+CHECKMAPHUMANCOUNT G002 = 1
+#ACT
+MOV N7 0
+Mul N7 7200 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SendMsg 5 经验增加<$Str(N7)>。当前地图拥有人数1人，获得全额经验！
+BREAK
+
+
+[@变量获取]
+#ACT
+#CALL [\功能设置\定义变量.txt] @定义变量
+break
+
+;___________________________________________________________________________________________
+
+[@打土豪活动]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#SAY
+
+-------------------------------------------------\
+活动名称：★★★★★土豪金猪★★★★\
+活动时间：每天13、16、21点\
+活动规则：霸者大厅刷新一只土豪猪\
+活动奖励：杀死必定获得金条，10点声望卷\
+　　　　　　　　╔════════╗\
+　　　　　　　　║    <我要前往/@我要飞>    ║\
+　　　　　　　　╚════════╝\
+
+-------------------------------------------------\
+
+#ACT
+break
+
+[@我要飞]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#ACT
+MAPMOVE D2008 42 42
+break
+
+;___________________________________________________________________________________________
+
+
+[@全服奖励]
+#IF
+#ACT
+KILLMONEXPRATE 300 1800
+SendMsg 5 你因为保护封魔谷有功!谷主赏赐你三倍经验30分钟,赶紧去刷怪把!
+break
+
+
+[@下雪]
+#if
+#ACT
+;SETWEATHEREFFECT n3 3 500
+break
+
+[@花瓣]
+#if
+#ACT
+;SETWEATHEREFFECT n3 2 500
+break
+
+[@黄沙]
+#if
+#ACT
+;SETWEATHEREFFECT n3 1 500
+break
+
+[@下雪1]
+#if
+#ACT
+;SETWEATHEREFFECT n3 3 500
+break
+
+[@花瓣1]
+#if
+#ACT
+;SETWEATHEREFFECT n3 2 500
+break
+
+[@下雪]
+#if
+#ACT
+;SETWEATHEREFFECT n0 3 500
+break
+
+[@花瓣]
+#if
+#ACT
+;SETWEATHEREFFECT n0 500
+
+[@黄沙]
+#if
+#ACT
+;SETWEATHEREFFECT n0 1 500
+break
+
+[@下雪1]
+#if
+#ACT
+;SETWEATHEREFFECT n0 3 500
+break
+
+[@花瓣1]
+#if
+#ACT
+;SETWEATHEREFFECT n11 2 500
+break
+;___________________________________________________________________________________________
+
+
+
+[@战场活动]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#SAY
+
+-------------------------------------------------\
+活动名称：★★★★★激情战场★★★★\
+活动时间：每天20点\
+活动规则：战场刷新20只战场老龟\
+活动奖励：杀死老鬼获得1~10元宝，战场杀人获得10万经验，5万金币\
+　　　　　　　　╔════════╗\
+　　　　　　　　║    <我要前往/@我要战场>    ║\
+　　　　　　　　╚════════╝\
+
+-------------------------------------------------\
+
+#ACT
+break
+
+[@我要战场]
+#IF
+#ACT
+SENDMSG 0 玩家<$USERNAME>参加激情战场去了，来势汹汹大家小心啊！
+MAPMOVE Nlts102
+break
+
+[@战场结束]
+#IF
+CHECKMAPNAME Nlts102
+#ACT
+MAPMOVE n3 330 330
+break
+
+
+;___________________________________________________________________________________________
+
+
+[@智力问答]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#SAY
+-------------------------------------------------\
+活动名称：★★★★★智力问答★★★★\
+活动时间：每周二，20点\
+活动规则：答对系统提问,一共30题\
+活动目标：答对问题\
+活动奖励：经验、荣誉、金币\
+╔═════════════╗\
+║<愿意答题/@开始答题>　　　　　<拒绝答题/@exit>║\
+╚═════════════╝\
+-------------------------------------------------\
+
+#ACT
+break
+
+
+[@开始答题]
+#IF
+CheckTextList ..\QuestDiary\标记数据\答题机器码.txt <$MACHINEID>
+#ACT
+MESSAGEBOX 提示:你的机器码已经在答题中，请勿多开答题！
+#ELSEACT
+MOV U5 30
+MOV U21 0
+SetOnTimer 5 10
+AddTextList  ..\QuestDiary\标记数据\答题机器码.txt <$MACHINEID>
+SendMsg 5 你已经开始答题活动，每10秒一个问题，总共30题。答对获得3000经验，3点荣誉，3000金币！
+close
+
+
+[@OnTimer5]
+#IF
+Large U5 0
+#ACT
+GetRandomText ..\QuestDiary\功能设置\智力问答题库.txt A91
+DEC U5 1
+#SAY
+当前题目是：\
+<$STR(A91)>
+#ELSEACT
+setofftimer 5
+SendMsg 5 你已经完成了30题答题!答对题目<$STR(U21)>次。活动结束！请静待结果！
+
+
+[@　]
+#IF
+#SAY
+\ \ \
+　　　　　<很遗憾，回答错误。/SCOLOR=249>\ \ \
+　本轮答题你答对了 <$STR(U21)> 次。\
+　本轮答题你还有 <$STR(U5)> 次机会。\ \
+
+
+[@　　]
+#IF
+#ACT
+ChangeExp + 3000
+GAMEGLORY + 3
+give 金币 3000
+INC U21 1
+#SAY
+\ \ \
+　　　　　<恭喜您，回答正确。/SCOLOR=249>\ \ \
+　本轮答题你答对了 <$STR(U21)> 次。\
+　本轮答题你还有 <$STR(U5)> 次机会。\ \
+
+
+[@智力问答结束]
+#IF
+Large U21 <$STR(G10)>
+#ACT
+MOV G10 <$STR(U21)>
+MOV A4 <$USERNAME>
+Break
+
+
+[@智力问答发放奖励]
+#IF
+Equal A4 <$USERNAME>
+#ACT
+ChangeExp + 500000
+GIVE 金砖
+Gamegold + 100
+SendMsg 5 恭喜你获得本次答题赛冠军！获得50万经验+金砖+100元宝
+SuperMoveMsg 0 251 0 20 100 5 恭喜:玩家『<$USERNAME>』智商碾压全场,获得本次智力大赛冠军获得金砖+100元宝. 1 6 0
+Break
+;___________________________________________________________________________________________
+
+
+[@城主]
+#IF
+EQUAL <$LORD> <$USERNAME>
+EQUAL G130 3
+#ACT
+Gamegold + 1000
+SendMsg 5 恭喜你获得1000元宝!!!!!
+break
+
+#IF
+EQUAL <$LORD> <$USERNAME>
+#ACT
+Gamegold + 300
+SendMsg 5 恭喜你获得300元宝!!!!!
+break
+
+#IF
+#ACT
+break
+
+;___________________________________________________________________________________________
+
+
+
+[@天下11]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#SAY
+-------------------------------------------------\
+活动名称：★★★★★天下第一★★★★\
+活动时间：每天，21点\
+活动规则：击杀其他玩家，只留自己\
+活动目标：站到最后\
+活动奖励：“威震八方”称号1天+50元宝\
+╔═════════════╗\
+║<愿意参加/@开始参加>　　　　　<拒绝参加/@exit>║\
+╚═════════════╝\
+-------------------------------------------------\
+
+#ACT
+break
+
+[@开始参加]
+#if
+EQUAL A72 开启
+#ACT
+MAP Nlts102
+SENDMSG 0 玩家<$USERNAME>参加天下第一去了，来势汹汹大家小心啊！
+close
+#ELSEACT
+MESSAGEBOX 对不起，天下第一入口可能已经关闭了，无法进入！
+break
+;___________________________________________________________________________________________
+
+
+[@OnTimer7]
+#IF
+EQUAL U6 0
+#ACT
+setofftimer 7
+SendMsg 5 召唤术冷却完毕！
+break
+
+#IF
+Large U6 0
+#ACT
+DEC U6 1
+break
+;___________________________________________________________________________________________
+
+[@OnTimer8]
+#IF
+EQUAL U13 0
+#ACT
+setofftimer 8
+SendMsg 5 阴阳·雷霆法阵冷却完毕！
+break
+
+#IF
+Large U13 0
+#ACT
+DEC U13 1
+break
+
+;___________________________________________________________________________________________
+
+[@幸运玩家]
+#if
+EQUAL A77 <$USERNAME>
+#ACT
+Mul N9 200000 <$STR(G83)>
+ChangeExp + <$Str(N9)>
+SendNewLineMsg 0 249 0 15 100 10 1 【幸运儿】：玩家<$USERNAME>获得了龙卫的青睐，获得了<$Str(N9)>经验！！
+break
+
+
+;___________________________________________________________________________________________
+;女娲副本
+[@无]
+#ACT
+break
+
+
+[@OnTimer9]
+#IF
+NOT EQUAL <$FBMAPNAME> 女娲副本
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 离开副本，任务已失败！%s后传送回土 5 249 1 @传送回土城
+break
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+break
+
+#IF
+CheckMapMonCount <$FBMAP> = 0 1
+#ACT
+goto @检测时间
+break
+
+
+[@传送回土城]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 9
+MapMove n3 330 330
+SendMsg 0 玩家<$USERNAME>挑战女娲副本失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本失败，真是惋惜！
+break
+
+[@传送回土城2]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 9
+MapMove n3 330 330
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+break
+
+[@传送回土城3]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 9
+MapMove n3 330 330
+break
+
+[@检测时间]
+#IF
+EQUAL T13 已开启
+#ACT
+MOV T13 开始守护
+SENDDELAYMSG 本守护共10波，每波一个BOSS，%s后第一波到达,碾碎他们 5 249 1 @召唤第一波
+break
+
+#IF
+EQUAL T13 第一波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第二波
+break
+
+#IF
+EQUAL T13 第二波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第三波
+break
+
+#IF
+EQUAL T13 第三波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第四波
+break
+
+#IF
+EQUAL T13 第四波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第五波
+break
+
+#IF
+EQUAL T13 第五波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤偷袭者
+break
+
+#IF
+EQUAL T13 第五波偷袭
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第六波
+break
+
+#IF
+EQUAL T13 第六波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第七波
+break
+
+#IF
+EQUAL T13 第七波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第八波
+break
+
+#IF
+EQUAL T13 第八波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第九波
+break
+
+#IF
+EQUAL T13 第九波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @召唤第十波
+break
+
+#IF
+EQUAL T13 第十波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @计算成败
+break
+
+
+[@召唤第一波]
+#IF
+NOT EQUAL T13 开始守护
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第一波
+MobEctypeMon SELF 9 10 第一波·小怪(物免) 10 3
+MobEctypeMon SELF 9 10 第一波·BOSS【物免】 1 3
+SENDDELAYMSG 第一波已出现，%s后下一波到达 114 249 1 @召唤第二波
+Break
+
+[@召唤第二波]
+#IF
+NOT EQUAL T13 第一波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第二波
+MobEctypeMon SELF 37 39 第二波·小怪(魔免) 10 3
+MobEctypeMon SELF 37 39 第二波·BOSS【魔免】 1 3
+SENDDELAYMSG 第二波已出现，%s后下一波到达 120 249 1 @召唤第三波
+Break
+
+
+[@召唤第三波]
+#IF
+NOT EQUAL T13 第二波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第三波
+MobEctypeMon SELF 9 10 第三波·小怪(财帛) 10 3
+MobEctypeMon SELF 9 10 第三波·BOSS【财帛】 1 3
+SENDDELAYMSG 第三波已出现，%s后下一波到达 120 249 1 @召唤第四波
+Break
+
+[@召唤第四波]
+#IF
+NOT EQUAL T13 第三波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第四波
+MobEctypeMon SELF 27 14 第四波·小怪(元宝) 10 3
+MobEctypeMon SELF 27 14 第四波·BOSS【元宝】 1 3
+SENDDELAYMSG 第四波已出现，%s后下一波到达 120 249 1 @召唤第五波
+Break
+
+
+[@召唤第五波]
+#IF
+NOT EQUAL T13 第四波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第五波
+MobEctypeMon SELF 21 37 第五波·小怪(血牛) 10 3
+MobEctypeMon SELF 21 37 第五波·BOSS【血牛】 1 3
+SENDDELAYMSG 第五波已出现，%s后出现奇袭波 20 249 1 @召唤偷袭者
+Break
+
+[@召唤偷袭者]
+#IF
+NOT EQUAL T13 第五波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第五波偷袭
+MobEctypeMon SELF 22 23 第五波·偷袭者【麻痹】 12 3
+SENDDELAYMSG 偷袭者已出现，请注意清除，%s后下一波到达 100 249 1 @召唤第六波
+Break
+
+
+[@召唤第六波]
+#IF
+NOT EQUAL T13 第五波偷袭
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第六波
+MobEctypeMon SELF 9 10 第六波·小怪(双抗) 10 3
+MobEctypeMon SELF 9 10 第六波·BOSS【双抗】 1 3
+SENDDELAYMSG 第六波已出现，%s后下一波到达 120 249 1 @召唤第七波
+Break
+
+[@召唤第七波]
+#IF
+NOT EQUAL T13 第六波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第七波
+MobEctypeMon SELF 12 27 第七波·小怪(反震) 10 3
+MobEctypeMon SELF 12 27 第七波·BOSS【反震】 1 3
+SENDDELAYMSG 第七波已出现，%s后下一波到达 120 249 1 @召唤第八波
+Break
+
+[@召唤第八波]
+#IF
+NOT EQUAL T13 第七波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第八波
+MobEctypeMon SELF 27 27 第八波·小怪(暴虐) 10 3
+MobEctypeMon SELF 27 27 第八波·BOSS【暴虐】 1 3
+SENDDELAYMSG 第八波已出现，%s后下一波到达 120 249 1 @召唤第九波
+Break
+
+[@召唤第九波]
+#IF
+NOT EQUAL T13 第八波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第九波
+MobEctypeMon SELF 15 27 第九波·小怪(经验) 10 3
+MobEctypeMon SELF 15 27 第九波·BOSS【经验】 1 3
+SENDDELAYMSG 第九波已出现，%s后下一波到达 120 249 1 @召唤第十波
+Break
+
+[@召唤第十波]
+#IF
+NOT EQUAL T13 第九波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @传送回土城
+#ELSEACT
+MOV T13 第十波
+MobEctypeMon SELF 36 38 第十波·小怪(疾行) 10 3
+MobEctypeMon SELF 36 38 最终·BOSS 1 3
+SENDDELAYMSG 最终·BOSS已经出现！请尽快解决！%s后未清除全部怪物则视为失败 120 249 1 @计算成败
+Break
+
+
+
+[@计算成败]
+#if
+CheckMapMonCount <$FBMAP> = 0 1
+#ACT
+GAMEGIRD + 50
+SendMsg 0 玩家<$USERNAME>挑战女娲副本成功，获得50张灵符！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本成功，获得50张灵符！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本成功，获得50张灵符！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本成功，获得50张灵符！
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 恭喜您完成女娲副本！%s后传送回土 5 249 1 @传送回土城3
+break
+#ELSEACT
+SetOffTimer 9
+SENDDELAYMSG 当前地图仍然有怪物，本次任务失败！%s后传送回土 5 249 1 @传送回土城2
+break
+
+;___________________________________________________________________________________________
+
+[@开始奔跑]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#ACT
+MOV T11 允许获得
+#say
+-------------------------------------------------\
+活动名称：★★★[奔跑吧！兄弟！]★★★\
+活动时间：每天，20点45分-48分，持续3分钟\
+活动规则：在土城安全区跑动\
+活动目标：不停的跑动\
+活动奖励：随机经验、装备、元宝、金币\
+╔═════════════╗\
+║<愿意参加/@奔跑>　　　　　<拒绝参加/@exit>║\
+╚═════════════╝\
+-------------------------------------------------\
+
+
+[@奔跑]
+#IF
+#ACT
+MAPMOVE n3 330 333
+SendMsg 5 请尽情地奔跑吧！
+break
+;___________________________________________________________________________________________
+
+
+[@叛逃卫士]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#ACT
+#say
+-------------------------------------------------\
+活动名称：★★★[叛逃卫士]★★★\
+活动时间：每天，10点，15点，18点三次\
+活动规则：击杀叛逃卫士，召唤沃玛教主·噩梦\
+活动目标：击杀沃玛教主·噩梦\
+活动奖励：随机装备、金币、沃玛教主的头颅\
+╔═════════════╗\
+║<愿意参加/@叛逃>　　　　　<拒绝参加/@exit>║\
+╚═════════════╝\
+-------------------------------------------------\
+
+
+[@叛逃]
+#IF
+#ACT
+MAP D710
+SendMsg 5 请击杀卫士吧！！
+break
+
+
+
+
+
+
+
+
+
+
+
+
+;___________________________________________________________________________________________
+
+[@OnTimer20]
+#IF
+NOT EQUAL <$FBMAPNAME> 女娲副本
+#ACT
+MOV U32 0
+SetOffTimer 9
+SENDDELAYMSG 离开副本，任务已失败！%s后传送回土 5 249 1 @传送回土城
+break
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+break
+
+#IF
+CheckMapMonCount <$FBMAP> = 0 1
+#ACT
+goto @困难检测时间
+break
+
+[@困难传送回土城]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 20
+MapMove n3 330 330
+SendMsg 0 玩家<$USERNAME>挑战女娲副本[困难模式]失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本[困难模式]失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>挑战女娲副本[困难模式]失败，真是惋惜！
+break
+
+[@困难传送回土城2]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 20
+MapMove n3 330 330
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波[困难模式]，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波[困难模式]，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+SendMsg 0 玩家<$USERNAME>历经劫难守到最后一波[困难模式]，可惜仍敌不过BOSS，守护女娲失败，真是惋惜！
+break
+
+[@困难传送回土城3]
+#IF
+#ACT
+MOV U32 0
+SetOffTimer 20
+MapMove n3 330 330
+break
+
+[@困难检测时间]
+#IF
+EQUAL T13 已开启
+#ACT
+MOV T13 困难开始守护
+SENDDELAYMSG 本守护共10波，每波一个BOSS，%s后第一波到达,碾碎他们 5 249 1 @困难召唤第一波
+break
+
+#IF
+EQUAL T13 困难第一波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第二波
+break
+
+#IF
+EQUAL T13 困难第二波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第三波
+break
+
+#IF
+EQUAL T13 困难第三波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第四波
+break
+
+#IF
+EQUAL T13 困难第四波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第五波
+break
+
+#IF
+EQUAL T13 困难第五波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤偷袭者
+break
+
+#IF
+EQUAL T13 困难第五波偷袭
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第六波
+break
+
+#IF
+EQUAL T13 困难第六波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第七波
+break
+
+#IF
+EQUAL T13 困难第七波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第八波
+break
+
+#IF
+EQUAL T13 困难第八波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第九波
+break
+
+#IF
+EQUAL T13 困难第九波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难召唤第十波
+break
+
+#IF
+EQUAL T13 困难第十波
+#ACT
+SendMsg 5 怪物全被清理，直接召唤下一波，请不要在意倒计时！
+GOTO @困难计算成败
+break
+
+
+[@困难召唤第一波]
+#IF
+NOT EQUAL T13 困难开始守护
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第一波
+MobEctypeMon SELF 9 10 第一波·小怪(物免) 28 5
+MobEctypeMon SELF 9 10 第一波·BOSS【物免】 1 3
+SENDDELAYMSG 第一波已出现，%s后下一波到达 114 249 1 @困难召唤第二波
+Break
+
+[@困难召唤第二波]
+#IF
+NOT EQUAL T13 困难第一波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第二波
+MobEctypeMon SELF 37 39 第二波·小怪(魔免) 28 5
+MobEctypeMon SELF 37 39 第二波·BOSS【魔免】 1 3
+SENDDELAYMSG 第二波已出现，%s后下一波到达 120 249 1 @困难召唤第三波
+Break
+
+
+[@困难召唤第三波]
+#IF
+NOT EQUAL T13 困难第二波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第三波
+MobEctypeMon SELF 9 10 第三波·小怪(财帛) 28 5
+MobEctypeMon SELF 9 10 第三波·BOSS【财帛】 1 3
+SENDDELAYMSG 第三波已出现，%s后下一波到达 120 249 1 @困难召唤第四波
+Break
+
+[@困难召唤第四波]
+#IF
+NOT EQUAL T13 困难第三波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第四波
+MobEctypeMon SELF 27 14 第四波·小怪(元宝) 28 5
+MobEctypeMon SELF 27 14 第四波·BOSS【元宝】 1 3
+SENDDELAYMSG 第四波已出现，%s后下一波到达 120 249 1 @困难召唤第五波
+Break
+
+
+[@困难召唤第五波]
+#IF
+NOT EQUAL T13 困难第四波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第五波
+MobEctypeMon SELF 21 37 第五波·小怪(血牛) 28 5
+MobEctypeMon SELF 21 37 第五波·BOSS【血牛】 1 3
+SENDDELAYMSG 第五波已出现，%s后出现奇袭波 20 249 1 @困难召唤偷袭者
+Break
+
+[@困难召唤偷袭者]
+#IF
+NOT EQUAL T13 困难第五波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第五波偷袭
+MobEctypeMon SELF 22 23 第五波·偷袭者【麻痹】 25 5
+SENDDELAYMSG 偷袭者已出现，请注意清除，%s后下一波到达 100 249 1 @困难召唤第六波
+Break
+
+
+[@困难召唤第六波]
+#IF
+NOT EQUAL T13 困难第五波偷袭
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第六波
+MobEctypeMon SELF 9 10 第六波·小怪(双抗) 28 5
+MobEctypeMon SELF 9 10 第六波·BOSS【双抗】 1 3
+SENDDELAYMSG 第六波已出现，%s后下一波到达 120 249 1 @困难召唤第七波
+Break
+
+[@困难召唤第七波]
+#IF
+NOT EQUAL T13 困难第六波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第七波
+MobEctypeMon SELF 12 27 第七波·小怪(反震) 28 5
+MobEctypeMon SELF 12 27 第七波·BOSS【反震】 1 3
+SENDDELAYMSG 第七波已出现，%s后下一波到达 120 249 1 @困难召唤第八波
+Break
+
+[@困难召唤第八波]
+#IF
+NOT EQUAL T13 困难第七波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第八波
+MobEctypeMon SELF 27 27 第八波·小怪(暴虐) 28 5
+MobEctypeMon SELF 27 27 第八波·BOSS【暴虐】 1 3
+SENDDELAYMSG 第八波已出现，%s后下一波到达 120 249 1 @困难召唤第九波
+Break
+
+[@困难召唤第九波]
+#IF
+NOT EQUAL T13 困难第八波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第九波
+MobEctypeMon SELF 15 27 第九波·小怪(经验) 28 5
+MobEctypeMon SELF 15 27 第九波·BOSS【经验】 1 3
+SENDDELAYMSG 第九波已出现，%s后下一波到达 120 249 1 @困难召唤第十波
+Break
+
+[@困难召唤第十波]
+#IF
+NOT EQUAL T13 困难第九波
+#ACT
+BREAK
+
+#OR
+CheckMonMap <$MAP> 30 1
+CheckMapMonCount <$FBMAP> > 29 1
+#ACT
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 当前地图怪物超过30只，任务失败！%s后传送回土 5 249 1 @困难传送回土城
+#ELSEACT
+MOV T13 困难第十波
+MobEctypeMon SELF 36 38 第十波·小怪(疾行) 28 5
+MobEctypeMon SELF 36 38 最终·BOSS 1 3
+SENDDELAYMSG 最终·BOSS已经出现！请尽快解决！%s后未清除全部怪物则视为失败 120 249 1 @困难计算成败
+Break
+
+[@困难计算成败]
+#if
+CheckMapMonCount <$FBMAP> = 0 1
+#ACT
+GAMEGIRD + 90
+SendMsg 0 玩家<$USERNAME>挑战[困难模式]女娲副本成功，获得90张灵符！
+SendMsg 0 玩家<$USERNAME>挑战[困难模式]女娲副本成功，获得90张灵符！
+SendMsg 0 玩家<$USERNAME>挑战[困难模式]女娲副本成功，获得90张灵符！
+SendMsg 0 玩家<$USERNAME>挑战[困难模式]女娲副本成功，获得90张灵符！
+MOV U32 0
+SetOffTimer 20
+SENDDELAYMSG 恭喜您完成[困难模式]女娲副本！%s后传送回土 5 249 1 @困难传送回土城3
+break
+#ELSEACT
+SetOffTimer 20
+SENDDELAYMSG 当前地图仍然有怪物，本次任务失败！%s后传送回土 5 249 1 @困难传送回土城2
+break
+
+;___________________________________________________________________________________________
+
+
+[@刷新转盘啦]
+#if
+#act
+MOV N$第一格
+MOV N$第二格
+MOV N$第三格
+MOV N$第四格
+MOV N$第五格
+MOV N$第六格
+MOV N$第七格
+MOV N$第八格
+MOV N$第九格
+MOV N$第十格
+MOVR N$第一格 1 68
+MOVR N$第二格 1 68
+MOVR N$第三格 1 68
+MOVR N$第四格 1 68
+MOVR N$第五格 1 68
+MOVR N$第六格 1 68
+MOVR N$第七格 1 68
+MOVR N$第八格 1 68
+MOVR N$第九格 1 68
+MOVR N$第十格 1 68
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第一格)> A20 G30 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第二格)> A21 G31 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第三格)> A22 G32  
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第四格)> A23 G33 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第五格)> A24 G34
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第六格)> A25 G35
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第七格)> A26 G36
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第八格)> A27 G37 
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第九格)> A28 G38  
+GetListString ..\QuestDiary\物品\奖励物品.txt <$Str(N$第十格)> A29 G39  
+sendmsg 0 转盘已经刷新！！

@@ -1,0 +1,1195 @@
+[@玛法风光]
+{
+#IF
+check [155] 1
+#SAY
+您已经完成了玛法风光任务\
+#ACT
+break
+
+#IF
+check [145] 1
+check [146] 1
+check [147] 1
+check [148] 1
+check [149] 1
+check [150] 1
+check [151] 1
+check [152] 1
+check [153] 1
+check [154] 1
+check [155] 0
+#SAY
+您已经寻找到了所有NPC,快去找国王 <传送/@传送国王>领取奖励把!\
+
+#ACT
+break
+
+#IF
+check [145] 1
+check [146] 1
+#ACT
+mov S200  1.白日门画家--<已完成>
+#ELSEACT
+mov S200  1.白日门画家--位于<白日门206,392>处
+
+#IF
+check [145] 1
+check [147] 1
+#ACT
+mov S201  2.比奇画家--<已完成>
+#ELSEACT
+mov S201  2.比奇画家--位于<比奇29,456>处
+
+#IF
+check [145] 1
+check [148] 1
+#ACT
+mov S202  3.苍月画家--<已完成>
+#ELSEACT
+mov S202  3.苍月画家--位于<苍月海边537,705>处
+
+
+#IF
+check [145] 1
+check [149] 1
+#ACT
+mov S203  4.封魔画家--<已完成>
+#ELSEACT
+mov S203  4.封魔画家--位于<封魔古井122,403>处
+
+#IF
+check [145] 1
+check [150] 1
+#ACT
+mov S204  5.狐月画家--<已完成>
+#ELSEACT
+mov S204  5.狐月画家--位于<狐月神殿12,26>处
+
+#IF
+check [145] 1
+check [151] 1
+#ACT
+mov S205  6.盟重画家--<已完成>
+#ELSEACT
+mov S205  6.盟重画家--位于<盟重佛像715,417>处
+
+#IF
+check [145] 1
+check [152] 1
+#ACT
+mov S206  7.魔龙画家--<已完成>
+#ELSEACT
+mov S206  7.魔龙画家--位于<魔龙右上绿洲395,140>处
+
+#IF
+check [145] 1
+check [153] 1
+#ACT
+mov S207  8.牛魔画家--<已完成>
+#ELSEACT
+mov S207  8.牛魔画家--位于<牛魔大厅51,50>处
+
+#IF
+check [145] 1
+check [154] 1
+#ACT
+mov S208  9.桃园画家--<已完成>
+#ELSEACT
+mov S208  9.桃园画家--位于<桃园62,87>处
+
+
+#IF
+#SAY
+你在<比奇国王/FCOLOR=249> <传送/@传送国王>处,领取了风光任务。\
+领取后需要收集9位NPC手中的画卷!不分先后,\
+全部完成可找<比奇国王/FCOLOR=249>领取<900W经验奖励!>\
+需要寻找的NPC如下:\
+<$Str(S200)>\
+<$Str(S201)>\
+<$Str(S202)>\
+<$Str(S203)>\
+<$Str(S204)>\
+<$Str(S205)>\
+<$Str(S206)>\
+<$Str(S207)>\
+<$Str(S208)>\ \
+如果状态不正确,请点击<任务标题>,重新获取状态!\
+
+[@传送国王]
+#IF
+CHECKMAPNAME n0139
+#SAY
+对不起，您当前在特殊地图，无法使用此功能！
+#ACT
+break
+
+#IF
+#ACT
+mapmove n0122 26 30
+break
+
+[@玛法巡游]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [100] 1
+Check [101] 1
+Check [102] 1
+Check [103] 1
+Check [104] 1
+Check [105] 1
+Check [106] 1
+Check [107] 1
+#SAY
+您已经完成了今日的玛法巡游任务\
+
+#ACT
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [100] 1
+Check [101] 1
+Check [102] 1
+Check [103] 1
+Check [104] 1
+Check [105] 1
+Check [106] 1
+Check [107] 0
+#SAY
+您已经寻找到了所有NPC,快去找国王 <传送/@传送国王>领取奖励把!\
+
+#ACT
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [100] 1
+#ACT
+mov S100  1.白日门教头--<已完成>
+#ELSEACT
+mov S100  1.白日门教头--位于<白日门196,322>处
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [101] 1
+#ACT
+mov S101  2.封魔谷月老--<已完成>
+#ELSEACT
+mov S101  2.封魔谷月老--位于<姻缘神殿20,32>处
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [102] 1
+#ACT
+mov S102  3.魔龙谷向导--<已完成>
+#ELSEACT
+mov S102  3.魔龙谷向导--位于<魔龙岭254,40>处
+
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [103] 1
+#ACT
+mov S103  4.沙巴克肉铺--<已完成>
+#ELSEACT
+mov S103  4.沙巴克肉铺--位于<盟重省659,301>处
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [104] 1
+#ACT
+mov S104  5.苍月岛法师--<已完成>
+#ELSEACT
+mov S104  5.苍月岛法师--位于<苍月岛118,366>处
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [105] 1
+#ACT
+mov S105  6.桃园门技师--<已完成>
+#ELSEACT
+mov S105  6.桃园门技师--位于<桃园53,115>处
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [106] 1
+#ACT
+mov S106  7.沙宝阁老人--<已完成>
+#ELSEACT
+mov S106  7.沙宝阁老人--位于<沙宝阁50,50>处
+
+#IF
+#SAY
+你每天可以在<比奇国王/FCOLOR=249> <传送/@传送国王>处,领取巡游任务。\
+领取后需要将7瓶水送到7位NPC手中!顺序不分先后,\
+每次送水获得<等级*4000>经验+<3000>金币\
+全部完成可找<比奇国王/FCOLOR=249>领取固定奖励!\
+奖励为：500W经验+20点声望+10元宝\
+需要寻找的NPC如下:\
+<$Str(S100)>\
+<$Str(S101)>\
+<$Str(S102)>\
+<$Str(S103)>\
+<$Str(S104)>\
+<$Str(S105)>\
+<$Str(S106)>\ \
+如果状态不正确,请点击<任务标题>,重新获取状态!\
+}
+
+
+[@初级探索]
+{
+#IF
+Check [220] 1
+#ACT
+mov S120 <【完成探索】>
+#ELSEACT
+mov S120 <【尸王大殿】/@尸王>
+
+#IF
+Check [221] 1
+#ACT
+mov S121 <【完成探索】>
+#ELSEACT
+mov S121 <【皇　　宫】/@皇宫>
+
+#IF
+Check [222] 1
+#ACT
+mov S122 <【完成探索】>
+#ELSEACT
+mov S122 <【桃源之门】/@桃园>
+
+
+#IF
+Check [223] 1
+#ACT
+mov S123 <【完成探索】>
+#ELSEACT
+mov S123 <【祖玛大厅】/@祖玛>
+
+
+#IF
+Check [224] 1
+#ACT
+mov S124 <【完成探索】>
+#ELSEACT
+mov S124 <【紫水晶屋】/@紫水>
+
+#IF
+Check [225] 1
+#ACT
+mov S125 <【完成探索】>
+#ELSEACT
+mov S125 <【石墓武器铺】/@石武>
+
+#IF
+Check [226] 1
+#ACT
+mov S126 <【完成探索】>
+#ELSEACT
+mov S126 <【赤月魔穴】/@赤月>
+
+#IF
+Check [227] 1
+#ACT
+mov S127 <【完成探索】>
+#ELSEACT
+mov S127 <【牛魔大厅】/@牛魔大厅>
+
+#IF
+Check [228] 1
+#ACT
+mov S128 <【完成探索】>
+#ELSEACT
+mov S128 <【封魔大殿】/@封魔的>
+
+#IF
+Check [229] 1
+#ACT
+mov S129 <【完成探索】>
+#ELSEACT
+mov S129 <【恶魔祭坛】/@恶魔祭坛>
+
+#IF
+Check [230] 1
+#ACT
+mov S130 <【完成探索】>
+#ELSEACT
+mov S130 <【死亡棺材】/@死亡棺材>
+
+#IF
+Check [231] 1
+#ACT
+mov S131 <【完成探索】>
+#ELSEACT
+mov S131 <【姻缘神殿】/@姻缘神殿>
+
+#IF
+Check [232] 1
+#ACT
+mov S132 <【完成探索】>
+#ELSEACT
+mov S132 <【钳虫巢穴】/@钳虫巢穴>
+#IF
+Check [233] 1
+#ACT
+mov S133 <【完成探索】>
+#ELSEACT
+mov S133 <【死亡神殿】/@死亡神殿>
+#IF
+Check [234] 1
+#ACT
+mov S134 <【完成探索】>
+#ELSEACT
+mov S134 <【地狱烈焰】/@地狱烈焰>
+#IF
+Check [235] 1
+#ACT
+mov S135 <【完成探索】>
+#ELSEACT
+mov S135 <【深渊魔域】/@深渊魔域>
+#IF
+Check [236] 1
+#ACT
+mov S136 <【完成探索】>
+#ELSEACT
+mov S136 <【堕落坟场】/@堕落坟场>
+#IF
+Check [237] 1
+#ACT
+mov S137 <【完成探索】>
+#ELSEACT
+mov S137 <【困惑殿堂】/@困惑殿堂>
+#IF
+Check [256] 1
+#ACT
+mov S138 <【完成探索】>
+#ELSEACT
+mov S138 <【庄园之城】/@庄园之城>
+#IF
+Check [257] 1
+#ACT
+mov S139 <【完成探索】>
+#ELSEACT
+mov S139 <【百草之园】/@百草之园>
+#IF
+Check [258] 1
+#ACT
+mov S140 <【完成探索】>
+#ELSEACT
+mov S140 <【庄园三楼】/@庄园三楼>
+#IF
+#SAY
+<$Str(S120)>  <$Str(S121)>  <$Str(S122)>\
+<$Str(S123)>  <$Str(S124)>  <$Str(S125)>\
+<$Str(S126)>  <$Str(S127)>  <$Str(S128)>\
+<$Str(S129)>  <$Str(S130)>  <$Str(S131)>\
+<$Str(S132)>  <$Str(S133)>  <$Str(S134)>\
+<$Str(S135)>  <$Str(S136)>  <$Str(S137)>\
+<$Str(S138)>  <$Str(S139)>  <$Str(S140)>\
+初级探索奖励为：<等级×3000经验奖励+1成就点>\
+
+
+[@庄园三楼]
+#IF
+CHECKMAPNAME GUDONG03
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [258] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@百草之园]
+#IF
+CHECKMAPNAME grly
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [257] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@庄园之城]
+#IF
+CHECKMAPNAME nGA0
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [256] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@尸王]
+#IF
+CHECKMAPNAME Q004
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [220] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@皇宫]
+#IF
+CHECKMAPNAME n0122
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [221] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@桃园]
+#IF
+CHECKMAPNAME NR001
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [222] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@祖玛]
+#IF
+CHECKMAPNAME D515
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [223] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@紫水]
+#IF
+CHECKMAPNAME D608
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [224] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@石武]
+#IF
+CHECKMAPNAME D71650
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [225] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@赤月]
+#IF
+CHECKMAPNAME D10062
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [226] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@牛魔大厅]
+#IF
+CHECKMAPNAME nD2079
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [227] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@封魔的]
+#IF
+CHECKMAPNAME nD2013
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [228] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@恶魔祭坛]
+#IF
+CHECKMAPNAME D10061
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [229] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@死亡棺材]
+#IF
+CHECKMAPNAME D606
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [230] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@姻缘神殿]
+#IF
+CHECKMAPNAME M101
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [231] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@钳虫巢穴]
+#IF
+CHECKMAPNAME T232
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [232] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@死亡神殿]
+#IF
+CHECKMAPNAME T218
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [233] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@地狱烈焰]
+#IF
+CHECKMAPNAME T339
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [234] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@深渊魔域]
+#IF
+CHECKMAPNAME T219
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [235] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@堕落坟场]
+#IF
+CHECKMAPNAME T315
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [236] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@困惑殿堂]
+#IF
+CHECKMAPNAME T118
+#ACT
+Mul N8 3000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [237] 1
+INC U25 1
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+}
+
+
+[@高级探索]
+{
+#IF
+Check [238] 1
+#ACT
+mov S120 <【完成探索】>
+#ELSEACT
+mov S120 <【屠龙大殿】/@屠龙殿>
+
+#IF
+Check [239] 1
+#ACT
+mov S121 <【完成探索】>
+#ELSEACT
+mov S121 <【王者禁地】/@王者禁地>
+
+#IF
+Check [240] 1
+#ACT
+mov S122 <【完成探索】>
+#ELSEACT
+mov S122 <【沙藏宝阁】/@沙藏宝阁>
+
+
+#IF
+Check [241] 1
+#ACT
+mov S123 <【完成探索】>
+#ELSEACT
+mov S123 <【堕落魔域】/@堕落魔域>
+
+
+#IF
+Check [242] 1
+#ACT
+mov S124 <【完成探索】>
+#ELSEACT
+mov S124 <【情缘峡谷】/@情缘峡谷>
+
+#IF
+Check [243] 1
+#ACT
+mov S125 <【完成探索】>
+#ELSEACT
+mov S125 <【魔龙神殿】/@魔龙殿>
+
+#IF
+Check [244] 1
+#ACT
+mov S126 <【完成探索】>
+#ELSEACT
+mov S126 <【BOSS之家】/@BOSS之家>
+
+#IF
+Check [245] 1
+#ACT
+mov S127 <【完成探索】>
+#ELSEACT
+mov S127 <【雷炎大殿】/@雷炎殿>
+
+#IF
+Check [246] 1
+#ACT
+mov S128 <【完成探索】>
+#ELSEACT
+mov S128 <【魔龙血域】/@魔龙血域>
+
+#IF
+Check [247] 1
+#ACT
+mov S129 <【完成探索】>
+#ELSEACT
+mov S129 <【狐月神殿】/@狐月神殿>
+
+#IF
+Check [248] 1
+#ACT
+mov S130 <【完成探索】>
+#ELSEACT
+mov S130 <【火龙神殿】/@火龙神殿>
+
+#IF
+Check [249] 1
+#ACT
+mov S131 <【完成探索】>
+#ELSEACT
+mov S131 <【雪山圣地】/@雪山圣地>
+
+#IF
+Check [250] 1
+#ACT
+mov S132 <【完成探索】>
+#ELSEACT
+mov S132 <【深渊大殿】/@深渊大殿>
+#IF
+Check [251] 1
+#ACT
+mov S133 <【完成探索】>
+#ELSEACT
+mov S133 <【石原祭坛】/@石原祭坛>
+#IF
+Check [252] 1
+#ACT
+mov S134 <【完成探索】>
+#ELSEACT
+mov S134 <【兽人陵墓五】/@兽人陵墓>
+#IF
+Check [253] 1
+#ACT
+mov S135 <【完成探索】>
+#ELSEACT
+mov S135 <【神龙帝国】/@神龙帝国>
+#IF
+Check [254] 1
+#ACT
+mov S136 <【完成探索】>
+#ELSEACT
+mov S136 <【瘟疫沼泽二】/@瘟疫沼泽>
+#IF
+Check [255] 1
+#ACT
+mov S137 <【完成探索】>
+#ELSEACT
+mov S137 <【生死之劫】/@生死劫>
+#IF
+Check [259] 1
+#ACT
+mov S138 <【完成探索】>
+#ELSEACT
+mov S138 <【迷失大陆】/@迷失大陆>
+#IF
+Check [260] 1
+#ACT
+mov S139 <【完成探索】>
+#ELSEACT
+mov S139 <【真龙魔宫】/@真龙魔宫>
+#IF
+Check [261] 1
+#ACT
+mov S140 <【完成探索】>
+#ELSEACT
+mov S140 <【血灵教主之家】/@血灵教主>
+#IF
+#SAY
+<$Str(S120)>  <$Str(S121)>  <$Str(S122)>\
+<$Str(S123)>  <$Str(S124)>  <$Str(S125)>\
+<$Str(S126)>  <$Str(S127)>  <$Str(S128)>\
+<$Str(S129)>  <$Str(S130)>  <$Str(S131)>\
+<$Str(S132)>  <$Str(S133)>  <$Str(S135)>\
+<$Str(S137)>  <$Str(S134)>  <$Str(S136)>\
+<$Str(S138)>  <$Str(S139)>  <$Str(S140)>\
+高级探索奖励为：<等级×6000经验奖励+2成就点>\
+
+
+[@迷失大陆]
+#IF
+CHECKMAPNAME nch001
+#ACT
+Mul N8 6000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [259] 1
+messagebox 恭喜你完成探索!
+INC U25 2
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@真龙魔宫]
+#IF
+CHECKMAPNAME WHLD
+#ACT
+Mul N8 6000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [260] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@血灵教主]
+#IF
+CHECKMAPNAME XCBOSS
+#ACT
+Mul N8 6000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [261] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @初级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@屠龙殿]
+#IF
+CHECKMAPNAME H010
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [238] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@王者禁地]
+#IF
+CHECKMAPNAME H106
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [239] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@沙藏宝阁]
+#IF
+CHECKMAPNAME NF002
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [240] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@堕落魔域]
+#IF
+CHECKMAPNAME DM002
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [241] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@情缘峡谷]
+#IF
+CHECKMAPNAME F003
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [242] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@魔龙殿]
+#IF
+CHECKMAPNAME EM100
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [243] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+[@BOSS之家]
+#IF
+CHECKMAPNAME F010
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [244] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@雷炎殿]
+#IF
+CHECKMAPNAME H301
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [245] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@魔龙血域]
+#IF
+CHECKMAPNAME 66
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [246] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@狐月神殿]
+#IF
+CHECKMAPNAME nfox03
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [247] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@火龙神殿]
+#IF
+CHECKMAPNAME D2083
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [248] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@雪山圣地]
+#IF
+CHECKMAPNAME YXSD
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [249] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@深渊大殿]
+#IF
+CHECKMAPNAME hf005
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [250] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@石原祭坛]
+#IF
+CHECKMAPNAME bsrlm
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [251] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@兽人陵墓]
+#IF
+CHECKMAPNAME bsrlm05
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [252] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@神龙帝国]
+#IF
+CHECKMAPNAME mhfy
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [253] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+
+[@瘟疫沼泽]
+#IF
+CHECKMAPNAME wyzz01
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [254] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+[@生死劫]
+#IF
+CHECKMAPNAME zhuhuozhen
+#ACT
+Mul N8 8000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+set [255] 1
+INC U25 2
+messagebox 恭喜你完成探索!
+SENDMSG 0 【探索活动】：玩家『<$USERNAME>』成功探索到<%m>，获得经验<$Str(N8)>！
+goto @高级
+#ELSEACT
+SENDMSG 6 您并未在该地图！探索失败！
+break
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

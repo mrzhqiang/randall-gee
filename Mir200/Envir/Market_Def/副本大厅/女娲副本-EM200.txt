@@ -1,0 +1,364 @@
+[@main]
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\副本次数.txt [<$USERNAME>]
+#ACT
+MOV U27 20
+MOV U41 30
+MOV U40 3
+CALCVAR HUMAN 副本次数 = 3
+SAVEVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+LOADVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+
+#if
+#SAY
+名称： <女娲副本/FCOLOR=254>    时间： <60分钟/FCOLOR=254>\
+难度： <★★★★★★★★★★★★★★★★/FCOLOR=254>\
+规则： <单人进入/FCOLOR=254> 等级： <60级以上/FCOLOR=254>\
+出产： <经验、灵符/FCOLOR=254>\
+条件： <每天三次、10万金币、50点声望/FCOLOR=254>\
+失败条件：<当地图怪物超过30只，则任务失败！/FCOLOR=249>\
+您今天可进入 {<$STR(U40)>/FCOLOR=249} 次，您当前灵符数：<$GAMEGIRD>\\
+<本地图是单人副本，请注意准备好一切所需物品/FCOLOR=254>\
+<进入女娲副本/@进入检测>　　<使用灵符/@使用>　　<结束对话/@exit>\
+
+
+[@使用]
+目前灵符可以使用的是：您当前灵符数：<$GAMEGIRD>\
+<9张>灵符<兑换/@兑换传奇>传奇碎片.　　　　　　　<1000张>灵符对深紫装备<打孔/@XLZB>\ \
+<200张>灵符<抽取/@抽奖>天龙级以上装备.　　　　　　<5000张>灵符制作<符文/@符文> \ \
+<500张>灵符<抽取/@命格>随机命格装备.　　　　<6000张>灵符制作<坐骑赤兔马/@坐骑>\ \
+<3500张>灵符<制作时装/@制作时装>　　　　　　　　　<返回/@main>
+
+
+[@坐骑]
+#if
+CHECKGAMEGIRD > 5999
+#ACT
+GAMEGIRD - 6000
+give 赤兔马
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《赤兔马》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《赤兔马》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《赤兔马》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+
+
+
+
+
+
+
+[@XLZB]
+#if
+CHECKGAMEGIRD > 999
+#ACT
+OPENUPGRADEDLG 装备打孔
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@UpgradeDlgItem]
+#if
+CheckItemNameColor -1 241
+#act
+RECLAIMITEM
+SENDMSG 6 该物品无法打孔。请不要再放入了！
+break
+
+#if
+CheckItemNameColor -1 255
+#act
+RECLAIMITEM
+SENDMSG 6 该物品无法打孔。请不要再放入了！
+break
+
+#if
+CheckFluteCount -1 = 1
+#act
+RECLAIMITEM
+SENDMSG 6 你的装备已经打孔了。请不要再放入了！
+break
+
+#if
+CHECKGAMEGIRD > 999
+CheckFluteCount -1 = 0
+#act
+GAMEGIRD - 1000
+SETFLUTECOUNT -1 1
+RECLAIMITEM 
+SENDMSG 6 你的装备强化成功!.
+SendCenterMsg 180 249 恭喜<$USERNAME>使用女娲灵符将装备打孔成功! 1 5
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+
+[@符文]
+请问您要制作？？\
+\<ItemShow:921:1:0:0:1> <ItemShow:922:1:0:0:1> <ItemShow:923:1:0:0:1>  <ItemShow:924:1:0:0:1>  <ItemShow:925:1:0:0:1> \
+\ \
+\ \
+<符文：法力潮汐/@法力>　　<符文：蔑视一切/@蔑视>\ \
+<符文：无尽潜能/@潜能>　　<符文：星穹暴涨/@星穹>\ \
+<符文：嗜血狂魔/@嗜血>　　　　　　　　　<返回/@使用>\ \
+
+[@法力]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+give 符文：法力潮汐
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：法力潮汐》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：法力潮汐》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：法力潮汐》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@嗜血]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+give 符文：嗜血狂魔
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：嗜血狂魔》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：嗜血狂魔》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：嗜血狂魔》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@星穹]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+give 符文：星穹暴涨
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：星穹暴涨》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：星穹暴涨》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：星穹暴涨》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@潜能]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+give 符文：无尽潜能
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：无尽潜能》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：无尽潜能》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：无尽潜能》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@蔑视]
+#IF
+CHECKGAMEGIRD > 4999
+#ACT
+GAMEGIRD - 5000
+give 符文：蔑视一切
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：蔑视一切》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：蔑视一切》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《符文：蔑视一切》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+
+[@制作时装]
+请问您要制作？？\
+\<ItemShow:628:1:0:0:1> <ItemShow:707:1:0:0:1> <ItemShow:708:1:0:0:1> \
+\ \
+\ \
+<女娲の荣耀(时装武器)/@武器>\ \
+<女娲の庇佑(男)(男时装衣服)/@衣服>\ \
+<女娲の庇佑(女)(女时装衣服)/@女衣服>　　　　　　　　　<返回/@使用>\ \
+
+[@武器]
+#IF
+CHECKGAMEGIRD > 3499
+#ACT
+GAMEGIRD - 2500
+give 女娲の荣耀
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の荣耀》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の荣耀》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の荣耀》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@衣服]
+#IF
+CHECKGAMEGIRD > 3499
+#ACT
+GAMEGIRD - 2500
+give 女娲の庇佑(男)
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(男)》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(男)》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(男)》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+[@女衣服]
+#IF
+CHECKGAMEGIRD > 3499
+#ACT
+GAMEGIRD - 2500
+give 女娲の庇佑(女)
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(女)》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(女)》实力更上一层楼！
+SendMsg 0 玩家<$USERNAME> 使用灵符打造了一件《女娲の庇佑(女)》实力更上一层楼！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+
+
+
+
+
+
+[@兑换传奇]
+#IF
+CHECKGAMEGIRD > 8
+#ACT
+GAMEGIRD - 9
+GiveStateItem 传奇碎片 1 1 0 1 1 1
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+[@抽奖]
+#IF
+CHECKGAMEGIRD > 199
+#ACT
+GAMEGIRD - 200
+GetRandomText ..\QuestDiary\宝图\装备列表.txt S118
+GiveStateItem <$STR(S118)> 1 1 0 0 1 1
+SendMsg 0 玩家<$USERNAME> 使用灵符抽奖，抽到一件<$STR(S118)>！
+SendMsg 0 玩家<$USERNAME> 使用灵符抽奖，抽到一件<$STR(S118)>！
+SendMsg 0 玩家<$USERNAME> 使用灵符抽奖，抽到一件<$STR(S118)>！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+[@命格]
+#IF
+CHECKGAMEGIRD > 499
+#ACT
+GAMEGIRD - 500
+GetRandomText ..\QuestDiary\数据文件\命格.txt S118
+Give <$STR(S118)>
+SendMsg 0 玩家<$USERNAME> 使用灵符抽取命格，抽到一件<$STR(S118)>！
+SendMsg 0 玩家<$USERNAME> 使用灵符抽取命格，抽到一件<$STR(S118)>！
+SendMsg 0 玩家<$USERNAME> 使用灵符抽取命格，抽到一件<$STR(S118)>！
+goto @使用
+break
+#ELSEACT
+MESSAGEBOX 对不起，您的灵符不足！
+break
+
+
+
+
+
+[@进入检测]
+#IF
+CANMOVEECTYPE 女娲副本
+#ACT
+SENDMSG 5 您已经创建了副本，请等待冷却！冷却时间10秒！
+break
+
+#IF
+CHECKLEVELEX > 59
+LARGE U40 0
+CheckGold 100000
+CHECKCREDITPOINT > 49
+#act
+MOV U30 1
+MOV U32 0
+take 金币 100000
+CREDITPOINT - 50
+SetOffTimer 9
+CREATEECTYPE 女娲副本 60
+DEC U40 1
+SetOnTimer 4 1
+MOVEECTYPE 女娲副本 22 23
+break
+#ELSEACT
+MESSAGEBOX 创建副本失败！需要100000金币，50声望或者您次数不足1了！\或者您未满60级！
+break
+
+
+
+
+[@CreateEctype_NoExists]
+#IF
+#ACT
+MESSAGEBOX 创建副本地图失败，副本不存在！
+
+[@CreateEctype_Fail]
+#IF
+#ACT
+MESSAGEBOX 创建副本失败，副本人数已满，请稍候再试！
+
+
+[@CreateEctype_IN]
+#IF
+#ACT
+SENDMSG 5 副本地图已经创建完成，可以直接进入了。
+
+[@CreateEctype_IN_Time]
+#IF
+#ACT
+SENDMSG 5 副本已经存在..无法创建。
+
+[@CreateEctype_OK]
+#IF
+#ACT
+SENDMSG 5 副本地图创建成功，并初始化地图怪物成功。
+SENDMSG 5 副本地图创建成功，并初始化地图事件成功。
+
+[@MoveEctype_Fail_Time]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败，超过可传送时间
+
+[@MoveEctype_Fail]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败
+
+[@MoveEctype_OK]
+#IF
+#ACT
+SENDMSG 5 已传送到副本地图
+
+

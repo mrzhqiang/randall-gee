@@ -1,0 +1,109 @@
+[@MAIN]
+#IF
+Equal U43 1
+Equal U42 3
+#ACT
+MOV U42 4
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<重铸装备/SCOLOR=250>只需<5元宝+2件相同的装备即可/SCOLOR=250>\
+<当成长型的武器属性不满意，可以用30元宝重新回到1级再次成长/SCOLOR=253>\ \
+学习完毕，接下来去找<宠物使者/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<宠物使者/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<重铸装备/SCOLOR=250>只需<5元宝+2件相同的装备即可/SCOLOR=250>\
+<当成长型的武器属性不满意，可以用30元宝重新回到1级再次成长/SCOLOR=253>\ \
+
+<谢谢您/@exit>\
+#ACT
+break
+
+#IF
+#SAY
+你好！我能把你的装备进行<重铸/SCOLOR=249>哦\
+让你的装备回复到<初始的状态/SCOLOR=249>\
+不过是要付出代价的哦！\
+成长型武器重铸后，依旧为成长型，只不过会0级\
+重铸需要<5元宝+2件相同的装备/SCOLOR=250>\
+　　　　<重铸成长型只需30元宝即可/SCOLOR=250>\
+<注意：如果装备镶嵌有宝石，请摘下再重铸>\
+<      重铸后，宝石消失！>\
+<装备重铸/@XLZB>       <离开/@exit>\
+
+
+
+
+
+
+
+[@XLZB]
+#if
+#ACT
+OPENUPGRADEDLG 装备重铸
+
+[@UpgradeDlgItem]
+#ACT
+MOV S$打造物品 <$DLGITEM.NAME>
+
+#IF
+EQUAL <$STR(S$打造物品)> 记路标石
+#ACT
+RECLAIMITEM
+MESSAGEBOX 对不起，记路标石不允许被重铸
+break
+
+#IF
+CheckgameGold > 29
+CheckItemNameColor -1 70
+#act
+CHANGEITEMADDVALUE -1 0 = 0
+CHANGEITEMADDVALUE -1 1 = 0
+CHANGEITEMADDVALUE -1 2 = 0
+CHANGEITEMADDVALUE -1 5 = 0
+SetNewItemValue -1 0 = 0
+SetNewItemValue -1 1 = 0
+SetNewItemValue -1 2 = 0
+SetNewItemValue -1 3 = 0
+SetNewItemValue -1 4 = 0
+SetNewItemValue -1 5 = 0
+SetNewItemValue -1 7 = 0
+SetNewItemValue -1 8 = 0
+gameGold - 30
+CloseItemFlute boxitem1 3
+ChangeItemUpgradeCount -1 = 1
+ChangeItemName -1 <1段><聚气>·<$DLGITEM.NAME>
+mov s10 <$DLGITEM.NAME>
+SendCenterMsg 180 251 【重铸】：玩家[<$USERNAME>]在鉴定师哪里，重铸了成长装备【<1段><聚气>·<$STR(S10)>】！等待他的再次修炼满级！ 1 3
+RECLAIMITEM
+break
+
+#IF
+CheckgameGold > 4
+CheckItem <$STR(S$打造物品)> 2
+#ACT
+TAKEDLGITEM
+take <$STR(S$打造物品)> 1
+give <$STR(S$打造物品)>
+gameGold - 5
+SENDMSG 0 【重铸】：玩家[<$USERNAME>]重铸了装备<$STR(S$打造物品)>！
+break
+#elseact
+RECLAIMITEM
+MESSAGEBOX 缺少5元宝，以及<$STR(S$打造物品)>1件！\<成长型装备>需要30元宝来重铸！
+break
+
+
+
+
+
+
+
+
+
+

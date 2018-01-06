@@ -1,0 +1,18 @@
+[@main]
+#IF
+Check [113] 1
+Check [114] 0
+LARGE N10 3
+#ACT
+set [114] 1
+SENDMSG 6 提示：您已经击杀完成。回去找铁匠汇报把！
+break
+
+#IF
+Check [113] 1
+Check [114] 0
+SMALL N10 5
+#ACT
+inc N10 1
+SENDMSG 6 提示：击杀稻草人数量 + 1.当前已击杀<$Str(N10)>
+break

@@ -1,0 +1,142 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 6
+#ACT
+MOV U42 7
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<闯天关/SCOLOR=250>每天<天关开放时间是20点-22点/SCOLOR=250>\
+<每5层可以领取奖励并返回土城。可以获得对应的装备/SCOLOR=253>\
+<生死劫指的是，当龙魂体魄达到瓶颈30级的时候，需要通过生死劫/SCOLOR=70> \
+<通过后，可以继续修炼龙魂体魄！/SCOLOR=250>\
+
+学习完毕，接下来去找<幸运礼炮/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<幸运礼炮/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<闯天关/SCOLOR=250>每天<天关开放时间是20点-22点/SCOLOR=250>\
+<每5层可以领取奖励并返回土城。可以获得对应的装备/SCOLOR=253>\
+<生死劫指的是，当龙魂体魄达到瓶颈30级的时候，需要通过生死劫/SCOLOR=70> \
+<通过后，可以继续修炼龙魂体魄！/SCOLOR=250>\
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+#SAY
+名称： <天关生死劫/FCOLOR=254>    时间： <不限制/FCOLOR=254>\
+难度： <★★★★★★★★★★/FCOLOR=254>\
+规则： <单人进入/FCOLOR=254> 等级： <30-50级/FCOLOR=254>\
+规则： <共计50层，每层限时3分钟/FCOLOR=254>\
+出产： <装备，荣誉点/FCOLOR=254>\
+条件： <每天20点-22点，消耗5荣誉即可进入>\ \
+<本地图是单人副本，请注意准备好一切所需物品/FCOLOR=254>\
+<我知道了，请送我进入天关/@进入检测>　 <请送我进入生死劫/@进入生死劫> <结束对话/@exit>\
+
+
+[@进入生死劫]
+#IF
+CHECKLEVELEX < 65
+#ACT
+MESSAGEBOX 对不起,你未满65级,请65级以后才来!
+break
+
+#IF
+CHECKFENGHAO 出神入化
+#ACT
+MESSAGEBOX 对不起,你已经拥有出神入化称号了!
+break
+
+#IF
+CheckMapHumanCount zhuhuozhen = 0
+#ACT
+goto @进入生死劫2
+#ELSEACT
+MESSAGEBOX 该副本正在被人挑战中，请稍候再试！
+
+
+
+
+[@进入生死劫2]
+#IF
+EQUAL U14 30
+CheckGold 900000
+CHECKCREDITPOINT > 49
+CHECKGAMEGLORY > 199
+#ACT
+GAMEGLORY - 500
+take 金币 900000
+CREDITPOINT - 50
+CLEARMAPMON zhuhuozhen
+mapmove zhuhuozhen
+Param1 zhuhuozhen
+Param2 50
+Param3 50
+MonGen 世界BOSS·霸王 1 1
+#ELSEACT
+messagebox 对不起，进入生死劫需要90万金币，50点声望，200点荣誉！\<龙魂体魄需要达到30级才能进行此任务！>
+
+
+
+
+[@进入检测]
+#OR
+LARGE <$HOUR> 21
+SMALL <$HOUR> 20
+#ACT
+messagebox 对不起,天关开放时间是20点-22点!
+break
+
+#IF
+CHECKLEVELEX < 35
+#ACT
+MESSAGEBOX 对不起,你未满35级,请35级以后才来!
+break
+
+#IF
+CheckMapHumanCount E137 = 0
+#ACT
+goto @进入
+#ELSEACT
+MESSAGEBOX 该副本正在被人挑战中，请稍候再试！
+
+[@进入]
+#IF
+CHECKGAMEGLORY > 4
+#ACT
+GAMEGLORY - 5
+mapmove E137
+Param1 E137
+Param2 19
+Param3 20
+MonGen 黑野猪 5 5
+SENDDELAYMSG 闯关时间剩余%s秒 180 249 1 @闯关失败
+#ELSEACT
+messagebox 对不起，进入天关5点荣誉！
+
+
+[@闯关失败]
+#IF
+#ACT
+mapmove n3 330 333
+messagebox 时间已到，本次闯关失败！
+break
+
+
+
+
+
+
+
+
+
+
+

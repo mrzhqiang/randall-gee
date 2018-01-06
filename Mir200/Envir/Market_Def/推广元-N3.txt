@@ -1,0 +1,219 @@
+[@main]
+#IF
+#ACT
+LOADVAR HUMAN TGM ..\QuestDiary\推广.txt
+LOADVAR HUMAN TGR ..\QuestDiary\推广.txt
+goto @初始化推广码
+
+[@初始化推广码]
+#IF
+CheckStringlength <$HUMAN(TGM)> > 4
+#ACT
+MOV S$推广码 <$HUMAN(TGM)>
+goto @初始化推广人
+#ELSEACT
+MOV S$推广码 <$MACHINEID>B
+INC G900 1
+INC S$推广码 <$STR(G900)>
+MOV <$HUMAN(TGM)> <$STR(S$推广码)>
+SAVEVAR HUMAN TGM ..\QuestDiary\推广.txt
+AddTextListEx ..\QuestDiary\推广数据\推广码目录.txt <$STR(S$推广码)>
+CREATEFILE ..\QuestDiary\推广数据\<$STR(S$推广码)>.txt
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>.txt <$STR(S$推广码)>
+CREATEFILE ..\QuestDiary\推广数据\<$STR(S$推广码)>-RS.txt
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-RS.txt 0
+CREATEFILE ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt 0
+CREATEFILE ..\QuestDiary\推广数据\<$STR(S$推广码)>-NAME.txt
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-NAME.txt <$USERNAME>
+goto @初始化推广人
+
+[@初始化推广人]
+#IF
+CheckStringlength <$HUMAN(TGR)> > 2
+#ACT
+MOV S$推广人 <$HUMAN(TGR)>
+goto @人数奖励
+#ELSEACT
+MOV S$推广人 <填写推广人，领大量金币！/@@InPutString19>
+goto @人数奖励
+
+[@人数奖励]
+#ACT
+GetListString ..\QuestDiary\推广数据\<$STR(S$推广码)>-RS.txt 0 N6
+GetListString ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt 0 N7
+goto @对话
+
+[@对话]
+#act
+CLOSE
+CloseBigDialogBox
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+#SAY
+\ \ \ \
+　　　　　　　　　　<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+　　　　　　　　　　║<追/AUTOCOLOR=155,168,253,115,125>║║<忆/AUTOCOLOR=155,168,253,115,125>║║<传/AUTOCOLOR=155,168,253,115,125>║║<奇/AUTOCOLOR=155,168,253,115,125>║║<游/AUTOCOLOR=155,168,253,115,125>║║<戏/AUTOCOLOR=155,168,253,115,125>║║<推/AUTOCOLOR=155,168,253,115,125>║║<广/AUTOCOLOR=155,168,253,115,125>║║<系/AUTOCOLOR=155,168,253,115,125>║║<统/AUTOCOLOR=155,168,253,115,125>║\
+　　　　　　　　　　<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+　　　　<推广码：/FCOLOR=250><$STR(S$推广码)>   <复制推广码/@显示推广码>\
+　　　　<推广人：/FCOLOR=254><$STR(S$推广人)>\ 
+　　　　┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\
+　　　　<累计推广人数：/FCOLOR=249>{<$STR(N6)>/FCOLOR=116} 人     <累计推广积分：/FCOLOR=249>{<$STR(N7)>/FCOLOR=116} 分\
+　　　　┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\
+　　　　<【推广操作】/FCOLOR=250> <积分兑换金币/@HJB>　<积分抽奖/@cj>　<积分兑换元宝/@HCMD>\
+　　　　<【推广说明】/FCOLOR=116>\
+　　　　<*>将推广码发送给<新人/FCOLOR=250>(即被推广人)，新人在本页<推广人/FCOLOR=250>处填写推广码。\
+　　　　<(注意：为其他人推广等级须小于50级。)/FCOLOR=150>\
+　　　　<*>被推广人达到<50级/FCOLOR=150>获得<20W/FCOLOR=150>金币奖励，推广人获得<50/FCOLOR=150>积分。<55级/FCOLOR=150>奖<50W/FCOLOR=150>金\
+　　　　币，推广人获得<100/FCOLOR=150>积分。<60级/FCOLOR=150>奖<100W/FCOLOR=150>金币，推广人获得<200/FCOLOR=150>积分。\
+　　　　<*>积分可用来<兑换金币/FCOLOR=150>、<抽奖/FCOLOR=150>、<兑换元宝/FCOLOR=150>，积分上不封顶。\
+　　　　<【游戏特色】/FCOLOR=224>\
+　　　　<本服以15年为蓝本，以精心进行打造！/FCOLOR=254>\
+　　　　<特色复古服，装备众多，绝不乏味！/FCOLOR=254>\
+　　　　<越有劲！让骨灰玩家回味传奇的经典！/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　<[关闭窗口]/@exit>
+
+
+[@显示推广码]
+#act
+SENDTOPCHATBOARDMSG 1 255 6 10 点击下面的推广码，即可显示到聊天输入框内以便复制。
+SENDTOPCHATBOARDMSG 1 255 6 10 你的推广码是→<$STR(S$推广码)>,可发送给其他人进行推广！
+
+[@InPutString19]
+#if
+CHECKLEVELEX > 49
+#act
+MESSAGEBOX 对不起，你的等级已达到50或以上。不能再为其他人推广。
+BREAK
+#IF
+CHECKTEXTLIST ..\QuestDiary\推广数据\推广码目录.txt <$STR(S19)>
+#ACT
+goto @执行计算
+#ELSEACT
+MESSAGEBOX \　\你输入的推广码不存在，请检查是否正确（不要带空格）！
+
+[@执行计算]
+#IF
+EQUAL <$STR(S19)> <$STR(S$推广码)>
+#ACT
+MESSAGEBOX \　\对不起，您不能输入自己的推广码！
+#ELSEACT
+GetListString ..\QuestDiary\推广数据\<$STR(S19)>.txt 0 S18
+GetListString ..\QuestDiary\推广数据\<$STR(S19)>-NAME.txt 0 S17
+MESSAGEBOX \　\您输入的推广人是【<$STR(S17)>】，\\他的推广码是【<$STR(S18)>】，确定吗？ @确定 @取消
+
+[@确定]
+#ACT
+GetListString ..\QuestDiary\推广数据\<$STR(S19)>-RS.txt 0 N8
+DelTextList ..\QuestDiary\推广数据\<$STR(S19)>-RS.txt <$STR(N8)>
+INC N8 1
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S19)>-RS.txt <$STR(N8)>
+MOV <$HUMAN(TGR)> <$STR(S17)>
+SAVEVAR HUMAN TGR ..\QuestDiary\推广.txt
+MOV T3 <$STR(S19)>
+;T3为推广人的推广码记录
+goto @main
+
+[@cj]
+#act
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+break
+#say
+\ \ \ \ \
+　　　　可以使用推广积分来抽奖，80积分抽一次！\
+　　　　服务器里的所有装备都有机率抽到，祝你好运！\ \
+　　　　<我要抽奖/@开始积分抽奖>    <返 回/@main>    <离 开/@exit>
+
+
+[@HJB]
+#act
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+break
+#say
+
+\ \ \ \ \
+　　　　推广积分可以换成金币，1点推广积分可以换1000金币。\
+　　　　你当前拥有 <$STR(N7)> 点推广积分。\ \
+　　　　<我要换金币/@@InPutInteger23(请输入要换的推广积分数量：)>    <返 回/@main>    <离 开/@exit>
+
+[@HCMD]
+#act
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+break
+#say
+
+\ \ \ \ \
+　　　　推广积分可以换成元宝，10点推广积分可以换1点元宝。\
+　　　　你当前拥有 <$STR(N7)> 点推广积分。\ \
+　　　　<我要换元宝/@@InPutInteger24(请输入要换的元宝数量：)>    <返 回/@main>    <离 开/@exit>
+
+[@InPutInteger23]
+#if
+LARGE N23 <$STR(N7)>
+#act
+MESSAGEBOX 请输入不大于<$STR(N7)>的数字！
+break
+#if
+SMALL N23 1
+#act
+MESSAGEBOX 请输入大于0的数字！
+break
+#if
+LARGE N23 0
+SMALL N23 <$STR(N7)>
+#act
+DelTextList ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+DEC N7 <$STR(N23)>
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+MUL N23 1000
+GIVE 金币 <$STR(N23)>
+SENDMSG 7 恭喜你使用推广积分兑换了金币：<$STR(N23)>！
+SendCenterMsg 70 0 [系统公告]*恭喜『<$USERNAME>』使用推广积分兑换了金币：<$STR(N23)>！ 1 10
+goto @main
+break
+
+[@InPutInteger24]
+#if
+SMALL N24 1
+#act
+MESSAGEBOX 请输入大于0的数字！
+break
+#if
+#act
+MOV N$沉默点所需积分数 <$STR(N24)>
+MUL N$沉默点所需积分数 10
+#if
+LARGE N$沉默点所需积分数 <$STR(N7)>
+#act
+MESSAGEBOX 你当前的推广积分不够兑换你输入的元宝数量！
+break
+
+#if
+LARGE N24 0
+SMALL N$沉默点所需积分数 <$STR(N7)>
+#act
+DelTextList ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+DEC N7 <$STR(N$沉默点所需积分数)>
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+GAMEGOLD + <$STR(N24)>
+SENDMSG 7 恭喜你使用推广积分兑换了元宝：<$STR(N24)>！
+SendCenterMsg 70 0 [系统公告]*恭喜『<$USERNAME>』使用推广积分兑换了元宝：<$STR(N24)>！ 1 10
+goto @main
+break
+
+[@开始积分抽奖]
+#if
+LARGE N7 80
+#act
+DelTextList ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+DEC N7 80
+AddTextListEx ..\QuestDiary\推广数据\<$STR(S$推广码)>-JL.txt <$STR(N7)>
+GetRandomText ..\QuestDiary\物品\赤金.txt S355
+give <$STR(S355)> 1
+SENDMSG 7 恭喜你使用推广积分兑换了<$STR(S355)> 一件！
+SendCenterMsg 70 0 [系统公告]*恭喜『<$USERNAME>』使用推广积分兑换装备成功，获得了『<$STR(S355)>』一件！ 1 10
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 你当前的推广积分不足！
+BREAK

@@ -1,0 +1,104 @@
+[@main]
+#IF
+CheckItem 陈年老酒 1
+#SAY
+好香，好香，这酒真不错，给我喝给我喝.\
+
+<拿去吧..（将酒递给老者）/@给酒>\ \
+<请不要再消沉了..（将酒当面摔烂）/@摔酒>\
+#ELSESAY
+陈师振旅清九垓，\
+年来鬓畔未垂白。\
+老向南邦众所悲，\
+酒递南山作寿杯。\ \
+
+嗝~~~~~我要酒，我要酒\
+
+（这老者好像只想喝酒....根本不理人）\
+
+
+[@摔酒]
+#IF
+CheckItem 陈年老酒 1
+#ACT
+take 陈年老酒
+messagebox 可惜了好酒啊~
+goto @main
+break
+
+
+
+
+[@给酒]
+#IF
+CheckItem 陈年老酒 1
+EQUAL T12 完成临时符
+#ACT
+messagebox 喝饱了，喝饱了，你回去找天机老人把~
+goto @main
+break
+
+#IF
+CheckItem 陈年老酒 1
+EQUAL T12 第二次饮酒
+#ACT
+MOV T12 完成临时符
+take 陈年老酒
+messagebox 喝饱了，喝饱了，你回去找天机老人把~
+goto @main
+break
+
+#IF
+CheckItem 陈年老酒 1
+EQUAL T12 第一次饮酒
+#ACT
+MOV T12 第二次饮酒
+take 陈年老酒
+messagebox 我还想喝酒~给我酒~
+goto @main
+break
+
+#IF
+CheckItem 陈年老酒 1
+#ACT
+MOV T12 第一次饮酒
+take 陈年老酒
+messagebox 我还想喝酒~给我酒~
+goto @main
+break
+
+#IF
+#ACT
+messagebox 酒呢~
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

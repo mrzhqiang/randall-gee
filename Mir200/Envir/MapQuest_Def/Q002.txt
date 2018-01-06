@@ -1,0 +1,7 @@
+[@main]
+#IF
+CHECKLEVELEX > 0
+#ACT
+CREDITPOINT + 10
+GAMEGOLD + 1
+SENDMSG 0 玩家<$USERNAME>消灭了地狱烈焰的暗之骷髅精灵，获得了10点声望+1点元宝! 

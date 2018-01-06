@@ -1,0 +1,112 @@
+(@@InPutString)
+[@main]
+#SAY
+<$USERNAME>您好，欢迎来到<$SERVERNAME>，很高兴为您服务\
+★充值元宝注意事项★\
+①每1元可冲1个元宝\
+②本系统支持网银、神州行充值卡、游戏充值卡等\
+③请到本服【官网】按照提示进行充值\
+④充值后请等待5分钟后来本NPC处领取元宝\
+⑤如果充值不成功,不收取任何费用 您已经累计充值【<$str(U55)>】\
+<领取元宝/@元宝> 当前拥有元宝【<$GAMEGOLD>】个 ┆ <关闭/@exit>\
+ <土豪称号领取/@土豪>	<输入GM卡号领取元宝/@@InPutString22>\
+\
+
+
+[@InPutString22]
+#IF
+CHECKTEXTLIST ..\QuestDiary\元宝充值\Card.txt <$STR(S22)>
+;这个命令是检测你输入的卡号和Card.txt这里面的某行卡号是否相同
+#ACT
+INC U55 20
+DELTEXTLIST ..\QuestDiary\元宝充值\Card.txt <$STR(S22)>
+;这个命令是将你输入的那行卡号在Card.txt这个文档里删除掉
+GAMEGOLD + 22
+SENDMSG 7 充值成功：增加[22元宝]，你当前帐户里元宝数为：<$GAMEGOLD>
+SENDMSG 0 [『<$USERNAME>』使用在线充值卡--充值成功：增加[22元宝]，感谢您的支持希望您玩的开心:-)]
+GOTO @main
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\元宝充值\100元卡号.txt <$STR(S22)>
+;这个命令是检测你输入的卡号和Card.txt这里面的某行卡号是否相同
+#ACT
+INC U55 100
+DELTEXTLIST ..\QuestDiary\元宝充值\100元卡号.txt <$STR(S22)>
+;这个命令是将你输入的那行卡号在Card.txt这个文档里删除掉
+GAMEGOLD + 120
+SENDMSG 7 充值成功：增加[120元宝]，你当前帐户里元宝数为：<$GAMEGOLD>
+SENDMSG 0 [『<$USERNAME>』使用在线充值卡--充值成功：增加[120元宝]，感谢您的支持希望您玩的开心:-)]
+GOTO @main
+break
+
+#IF
+#ACT
+SENDMSG 7 您输入的卡号不正确或已被他人使用，请重新输入！
+GOTO @main
+
+
+
+[@土豪]
+#IF
+CHECKFENGHAO 壕我们去哪里呀
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+CHECKGAMEGOLD > 99
+#ACT
+GIVEFENGHAO 壕我们去哪里呀
+sendmsg 7 [提示]：兑换成功，你获得了“壕我们去哪里呀”称号！
+SuperMoveMsg 0 251 0 20 100 5 恭喜:土豪玩家『<$USERNAME>』领取了称号||“壕我们去哪里呀”真是土豪一枚！
+break
+#ELSEACT
+MESSAGEBOX 你元宝未满100.当有100元宝以后再来找我吧.
+BREAK
+
+
+
+[@元宝]
+#CALL [\充值元宝\元宝\元宝.txt] @领取元宝
+#CALL [\充值元宝\积分\积分.txt] @领取积分
+
+[@充值]
+#IF
+#SAY
+<充值通道1/@充值通道1>┆<充值通道2/@充值通道2>┆<充值通道3/@充值通道3>
+\
+<充值通道4/@充值通道4>┆<充值通道5/@充值通道5>┆<充值通道6/@充值通道6>
+\
+<退出/@exit>
+
+[@充值通道1]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+
+[@充值通道2]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+
+[@充值通道3]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+
+[@充值通道4]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+
+[@充值通道5]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+
+[@充值通道6]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3168
+

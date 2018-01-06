@@ -1,0 +1,94 @@
+[@main]
+哟哟哟！尊敬的客官，您需要什么呢？\
+
+<我想买点酒./@买酒>\
+<我想打听点事./@打听>\
+
+
+[@打听]
+醉汉最喜欢<陈年老酒>\
+居士最喜欢<茅台>\
+铁匠最喜欢<二锅头>\
+嗯，剩下需要的可能就是<女儿红>了! 
+
+
+[@买酒]
+#if
+checkitem 饮酒许可 1
+#SAY
+我这里有四种不同的酒，分别是：\
+<ItemShow:854:1:0:0:1/@陈年> <ItemShow:1054:1:0:0:1/@女儿> <ItemShow:1055:1:0:0:1/@茅台> <ItemShow:1056:1:0:0:1/@二锅头>\ \ \ \
+请问您需要什么？
+#ELSESAY
+对不起，您并没有饮酒许可，无法购买酒\
+小孩子还是不要喝酒了！\
+<饮酒许可可从比奇皇帝处获得！>\
+
+
+
+[@陈年]
+#IF
+checkitem 饮酒许可 1
+LARGE U26 29
+#ACT
+GIVE 陈年老酒
+DEC U26 30
+SendMsg 6 您成功消耗了30点精力，购买到了【陈年老酒】。
+BREAK
+#ELSEACT
+SendMsg 6 您并未携带饮酒许可，或者精力不足30点。
+BREAK
+
+[@女儿]
+#IF
+checkitem 饮酒许可 1
+LARGE U26 29
+#ACT
+GIVE 女儿红
+DEC U26 30
+SendMsg 6 您成功消耗了30点精力，购买到了【女儿红】。
+BREAK
+#ELSEACT
+SendMsg 6 您并未携带饮酒许可，或者精力不足30点。
+BREAK
+
+
+[@茅台]
+#IF
+checkitem 饮酒许可 1
+LARGE U26 29
+#ACT
+GIVE 茅台
+DEC U26 30
+SendMsg 6 您成功消耗了30点精力，购买到了【茅台】。
+BREAK
+#ELSEACT
+SendMsg 6 您并未携带饮酒许可，或者精力不足30点。
+BREAK
+
+
+
+[@二锅头]
+#IF
+checkitem 饮酒许可 1
+LARGE U26 29
+#ACT
+GIVE 二锅头
+DEC U26 30
+SendMsg 6 您成功消耗了30点精力，购买到了【二锅头】。
+BREAK
+#ELSEACT
+SendMsg 6 您并未携带饮酒许可，或者精力不足30点。
+BREAK
+
+
+
+
+
+
+
+
+
+
+
+

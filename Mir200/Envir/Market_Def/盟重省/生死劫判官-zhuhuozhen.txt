@@ -1,0 +1,15 @@
+[@main]
+我是生死劫判官，当你击杀了<世界BOSS> 后， \
+即可从我这里领取称号<出神入化> \
+自己小心..\\\ 
+<我已经击杀完毕/@ad>\  \
+<好的，我去击杀吧！/@exit>\
+[@ad]
+#IF
+CheckMapMonCount zhuhuozhen = 0 1
+#ACT
+GIVEFENGHAO 出神入化
+mapmove n3 333 330
+close
+#ELSEACT
+messagebox 清除地图内的怪物后才能获得称号!

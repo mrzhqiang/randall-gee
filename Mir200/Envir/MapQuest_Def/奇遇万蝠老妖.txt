@@ -1,0 +1,71 @@
+[@main]
+#IF
+random 5
+#ACT
+#CALL [\宝图\翻牌.txt] @翻牌调用
+break
+
+#IF
+random 5
+#ACT
+#CALL [\功能设置\奇遇传送.txt] @奇遇传送
+break
+
+#IF
+random 5
+#ACT
+CHANGEEXP + 19500000
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得经验：1950万!
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得经验：1950万!
+break
+
+#IF
+random 5
+#ACT
+give 金币 5000000
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得金币：500万!
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得金币：500万!
+break
+
+#IF
+random 5
+#ACT
+CREDITPOINT + 90
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得声望：90点!
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得声望：90点!
+break
+
+#IF
+random 5
+#ACT
+KILLMONEXPRATE 200 7200
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得双倍经验120分钟!
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得双倍经验120分钟!
+break
+
+#IF
+random 5
+#ACT
+gamegold + 40
+SENDMSG 0 <$USERNAME>挑战%m成功，获得了万蝠老妖慷慨送出的[40元宝]！
+SENDMSG 0 <$USERNAME>挑战%m成功，获得了万蝠老妖慷慨送出的[40元宝]！
+break
+
+#IF
+random 3
+#ACT
+MAKEPOSION 5 60 10
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了万蝠老妖的诅咒，被硬生生麻痹1分钟！
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了万蝠老妖的诅咒，被硬生生麻痹1分钟！
+break
+
+
+
+#IF
+random 1
+#ACT
+SENDMSG 7 您获得了万蝠老妖的祝福获得护盾,该护盾可吸收<$MAXHP>点伤害!
+SetSuckDamage = <$MAXHP> 1000 100
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了万蝠老妖的祝福，获得<$MAXHP>点护盾!
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了万蝠老妖的祝福，获得<$MAXHP>点护盾!
+break

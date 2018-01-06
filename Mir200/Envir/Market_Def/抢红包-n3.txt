@@ -1,0 +1,348 @@
+(@@InPutString @@InPutInteger )
+[@main]
+#IF
+Equal U43 1
+Equal U42 13
+#ACT
+MOV U42 14
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<发送红包/SCOLOR=250>每1元宝可获得<60万经验奖励/SCOLOR=250>\
+<土豪必备玩法，快速升级，发送全服红包/SCOLOR=253>\
+<每日发送红包最多的玩家则有额外回馈！/SCOLOR=70> \
+
+学习完毕，接下来去找<装备回收榜/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<装备回收榜/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<发送红包/SCOLOR=250>每1元宝可获得<60万经验奖励/SCOLOR=250>\
+<土豪必备玩法，快速升级，发送全服红包/SCOLOR=253>\
+<每日发送红包最多的玩家则有额外回馈！/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+
+#OR
+LARGE <$HOUR> 21
+SMALL <$HOUR> 10
+#ACT
+OPENMERCHANTBIGDLG 5 584 0 0 0 0 1 360 5 0
+break
+#say
+　　　　　　 <PlayImg:28:430:8:100:0:0:0>　　　　<追忆传奇福利红包/AUTOCOLOR=254,251,255,250,252,249,253>\
+　　　　　　　　　　　<尊敬的玩家/FCOLOR=251> {<$USERNAME>/FCOLOR=250}\
+　　　　　　 　--------<红包发送已经结束。可以领奖>--------\ \
+　　　　　　　<→──→─>您的当前发送元宝:<【><$HUMAN(QHP)><】> <─←──←>\
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+领奖时间为：　　　<发红包第一名：/SCOLOR=249><$STR(A40)> <发送了/SCOLOR=249><$STR(G40)><红包/SCOLOR=249> \
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+晚上22-23点　　　 <发红包第二名：/SCOLOR=151><$STR(A41)> <发送了/SCOLOR=151><$STR(G41)><红包/SCOLOR=151> \
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+ 　　　　 　　　　 <发红包第三名：/SCOLOR=254><$STR(A42)> <发送了/SCOLOR=254><$STR(G42)><红包/SCOLOR=254> \ \ 
+ 　　　　 　　 <截至22点59分，第一名、第二名、第三名皆可领奖！>\ 
+ 　　　　 　　　<第一名领取奖励/@第一> <金砖两块>\
+ 　　　　 　　　　<第二名领取奖励/@第二> <声望100点>\
+ 　　　　 　　　　　<第三名领取奖励/@第三> <荣誉300点>　　　　<关闭/@exit>\
+
+
+#IF
+EQUAL A151 开启
+#ACT
+GOTO @main1
+#elseact
+GOTO @main2
+
+[@main1]
+#ACT
+messagebox 玩家<$STR(A150)>正在发红包,请稍等....
+break
+
+[@main2]
+#IF 
+#ACT
+MOV n60 0
+MOV n61 0
+MOV N$元宝数量
+CLEARNAMELIST ..\QuestDiary\标记数据\红包机器码.txt
+OPENMERCHANTBIGDLG 5 584 0 0 0 0 1 360 5 0
+#say
+　　　　　　 <PlayImg:28:430:8:100:0:0:0>　　　　<追忆传奇福利红包/AUTOCOLOR=254,251,255,250,252,249,253>\
+　　　　　　　　　　　<尊敬的玩家/FCOLOR=251> {<$USERNAME>/FCOLOR=250}\
+　　　　　　 　--------------<查看红包排行榜/@红包排行>--------------\
+　　　　　　　　　<作为一个土豪来说.让大家都分享你的喜悦/FCOLOR=70>\ 
+　　　　　　　　　<你将会得到更多的快乐跟意外的收获/FCOLOR=146>\ \ \
+ <设置红包金额/FCOLOR=70>     <输入1以上整数/@@InPutInteger60>  <您设置每个红包/FCOLOR=253> <$STR(N60)> <颗元宝/FCOLOR=253> \ \
+ <设置红包数量/FCOLOR=70>     <输入5以上整数/@@InPutInteger61>  <您设置发放红包/FCOLOR=253> <$STR(N61)> <个/FCOLOR=253> \
+　　　　　　　<本次发放红包预计需要/FCOLOR=250> <$STR(N$元宝数量)> <颗元宝/FCOLOR=250>  \  \
+　　　　　　　　　<发放全民红包/@发放1>             \
+　　　　　　　<超时未成功发放的红包将返还/FCOLOR=254>\     
+　　　　　　　<玩家每领取一个你发送的红包,/FCOLOR=250>\
+　　　　　　　<你将得到(红包金额×1-80万)经验/FCOLOR=250>\
+
+
+
+
+[@发放1]
+#IF
+#ACT
+messagebox 请先设置红包金额跟数量
+break
+
+
+[@main3]
+#ACT
+MUL N$元宝数量 <$STR(n60)> <$STR(n61)>
+OPENMERCHANTBIGDLG 5 584 0 0 0 0 1 360 5 0
+#say
+　　　　　　 <PlayImg:28:430:8:100:0:0:0>　　　　<追忆传奇福利红包/AUTOCOLOR=254,251,255,250,252,249,253>\
+　　　　　　　　　　　<尊敬的玩家/FCOLOR=251> {<$USERNAME>/FCOLOR=250}\
+　　　　　　　--------------<查看红包排行榜/@红包排行>--------------\
+　　　　　　　　　<作为一个土豪来说.让大家都分享你的喜悦/FCOLOR=70>\ 
+　　　　　　　　　<你将会得到更多的快乐跟意外的收获/FCOLOR=146>\ \ \
+ <设置红包金额/FCOLOR=70>     <输入1以上整数/@@InPutInteger60>  <您设置每个红包/FCOLOR=253> <$STR(N60)> <颗元宝/FCOLOR=253> \ \
+ <设置红包数量/FCOLOR=70>     <输入5以上整数/@@InPutInteger61>  <您设置发放红包/FCOLOR=253> <$STR(N61)> <个/FCOLOR=253> \
+　　　　　　　<本次发放红包预计需要/FCOLOR=250> <$STR(N$元宝数量)> <颗元宝/FCOLOR=250>  \  \
+　　　　　　　　　<发放全民红包/@发放>             \
+　　　　　　　<超时未成功发放的红包将返还/FCOLOR=254>\     
+　　　　　　　<玩家每领取一个你发送的红包,/FCOLOR=250>\
+　　　　　　　<你将得到(红包金额×1-80万)经验/FCOLOR=250>\
+
+
+
+[@InPutInteger60]
+#IF
+LARGE n60 1
+SMALL n60 999
+#act
+MUL N$元宝数量 <$STR(n60)> <$STR(n61)>
+GOTO @main3
+break
+#elseact
+MOV n60 0
+GOTO @main3
+messagebox 请输入1-999的数字
+break
+
+
+
+[@InPutInteger61]
+#if
+SMALL n61 5
+#act
+MOV n61 0
+GOTO @main3
+messagebox 请输入5以上的数字
+#elseact
+MUL N$元宝数量 <$STR(n60)> <$STR(n61)>
+GOTO @main3
+break
+
+
+[@发放]
+#IF
+EQUAL A151 开启
+#ACT
+messagebox 玩家<$STR(A150)>正在发红包,请稍等....
+close
+break
+
+#IF
+SMALL n61 5
+#ACT
+messagebox 你是不是漏填了什么?两个都要填噢!
+break
+
+#IF
+SMALL n60 1
+#ACT
+messagebox 你是不是漏填了什么?两个都要填噢!
+break
+
+#IF
+SMALL <$STR(N$元宝数量)> 1
+#ACT
+messagebox 发放的元宝数值好像不对噢!请检查后发放！
+break
+
+#IF
+#ACT
+DELAYGOTO 10 @发放212
+break
+
+[@发放212]
+#IF
+NOT CHECKGAMEGOLD > N$元宝数量
+#ACT
+MOV n61 0
+MOV n60 0
+MOV N$元宝数量 0
+messagebox 土豪.你元宝不够<$STR(N$元宝数量)>颗
+GOTO @main3
+break
+#elseact
+GAMEGOLD - N$元宝数量
+MOV A150 <$USERNAME>
+MOV G150 <$STR(N60)>
+MOV G151 <$STR(N61)>
+movr G50 800000
+MUL G152 <$STR(n60)> <$STR(G50)>
+MOV G153 <$STR(N$元宝数量)>
+AddTextList ..\QuestDiary\标记数据\红包机器码.txt <$MACHINEID>
+GMEXECUTE 开始提问 @发红包
+DELAYGOTO 10 @红包计时
+close
+break
+
+
+[@红包计时]
+#IF
+#ACT  
+MOV A151 开启
+SENDDELAYMSG 你开启的发红包剩余时间【%s】下线导致元宝不返还！  59  224 0 @停止红包
+
+
+
+[@停止红包]
+#if
+#ACT
+SENDMSG 1 <$STR(A150)>发起的抢红包时间已到.期待下一位土豪出现吧
+SENDMSG 1 <$STR(A150)>发起的抢红包时间已到.期待下一位土豪出现吧
+GAMEGOLD + <$STR(G153)>
+DELAYGOTO 10 @清理红包
+
+[@清理红包]
+#IF
+#ACT
+MOV A150
+MOV A151
+MOV A152
+MOV G150
+MOV G151
+MOV G152
+MOV G153
+SortVarToList QHP ..\QuestDiary\标记数据\变量数据.txt ..\QuestDiary\标记数据\排序的文件.txt 0 1
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 0 A40 G40
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 1 A41 G41
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 2 A42 G42
+BREAK
+
+
+[@红包排行]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 5 584 0 0 0 0 1 360 5 0
+break
+#say
+　　　　　　 <PlayImg:28:430:8:100:0:0:0>　　　　<追忆传奇福利红包/AUTOCOLOR=254,251,255,250,252,249,253>\
+　　　　　　　　　　　<尊敬的玩家/FCOLOR=251> {<$USERNAME>/FCOLOR=250}\
+　　　　　　 　--------------<查看红包排行榜/@红包排行>--------------\ \
+　　　　　　　<→──→─>您的当前发送元宝:<【><$HUMAN(QHP)><】> <─←──←>\
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+领奖时间为：　　　<发红包第一名：/SCOLOR=249><$STR(A40)> <发送了/SCOLOR=249><$STR(G40)><红包/SCOLOR=249> \
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+晚上22-23点　　　 <发红包第二名：/SCOLOR=151><$STR(A41)> <发送了/SCOLOR=151><$STR(G41)><红包/SCOLOR=151> \
+ 　　　　 　　<PlayImg:28:450:8:100:0:0:0>\
+ 　　　　 　　　　 <发红包第三名：/SCOLOR=254><$STR(A42)> <发送了/SCOLOR=254><$STR(G42)><红包/SCOLOR=254> \ \ 
+ 　　　　 　　 <截至22点59分，第一名、第二名、第三名皆可领奖！>\ 
+ 　　　　 　　　　　　　　　　　　　　　　 　　　　<关闭/@exit>\
+
+
+
+
+
+[@第一]
+#IF
+EQUAL A43 不许领取
+#ACT
+messagebox 对不起，当前不允许领取奖励。
+break
+
+#IF
+EQUAL A40 已被领取
+#ACT
+messagebox 对不起，第一名奖励已经被领取了。
+break
+
+#IF
+EQUAL A40 <$USERNAME>
+EQUAL A43 允许领取
+#ACT
+GIVE 金砖 2
+MOV A40 已被领取
+messagebox 恭喜您领取了第一名奖励。金砖二块
+SendCenterMsg 0 251 恭喜:土豪『<$USERNAME>』领取红包第一名成功,获得两块金砖. 1 6 0
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起你不是第一名玩家.
+BREAK
+
+
+
+[@第二]
+#IF
+EQUAL A43 不许领取
+#ACT
+messagebox 对不起，当前不允许领取奖励。
+break
+
+#IF
+EQUAL A41 已被领取
+#ACT
+messagebox 对不起，第二名奖励已经被领取了。
+break
+
+#IF
+EQUAL A41 <$USERNAME>
+EQUAL A43 允许领取
+#ACT
+CREDITPOINT + 100
+MOV A41 已被领取
+messagebox 恭喜您领取了第二名奖励。声望100点。
+SendCenterMsg 0 251 恭喜:土豪『<$USERNAME>』领取红包第二名成功,获得声望100点. 1 6 0
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起你不是第二名玩家.
+BREAK
+
+
+
+
+[@第三]
+#IF
+EQUAL A43 不许领取
+#ACT
+messagebox 对不起，当前不允许领取奖励。
+break
+
+#IF
+EQUAL A42 已被领取
+#ACT
+messagebox 对不起，第三名奖励已经被领取了。
+break
+
+#IF
+EQUAL A42 <$USERNAME>
+EQUAL A43 允许领取
+#ACT
+GAMEGLORY + 300
+MOV A42 已被领取
+messagebox 恭喜您领取了第三名奖励。荣誉300点。
+SendCenterMsg 0 251 恭喜:土豪『<$USERNAME>』领取红包第三名成功,获得荣誉300点. 1 6 0
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起你不是第三名玩家.
+BREAK
+
+
+

@@ -1,0 +1,95 @@
+[@main]
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\副本次数.txt [<$USERNAME>]
+#ACT
+MOV U27 20
+MOV U41 30
+MOV U40 3
+CALCVAR HUMAN 副本次数 = 3
+SAVEVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+LOADVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+
+#IF
+#SAY
+名称： <自定义副本/FCOLOR=254>    时间： <30分钟/FCOLOR=254>\
+难度： <自定义/FCOLOR=254>\
+规则： <单人进入，或组队/FCOLOR=254>  等级： <35-70级/FCOLOR=254>\
+出产： <装备，金币/FCOLOR=254>\
+条件： 10W金币进入一次\
+今天可进入副本次数{<$Str(U27)>/FCOLOR=249}次\
+<请注意准备好一切所需物品，离开地图视为放弃。/FCOLOR=254>\
+<我知道了，开始自定义/@进入检测>　　<结束对话/@exit>\
+
+
+
+
+
+[@进入检测]
+#IF
+CANMOVEECTYPE 自定义副本
+#ACT
+SENDMSG 5 您已经创建了副本，请等待冷却！冷却时间10秒！
+break
+
+#IF
+CHECKLEVELEX > 29
+LARGE U27 0
+CheckGold 100000
+#act
+take 金币 100000
+DEC U27 1
+CREATEECTYPE 自定义副本 20
+MOV U29 0
+MOVEECTYPE 自定义副本 20 31
+break
+#ELSEACT
+MESSAGEBOX 创建失败，您的金币不足10万！或者次数用尽！\或者您未满30级！
+break
+
+
+
+
+
+[@CreateEctype_NoExists]
+#IF
+#ACT
+MESSAGEBOX 创建副本地图失败，副本不存在！
+
+[@CreateEctype_Fail]
+#IF
+#ACT
+MESSAGEBOX 创建副本失败，副本人数已满，请稍候再试！
+
+
+[@CreateEctype_IN]
+#IF
+#ACT
+SENDMSG 5 副本地图已经创建完成，可以直接进入了。
+
+[@CreateEctype_IN_Time]
+#IF
+#ACT
+SENDMSG 5 副本已经存在..无法创建。
+
+[@CreateEctype_OK]
+#IF
+#ACT
+SENDMSG 5 副本地图创建成功，并初始化地图怪物成功。
+SENDMSG 5 副本地图创建成功，并初始化地图事件成功。
+
+[@MoveEctype_Fail_Time]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败，超过可传送时间
+
+[@MoveEctype_Fail]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败
+
+[@MoveEctype_OK]
+#IF
+#ACT
+SENDMSG 5 已传送到副本地图
+
+

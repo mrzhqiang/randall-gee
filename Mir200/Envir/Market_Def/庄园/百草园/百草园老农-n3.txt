@@ -1,0 +1,68 @@
+[@MAIN]
+#IF
+#say
+这里是庄园，在这里可以偷菜种菜\
+目前种植正在测试中，欢迎游玩！\ \
+
+回收:\
+雪见草可获得<3000经验+4000金币+1荣誉>\
+<回收有一定概率能获得人参种子或罗汉果种子！>\ \
+<回收雪见草/@回收>\
+
+
+
+[@回收]
+#if
+CheckItem 雪见草[师门] 1
+random 60
+#ACT
+take 雪见草[师门] 1
+give 金币 4000
+CHANGEEXP + 3000
+GAMEGLORY + 1
+give 罗汉果种子
+SENDMSG 6 〖提示〗:意外获得罗汉果种子
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【罗汉果种子】
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【罗汉果种子】
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【罗汉果种子】
+goto @回收
+break
+
+#if
+CheckItem 雪见草[师门] 1
+random 60
+#ACT
+take 雪见草[师门] 1
+give 金币 4000
+CHANGEEXP + 3000
+GAMEGLORY + 1
+give 人参种子
+SENDMSG 6 〖提示〗:意外获得人参种子
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【人参种子】
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【人参种子】
+SENDMSG 0 〖提示〗:玩家在回收雪见草的时候，意外获得了【人参种子】
+goto @回收
+break
+
+#if
+CheckItem 雪见草[师门] 3
+#ACT
+take 雪见草[师门] 3
+give 金币 12000
+CHANGEEXP + 9000
+GAMEGLORY + 3
+goto @回收
+break
+
+#if
+CheckItem 雪见草[师门] 1
+#ACT
+take 雪见草[师门] 1
+give 金币 4000
+CHANGEEXP + 3000
+GAMEGLORY + 1
+goto @回收
+break
+#ELSESAY
+雪见草已经回收完毕！
+

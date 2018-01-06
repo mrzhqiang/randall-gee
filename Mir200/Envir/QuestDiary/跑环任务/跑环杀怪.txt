@@ -1,0 +1,24 @@
+[@跑环杀怪]
+{
+#IF
+EQUAL T38 击杀怪物
+EQUAL T37 未完成
+SMALL U37 <$STR(U36)>
+EQUAL <$KILLMONNAME> <$STR(T36)>
+#ACT
+INC U37 1
+MOV T35 击杀/SCOLOR=70}　<$STR(U37)>/{<$STR(U36)>/SCOLOR=249}　<只/SCOLOR=70><【>{<$STR(T36)>/SCOLOR=253}<】>{即可完成!
+SendMsg 6 击杀环怪<$STR(T36)>成功，当前进度<$STR(U37)>/<$STR(U36)>
+goto @检测是否完成杀怪
+break
+
+[@检测是否完成杀怪]
+#IF
+EQUAL T37 未完成
+EQUAL U37 <$STR(U36)>
+#ACT
+MOV T37 已完成
+MOV T35 击杀/SCOLOR=70}{任务已经完成!
+SendMsg 6 任务已完成，请点击按钮《任务》交付当前环任务！
+break
+}

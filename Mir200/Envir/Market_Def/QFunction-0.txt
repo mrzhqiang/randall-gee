@@ -1,0 +1,5220 @@
+;此脚为功能脚本，用于实现各种与脚本有关的功能
+(@@useplugin @@InPutInteger @@InPutString @@useitemname @@MagSelfFunc @@OffLineMsg @@PickUpItem @ShopStall @@dealgold @@PlayReconnection @@Challenge @@Challenge_Fail @@Challenge_Win @@sendmsg @storage @getback @buy @sell @repair @s_repair @@offlinemsg @storage @getback @getnextpage @getPreviouspage @@InPutString )
+
+[@getexp]
+#IF
+;CHECKLEVELEX > 64
+;EQUAL A170 青龙封印
+#ACT
+;CHANGEEXP = 0
+;sendmsg 7 服务目前被青龙封印。需要击杀99只“青龙”方可解封。
+break
+
+#IF
+;CHECKLEVELEX > 79
+;EQUAL A171 白虎封印
+#ACT
+;CHANGEEXP = 0
+;sendmsg 7 服务目前被白虎封印。需要击杀999只“≈生肖使者≈”方可解封。
+break
+
+#IF
+;CHECKLEVELEX > 94
+;EQUAL A172 玄武封印
+#ACT
+;CHANGEEXP = 0
+;sendmsg 7 服务目前被玄武封印。需要击杀99只“世界BOSS·电尸”方可解封。
+break
+
+#IF
+CHECKLEVELEX > 109
+EQUAL A173 朱雀封印
+#ACT
+CHANGEEXP = 0
+sendmsg 7 服务目前被朱雀封印。需要击杀99只“万蝠老妖”方可解封。
+break
+
+
+[@ButtonClick3]
+#CALL [商人\加点.txt] @加点系统
+
+[@StdModeFunc5]
+是不是觉得自己聊天字体的颜色太单调了\
+换换试试！\ \
+
+<黄色/@Color3>  <绿色/@Color2>  <天蓝色/@Color6>\
+<粉色/@Color0>　<蓝色/@Color4>  <橙色/@Color8>\
+<红色/@Color1>  <紫色/@Color5>\ \
+<关闭/@exit>
+#ACT
+CloseBigDialogBox
+break
+
+
+[@Color8]
+#IF
+#ACT
+ChangeHearMsgColor 60 70
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：橙色 有效时间：1小时
+close
+
+[@Color6]
+#IF
+#ACT
+ChangeHearMsgColor 60 254
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：天蓝色 有效时间：1小时
+close
+
+
+[@Color5]
+#IF
+#ACT
+ChangeHearMsgColor 60 5
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：紫色 有效时间：1小时
+close
+
+[@Color4]
+#IF
+#ACT
+ChangeHearMsgColor 60 4
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：蓝色 有效时间：1小时
+close
+
+[@Color0]
+#IF
+#ACT
+ChangeHearMsgColor 60 253
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：粉色 有效时间：1小时
+close
+
+
+[@Color1]
+#IF
+#ACT
+ChangeHearMsgColor 60 249
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：红色 有效时间：1小时
+close
+
+[@Color2]
+#IF
+#ACT
+ChangeHearMsgColor 60 221
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：绿色 有效时间：1小时
+close
+
+[@Color3]
+#IF
+#ACT
+ChangeHearMsgColor 60 116
+sendmsg 6 成功使用字体颜色！当前聊天框字体颜色已变换为：黄色 有效时间：1小时
+close
+
+
+[@usercmd5]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckGAMEGold > 99
+#ACT
+MAPMOVE N3 330 333
+BREAK
+#ELSEACT
+SENDMSG 6 对不起，元宝不足100，无法使用此服务，元宝超过100后可免费享受此服务。
+break
+
+[@usercmd8]
+#IF
+CheckGAMEGold > 9
+#ACT
+MOV S55 <$PARAM(1)>
+MESSAGEBOX 　　本次喊话内容为:<$STR(S55)>\　\　　本次发送需要消耗元宝：3元\　\　　确认发送请点击确定  @确定823 @取消
+#ELSEACT
+SENDMSG 6 对不起，元宝不足3，无法进行全服喊话。
+break
+
+
+[@确定823]
+#ACT
+GAMEGold - 3
+GetRandomText ..\QuestDiary\功能设置\七彩.txt S29
+SendCenterMsg 246 <$STR(S29)> 『全服喇叭』<$USERNAME>：<$STR(S55)>. 1 30 0
+break
+
+
+
+[@STDMODEFUNC56]
+#IF
+#say
+选择装备进行洗练\
+洗练装备后，可重置特效属性\
+#ACT
+CloseBigDialogBox
+OPENUPGRADEDLG 装备洗练
+
+[@UpgradeDlgItem]
+#if
+CheckCustomItemProgressbarValue -1 0 1 > 0
+#act
+RECLAIMITEM
+SENDMSG 6 对不起，您的装备已经开启神兵钢纹，无法进行属性洗练！
+break
+
+#OR
+EQUAL <$DLGITEM.STDMODE> 5
+EQUAL <$DLGITEM.STDMODE> 6
+EQUAL <$DLGITEM.STDMODE> 19
+EQUAL <$DLGITEM.STDMODE> 20
+EQUAL <$DLGITEM.STDMODE> 21
+EQUAL <$DLGITEM.STDMODE> 24
+EQUAL <$DLGITEM.STDMODE> 22
+EQUAL <$DLGITEM.STDMODE> 23
+EQUAL <$DLGITEM.STDMODE> 53
+#ACT
+MOV N$防御 3
+goto @卷轴洗练
+#ELSEACT
+MOV N$防御 1
+goto @卷轴洗练
+
+[@卷轴洗练]
+#IF
+CheckItemNameColor -1 70
+#ACT
+SendMsg 7 成长型装备请到重铸师处进行重铸。
+RECLAIMITEM
+break
+
+#IF
+NOT CheckItemNameColor -1 246
+NOT CheckItemNameColor -1 250
+NOT CheckItemNameColor -1 168
+NOT CheckItemNameColor -1 151
+NOT CheckItemNameColor -1 249
+NOT CheckItemNameColor -1 253
+NOT CheckItemNameColor -1 241
+#ACT
+SendMsg 7 无法洗练物品，请再次检查
+RECLAIMITEM
+break
+
+#IF
+CheckItemNameColor -1 246
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：劣质
+SETCUSTOMITEMPROGRESSBAR -1 1 2 246
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 246
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+#IF
+CheckItemNameColor -1 250
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：精致
+SETCUSTOMITEMPROGRESSBAR -1 1 2 250
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 250
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整 
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+
+#IF
+CheckItemNameColor -1 168
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：稀有
+SETCUSTOMITEMPROGRESSBAR -1 1 2 168
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 168
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整 
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+#IF
+CheckItemNameColor -1 151
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：卓越
+SETCUSTOMITEMPROGRESSBAR -1 1 2 151
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 151
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+#IF
+CheckItemNameColor -1 253
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：完美
+SETCUSTOMITEMPROGRESSBAR -1 1 2 253
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 253
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+
+#IF
+CheckItemNameColor -1 249
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：史诗
+SETCUSTOMITEMPROGRESSBAR -1 1 2 249
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 249
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 5 2 6
+SetCustomItemAbil -1 5 3 0
+SetCustomItemValue -1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+
+#IF
+CheckItemNameColor -1 241
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：传说
+SETCUSTOMITEMPROGRESSBAR -1 1 2 241
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 241
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 5 2 6
+SetCustomItemAbil -1 5 3 0
+SetCustomItemValue -1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定卷轴
+RECLAIMITEM
+CLOSE
+
+
+[@暗黑鉴定卷轴]
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 250
+#ACT
+MOV N5 250
+SETITEMEFFECT -1 38
+goto @暗黑鉴定卷轴2
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 168
+#ACT
+MOV N5 168
+SETITEMEFFECT -1 38
+goto @暗黑鉴定卷轴2
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 151
+#ACT
+MOV N5 151
+SETITEMEFFECT -1 39
+goto @暗黑鉴定卷轴2
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 249
+#ACT
+SETITEMEFFECT -1 40
+MOV N5 249
+goto @暗黑鉴定卷轴2
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 253
+#ACT
+MOV N5 253
+SETITEMEFFECT -1 41
+goto @暗黑鉴定卷轴2
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 241
+#ACT
+SETITEMEFFECT -1 42
+MOV N5 241
+goto @暗黑鉴定卷轴2
+
+
+#IF
+CheckItemNameColor -1 246
+#ACT
+MOV N5 250
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 250
+#ACT
+MOV N5 250
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 168
+#ACT
+MOV N5 168
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 151
+#ACT
+MOV N5 151
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 249
+#ACT
+MOV N5 249
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 253
+#ACT
+MOV N5 253
+goto @暗黑鉴定卷轴2
+
+#IF
+CheckItemNameColor -1 241
+#ACT
+MOV N5 241
+goto @暗黑鉴定卷轴2
+
+[@暗黑鉴定卷轴2]
+#OR
+equal <$DLGITEM.NAME> 黑鬃马
+equal <$DLGITEM.NAME> 枣红马
+equal <$DLGITEM.NAME> 赤兔马
+equal <$DLGITEM.NAME> 汗血马
+equal <$DLGITEM.NAME> 白龙马
+equal <$DLGITEM.NAME> 迎亲马
+equal <$DLGITEM.NAME> 金龙马
+equal <$DLGITEM.NAME> 碧水莲花
+equal <$DLGITEM.NAME> 镜花水月
+equal <$DLGITEM.NAME> 灵玉
+#ACT
+ChangeItemName -1 <$DLGITEM.NAME>
+SetCustomItemText -1 
+break
+
+#IF
+random 5
+#ACT
+SetNewItemValue -1 0 = 0
+SetNewItemValue -1 1 = 0
+SetNewItemValue -1 2 = 0
+SetNewItemValue -1 3 = 0
+SetNewItemValue -1 4 = 0
+SetNewItemValue -1 5 = 0
+SetNewItemValue -1 6 = 0
+SetNewItemValue -1 7 = 0
+SetNewItemValue -1 8 = 0
+SetNewItemValue -1 11 = 0
+SetNewItemValue -1 12 = 0
+SetNewItemValue -1 13 = 0
+SetNewItemValue -1 14 = 0
+SetNewItemValue -1 15 = 0
+SetNewItemValue -1 16 = 0
+SetNewItemValue -1 17 = 0
+SetNewItemValue -1 18 = 0
+SetNewItemValue -1 19 = 0
+SetNewItemValue -1 20 = 0
+CloseItemFlute -1 3
+MOVR N0 0 73
+MOV S0 <$DLGITEM.NAME>
+#CALL [暗黑特效\暗黑特效.TXT] @暗黑前缀
+break
+
+#IF
+#ACT
+ChangeItemName -1 <$DLGITEM.NAME>
+SetCustomItemText -1 
+break
+
+
+
+[@ButtonClick11]
+#CALL [功能设置\表情.TXT] @表情
+
+[@QueryMyShopFail]
+#ACT
+MESSAGEBOX 你还没有个人商店，是否创建你的个人商店？\\点击确定创建个人商店。 @创建个人商店 @取消
+
+[@创建个人商店]
+亲爱的玩家你好。这里可以申请开店。\
+你可以把你的物品放到你的店铺里出售，\
+游戏中的玩家可以查询到你要出售的物品。\
+也可以把不用的物品放到店铺的仓库里。\
+点击客户端中“店”就可以进入到你的店铺中,\
+也可以查询其他用户的店铺和物品，\
+可以很方便的把仓库物品和出售的物品相互转移。\
+还可以进行摆摊操作。\ 
+
+<我要开店(点击输入你喜欢的店铺名称)/@@InputString1>\
+
+[@InputString1]
+#IF
+CHECKMYSHOP
+#ACT
+MESSAGEBOX 你已经有店铺了
+BREAK
+
+#IF
+CHECKSHOPNAME <$STR(S1)>
+#ACT
+MESSAGEBOX <$STR(S1)>店铺名称已经存在，请重新选择一个
+BREAK
+
+#IF
+#ACT
+CREATEMYSHOP <$STR(S1)>
+MESSAGEBOX 你的店铺创建成功
+
+[@CreateMyShopOK]
+#SAY
+你的店铺创建成功
+
+[@CreateMyShopFail]
+#SAY
+你的店铺创建失败
+
+
+
+[@ShopStall]
+#IF
+INSAFEZONE
+#ELSEACT
+MESSAGEBOX 需要在安全区才能摆摊
+BREAK
+
+#IF
+CHECKSHOPSTALLSTATUS
+#ACT
+MESSAGEBOX 你是否确认要停止摆摊 @确定开始或停止摆摊
+#ELSEACT
+MESSAGEBOX 你是否确认要开始摆摊 @确定开始或停止摆摊
+
+[@确定开始或停止摆摊]
+#ACT
+SHOPSTALL
+
+
+
+
+[@StartAutoOnline]
+#IF
+CHECKMAPNAME n3
+#ACT
+SendMsg 5 土城禁止挂机!
+Break
+
+#IF
+LARGE U26 29
+#ACT
+setofftimer 40 40
+StartAutoPlayGame
+PLAYEFFECT 39 294 7 0 200 0 -115 -120 1
+SendMsg 5 挂机已开始！每40秒收取1点精力！
+break
+#ELSEACT
+SetOFFTimer 40
+StartAutoPlayGame
+ClearPlayEffect
+SendMsg 5 挂机已停止！精力值不足30点！
+Break
+
+[@StopAutoOnline]
+#IF
+LARGE U26 29
+#ACT
+SetOFFTimer 40
+ClearPlayEffect
+StopAutoPlayGame
+SendMsg 5 挂机已停止！挂机功能已关闭！
+break
+#ELSEACT
+SetOFFTimer 40
+ClearPlayEffect
+StopAutoPlayGame
+SendMsg 5 挂机已停止！精力值不足30点！
+Break
+
+[@PlayReconnection]
+#IF
+CHECKMYSHOP
+CheckHumInRange n3 330 333 10
+#ACT
+MOVR I30 321 339
+MOVR I31 324 341
+MAPMOVE N3 <$STR(I30)> <$STR(I31)>
+KILLSLAVE
+SHOPSTALL
+SETOFFLINEPLAY ON
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+#ACT
+MOVR I30 321 339
+MOVR I31 324 341
+MAPMOVE N3 <$STR(I30)> <$STR(I31)>
+KILLSLAVE
+SETOFFLINEPLAY ON
+break
+
+[@PlayOffLine]
+#IF
+CHECKMYSHOP
+CheckHumInRange n3 330 333 10
+#ACT
+MOVR I30 321 339
+MOVR I31 324 341
+MAPMOVE N3 <$STR(I30)> <$STR(I31)>
+KILLSLAVE
+SHOPSTALL
+SETOFFLINEPLAY ON
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+#ACT
+MOVR I30 321 339
+MOVR I31 324 341
+MAPMOVE N3 <$STR(I30)> <$STR(I31)>
+KILLSLAVE
+SETOFFLINEPLAY ON
+break
+
+[@ItemUpgrade]
+#IF
+CheckGold 200000
+CHECKGAMEGLORY > 99
+#ACT
+GAMEGLORY - 100
+Take 金币 200000
+MOV S$加星状态 已加星
+#ELSEACT
+MESSAGEBOX 升级装备需要20万金币,100点荣誉.
+#ELSEACT
+SetUpgradeFail
+Break
+
+[@ActiveTitle_1]
+#ACT
+SETICON 0 -1
+SETICON 1 -1
+SETICON 0 30 51 0 -90 1 0 0 150
+SETICON 1 30 52 0 -90 15 1 0 150
+break
+
+[@UnactiveTitle_1]
+#ACT
+SETICON 0 -1
+SETICON 1 -1
+SETICON 2 -1
+break
+
+[@ActiveTitle_2]
+#ACT
+SETICON 0 -1
+SETICON 1 -1
+SETICON 0 30 0 0 -90 1 0 0 150
+SETICON 1 30 1 0 -90 15 1 0 150
+break
+
+[@UnactiveTitle_2]
+#ACT
+SETICON 0 -1
+SETICON 1 -1
+SETICON 2 -1
+break
+
+
+[@KillSlave]
+#IF
+CheckKillSlaveName 普通镖车
+#ACT
+give 金币 200000
+SendMsg 5 你成功劫持了一辆镖车获得20W金币
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“普通镖车”20W金币！
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“普通镖车”20W金币！
+break
+
+#IF
+CheckKillSlaveName 高级镖车
+#ACT
+give 金币 200000
+SendMsg 5 你成功劫持了一辆镖车获得20W金币
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“高级镖车”20W金币！
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“高级镖车”20W金币！
+break
+
+#IF
+CheckKillSlaveName 超级镖车
+#ACT
+give 金币 400000
+SendMsg 5 你成功劫持了一辆镖车获得10W金币
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“超级镖车”40W金币！
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“超级镖车”40W金币！
+break
+
+#IF
+CheckKillSlaveName 无敌镖车
+#ACT
+give 金币 700000
+SendMsg 5 你成功劫持了一辆镖车获得20W金币的奖励
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“无敌镖车”获得70W金币！
+SendMsg 0 “<$USERNAME>”成功劫持了一辆“无敌镖车”获得70W金币！
+break
+
+[@押镖时间限制]
+#IF
+#ACT
+SetOffTimer 10
+KILLCALLMOB <$STR(S$镖车几率)>
+SET [191] 0
+MESSAGEBOX 你未在指定时间内把镖车送到指定地点，任务失败！
+break
+[@KillPlay]
+#IF
+CHECKMAPNAME Nlts102
+Equal A5 战场开始
+#ACT
+CHANGEEXP + 100000
+GAMEGLORY + 5
+SendMsg 5 击杀完成，获得10万经验，5点荣誉！
+break
+
+#IF
+CHECKMAPNAME Nlts102
+Equal A72 开启
+#ACT
+GAMEGLORY + 5
+SendMsg 5 击杀完成，获得5点荣誉！
+break
+
+#IF
+CHECKMAPNAME Nlts102
+Equal A72 关闭
+#ACT
+GAMEGLORY + 5
+SendMsg 5 击杀完成，获得5点荣誉！
+break
+
+
+[@PlayLevelUp]
+;#CALL [\游戏登陆\月卡设置.txt] @月卡
+
+#IF
+CHECKLEVELEX = 10
+#ACT
+give 金币 20000
+break
+
+
+#IF
+CHECKLEVELEX = 50
+CheckStringlength <$STR(T3)> > 2
+#ACT
+give 金币 200000
+GetListString ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt 0 N9
+DelTextList ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+INC N9 50
+AddTextListEx ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+SENDMSG 0 恭喜<$USERNAME>升到50级，并且参加了推广活动，获得了20W金币奖励！
+INC U18 2
+SENDMSG 7 提示：恭喜您升级了,您获得了2点技能点，您当前还有技能点：<$STR(U18)>赶紧去点天赋吧！
+break
+
+#IF
+CHECKLEVELEX = 55
+CheckStringlength <$STR(T3)> > 2
+#ACT
+give 金币 500000
+GetListString ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt 0 N9
+DelTextList ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+INC N9 100
+AddTextListEx ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+SENDMSG 0 恭喜<$USERNAME>升到55级，并且参加了推广活动，获得了50W金币奖励！
+INC U18 2
+SENDMSG 7 提示：恭喜您升级了,您获得了2点技能点，您当前还有技能点：<$STR(U18)>赶紧去点天赋吧！
+BREAK
+
+#IF
+CHECKLEVELEX = 60
+CheckStringlength <$STR(T3)> > 2
+#ACT
+give 金币 1000000
+GetListString ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt 0 N9
+DelTextList ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+INC N9 200
+AddTextListEx ..\QuestDiary\推广数据\<$STR(T3)>-JL.txt <$STR(N9)>
+SendCenterMsg 254 0 恭喜<$USERNAME>升到60级，系统特奖励他！100点荣誉点！并且参加了推广活动，获得了100W金币奖励！
+INC U18 2
+SENDMSG 7 提示：恭喜您升级了,您获得了2点技能点，您当前还有技能点：<$STR(U18)>赶紧去点天赋吧！
+GAMEGLORY + 100
+BREAK
+
+#IF
+CHECKLEVELEX > 39
+#ACT
+INC U18 2
+SENDMSG 7 提示：恭喜您升级了,您获得了2点技能点，您当前还有技能点：<$STR(U18)>赶紧去点天赋吧！
+break
+
+#IF
+#ACT
+INC U18 1
+SENDMSG 7 提示：恭喜您升级了,您获得了1点技能点，您当前还有技能点：<$STR(U18)>赶紧去点天赋吧！
+break
+
+
+[@Challenge]
+#IF
+CHECKMAPHUMANCOUNT Nlts102 = 0
+#ACT
+CHALLENGMAPMOVE Nlts102 64 41
+BREAK
+#IF
+#ACT
+goto @Challenge_Fail
+break
+
+[@Challenge_Fail]
+#IF
+#ACT
+GETCHALLENGEBAKITEM
+#SAY
+当前地图人数已经满员!请稍后再试,谢谢!\
+
+;挑战胜利者执行..
+[@Challenge_Win]
+#IF
+#ACT
+SendMsg 5 挑战胜利..
+
+
+[@PlayDie]
+#ACT
+MOV U13 0
+MOV U6 0
+#CALL [\暗黑特效\暗黑检测3.TXT] @暗黑检测3
+
+#IF
+CHECKMAPNAME Nlts102
+#ACT
+GMEXECUTE 复活 <$USERNAME>
+mapmove n3 330 333
+SENDMSG 7 很遗憾，本次挑战失败。遣送回城。
+SENDMSG 7 很遗憾，本次挑战失败。遣送回城。
+SENDMSG 7 很遗憾，本次挑战失败。遣送回城。
+SENDMSG 7 很遗憾，本次挑战失败。遣送回城。
+break
+
+#IF
+CHECKCURRTARGETRACE = 0
+Equal U20 1
+#ACT
+MOV U20 0
+SENDMSG 6 你被人物【<$CURRRTARGETNAME>】杀死了，洪荒之力散去。 255 249
+SENDMSG 6 你被人物【<$CURRRTARGETNAME>】杀死了，洪荒之力散去。 255 249
+SENDMSG 6 你被人物【<$CURRRTARGETNAME>】杀死了，洪荒之力散去。 255 249
+SendMsg 0 提示：玩家【<$CURRRTARGETNAME>】杀害了拥有洪荒之力的玩家：【<$USERNAME>】，获得100元宝！
+SendMsg 0 提示：玩家【<$CURRRTARGETNAME>】杀害了拥有洪荒之力的玩家：【<$USERNAME>】，获得100元宝！
+SendMsg 0 提示：玩家【<$CURRRTARGETNAME>】杀害了拥有洪荒之力的玩家：【<$USERNAME>】，获得100元宝！
+<$CURRRTARGETNAME>.SendMsg 7 提示：您杀害了拥有洪荒之力的玩家，获得100元宝！
+<$CURRRTARGETNAME>.SendMsg 7 提示：您杀害了拥有洪荒之力的玩家，获得100元宝！
+<$CURRRTARGETNAME>.SendMsg 7 提示：您杀害了拥有洪荒之力的玩家，获得100元宝！
+<$CURRRTARGETNAME>.gamegold + 100
+
+#IF
+KILLBYHUM
+#ACT
+DelayCall 2000 @复活玩家
+SENDMSG 7 3秒后自动复活回城.....
+SENDMSG 1 [{传闻|251:249:1}]:玩家【{<$CURRRTARGETNAME>|251:249:1}】在:【{%M(%x,%y)|251:249:1}】把玩家【{<$USERNAME>|251:249:1}】干掉了！
+#ELSEACT
+goto @被怪杀
+BREAK
+
+
+
+[@被怪杀]
+#IF
+RANDOM 3
+#ACT
+DelayCall 2000 @复活玩家
+SENDMSG 7 5秒后自动复活回城.....
+SENDMSG 1 [{传闻|251:249:1}]:凶悍的怪物【{<$CURRRTARGETNAME>|251:249:1}】在【{%M(%x,%y)|251:249:1}】把玩家【{<$USERNAME>|251:249:1}】给分尸了！
+break
+#IF
+RANDOM 2
+#ACT
+DelayCall 2000 @复活玩家
+SENDMSG 7 5秒后自动复活回城.....
+SENDMSG 1 [{传闻|251:249:1}]:玩家【{<$USERNAME>|251:249:1}】倒在【{%M(%x,%y)|251:249:1}】处惊讶道：哎呀，没想到【{<$CURRRTARGETNAME>|251:249:1}】你也会搞偷袭！
+break
+#IF
+RANDOM 1
+#ACT
+DelayCall 2000 @复活玩家
+SENDMSG 7 5秒后自动复活回城.....
+SENDMSG 1 [{传闻|251:249:1}]:【{<$CURRRTARGETNAME>|251:249:1}】偷袭了玩家【{%s|251:249:1}】，结果【{<$USERNAME>|251:249:1}】一不留神被打倒了在【{%M(%x,%y)|251:249:1}】！
+break
+
+[@复活玩家]
+#IF
+CheckInMapRange new0150 29 42 100
+#ACT
+break
+
+#IF
+CheckHpPer > 1
+#ACT
+break
+#elsesay
+胜败乃兵家常事，大侠重新来过把~\
+
+<30万金币原地复活/@原地复活>\  \
+<Vip5半价原地复活/@原地复活2>\  \
+<免费回【土城】复活！(40级以下原地复活)/@回程复活>\
+
+[@原地复活]
+#IF
+CheckGold 300000
+#ACT
+Take 金币 300000
+GMEXECUTE 复活 <$USERNAME>
+AddhpPer = 30
+AddMpPer = 30
+close
+#elseACT
+SENDMSG 7 你没有足够的金币！
+break
+
+[@原地复活2]
+#IF
+EQUAL T5 会员五级
+CheckGold 150000
+#ACT
+Take 金币 150000
+GMEXECUTE 复活 <$USERNAME>
+AddhpPer = 30
+AddMpPer = 30
+close
+#elseACT
+SENDMSG 7 你并不是VIP5级会员或者没有足够的金币！
+break
+
+[@回程复活]
+#IF
+CheckHpPer > 1
+#ACT
+break
+#elseACT
+GOTO @检测复活
+
+[@检测复活]
+#IF
+CHECKLEVELEX < 40
+#ACT
+GMEXECUTE 复活 <$USERNAME>
+close
+#elseACT
+GMEXECUTE 复活 <$USERNAME>
+mapmove n3 330 333
+close
+
+;----------------------------------------------------
+
+[@STDMODEFUNC9]
+#IF
+gender woman
+#ACT
+HAIRSTYLE 1
+SENDMSG 7 发型已经变更! 
+BREAK
+#IF
+gender man
+#ACT
+HAIRSTYLE 1
+SENDMSG 7 发型已经变更! 
+BREAK
+
+[@STDMODEFUNC10]
+#IF
+gender woman
+#ACT
+HAIRSTYLE 0
+SENDMSG 7 发型已经变更! 
+BREAK
+#IF
+gender man
+#ACT
+HAIRSTYLE 0
+SENDMSG 7 发型已经变更! 
+BREAK
+
+[@STDMODEFUNC11]
+#IF
+#ACT
+KILLMONEXPRATE 200 3600
+Gmexecute showeffect 76
+SENDMSG 0 玩家「<$USERNAME>」使用双倍卷轴，获得了1小时双倍时间。
+
+
+[@STDMODEFUNC12]
+#IF
+#ACT
+KILLMONEXPRATE 200 7200
+Gmexecute showeffect 76
+SENDMSG 0 玩家「<$USERNAME>」使用双倍宝典(小)，获得了2小时双倍时间。
+
+
+[@STDMODEFUNC13]
+#IF
+#ACT
+KILLMONEXPRATE 200 10800
+Gmexecute showeffect 76
+SENDMSG 0 玩家「<$USERNAME>」使用双倍宝典(中)，获得了3小时双倍时间。
+
+
+[@STDMODEFUNC14]
+#IF
+#ACT
+KILLMONEXPRATE 200 21600
+Gmexecute showeffect 76
+SENDMSG 0 玩家「<$USERNAME>」使用双倍宝典(大)，获得了6小时双倍时间。
+
+
+[@StdModeFunc15]
+#IF
+#ACT
+Gmexecute showeffect 79
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc16]
+#IF
+#ACT
+Gmexecute showeffect 80
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc17]
+#IF
+#ACT
+Gmexecute showeffect 81
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc18]
+#IF
+#ACT
+Gmexecute showeffect 82
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc19]
+#IF
+#ACT
+Gmexecute showeffect 83
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc20]
+#IF
+#ACT
+Gmexecute showeffect 84
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc21]
+#IF
+#ACT
+Gmexecute showeffect 85
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放烟花咯、大家快去欣赏哦。
+
+[@StdModeFunc41]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 79
+Gmexecute showeffect 80
+Gmexecute showeffect 81
+Delaygoto 2000 @庆典蛋糕1
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕1]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 80
+Gmexecute showeffect 81
+Gmexecute showeffect 82
+Delaygoto 2000 @庆典蛋糕2
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕2]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 81
+Gmexecute showeffect 82
+Gmexecute showeffect 83
+Delaygoto 2000 @庆典蛋糕3
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕3]
+#IF
+  small M3 60
+#Act
+  INC M3 2
+Gmexecute showeffect 82
+Gmexecute showeffect 83
+Gmexecute showeffect 84
+Delaygoto 2000 @庆典蛋糕4
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕4]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 83
+Gmexecute showeffect 84
+Gmexecute showeffect 85
+Delaygoto 2000 @庆典蛋糕5
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕5]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 79
+Gmexecute showeffect 84
+Gmexecute showeffect 85
+Delaygoto 2000 @庆典蛋糕6
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@庆典蛋糕6]
+#IF
+small M3 60
+#Act
+INC M3 2
+Gmexecute showeffect 79
+Gmexecute showeffect 80
+Gmexecute showeffect 85
+Delaygoto 2000 @庆典蛋糕
+SENDMSG 0 <$USERNAME>在:%m%x:%y处放庆典蛋糕了!大家快去看拉
+#ELSEAct
+MOV M3 0
+
+[@StdModeFunc29]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#ACT
+mapmove n0 328 264
+break
+
+
+[@StdModeFunc30]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#ACT
+MOVR I30 321 339
+MOVR I31 324 341
+MAPMOVE N3 <$STR(I30)> <$STR(I31)>
+break
+
+[@StdModeFunc31]
+#IF
+#ACT
+ChangeSlaveLevel 虎卫 = 7
+ChangeSlaveLevel 变异骷髅 = 7
+ChangeSlaveLevel 神兽1 = 7
+ChangeSlaveLevel 神兽 = 7
+ChangeSlaveLevel 神兽2 = 7
+ChangeSlaveLevel 刀卫 = 7
+ChangeSlaveLevel 月魔蜘蛛 = 7
+ChangeSlaveLevel 半兽勇士1 = 7
+ChangeSlaveLevel 牛头魔 = 7
+ChangeSlaveLevel 巨型多角虫1 = 7
+ChangeSlaveLevel 圣兽 = 7
+ChangeSlaveLevel 圣兽1 = 7
+ChangeSlaveLevel 圣兽2 = 7
+ChangeSlaveLevel <圣>兽 = 7
+ChangeSlaveLevel <圣>兽1 = 7
+ChangeSlaveLevel <圣>兽2 = 7
+ChangeSlaveLevel <圣☆兽> = 7
+ChangeSlaveLevel <圣☆兽>1 = 7
+ChangeSlaveLevel <圣☆兽>2 = 7
+ChangeSlaveLevel 月灵 = 7
+ChangeSlaveLevel 炼狱※圣兽2 = 7
+SENDMSG 7 您的宠物已经升级到7级如未能升级,请联系GM添加！
+
+
+[@StdModeFunc32]
+#if
+#act
+RESTBONUSPOINT
+break
+
+
+
+
+
+
+
+
+
+[@StdModeFunc99]
+#IF
+CHECKMAPNAME nHERO1
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+#SAY
+一： <记录当前坐标/@TAGMAPINFO1> <移动到/@PMOVE1> -> <$TAGMAPNAME1> <$TAGX1> <$TAGY1>\
+二： <记录当前坐标/@TAGMAPINFO2> <移动到/@PMOVE2> -> <$TAGMAPNAME2> <$TAGX2> <$TAGY2>\
+三： <记录当前坐标/@TAGMAPINFO3> <移动到/@PMOVE3> -> <$TAGMAPNAME3> <$TAGX3> <$TAGY3>\
+四： <记录当前坐标/@TAGMAPINFO4> <移动到/@PMOVE4> -> <$TAGMAPNAME4> <$TAGX4> <$TAGY4>\
+五： <记录当前坐标/@TAGMAPINFO5> <移动到/@PMOVE5> -> <$TAGMAPNAME5> <$TAGX5> <$TAGY5>\
+六： <记录当前坐标/@TAGMAPINFO6> <移动到/@PMOVE6> -> <$TAGMAPNAME6> <$TAGX6> <$TAGY6>\ \
+<成功传送后才会消失一点.安全无毒.放心使用>\ 
+[@PMOVE1]
+#ACT
+TAGMAPMOVE 1
+[@PMOVE2]
+#ACT
+TAGMAPMOVE 2
+[@PMOVE3]
+#ACT
+TAGMAPMOVE 3
+[@PMOVE4]
+#ACT
+TAGMAPMOVE 4
+[@PMOVE5]
+#ACT
+TAGMAPMOVE 5
+[@PMOVE6]
+#ACT
+TAGMAPMOVE 6
+[@TAGMAPINFO1]
+#ACT
+TAGMAPINFO 1
+GOTO @StdModeFunc99
+[@TAGMAPINFO2]
+#ACT
+TAGMAPINFO 2
+GOTO @StdModeFunc99
+[@TAGMAPINFO3]
+#ACT
+TAGMAPINFO 3
+GOTO @StdModeFunc99
+[@TAGMAPINFO4]
+#ACT
+TAGMAPINFO 4
+GOTO @StdModeFunc99
+[@TAGMAPINFO5]
+#ACT
+TAGMAPINFO 5
+GOTO @StdModeFunc99
+[@TAGMAPINFO6]
+#ACT
+TAGMAPINFO 6
+GOTO @StdModeFunc99
+
+[@RevMaster]
+对方想拜你为师，你是否想收此人为徒？ \ \
+『<同意/@ResposeMaster>』 \
+『<不同意/@ResposeMasterFail>』
+
+[@ResposeMaster]
+#IF
+#ACT
+master responsemaster1 ok
+close
+
+[@ResposeMasterFail]
+#if
+#act
+master responsemaster1 fail
+
+[@EndMaster]
+#if
+#act
+SENDMSG 0 %s完成了拜师收徒仪式!
+
+[@EndMasterFail]
+拜师失败！\ \
+〖<关闭/@exit>〗
+
+[@RevUnMaster]
+对方向你请求脱离师徒关系，你是否答应？ \ \
+『<我愿意/@ResposeUnMaster>』
+〖<退出/@Exit>〗
+
+[@ResposeUnMaster]
+#if
+#act 
+unmaster REQUESTUNMASTER MASTER
+
+[@PoseUnMasterEnd]
+呵呵，你已经与徒弟脱离师徒关系了！！！ \ \
+『<退出/@exit>』
+
+[@RequestUnMasterEnd]
+呵呵，你已经脱离师徒关系了！！！ \ \
+『<退出/@exit>』
+
+[@OnKillMob]
+#IF
+checkmapname D710
+CheckKillMonName 叛逃卫士
+EQUAL A2 叛逃卫士
+#ACT
+GOTO @苍月
+break
+
+[@苍月]
+#IF
+CheckMapsameMonCount D710 叛逃卫士 > 10
+#ACT
+MOV A1 十只以上
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 10
+#ACT
+MOV A1 十只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 9
+#ACT
+MOV A1 九只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 8
+#ACT
+MOV A1 八只
+
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 7
+#ACT
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 6
+#ACT
+MOV A1 六只
+
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 5
+#ACT
+MOV A1 五只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 4
+#ACT
+MOV A1 四只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 3
+#ACT
+MOV A1 三只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 2
+#ACT
+MOV A1 两只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 1
+#ACT
+MOV A1 一只
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 = 0
+#ACT
+GMEXECUTE Mob 沃玛教主·噩梦 1
+MOV A2 活动结束
+GAMEGOLD + 30
+SuperMoveMsg 0 251 0 20 100 5 [叛逃卫士]被<$USERNAME>在%m(%x:%y)击杀！获得30元宝！||该地图的卫士已经全部被消灭了！沃玛教主·噩梦闻风而来！
+break
+
+#IF
+CheckMapsameMonCount D710 叛逃卫士 > 0
+#ACT
+SENDMSG 0 [{活动|251:249:1}]：【{叛逃卫士|251:249:1}】被【{<$USERNAME>|251:249:1}】在【{%M(%x,%y)|251:249:1}】击杀！掉落大量宝物.该地图目前还剩下{<$STR(A1)>|251:249:1}！
+break
+
+
+
+[@STDMODEFUNC40]
+#ACT
+GetRandomText ../QuestDiary/宝图/宝图列表.txt S18
+GiveStateItem <$Str(S18)> 1 1 1 1 1 1
+SENDMSG 6 抽取成功，您抽到一张“<$Str(S18)>”
+break
+
+[@STDMODEFUNC53]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n0 98 416 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n0 98 416
+GiveStateItem 比奇藏宝图·一 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(比奇省,98,416)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+[@STDMODEFUNC42]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n0 317 464 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n0 317 464
+GiveStateItem 比奇藏宝图·二 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(比奇省,317,464)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+
+
+[@STDMODEFUNC43]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n0 565 342 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n0 565 342
+GiveStateItem 比奇藏宝图·三 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(比奇省,565,342)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+
+[@STDMODEFUNC44]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n3 204 450 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n3 204 450
+GiveStateItem 盟重藏宝图·一 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(盟重省,204,450)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+[@STDMODEFUNC45]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n3 421 183 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n3 421 183
+GiveStateItem 盟重藏宝图·二 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(盟重省,421,183)，请注意是否拥有洛阳铲+10点精力！
+break
+
+[@STDMODEFUNC46]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n3 598 626 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n3 598 626
+GiveStateItem 盟重藏宝图·三 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(盟重省,598,626)，请注意是否拥有洛阳铲+10点精力！
+break
+
+[@STDMODEFUNC47]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n4 122 147 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n4 122 147
+GiveStateItem 封魔藏宝图·一 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(封魔谷,122,147)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+[@STDMODEFUNC48]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n4 384 419 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n4 384 419
+GiveStateItem 封魔藏宝图·二 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(封魔谷,384,419)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+[@STDMODEFUNC49]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n4 197 127 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n4 197 127
+GiveStateItem 封魔藏宝图·三 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(封魔谷,197,127)，请注意是否拥有洛阳铲+10点精力！
+break
+
+
+[@STDMODEFUNC50]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n5 356 600 5
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n5 356 600
+GiveStateItem 苍月藏宝图·一 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(苍月岛,356,600)，请注意是否拥有洛阳铲+10点精力！
+break
+
+[@STDMODEFUNC51]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n5 168 406 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n5 168 406
+GiveStateItem 苍月藏宝图·二 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(苍月岛,168,406)，请注意是否拥有洛阳铲+10点精力！
+break
+
+[@STDMODEFUNC52]
+#IF
+CHECKMAPNAME n0139
+#ACT
+SENDMSG 6 对不起，您当前在特殊地图，无法使用此功能！
+break
+
+#IF
+CheckInMapRange n5 491 440 3
+checkitem 洛阳铲 1
+LARGE U26 9
+#ACT
+DEC U26 10
+TAKE 洛阳铲 1
+goto @挖掘成功
+#ELSEACT
+mapmove n5 491 440
+GiveStateItem 苍月藏宝图·三 1 1 1 1 1 1
+SENDMSG 6 您当前宝图所指向的目标是(苍月岛,491,440)，请注意是否拥有洛阳铲+10点精力！
+break
+
+[@挖掘成功]
+#IF
+random 75
+#ACT
+GAMEGLORY + 1
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+GMExecute Mob <$Str(S18)> 1
+SendNewLineMsg 0 251 0 15 100 10 1 『霉运之星』:勇士『<$USERNAME>』一铲子下去,||居然挖到了传说中的『<$Str(S18)>』.真是倒霉！
+break
+
+#IF
+random 5
+#ACT
+GAMEGLORY + 1
+GetRandomText ../QuestDiary/宝图/宝藏物品.txt S18
+GiveStateItem <$Str(S18)> 1 1 0 1 1 1
+SendNewLineMsg 0 251 0 15 100 10 1 『幸运之星』:勇士『<$USERNAME>』一铲子下去,||居然挖到了传说中的『<$Str(S18)>』.真是幸运！
+break
+
+
+#IF
+random 3
+#ACT
+GAMEGLORY + 1
+GetRandomText ../QuestDiary/宝图/宝藏魔物.txt S18
+GMExecute Mob <$Str(S18)> 1
+SENDMSG 0 [<$USERNAME>]在<$MapTitle>挖宝的时候，惊动了“<$Str(S18)>”,“<$Str(S18)>”正在<$MapTitle>，<$X>，<$Y>肆虐，真是倒霉！！！
+SENDMSG 0 [<$USERNAME>]在<$MapTitle>挖宝的时候，惊动了“<$Str(S18)>”,“<$Str(S18)>”正在<$MapTitle>，<$X>，<$Y>肆虐，真是倒霉！！！
+SENDMSG 0 [<$USERNAME>]在<$MapTitle>挖宝的时候，惊动了“<$Str(S18)>”,“<$Str(S18)>”正在<$MapTitle>，<$X>，<$Y>肆虐，真是倒霉！！！
+break
+
+#IF
+random 3
+#ACT
+ChangeHumAbility 6 = 0
+ChangeHumAbility 8 = 0
+ChangeHumAbility 10 = 0
+ChangeHumAbility 2 = 0
+ChangeHumAbility 4 = 0
+ChangeHumAbility 11 = 0
+ChangeHumAbility 12 = 0
+ChangeHumAbility 5 = 0
+ChangeHumAbility 7 = 0
+ChangeHumAbility 9 = 0
+ChangeHumAbility 1 = 0
+ChangeHumAbility 3 = 0
+ChangeHumAbility 6 + 30 300
+ChangeHumAbility 8 + 30 300
+ChangeHumAbility 10 + 30 300
+ChangeHumAbility 2 + 30 300
+ChangeHumAbility 4 + 30 300
+ChangeHumAbility 11 + 30 300
+ChangeHumAbility 12 + 30 300
+ChangeHumAbility 5 + 30 300
+ChangeHumAbility 7 + 30 300
+ChangeHumAbility 9 + 30 300
+ChangeHumAbility 1 + 30 300
+ChangeHumAbility 3 + 30 300
+SENDMSG 6 你一铲子下去，挖到了玛法大陆的龙脉！获得全属性+30，持续5分钟
+SENDDELAYMSG 龙脉之力使你精神大振，%s后龙脉之力散去 300 249 1 @无
+SENDMSG 0 [<$USERNAME>]在挖宝的时候，挖到了玛法大陆的龙脉！获得全属性+30，持续5分钟！
+break
+
+#IF
+random 2
+#ACT
+MOV N7 0
+Mul N7 9000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+GAMEGLORY + 1
+give 书页 8
+SENDMSG 6 你一铲子下去，挖到了前人的经验书籍，你仔细翻阅顿时觉得获益匪浅！
+SENDMSG 0 [<$USERNAME>]在挖宝的时候，挖到了前人的书籍，获得<$Str(N7)>经验+8张书页+1点荣誉！
+break
+
+#IF
+random 2
+#ACT
+SENDMSG 6 你一铲子下去，只见面前飘起了一尘灰，啥也没挖到！
+SENDMSG 6 你一铲子下去，只见面前飘起了一尘灰，啥也没挖到！
+SENDMSG 6 你一铲子下去，只见面前飘起了一尘灰，啥也没挖到！
+break
+
+#IF
+random 1
+#ACT
+MAKEPOSION 5 10 5
+SENDMSG 6 你一铲子下去，只见面前飘起了一阵血雾，等你反映过来，已经中尸毒了！
+SENDMSG 6 你一铲子下去，只见面前飘起了一阵血雾，等你反映过来，已经中尸毒了！
+SENDMSG 6 你一铲子下去，只见面前飘起了一阵血雾，等你反映过来，已经中尸毒了！
+SENDMSG 0 [<$USERNAME>]在挖宝的时候，挖起一阵血雾，不小心中了尸毒！真是可怜！
+break
+
+
+
+
+
+
+
+
+
+
+[@SkillLevelEx1]
+#ACT
+mov S99 火球术
+goto @强化技能
+break
+
+[@SkillLevelEx2]
+#ACT
+mov S99 治愈术
+goto @强化技能
+break
+
+[@SkillLevelEx3]
+#ACT
+mov S99 基本剑术
+goto @强化技能
+break
+[@SkillLevelEx4]
+#ACT
+mov S99 精神力战法
+goto @强化技能
+break
+
+[@SkillLevelEx5]
+#ACT
+mov S99 大火球
+goto @强化技能
+break
+
+[@SkillLevelEx6]
+#ACT
+mov S99 施毒术
+goto @强化技能
+break
+
+[@SkillLevelEx7]
+#ACT
+mov S99 攻杀剑术
+goto @强化技能
+break
+
+[@SkillLevelEx9]
+#ACT
+mov S99 地狱火
+goto @强化技能
+break
+
+[@SkillLevelEx10]
+#ACT
+mov S99 疾光电影
+goto @强化技能
+break
+
+
+[@SkillLevelEx11]
+#ACT
+mov S99 雷电术
+goto @强化技能
+break
+[@SkillLevelEx12]
+#ACT
+mov S99 刺杀剑术
+goto @强化技能
+break
+[@SkillLevelEx13]
+#ACT
+mov S99 灵魂火符
+goto @强化技能
+break
+[@SkillLevelEx14]
+#ACT
+mov S99 幽灵盾
+goto @强化技能
+break
+[@SkillLevelEx15]
+#ACT
+mov S99 神圣战甲术
+goto @强化技能
+break
+[@SkillLevelEx17]
+#ACT
+mov S99 召唤骷髅
+goto @强化技能
+break
+
+[@SkillLevelEx18]
+#ACT
+mov S99 隐身术
+goto @强化技能
+break
+[@SkillLevelEx19]
+#ACT
+mov S99 集体隐身术
+goto @强化技能
+break
+[@SkillLevelEx20]
+#ACT
+mov S99 诱惑之光
+goto @强化技能
+break
+[@SkillLevelEx21]
+#ACT
+mov S99 瞬息移动
+goto @强化技能
+break
+[@SkillLevelEx22]
+#ACT
+mov S99 火墙
+goto @强化技能
+break
+[@SkillLevelEx23]
+#ACT
+mov S99 爆裂火焰
+goto @强化技能
+break
+[@SkillLevelEx24]
+#ACT
+mov S99 地狱雷光
+goto @强化技能
+break
+[@SkillLevelEx25]
+#ACT
+mov S99 半月弯刀
+goto @强化技能
+break
+
+[@SkillLevelEx26]
+#ACT
+mov S99 烈火剑法
+goto @强化技能
+break
+[@SkillLevelEx27]
+#ACT
+mov S99 野蛮冲撞
+goto @强化技能
+break
+
+[@SkillLevelEx28]
+#ACT
+mov S99 心灵启示
+goto @强化技能
+break
+[@SkillLevelEx29]
+#ACT
+mov S99 群体治愈术
+goto @强化技能
+break
+[@SkillLevelEx30]
+#ACT
+mov S99 召唤神兽
+goto @强化技能
+break
+
+[@SkillLevelEx31]
+#ACT
+mov S99 魔法盾
+goto @强化技能
+break
+[@SkillLevelEx32]
+#ACT
+mov S99 圣言术
+goto @强化技能
+break
+
+[@SkillLevelEx33]
+#ACT
+mov S99 冰咆哮
+goto @强化技能
+break
+
+
+[@SkillLevelEx34]
+#ACT
+mov S99 解毒术
+goto @强化技能
+break
+
+[@SkillLevelEx46]
+#ACT
+mov S99 诅咒术
+goto @强化技能
+break
+
+[@SkillLevelEx39]
+#ACT
+mov S99 彻地钉
+goto @强化技能
+break
+
+[@SkillLevelEx40]
+#ACT
+mov S99 双龙斩
+goto @强化技能
+break
+
+[@SkillLevelEx41]
+#ACT
+mov S99 狮子吼
+goto @强化技能
+break
+[@SkillLevelEx44]
+#ACT
+mov S99 寒冰掌
+goto @强化技能
+break
+[@SkillLevelEx45]
+#ACT
+mov S99 灭天火
+goto @强化技能
+break
+[@SkillLevelEx47]
+#ACT
+mov S99 火龙气焰
+goto @强化技能
+break
+[@SkillLevelEx48]
+#ACT
+mov S99 气功波
+goto @强化技能
+break
+[@SkillLevelEx50]
+#ACT
+mov S99 无极真气
+goto @强化技能
+break
+[@SkillLevelEx51]
+#ACT
+mov S99 群体施毒术
+goto @强化技能
+break
+[@SkillLevelEx52]
+#ACT
+mov S99 飓风破
+goto @强化技能
+break
+[@SkillLevelEx55]
+#ACT
+mov S99 召唤月灵
+goto @强化技能
+break
+[@SkillLevelEx57]
+#ACT
+mov S99 噬血术
+goto @强化技能
+break
+[@SkillLevelEx58]
+#ACT
+mov S99 流星火雨
+goto @强化技能
+break
+[@SkillLevelEx66]
+#ACT
+mov S99 开天斩
+goto @强化技能
+break
+
+[@SkillLevelEx76]
+#ACT
+mov S99 召唤圣兽
+goto @强化技能
+break
+
+
+[@SkillLevelEx202]
+#ACT
+mov S99 裂神符
+goto @强化技能
+break
+[@SkillLevelEx203]
+#ACT
+mov S99 死亡之眼
+goto @强化技能
+break
+
+[@SkillLevelEx204]
+#ACT
+mov S99 十步一杀
+goto @强化技能
+break
+[@SkillLevelEx205]
+#ACT
+mov S99 冰霜雪雨
+goto @强化技能
+break
+[@SkillLevelEx206]
+#ACT
+mov S99 冰霜群雨
+goto @强化技能
+break
+
+[@SkillLevelEx208]
+#ACT
+mov S99 旋风斩
+goto @强化技能
+break
+[@SkillLevelEx209]
+#ACT
+mov S99 五雷轰
+goto @强化技能
+break
+[@SkillLevelEx210]
+#ACT
+mov S99 幽冥火符
+goto @强化技能
+break
+[@SkillLevelEx69]
+#ACT
+mov S99 禁锢术
+goto @强化技能
+break
+
+[@SkillLevelEx1002]
+#ACT
+mov S99 阴阳·雷霆法阵
+goto @强化技能3
+break
+[@SkillLevelEx1003]
+#ACT
+mov S99 咒·潜入
+goto @强化技能
+break
+[@SkillLevelEx1004]
+#ACT
+mov S99 魅姬·尸气鼓荡
+goto @强化技能
+break
+[@SkillLevelEx1005]
+#ACT
+mov S99 圣者·无敌
+goto @强化技能
+break
+[@SkillLevelEx1006]
+#ACT
+mov S99 剑姬·无坚不摧
+goto @强化技能
+break
+
+[@SkillLevelEx1007]
+#ACT
+mov S99 烈焰·焚天继海
+goto @强化技能
+break
+[@SkillLevelEx1008]
+#ACT
+mov S99 寒冰·冰封千里
+goto @强化技能
+break
+[@SkillLevelEx1009]
+#ACT
+mov S99 辅助·医疗阵
+goto @强化技能
+break
+[@SkillLevelEx1010]
+#ACT
+mov S99 辅助·阴阳加持
+goto @强化技能
+break
+
+[@SkillLevelEx1011]
+#ACT
+mov S99 毒·十香软筋散
+goto @强化技能
+break
+
+[@SkillLevelEx1012]
+#ACT
+mov S99 辅助·六道轮回
+goto @强化技能
+break
+
+[@SkillLevelEx1013]
+#ACT
+mov S99 忍术·手里剑
+goto @强化技能
+break
+
+[@SkillLevelEx1014]
+#ACT
+mov S99 忍术·范围引爆
+goto @强化技能
+break
+
+
+[@SkillLevelEx1015]
+#ACT
+mov S99 忍术·掌心雷
+goto @强化技能
+break
+
+[@SkillLevelEx1015]
+#ACT
+mov S99 忍术·掌心雷
+goto @强化技能
+break
+
+[@SkillLevelEx74]
+#ACT
+mov S99 忍术·影分身术
+goto @强化技能
+break
+
+[@SkillLevelEx75]
+#ACT
+mov S99 通用·护体神盾
+goto @强化技能2
+break
+
+[@SkillLevelEx88]
+#ACT
+mov S99 神武守护
+goto @强化技能
+break
+
+[@SkillLevelEx89]
+#ACT
+mov S99 万法归一
+goto @强化技能
+break
+
+
+[@强化技能2]
+#IF
+CheckSkill <$STR(S99)> = 9 1
+#ACT
+Sendmsg 7 强化<$STR(S99)>已升至最高等级九级，无法继续升级！
+#ELSEACT
+MESSAGEBOX 是否确定使用100张书页和100点荣誉，\升级强化<$STR(S99)>至下一等级？ @确定999998 @取消
+Break
+
+[@确定999998]
+#IF
+CheckSkill <$STR(S99)> < 3
+#ACT
+Sendmsg 7 你基础技能并未升满，无法升级！
+break
+
+#IF
+CheckSkill <$STR(S99)> > 8 1
+#ACT
+MESSAGEBOX 强化<$STR(S99)>已升至最高等级九级，无法继续升级！
+break
+
+#IF
+checkitem 书页 100
+CHECKGAMEGLORY > 99
+#ACT
+SKILLLEVEL <$STR(S99)> + 1 1
+take 书页 100
+GAMEGLORY - 100
+MESSAGEBOX  提示：恭喜您的<$STR(S99)>又熟练提升了1级
+break
+#ELSEACT
+messagebox  你没有学习此技能或者没有100张书页和100点荣誉，\请您达到条件了再来吧！
+
+
+[@强化技能]
+#IF
+CheckSkill <$STR(S99)> = 9 1
+#ACT
+Sendmsg 7 强化<$STR(S99)>已升至最高等级九级，无法继续升级！
+#ELSEACT
+MESSAGEBOX 是否确定使用20张书页+100点荣誉+30点精力，\升级强化<$STR(S99)>至下一等级？ @确定999999 @取消
+Break
+
+[@确定999999]
+#IF
+CheckSkill <$STR(S99)> < 3
+#ACT
+Sendmsg 7 你基础技能并未升满，无法升级！
+break
+
+#IF
+CheckSkill <$STR(S99)> > 8 1
+#ACT
+MESSAGEBOX 强化<$STR(S99)>已升至最高等级九级，无法继续升级！
+break
+
+#IF
+checkitem 书页 20
+CHECKGAMEGLORY > 99
+LARGE U26 29
+#ACT
+SKILLLEVEL <$STR(S99)> + 1 1
+take 书页 20
+GAMEGLORY - 100
+DEC U26 30
+MESSAGEBOX  提示：恭喜您的<$STR(S99)>又熟练提升了1级
+break
+#ELSEACT
+messagebox  你没有学习此技能或者没有20张书页+100点荣誉+30点精力，\请您达到条件了再来吧！
+
+
+
+[@强化技能3]
+#IF
+CheckSkill <$STR(S99)> = 15 1
+#ACT
+Sendmsg 7 强化<$STR(S99)>已升至最高等级十五级，无法继续升级！
+#ELSEACT
+MESSAGEBOX 是否确定使用50张书页+100点荣誉+30点精力，\升级强化<$STR(S99)>至下一等级？ @确定329999 @取消
+Break
+
+[@确定329999]
+#IF
+CheckSkill <$STR(S99)> < 3
+#ACT
+Sendmsg 7 你基础技能并未升满，无法升级！
+break
+
+#IF
+CheckSkill <$STR(S99)> > 14 1
+#ACT
+MESSAGEBOX 强化<$STR(S99)>已升至最高等级十五级，无法继续升级！
+break
+
+#IF
+checkitem 书页 50
+CHECKGAMEGLORY > 99
+LARGE U26 29
+#ACT
+SKILLLEVEL <$STR(S99)> + 1 1
+take 书页 50
+GAMEGLORY - 100
+DEC U26 30
+MESSAGEBOX  提示：恭喜您的<$STR(S99)>又熟练提升了1级
+break
+#ELSEACT
+messagebox  你没有学习此技能或者没有50张书页+100点荣誉+30点精力，\请您达到条件了再来吧！
+
+
+
+
+[@锻造失败]
+#ACT
+SendMsg 6 被打断，锻造失败
+UpdateItem boxitem4
+Break
+
+
+[@锻造装备]
+#IF
+CheckItemNameColor boxitem4 246
+#ACT
+MOVR N45 0 2
+
+#IF
+CheckItemNameColor boxitem4 250
+#ACT
+MOVR N45 0 2
+
+#IF
+CheckItemNameColor boxitem4 168
+#ACT
+MOVR N45 0 3
+
+#IF
+CheckItemNameColor boxitem4 151
+#ACT
+MOVR N45 0 4
+
+#IF
+CheckItemNameColor boxitem4 253
+#ACT
+MOVR N45 0 5
+
+#IF
+CheckItemNameColor boxitem4 249
+#ACT
+MOVR N45 0 6
+
+#IF
+CheckItemNameColor boxitem4 241
+#ACT
+MOVR N45 0 6
+
+#if
+#ACT
+MOVR N83 10 200
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 + <$STR(N83)>
+SENDMSG 6 你的装备得到了神的祝福，钢纹品质　+　<$STR(N83)>.
+UpdateItem boxitem4
+goto @检测锻造等级
+break
+
+[@检测锻造等级]
+#if
+CheckCustomItemProgressbarValue boxitem4 1 1 = 1000
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 0 1 + 1
+SENDMSG 5 你的装备得到了神的祝福，钢纹提升.
+UpdateItem boxitem4
+goto @检测1
+break
+
+[@检测1]
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 1
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：飞燕
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 250
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 2
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：仙鹤
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 250
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 3
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：神雕
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 250
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 4
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：朱雀
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 168
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 5
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：玄武
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 168
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 6
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：白虎
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 168
+UpdateItem boxitem4
+break
+
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 7
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：青龙
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 168
+UpdateItem boxitem4
+break
+
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 8
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：勾陈
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 168
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 9
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：螣蛇
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 70
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 10
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：角瑞
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 70
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 11
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：陆吾
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 70
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 12
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：白泽
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 70
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 13
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：麒麟
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 70
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 14
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：凤凰
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 253
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 15
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：朱厌
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 253
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 16
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：鹣鹣
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 253
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 17
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：颛顼
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 253
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 18
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：烛照
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 249
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 19
+#act
+SETCUSTOMITEMPROGRESSBARVALUE boxitem4 1 1 = 1
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：幽荧
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 249
+UpdateItem boxitem4
+break
+
+#if
+CheckCustomItemProgressbarValue boxitem4 0 1 = 20
+#act
+SetCustomItemValue boxitem4 <$STR(N45)> + 1
+INC N45 1
+SendMsg 6 本次加的为第“<$STR(N45)>”条属性！
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 1 钢纹：太极
+SETCUSTOMITEMPROGRESSBAR boxitem4 0 2 249
+UpdateItem boxitem4
+ReturnBoxItem 4
+break
+
+
+
+[@PickUpItemEX]
+#IF
+#ACT
+LINKPICKUPITEM -1
+GETRANDOMLINETEXT ..\Market_def\追忆传奇\装备品质.txt <$STR(S$装备品质)>
+GetDBItemFieldValue <$PICKDROPITEMNAME> stdmode <$STR(N2)>
+MOV S$拾取物 <$PICKDROPITEMNAME>
+
+#IF
+EQUAL T9 超级炼化
+CheckItemNameColor -1 251
+#ACT
+goto @超级炼化
+break
+
+#IF
+EQUAL T9 特殊自动
+CheckItemNameColor -1 251
+#ACT
+goto @普通炼化
+
+#OR
+EQUAL <$STR(N2)> 5
+EQUAL <$STR(N2)> 6
+EQUAL <$STR(N2)> 19
+EQUAL <$STR(N2)> 20
+EQUAL <$STR(N2)> 21
+EQUAL <$STR(N2)> 24
+EQUAL <$STR(N2)> 22
+EQUAL <$STR(N2)> 23
+EQUAL <$STR(N2)> 53
+#ACT
+MOV N$防御 3
+goto @颜色品质鉴定
+break
+#ELSEACT
+MOV N$防御 1
+goto @颜色品质鉴定
+break
+
+
+
+
+[@普通炼化]
+#IF
+equal S$装备品质 246
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 劣质宝珠
+SENDMSG 6 自动炼化成功，获得：劣质宝珠。更换模式@自动精炼
+break
+
+#IF
+equal S$装备品质 250
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 精致宝珠
+SENDMSG 6 自动炼化成功，获得：精致宝珠。更换模式@自动精炼
+break
+
+
+[@超级炼化]
+#IF
+equal S$装备品质 246
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 劣质宝珠
+SENDMSG 6 自动炼化成功，获得：劣质宝珠。更换模式@自动精炼
+break
+
+#IF
+equal S$装备品质 250
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 精致宝珠
+SENDMSG 6 自动炼化成功，获得：精致宝珠。更换模式@自动精炼
+break
+
+
+#IF
+EQUAL <$STR(N2)> 5
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 成长型宝珠
+SENDMSG 6 自动炼化成功，获得：成长型宝珠。更换模式@自动精炼
+break
+
+#IF
+EQUAL <$STR(N2)> 6
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 成长型宝珠
+SENDMSG 6 自动炼化成功，获得：成长型宝珠。更换模式@自动精炼
+break
+
+#IF
+equal S$装备品质 168
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 稀有宝珠
+SENDMSG 6 自动炼化成功，获得：稀有宝珠。更换模式@自动精炼
+break
+
+
+#IF
+equal S$装备品质 151
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 卓越宝珠
+SENDMSG 6 自动炼化成功，获得：卓越宝珠。更换模式@自动精炼
+break
+
+#IF
+equal S$装备品质 253
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 完美宝珠
+SENDMSG 6 自动炼化成功，获得：完美宝珠。更换模式@自动精炼
+break
+
+
+#IF
+equal S$装备品质 249
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 史诗宝珠
+SENDMSG 6 自动炼化成功，获得：史诗宝珠。更换模式@自动精炼
+break
+
+#IF
+equal S$装备品质 241
+CheckItemNameColor -1 251
+#ACT
+take <$STR(S$拾取物)>
+give 传说宝珠
+SENDMSG 6 自动炼化成功，获得：传说宝珠。更换模式@自动精炼
+break
+
+
+
+
+
+
+
+[@颜色品质鉴定]
+#if
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+EQUAL <$STR(N2)> 5
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+ChangeItemNameColor -1 70
+ChangeItemUpgradeCount -1 = 1
+ChangeItemName -1 <1段><聚气>·<$PICKDROPITEMNAME>
+SetCustomItemText -1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor -1 70
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]在拾取装备的时候，鸿运当头，竟然捡到出了成长武器【<1段><聚气>·<$PICKDROPITEMNAME>】！！
+updateitem -1
+clearLinkItem
+break
+
+#if
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+EQUAL <$STR(N2)> 6
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+ChangeItemNameColor -1 70
+ChangeItemUpgradeCount -1 = 1
+ChangeItemName -1 <1段><聚气>·<$PICKDROPITEMNAME>
+SetCustomItemText -1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor -1 70
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]在拾取装备的时候，鸿运当头，竟然捡到出了成长武器【<1段><聚气>·<$PICKDROPITEMNAME>】！！
+updateitem -1
+clearLinkItem
+break
+
+#if
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+EQUAL <$STR(N2)> 5
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+ChangeItemNameColor -1 70
+ChangeItemUpgradeCount -1 = 1
+SETITEMEFFECT -1 43
+ChangeItemName -1 <1段><聚气>·<$PICKDROPITEMNAME>
+SetCustomItemText -1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor -1 70
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]在拾取装备的时候，鸿运当头，竟然捡到出了成长武器【<1段><聚气>·<$PICKDROPITEMNAME>】！！
+updateitem -1
+clearLinkItem
+break
+
+#if
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+EQUAL <$STR(N2)> 6
+equal S$装备品质 70
+CheckItemNameColor -1 251
+#ACT
+ChangeItemNameColor -1 70
+ChangeItemUpgradeCount -1 = 1
+SETITEMEFFECT -1 43
+ChangeItemName -1 <1段><聚气>·<$PICKDROPITEMNAME>
+SetCustomItemText -1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor -1 70
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]在拾取装备的时候，鸿运当头，竟然捡到出了成长武器【<1段><聚气>·<$PICKDROPITEMNAME>】！！
+updateitem -1
+clearLinkItem
+break
+
+#IF
+equal S$装备品质 10
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：破损
+SETCUSTOMITEMPROGRESSBAR -1 1 2 10
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 10
+SetNewItemValue -1 0 = 0
+SetNewItemValue -1 1 = 0
+SetNewItemValue -1 2 = 0
+SetNewItemValue -1 3 = 0
+SetNewItemValue -1 4 = 0
+SetNewItemValue -1 5 = 0
+SetNewItemValue -1 6 = 0
+SetNewItemValue -1 7 = 0
+SetNewItemValue -1 8 = 0
+SetNewItemValue -1 11 = 0
+SetNewItemValue -1 12 = 0
+SetNewItemValue -1 13 = 0
+SetNewItemValue -1 14 = 0
+SetNewItemValue -1 15 = 0
+SetNewItemValue -1 16 = 0
+SetNewItemValue -1 17 = 0
+SetNewItemValue -1 18 = 0
+SetNewItemValue -1 19 = 0
+SetNewItemValue -1 20 = 0
+ChangeItemName -1 破损的<$PICKDROPITEMNAME>
+SetCustomItemText -1 <Img:1449:33:0:0>你是有多倒霉.
+SetCustomItemTextColor -1 10
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]小心翼翼的捡起了一件【<$PICKDROPITEMNAME>】谁知，竟然一不小心弄破了....
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = 0
+UpdateItem -1
+break
+
+#IF
+equal S$装备品质 246
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：劣质
+SETCUSTOMITEMPROGRESSBAR -1 1 2 246
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 246
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+#IF
+equal S$装备品质 250
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：精致
+SETCUSTOMITEMPROGRESSBAR -1 1 2 250
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 250
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+#IF
+equal S$装备品质 168
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：稀有
+SETCUSTOMITEMPROGRESSBAR -1 1 2 168
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 168
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+#IF
+equal S$装备品质 151
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：卓越
+SETCUSTOMITEMPROGRESSBAR -1 1 2 151
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 151
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+#IF
+equal S$装备品质 253
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：完美
+SETCUSTOMITEMPROGRESSBAR -1 1 2 253
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 253
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+
+#IF
+equal S$装备品质 249
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：史诗
+SETCUSTOMITEMPROGRESSBAR -1 1 2 249
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 249
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil -1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 5 2 6
+SetCustomItemAbil -1 5 3 0
+SetCustomItemValue -1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+
+#IF
+equal S$装备品质 241
+CheckItemNameColor -1 251
+#ACT
+SETCUSTOMITEMPROGRESSBAR -1 1 0 1
+SETCUSTOMITEMPROGRESSBAR -1 1 1 品质：传说
+SETCUSTOMITEMPROGRESSBAR -1 1 2 241
+SETCUSTOMITEMPROGRESSBAR -1 1 3 3
+SETCUSTOMITEMPROGRESSBAR -1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 0 = 1000
+CHANGEITEMNAMECOLOR -1 241
+SetCustomItemAbil -1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 0 2 1
+SetCustomItemAbil -1 0 3 0
+SetCustomItemValue -1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 1 2 2
+SetCustomItemAbil -1 1 3 0
+SetCustomItemValue -1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 2 2 3
+SetCustomItemAbil -1 2 3 0
+SetCustomItemValue -1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 3 2 4
+SetCustomItemAbil -1 3 3 0
+SetCustomItemValue -1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil -1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 4 2 5
+SetCustomItemAbil -1 4 3 0
+SetCustomItemValue -1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil -1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil -1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil -1 5 2 6
+SetCustomItemAbil -1 5 3 0
+SetCustomItemValue -1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SENDMSG 0 【拾取鉴定】：玩家[<$USERNAME>]在拾取装备的时候，鸿运当头，竟然捡到了传说装备【<$PICKDROPITEMNAME>】！！
+SETCUSTOMITEMPROGRESSBARVALUE -1 1 1 = <$STR(N$品质点)>
+GOTO @暗黑鉴定
+UpdateItem -1
+break
+
+[@暗黑鉴定]
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 246
+#ACT
+MOV N5 246
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 250
+#ACT
+SETITEMEFFECT -1 37
+MOV N5 250
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 168
+#ACT
+SETITEMEFFECT -1 38
+MOV N5 168
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 151
+#ACT
+SETITEMEFFECT -1 39
+MOV N5 151
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 249
+#ACT
+SETITEMEFFECT -1 40
+MOV N5 249
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 253
+#ACT
+SETITEMEFFECT -1 41
+MOV N5 253
+goto @暗黑鉴定1
+
+#IF
+NOT CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 241
+#ACT
+SETITEMEFFECT -1 40
+MOV N5 241
+goto @暗黑鉴定1
+
+
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 246
+#ACT
+MOV N5 246
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 250
+#ACT
+MOV N5 250
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 168
+#ACT
+MOV N5 168
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 151
+#ACT
+MOV N5 151
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 249
+#ACT
+MOV N5 249
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 253
+#ACT
+MOV N5 253
+goto @暗黑鉴定1
+
+#IF
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+CheckItemNameColor -1 241
+#ACT
+MOV N5 241
+goto @暗黑鉴定1
+
+
+[@暗黑鉴定1]
+#OR
+equal <$PICKDROPITEMNAME> 黑鬃马
+equal <$PICKDROPITEMNAME> 枣红马
+equal <$PICKDROPITEMNAME> 赤兔马
+equal <$PICKDROPITEMNAME> 汗血马
+equal <$PICKDROPITEMNAME> 白龙马
+equal <$PICKDROPITEMNAME> 迎亲马
+equal <$PICKDROPITEMNAME> 金龙马
+equal <$PICKDROPITEMNAME> 碧水莲花
+equal <$PICKDROPITEMNAME> 镜花水月
+equal <$PICKDROPITEMNAME> 灵玉
+#ACT
+break
+
+#IF
+random 5
+#ACT
+MOVR N0 0 73
+MOV S0 <$PICKDROPITEMNAME>
+#CALL [暗黑特效\暗黑特效.TXT] @暗黑前缀
+break
+
+
+
+
+
+
+
+
+[@GroupKillMon]
+#ACT
+#CALL [暗黑特效\暗黑检测4.TXT] @团队触发
+
+
+[@KillMon]
+#CALL [装备特效2.TXT] @装备1特效
+#CALL [暗黑特效\暗黑检测1.TXT] @暗黑检测1
+#CALL [跑环任务\跑环杀怪.TXT] @跑环杀怪
+#CALL [任务\二转杀怪.TXT] @二转杀怪
+#CALL [任务\封印杀怪.TXT] @封印
+
+
+[@STDMODEFUNC58]
+#IF
+#ACT
+give 碧水龍睛珠 10
+Sendmsg 7 提示：开启成功.您获得了10颗碧水龍睛珠
+SendCenterMsg 180 251 【土豪】：土豪玩家[<$USERNAME>]打开了传说中的十颗碧水龍睛珠.获得了10颗碧水龍睛珠!
+break
+
+
+
+
+[@STDMODEFUNC62]
+#IF
+CHECKLEVELEX < 40
+CHECKRENEWLEVEL = 11
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+CLEARSKILL
+MOV U18 120
+MOV N44 120
+DEC N44	39
+INC U18 <$STR(N44)>
+INC U18 <$LEVEL>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+CHECKLEVELEX > 39
+CHECKRENEWLEVEL = 11
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+CLEARSKILL
+MOV U18 120
+MOV N44 120
+DEC N44	39
+INC U18 <$STR(N44)>
+INC U18 <$LEVEL>
+MOV N44 <$LEVEL>
+DEC N44	39
+INC U18 <$STR(N44)>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+CHECKLEVELEX < 40
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+CLEARSKILL
+MOV U18 <$LEVEL>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+CHECKLEVELEX > 39
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+CLEARSKILL
+MOV U18 <$LEVEL>
+MOV N44 <$LEVEL>
+DEC N44	39
+INC U18 <$STR(N44)>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+SENDMSG 7 技能全清,技能点还原!
+break
+#ELSEACT
+give 洗点符
+SENDMSG 7 对不起，您加过其他天赋点数！无法洗点！
+BREAK
+
+
+
+[@STDMODEFUNC63]
+#IF
+EQUAL T7 首冲已领
+#ACT
+GIVE 首充大礼包
+SENDMSG 7 对不起，您已经领取过首充奖励了！
+BREAK
+
+#IF
+CHECKVAR HUMAN 元宝充值 > 5
+#ACT
+give 书页 30
+give 金条 1
+give 重铸石 10
+give 随机加星石 2
+give 斩妖泣血
+give 凤天羽衣
+give 凰天霓裳
+MOV T7 首冲已领
+SENDMSG 7 打开成功，获得首充大礼包！
+break
+#ELSEACT
+GIVE 首充大礼包
+SENDMSG 7 对不起，您并未充值6元！无法打开首充大礼包！
+BREAK
+
+[@STDMODEFUNC64]
+#IF
+CheckTextList ..\QuestDiary\标记数据\内测玩家.txt <$USERID>
+#ACT
+delTextList ..\QuestDiary\标记数据\内测玩家.txt <$USERID>
+give 书页 5
+give 金条 1
+break
+#ELSEACT
+GIVE 内测大礼包
+SENDMSG 7 对不起，您不是内测玩家！
+BREAK
+
+;-------------------------------------------------------------------------------------刀魂
+
+[@KillMonGetExp]
+#if
+checkuseitem 1
+#act
+#CALL [\装备成长\武器.txt] @武器长
+#CALL [\装备成长\宠物.txt] @宠物
+
+
+
+[@TakeOn29]
+#IF
+CheckCustomItemProgressBar 29 1
+#ACT
+break
+
+#IF
+CheckCustomItemValue 29 5 = 0
+CheckCustomItemValue 29 6 > 0
+#ACT
+MOV S$取走宠物 <$FASHIONCHARM>
+TakeOffItem 29
+take <$STR(S$取走宠物)>
+SENDMSG 7 宠物寿命不足，已经死亡...
+BREAK
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物
+CheckCustomItemValue 29 5 > 1
+#ACT
+BREAK
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物
+#ACT
+MOV S$宠物名字 <$G_FASHIONCHARM>
+DEC S$宠物名字 宠物·
+#ELSEACT
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 1
+MOV N$宠物中转 6
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 2
+MOV N$宠物中转 11
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 3
+MOV N$宠物中转 16
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 4
+MOV N$宠物中转 21
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物名字)>
+#ACT
+MOV N$宠物中转1 5
+MOV N$宠物中转 26
+
+#IF
+EQUAL <$FASHIONCHARM> 宠物
+#ACT
+INC N$宠物中转 0
+MOV N$宠物HP 50
+MOV N$宠物MP 50
+MOV N$宠物寿命 50
+
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品一重
+#ACT
+INC N$宠物中转 1
+MOV N$宠物HP 52
+MOV N$宠物MP 52
+MOV N$宠物寿命 60
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品二重
+#ACT
+INC N$宠物中转 2
+MOV N$宠物HP 54
+MOV N$宠物MP 54
+MOV N$宠物寿命 70
+
+#IF
+EQUAL <$FASHIONCHARM> 珍品三重
+#ACT
+INC N$宠物中转 3
+MOV N$宠物HP 55
+MOV N$宠物MP 55
+MOV N$宠物寿命 80
+
+#IF
+EQUAL <$FASHIONCHARM> 极品一重
+#ACT
+INC N$宠物中转 3
+MOV N$宠物HP 58
+MOV N$宠物MP 58
+MOV N$宠物寿命 90
+
+#IF
+EQUAL <$FASHIONCHARM> 极品二重
+#ACT
+INC N$宠物中转 4
+MOV N$宠物HP 60
+MOV N$宠物MP 60
+MOV N$宠物寿命 100
+
+#IF
+EQUAL <$FASHIONCHARM> 极品三重
+#ACT
+INC N$宠物中转 5
+MOV N$宠物HP 62
+MOV N$宠物MP 62
+MOV N$宠物寿命 110
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品一重
+#ACT
+INC N$宠物中转 5
+MOV N$宠物HP 64
+MOV N$宠物MP 64
+MOV N$宠物寿命 120
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品二重
+#ACT
+INC N$宠物中转 6
+MOV N$宠物HP 67
+MOV N$宠物MP 67
+MOV N$宠物寿命 130
+
+#IF
+EQUAL <$FASHIONCHARM> 绝品三重
+#ACT
+INC N$宠物中转 7
+MOV N$宠物HP 70
+MOV N$宠物MP 70
+MOV N$宠物寿命 140
+
+#IF
+EQUAL <$FASHIONCHARM> 至尊
+#ACT
+INC N$宠物中转 9
+MOV N$宠物HP 80
+MOV N$宠物MP 80
+MOV N$宠物寿命 150
+
+#IF
+#ACT
+LockUpdateItem 29
+
+SetCustomItemText 29 <Img:2:39:0:0>[宠物主人]:<$USERNAME>
+SetCustomItemTextColor 29 249
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 0 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 0 0 243
+SetCustomItemAbil 29 0 1 3
+SetCustomItemAbil 29 0 2 3
+
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 1 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 1 0 243
+SetCustomItemAbil 29 1 1 4
+SetCustomItemAbil 29 1 2 4
+
+MOVR N$宠物随机 1 <$STR(N$宠物中转)>
+SetCustomItemValue 29 2 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 2 0 243
+SetCustomItemAbil 29 2 1 5
+SetCustomItemAbil 29 2 2 5
+
+MOVR N$宠物随机 10 <$STR(N$宠物HP)>
+SetCustomItemValue 29 3 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 3 0 243
+SetCustomItemAbil 29 3 1 6
+SetCustomItemAbil 29 3 2 6
+
+MOVR N$宠物随机 10 <$STR(N$宠物MP)>
+SetCustomItemValue 29 4 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 4 0 243
+SetCustomItemAbil 29 4 1 7
+SetCustomItemAbil 29 4 2 7
+
+MOVR N$宠物随机 10 <$STR(N$宠物寿命)>
+SetCustomItemValue 29 5 = <$STR(N$宠物随机)>
+SetCustomItemAbil 29 5 0 243
+SetCustomItemAbil 29 5 1 14
+SetCustomItemAbil 29 5 2 14
+
+DEC N$宠物中转 1
+SetCustomItemValue 29 6 = <$STR(N$宠物中转)>
+SetCustomItemAbil 29 6 0 243
+SetCustomItemAbil 29 6 1 15
+SetCustomItemAbil 29 6 2 15
+Updateitem 29
+MOV S$宠物名字
+BREAK
+
+
+
+[@TakeOff29]
+#ACT
+KILLCALLMOB 宠物
+SENDMSG 7 取下随身宠物，你召唤的宠物也随之消失了...
+BREAK
+
+
+[@MagSelfFunc1016]
+;#IF
+;CheckContainsText <$G_FASHIONCHARM> 瘟疫统帅
+;#ACT
+;BREAK
+
+
+#IF
+Large U6 0
+#ACT
+SetOnTimer 7 1
+SENDMSG 5 技能未冷却，请在<$STR(U6)>秒之后再次使用召唤宠物技能...
+BREAK
+
+#IF
+CHECKSLAVENAME 宠物
+#ACT
+MOV U6 5
+KILLCALLMOB 宠物
+SetOnTimer 7 1
+SENDMSG 7 宠物已被你暂时隐藏起来，5秒后再次使用召唤宠物技能可以召唤出宠物...
+BREAK
+
+#IF
+NOT CHECKUSEITEM 29
+#ACT
+SENDMSG 5 身上没有携带宠物，无法召唤...
+BREAK
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物·
+#ACT
+MOV S$宠物召唤 <$G_FASHIONCHARM>
+DEC S$宠物召唤 宠物·
+
+#IF
+CheckCustomItemValue 29 5 < 1
+#ACT
+MOV S$取走宠物 <$FASHIONCHARM>
+TakeOffItem 29
+take <$STR(S$取走宠物)>
+SENDMSG 7 宠物寿命不足，已经死亡...
+BREAK
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物·
+CheckCustomItemValue 29 5 < 5
+#ACT
+MOV U6 10
+SetCustomItemValue 29 5 - 1
+RECALLMOB <$STR(S$宠物召唤)> 0
+ChangeSlaveNameColor <$STR(S$宠物召唤)> 70
+ChangeBmz 宠物 <$STR(S$宠物召唤)>
+SENDMSG 6 宠物寿命已经低于5，请及时喂养！
+SENDMSG 6 宠物寿命已经低于5，请及时喂养！
+SENDMSG 6 宠物寿命已经低于5，请及时喂养！
+SENDMSG 7 宠物寿命-1，已被召唤，再次使用召唤宠物技能，你的宠物将被收起来...
+SetOnTimer 7 1
+BREAK
+
+#IF
+CheckContainsText <$G_FASHIONCHARM> 宠物·
+#ACT
+MOV U6 10
+SetCustomItemValue 29 5 - 1
+RECALLMOB <$STR(S$宠物召唤)> 0
+ChangeSlaveNameColor <$STR(S$宠物召唤)> 70
+ChangeBmz 宠物 <$STR(S$宠物召唤)>
+SENDMSG 7 宠物寿命-1，已被召唤，再次使用召唤宠物技能，你的宠物将被收起来...
+SetOnTimer 7 1
+BREAK
+
+
+
+
+
+
+
+
+
+
+[@STDMODEFUNC59]
+#IF
+CheckItemDura 1 < 10000 1
+#ACT
+CHANGEITEMADDVALUE 1 14 = 40000
+MESSAGEBOX 武器耐久已经提升！
+break
+#ELSEACT
+give 耐久上限修复卷
+MESSAGEBOX 对不起，您的武器装备上限耐久或者下线耐久超过了10，无法修复！
+break
+
+[@STDMODEFUNC60]
+#IF
+CHECKLEVELEX > 0
+#ACT
+CREDITPOINT + 10
+SENDMSG 7 恭喜：你获得了：声望:10
+BREAK
+
+[@STDMODEFUNC65]
+#IF
+CHECKBAGSIZE 17
+EQUAL U3 1
+CHECKVAR HUMAN 元宝充值 > 29
+#ACT
+give 进化碎片 10
+give 十颗碧水龍睛珠 2
+give 鉴定图纸[极品] 5
+give 书页 50
+give 随机宝石袋 8
+give 超大聚灵珠 2
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+GIVE 宠物 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+BREAK
+#ELSEACT
+give 超级福利礼包
+SENDMSG 7 对不起，您背包空间少于17个格子！或者您没有购买过礼包，或者您并未充值满30元！
+
+
+[@STDMODEFUNC66]
+#IF
+#ACT
+GetRandomText ..\QuestDiary\数据文件\宠物\允许召唤.txt S9
+GIVE 宠物 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S9)>
+updateitem -1
+clearLinkItem
+SENDMSG 7 恭喜：你获得了：宠物·<$STR(S9)>
+BREAK
+
+[@STDMODEFUNC77]
+#IF
+#ACT
+MOV N7 0
+Mul N7 800 <$LEVEL>
+ChangeExp + <$Str(N7)>
+SENDMSG 7 使用成功，获得经验<$Str(N7)>.！
+BREAK
+
+[@STDMODEFUNC67]
+#IF
+#ACT
+give 金币 1000000
+SENDMSG 7 使用成功，获得100万金币！
+BREAK
+
+
+[@STDMODEFUNC69]
+#IF
+CheckGold 400000001
+#ACT
+give 金盒
+SENDMSG 7 对不起，解开失败，您的金币超过4亿，请存储后再使用！
+#ELSEACT
+give 金币 100000000
+SENDMSG 7 使用成功，获得1亿金币！
+BREAK
+
+
+[@STDMODEFUNC68]
+#IF
+CHECKBAGSIZE 5
+#ACT
+give 金条 5
+SENDMSG 7 使用成功，获得5根金条！
+BREAK
+#ELSEACT
+give 金砖
+SENDMSG 7 对不起，解开失败，您背包没有5个空格！
+
+
+[@STDMODEFUNC61]
+#IF
+CHECKBAGSIZE 2
+#ACT
+goto @宝石1
+BREAK
+#ELSEACT
+give 随机宝石袋
+SENDMSG 7 对不起，您背包空间少于2个格子！
+
+
+[@宝石1]
+#IF
+random 15
+#ACT
+give 魔抗镶嵌石
+SENDMSG 7 您获得了一颗“魔抗镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 物抗镶嵌石
+SENDMSG 7 您获得了一颗“物抗镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 防御镶嵌石
+SENDMSG 7 您获得了一颗“防御镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 魔御镶嵌石
+SENDMSG 7 您获得了一颗“魔御镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 攻击镶嵌石
+SENDMSG 7 您获得了一颗“攻击镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 魔力镶嵌石
+SENDMSG 7 您获得了一颗“魔力镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 道术镶嵌石
+SENDMSG 7 您获得了一颗“道术镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 暴击镶嵌石
+SENDMSG 7 您获得了一颗“暴击镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 伤害镶嵌石
+SENDMSG 7 您获得了一颗“伤害镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 破防镶嵌石
+SENDMSG 7 您获得了一颗“破防镶嵌石”
+break
+
+#IF
+random 15
+#ACT
+give 反弹镶嵌石
+SENDMSG 7 您获得了一颗“反弹镶嵌石”
+break
+
+#IF
+random 2
+#ACT
+give 魔力镶嵌石
+SENDMSG 7 您获得了一颗“魔力镶嵌石”
+break
+
+#IF
+random 1
+#ACT
+give 生命镶嵌石
+SENDMSG 7 您获得了一颗“生命镶嵌石”
+break
+
+
+
+
+
+
+
+
+
+
+[@usercmd2]
+#IF
+EQUAL T1 空
+#ACT
+MOV T1 可以获取
+SENDMSG 5 已经允许获得宠物，再次使用命令即可关闭！
+BREAK
+
+#IF
+EQUAL T1 可以获取
+#ACT
+MOV T1 空
+SENDMSG 7 已经关闭获得宠物，再次使用命令即可开启！
+BREAK
+
+[@usercmd3]
+#IF
+EQUAL T9 超级炼化
+#ACT
+MOV T9 特殊自动
+SENDMSG 7 【提示】:[炼化模式:　拾取劣质、精致物品自动炼化成珠！]  249 255
+BREAK
+
+#IF
+EQUAL T9 特殊自动
+#ACT
+MOV T9 开启自动
+SENDMSG 7 【提示】:[炼化模式:　放入炼化框，立刻炼化！]  249 255
+BREAK
+
+#IF
+EQUAL T9 开启自动
+#ACT
+MOV T9 关闭自动
+SENDMSG 7 【提示】:[炼化模式:　已关闭自动炼化！]  249 255
+BREAK
+
+#IF
+EQUAL T9 关闭自动
+#ACT
+MOV T9 超级炼化
+SENDMSG 7 【提示】:[炼化模式:　拾取任何品质全部炼化！]  249 255
+BREAK
+
+
+
+[@ButtonClick1]
+#ACT
+CloseBigDialogBox
+#CALL [商人\赞助大使.txt] @赞助
+
+[@ButtonClick2]
+#ACT
+CloseBigDialogBox
+#CALL [商人\签到.txt] @签到开始
+
+
+
+[@ButtonClick4]
+#ACT
+CloseBigDialogBox
+;#CALL [商人\福利.txt] @福利
+break
+
+[@ButtonClick5]
+#ACT
+CloseBigDialogBox
+#CALL [商人\装备炼化.txt] @炼化
+
+[@ButtonClick7]
+#CALL [跑环任务\跑环.txt] @跑环
+
+[@ButtonClick8]
+#ACT
+CloseBigDialogBox
+#CALL [商人\龙魂体.txt] @龙魂
+
+[@ButtonClick15]
+#ACT
+CloseBigDialogBox
+#CALL [\数据文件\BOSS查询.txt] @查询BOSS
+
+
+[@ButtonClick16]
+#ACT
+CloseBigDialogBox
+#CALL [\数据文件\属性查询.txt] @自身属性
+
+[@ButtonClick10]
+#IF
+EQUAL T17 开启
+#act
+DELBUTTON 1 0
+DELBUTTON 2 0
+DELBUTTON 3 0
+DELBUTTON 4 0
+DELBUTTON 5 0
+DELBUTTON 6 0
+DELBUTTON 7 0
+DELBUTTON 8 0
+DELBUTTON 15 0
+DELBUTTON 16 0
+MOV T17 关闭
+break
+
+#IF
+EQUAL T17 关闭
+#act
+ADDBUTTON 39 1 481 481 481 165 40 0 -1 251#赞助服务\251#用于使用赞助服务
+ADDBUTTON 39 2 497 497 497 110 35 0 -1 251#签到服务\251#用于签到服务
+ADDBUTTON 39 3 490 490 490 225 33 0 -1 251#技能加点
+ADDBUTTON 39 4 470 470 470 50  30 0 -1 251#买卖物品\251#暂未开放
+ADDBUTTON 39 5 511 511 511 280 32 0 -1 251#装备炼化与装备精纯
+ADDBUTTON 39 6 507 507 507 360 33 0 -1 251#可远程存储物品
+ADDBUTTON 39 7 534 534 534 440 35 0 -1 251#接受领取跑环
+ADDBUTTON 39 8 509 509 509 490 20 0 -1 251#龙魂体魄
+ADDBUTTON 39 15 462 462 462 580 19 0 -1 251#野外BOSS
+ADDBUTTON 0 16 1076 1076 1076 -2 100 0 -1 251#查询自身详细元素属性
+MOV T17 开启
+break
+
+
+[@ButtonClick12]
+#act
+RefreshBag
+SENDMSG 7 刷新包裹成功！
+break
+
+[@ButtonClick17]
+#ACT
+OpenMissionDlg
+break
+
+[@ButtonClick6]
+#ACT
+CloseBigDialogBox
+
+#OR
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+OpenStorageView 1
+break
+
+#IF
+EQUAL T8 开启远程仓库
+EQUAL T2 开启仓库
+#ACT
+OpenStorageView 1
+break
+#ELSESAY
+这里是远程仓库 需要缴费开启，如果并未开启仓库\
+请前往盟重开启！开启后即可远程使用仓库，非常方便！\
+现在开通仅需 500万+100荣誉+10元宝 !VIP4直接开启。\
+<缴纳开启远程/@开启远程仓库>\
+<缴纳开启可视仓库/@可视仓库>\
+
+
+[@开启远程仓库]
+#IF
+EQUAL T8 开启远程仓库
+#ACT
+MESSAGEBOX 对不起，您已经开启远程仓库了！请从新点击按钮！
+break
+
+#IF
+checkgold 5000000
+checkGAMEGOLD > 9
+checkGAMEGLORY > 99
+#ACT
+GAMEGOLD - 10
+GAMEGLORY - 100
+take 金币 5000000
+MOV T8 开启远程仓库
+MESSAGEBOX 远程仓库已经开启,欢迎使用!
+#ELSEACT
+MESSAGEBOX 您并没有500万+100荣誉+10元宝!
+
+
+[@可视仓库]
+#IF
+EQUAL T2 开启仓库
+#ACT
+MESSAGEBOX 对不起，您已经开启仓库了！请从新点击按钮！
+break
+
+#IF
+checkgold 400000
+#ACT
+take 金币 400000
+MOV T2 开启仓库
+MESSAGEBOX 超级仓库已经开启,欢迎使用!旧仓库物品请去其他城市找仓库保管员!
+#ELSEACT
+MESSAGEBOX 您并没有40万!
+
+
+[@ButtonClick9]
+#OR
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+OpenStorageView 1
+break
+
+#IF
+EQUAL T8 开启远程仓库
+EQUAL T2 开启仓库
+#ACT
+OpenStorageView 1
+break
+#ELSESAY
+这里是远程仓库 需要缴费开启，如果并未开启仓库\
+请前往盟重开启！开启后即可远程使用仓库，非常方便！\
+现在开通仅需 500万+100荣誉+10元宝 !VIP4直接开启。\
+<缴纳开启远程/@开启远程仓库>\
+<缴纳开启可视仓库/@可视仓库>\
+
+
+[@MagSelfFunc1003]
+#IF
+CHECKMAPNAME Nlts102
+#ACT
+SENDMSG 6 对不起，您当前在战场，无法使用此技能！
+break
+
+#IF
+NOT CHECKMAPNAME Nlts102
+#ACT
+CLEARDELAYGOTO 1
+ChangeModeEx 2 0
+SHOWPROGRESSBARDLG 15 @进入隐身 隐身中%d%... 1 @技能中断
+break
+
+[@进入隐身]
+#ACT
+SetBodyColor 151 30 0
+ChangeModeEx 2 30
+SendMsg 5 你进入隐身状态....
+SendCenterMsg 180 251 你将在%d后解除隐身状态..... 0 30 @无 0
+break
+
+[@无]
+#ACT
+break
+
+[@GodBlessItemClick0]
+开启子鼠神佑格需要10W金币！\
+请问您需要开启吗？这样您就可以放入子鼠神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+<开启神佑格/@开启子鼠>\
+　\
+<关闭/@exit>
+
+
+[@开启子鼠]
+#if
+checkgold 100000
+#act
+OpenGodBless 0
+GOLDCOUNT - 100000
+MessageBox 恭喜你成功开启神佑格!!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！!
+
+;——————————————————————————————————————————丑牛
+[@GodBlessItemClick1]
+开启丑牛神佑格需要20W金币！\
+请问您需要开启吗？这样您就可以放入丑牛神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+<开启神佑格/@开启丑牛>\
+　\
+<关闭/@exit>
+
+
+[@开启丑牛]
+#if
+checkgold 200000
+#act
+OpenGodBless 1
+GOLDCOUNT - 200000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+;——————————————————————————————————————————寅虎
+
+[@GodBlessItemClick2]
+开启寅虎神佑格需要40W金币！\
+请问您需要开启吗？这样您就可以放入寅虎神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+<开启神佑格/@开启寅虎>\
+　\
+<关闭/@exit>
+
+
+[@开启寅虎]
+#if
+checkgold 400000
+#act
+OpenGodBless 2
+GOLDCOUNT - 400000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————卯兔
+[@GodBlessItemClick3]
+开启卯兔神佑格需要80W金币！\
+请问您需要开启吗？这样您就可以放入卯兔神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启卯兔>\
+　\
+<关闭/@exit>
+
+
+[@开启卯兔]
+#if
+checkgold 800000
+#act
+OpenGodBless 3
+GOLDCOUNT - 800000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————辰龙
+
+[@GodBlessItemClick4]
+开启辰龙神佑格需要160W金币！\
+请问您需要开启吗？这样您就可以放入辰龙神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启辰龙>\
+　\
+<关闭/@exit>
+
+
+[@开启辰龙]
+#if
+checkgold 1600000
+#act
+OpenGodBless 4
+GOLDCOUNT - 1600000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+;——————————————————————————————————————————巳蛇
+
+[@GodBlessItemClick5]
+开启巳蛇神佑格需要320W金币！\
+请问您需要开启吗？这样您就可以放入巳蛇神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启巳蛇>\
+　\
+<关闭/@exit>
+
+
+[@开启巳蛇]
+#if
+checkgold 3200000
+#act
+OpenGodBless 5
+GOLDCOUNT - 3200000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————午马
+
+[@GodBlessItemClick6]
+开启午马神佑格需要450W金币！\
+请问您需要开启吗？这样您就可以放入午马神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启午马>\
+　\
+<关闭/@exit>
+
+
+[@开启午马]
+#if
+checkgold 4500000
+#act
+OpenGodBless 6
+GOLDCOUNT - 4500000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————未羊
+
+[@GodBlessItemClick7]
+开启未羊神佑格需要700W金币！\
+请问您需要开启吗？这样您就可以放入未羊神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启未羊>\
+　\
+<关闭/@exit>
+
+
+[@开启未羊]
+#if
+checkgold 7000000
+#act
+OpenGodBless 7
+GOLDCOUNT - 7000000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————申猴
+[@GodBlessItemClick8]
+开启申猴佑格需要900W金币！\
+请问您需要开启吗？这样您就可以放入申猴神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启申猴>\
+　\
+<关闭/@exit>
+
+
+[@开启申猴]
+#if
+checkgold 9000000
+#act
+OpenGodBless 8
+GOLDCOUNT - 9000000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+
+;——————————————————————————————————————————酉鸡
+[@GodBlessItemClick9]
+开启酉鸡神佑格需要1200W金币！\
+请问您需要开启吗？这样您就可以放入酉鸡神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启酉鸡>\
+　\
+<关闭/@exit>
+
+
+[@开启酉鸡]
+#if
+checkgold 12000000
+#act
+OpenGodBless 9
+GOLDCOUNT - 12000000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+;——————————————————————————————————————————戌狗
+
+[@GodBlessItemClick10]
+开启戌狗神佑格需要1400W金币！\
+请问您需要开启吗？这样您就可以放入戌狗神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启戌狗>\
+　\
+<关闭/@exit>
+
+
+[@开启戌狗]
+#if
+checkgold 14000000
+#act
+OpenGodBless 10
+GOLDCOUNT - 14000000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+
+;——————————————————————————————————————————亥猪
+[@GodBlessItemClick11]
+开启亥猪神佑格需要2000W金币！\
+请问您需要开启吗？这样您就可以放入亥猪神佑物品啦！子鼠-<大老鼠>、\
+丑牛-<牛魔王、暗之牛魔王>、寅虎-<千手人屠彭连虎>、卯兔-<魔龙教主>\
+辰龙-<火龙神、火龙卫士>、巳蛇-<虹魔蝎卫>、午马-<祖玛教主>、未羊-<雪域羊人>\
+申猴-<石墓尸王>、酉鸡-<送财鸡>、戌狗-<地狱犬>、亥猪-<虹魔猪卫>\
+　\
+<开启神佑格/@开启亥猪>\
+　\
+<关闭/@exit>
+
+
+[@开启亥猪]
+#if
+checkgold 20000000
+#act
+OpenGodBless 11
+GOLDCOUNT - 20000000
+MessageBox 恭喜你成功开启神佑格!
+Close
+#ELSEACT
+MESSAGEBOX 您的金币不够无法开启神佑格！
+
+
+
+[@采集中断]
+#ACT
+SendMsg 5 您的进度条被中断！停止操作！
+Break
+
+
+
+
+
+[@MapEventRun]
+#IF
+CHECKLEVELEX > 39
+equal G62 1
+equal T11 允许获得
+#act
+goto @paolao
+break
+
+#IF
+CHECKLEVELEX < 39
+equal G62 1
+#ACT
+SENDMSG 7 对不起，您等于少于40级，无法获得奔跑奖励...
+break
+
+[@paolao]
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 30
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\宝图\宝石列表.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得<$STR(S76)>！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 10
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\物品\魔龙.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得<$STR(S76)>！
+break
+
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 50
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\物品\天龙.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得<$STR(S76)>！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 105
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\物品\赤金.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得<$STR(S76)>！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 135
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\物品\三龙.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得<$STR(S76)>！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 305
+equal T11 允许获得
+#act
+GetRandomText ..\QuestDiary\物品\王者.txt S76
+Give <$Str(S76)>
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得<$STR(S76)>！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 15
+equal T11 允许获得
+#act
+GAMEGOLD + 2
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得2元宝！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 75
+equal T11 允许获得
+#act
+GAMEGOLD + 5
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得5元宝！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 175
+equal T11 允许获得
+#act
+GAMEGOLD + 10
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得10元宝！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 275
+equal T11 允许获得
+#act
+GAMEGOLD + 20
+SendCenterMsg 180 251 【奔跑吧！兄弟！】：玩家[<$USERNAME>]在【奔跑吧！兄弟！】活动中，喜从天降！获得20元宝！！
+break
+
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 245
+equal T11 允许获得
+#ACT
+CREDITPOINT + 200
+SendCenterMsg 180 251 【奔跑吧！兄弟！】：玩家[<$USERNAME>]在【奔跑吧！兄弟！】活动中，喜从天降！获得200声望！！
+break
+
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 45
+equal T11 允许获得
+#ACT
+CREDITPOINT + 50
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得50声望！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 15
+equal T11 允许获得
+#ACT
+CREDITPOINT + 30
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，喜从天降！获得30声望！！
+break
+
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 155
+equal T11 允许获得
+#ACT
+CHANGEEXP + 5000000
+SendCenterMsg 180 251 【奔跑吧！兄弟！】：玩家[<$USERNAME>]在【奔跑吧！兄弟！】活动中，喜从天降！获得500万经验！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 25
+equal T11 允许获得
+#ACT
+CHANGEEXP + 1500000
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得150万经验！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 100
+equal T11 允许获得
+#ACT
+give 金币 500000
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得50万金币！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 25
+equal T11 允许获得
+#ACT
+give 金币 350000
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得35万金币！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 3
+equal T11 允许获得
+#ACT
+give 金币 100000
+SENDMSG 0 玩家[<$USERNAME>]在【奔跑吧！兄弟！】，获得10万金币！！
+break
+
+#IF
+CheckHumInRange n3 330 333 10
+equal G62 1
+CHECKBAGSIZE 1
+random 1
+equal T11 允许获得
+#ACT
+SENDMSG 6 什么也没有获得！！
+break
+#ELSEACT
+SENDMSG 5 你的背包没有足够的位置获得奖励，或离开了土安全区！或者状态不对！
+break
+
+
+
+
+[@Struck]
+#CALL [暗黑特效\暗黑检测2.TXT] @暗黑检测2
+#CALL [暗黑特效\怪物特效.TXT] @怪物特效
+#CALL [暗黑特效\怪物特效1.TXT] @怪物特效1
+
+[@MagicStruck]
+#CALL [暗黑特效\暗黑检测2.TXT] @暗黑检测2
+#CALL [暗黑特效\怪物特效.TXT] @怪物特效
+
+[@Attack]
+#CALL [装备特效.TXT] @装备特效
+#CALL [暗黑特效\暗黑检测.TXT] @暗黑检测
+
+#IF
+equal G62 1
+equal T11 允许获得
+#ACT
+MOV T11 不许获得
+SENDMSG 5 你动用了武力，本次奔跑已结束！
+SENDMSG 5 你动用了武力，本次奔跑已结束！
+SENDMSG 5 你动用了武力，本次奔跑已结束！
+SENDMSG 5 你动用了武力，本次奔跑已结束！
+SENDMSG 5 你动用了武力，本次奔跑已结束！
+break
+
+
+[@MagicAttack]
+#CALL [装备特效.TXT] @装备特效
+#CALL [暗黑特效\暗黑检测33.TXT] @暗黑检测384
+
+
+
+
+[@MagSelfFunc1002]
+#IF
+Large U13 0
+#ACT
+SetOnTimer 8 1
+SENDMSG 5 阴阳·雷霆法阵技能未冷却，请在<$STR(U13)>秒之后再次使用阴阳·雷霆法阵...
+BREAK
+
+#IF
+CHECKSKILL 阴阳·雷霆法阵 < 3
+#ACT
+KILLCALLMOB 雷霆法阵
+MOV U13 120
+RECALLMOB 雷霆法阵 5 1
+SendMsg 5 你将 雷霆法阵 召唤为自己的宝宝，持续2分钟。
+SendCenterMsg 180 251 宝宝将在%d后叛变死亡..... 0 120 @杀死怪物
+SetOnTimer 8 1
+break
+
+#IF
+CHECKSKILL 阴阳·雷霆法阵 < 6 1
+#ACT
+KILLCALLMOB 炽焰法阵
+MOV U13 180
+RECALLMOB 炽焰法阵 5 1
+SendMsg 5 你将 炽焰法阵 召唤为自己的宝宝，持续3分钟。
+SendCenterMsg 180 251 宝宝将在%d后叛变死亡..... 0 120 @杀死怪物
+SetOnTimer 8 1
+break
+
+#IF
+CHECKSKILL 阴阳·雷霆法阵 < 10 1
+#ACT
+KILLCALLMOB 雷霆道场
+MOV U13 180
+RECALLMOB 雷霆道场 5 1
+SendMsg 5 你将 雷霆道场 召唤为自己的宝宝，持续3分钟。
+SendCenterMsg 180 251 宝宝将在%d后叛变死亡..... 0 120 @杀死怪物
+SetOnTimer 8 1
+break
+
+#IF
+CHECKSKILL 阴阳·雷霆法阵 < 15 1
+#ACT
+KILLCALLMOB 无极道场
+MOV U13 240
+RECALLMOB 无极道场 7 3
+SendMsg 5 你将 无极道场 召唤为自己的宝宝，持续4分钟。
+SendCenterMsg 180 251 宝宝将在%d后叛变死亡..... 0 180 @杀死怪物
+SetOnTimer 8 1
+break
+
+
+#IF
+CHECKSKILL 阴阳·雷霆法阵 = 15 1
+#ACT
+KILLCALLMOB 霸天道场
+MOV U13 300
+RECALLMOB 霸天道场 7 5
+SendMsg 5 你将 霸天道场 召唤为自己的宝宝，持续5分钟。
+SendCenterMsg 180 251 宝宝将在%d后叛变死亡..... 0 300 @杀死怪物
+SetOnTimer 8 1
+break
+
+
+[@杀死怪物]
+#IF
+#ACT
+KILLCALLMOB 霸天道场
+KILLCALLMOB 无极道场
+KILLCALLMOB 雷霆道场
+KILLCALLMOB 炽焰法阵
+KILLCALLMOB 雷霆法阵
+break
+;--------------------------------------------------------------------------------------
+
+
+[@GamePetRecall]
+#ACT
+SendMsg 5 召唤宠物 <$GamePetName>
+
+[@GamePetRetake]
+#ACT
+SendMsg 5 收回宠物 <$GamePetName>
+
+[@GamePetLevelUp]
+#ACT
+SendMsg 5 你的宠物 <$GamePetName> 升级了
+
+
+
+
+[@采集完成]
+#CALL [自动采集.TXT] @自动采集
+
+[@MagSelfFunc1017]
+#ACT
+OpenMissionDlg
+break
+
+
+
+
+
+

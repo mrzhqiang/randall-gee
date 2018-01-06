@@ -1,0 +1,8 @@
+!Setup.txt
+StartPointSize= 值由2改为1
+
+StartPoint.txt
+取消了出生点比起村
+n0	289	618    0       10        2     0       0
+修改为：
+n0	636	614    0       10        2     0       0

@@ -1,0 +1,214 @@
+
+[@宠物]
+{
+#IF
+EQUAL T1 空
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\允许召唤.txt <$KILLMONNAME>
+#ACT
+BREAK
+
+#IF
+Checkmapname pp
+#ACT
+BREAK
+
+#IF
+NOT CheckBagSize 1
+#ACT
+BREAK
+
+#IF
+#ACT
+MOV S$宠物获得 <$KILLMONNAME>
+
+#IF
+EQUAL T1 可以获取
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\1垃圾宠物.txt <$STR(S$宠物获得)>
+#ACT
+MOV N$宠物获取 50
+
+#IF
+EQUAL T1 可以获取
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\2初级宠物.txt <$STR(S$宠物获得)>
+#ACT
+MOV N$宠物获取 90
+
+#IF
+EQUAL T1 可以获取
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\3中级宠物.txt <$STR(S$宠物获得)>
+#ACT
+MOV N$宠物获取 170
+
+#IF
+EQUAL T1 可以获取
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\4高级宠物.txt <$STR(S$宠物获得)>
+#ACT
+MOV N$宠物获取 180
+
+#IF
+EQUAL T1 可以获取
+CHECKTEXTLIST ..\QuestDiary\数据文件\宠物\5顶级宠物.txt <$STR(S$宠物获得)>
+#ACT
+MOV N$宠物获取 100
+
+#IF
+#ACT
+MOVR N$宠物几率 0 <$STR(N$宠物获取)>
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 100
+#ACT
+GIVE 至尊 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：至尊绝品，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 90
+#ACT
+GIVE 绝品三重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：绝品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 80
+#ACT
+GIVE 绝品二重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：绝品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 70
+#ACT
+GIVE 绝品一重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：绝品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 60
+#ACT
+GIVE 极品三重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：极品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 50
+#ACT
+GIVE 极品二重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：极品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 40
+#ACT
+GIVE 极品一重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：极品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 30
+#ACT
+GIVE 珍品三重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：珍品三重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 20
+#ACT
+GIVE 珍品二重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：珍品二重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+random 10
+#ACT
+GIVE 珍品一重 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：珍品一重，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+
+#IF
+EQUAL T1 可以获取
+EQUAL N$宠物几率 1
+#ACT
+GIVE 宠物 1
+LINKGIVEITEM
+ChangeItemName -1 宠物·<$STR(S$宠物获得)>
+updateitem -1
+clearLinkItem
+SENDMSG 5 你成功驯服<$STR(S$宠物获得)>，品质：平淡无奇，打开包裹看看你的新宠物蛋吧...
+MOV S$宠物获得 
+BREAK
+}

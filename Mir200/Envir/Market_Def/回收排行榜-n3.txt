@@ -1,0 +1,168 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 14
+#ACT
+MOV U42 15
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<进行回收装备排行/SCOLOR=250>前三名<有元宝奖励/SCOLOR=250>\
+<前三名分别获得5%，3%，1%回收数量的元宝奖励/SCOLOR=253>\
+<回收越多，元宝越多，只有回收100件以上，才计算元宝奖励！/SCOLOR=70> \
+
+学习完毕，接下来去找<装备打造/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<装备打造/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<进行回收装备排行/SCOLOR=250>前三名<有元宝奖励/SCOLOR=250>\
+<前三名分别获得5%，3%，1%回收数量的元宝奖励/SCOLOR=253>\
+<回收越多，元宝越多，只有回收100件以上，才计算元宝奖励！/SCOLOR=70> \
+
+<谢谢您/@exit>\
+#ACT
+break
+
+#IF
+#ACT
+LoadVar HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+SortVarToList 回收元宝 ..\QuestDiary\回收数据\变量数据.txt ..\QuestDiary\回收数据\排序数据.txt 0 1
+GetListString ..\QuestDiary\回收数据\排序数据.txt 0 A90 G46
+GetListString ..\QuestDiary\回收数据\排序数据.txt 1 A95 G47
+GetListString ..\QuestDiary\回收数据\排序数据.txt 2 A92 G48
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+break
+#SAY
+\ \ \ \ \
+　　　　　<【/SCOLOR=94><回收排行/SCOLOR=250><】/SCOLOR=94>　　　　<Hot~/SCOLOR=22>  <专为骨灰设计此功能,花钱是爷,花时间是神/SCOLOR=7>\
+　　　<-------------------------------------------------------------------------------------/SCOLOR=160>\
+　　　<为了照顾非人民币骨灰玩家及鼓励玩家打元宝的积极性本服特设此奖励/SCOLOR=242>\
+　　　<打装备回收数量排名前三名玩家可在次日领取回收数量的百分比返还奖励/SCOLOR=242>\
+　　　<第一名奖励前一天回收件数总和的5%,第二名奖励3%,第三名奖励1%/SCOLOR=254>\
+　　　<-------------------------------------------------------------------------------------/SCOLOR=160>\
+　　　<今天回收第一名：/SCOLOR=253>{<$STR(A90)>/SCOLOR=151} 　　　<回收件数：/SCOLOR=253>{<$STR(G46)>/SCOLOR=250}\
+　　　<今天回收第二名：/SCOLOR=253>{<$STR(A95)>/SCOLOR=151} 　　　<回收件数：/SCOLOR=253>{<$STR(G47)>/SCOLOR=250}\
+　　　<今天回收第三名：/SCOLOR=253>{<$STR(A92)>/SCOLOR=151} 　　　<回收件数：/SCOLOR=253>{<$STR(G48)>/SCOLOR=250}\
+　　　<-------------------------------------------------------------------------------------/SCOLOR=160>\
+　　　<昨天回收第一名：/SCOLOR=243><$STR(A93)> 　　　<昨日总回收件数：/SCOLOR=243>{<$STR(G53)>/SCOLOR=210}\
+　　　<昨天回收第二名：/SCOLOR=243><$STR(A94)> 　　　<昨日总回收件数：/SCOLOR=243>{<$STR(G54)>/SCOLOR=210}\
+　　　<昨天回收第三名：/SCOLOR=243><$STR(A96)> 　　　<昨日总回收件数：/SCOLOR=243>{<$STR(G55)>/SCOLOR=210}\
+　　　<-------------------------------------------------------------------------------------/SCOLOR=160>\
+　　　<领取昨天第一名奖励/@第一>:[{<$STR(A97)>/SCOLOR=249}，领取玩家：{<$STR(A86)>/SCOLOR=243}]\
+　　　<领取昨天第二名奖励/@第二>:[{<$STR(A98)>/SCOLOR=249}，领取玩家：{<$STR(A87)>/SCOLOR=243}]\
+　　　<领取昨天第三名奖励/@第三>:[{<$STR(A99)>/SCOLOR=249}，领取玩家：{<$STR(A88)>/SCOLOR=243}]\
+　　　<-------------------------------------------------------------------------------------/SCOLOR=160>\
+　　　<※/SCOLOR=245><今天全服回收件数总额：/SCOLOR=242>[{<$STR(G49)>/SCOLOR=250}]<※/SCOLOR=245>　　　　　　　<※/SCOLOR=245><您个人今天已回收件数：/SCOLOR=242>[{<$HUMAN(回收元宝)>/SCOLOR=250}]<※/SCOLOR=245>\
+
+
+
+[@第一]
+#IF
+EQUAL A97 已被领取
+#ACT
+messagebox 对不起，第一名奖励已经被领取了。
+break
+
+#IF
+EQUAL A86 <$USERNAME>
+#ACT
+messagebox 对不起，你已经领取了奖励，请不要重复点击。
+break
+
+#IF
+EQUAL A86 未被领取
+EQUAL A97 可以领取
+EQUAL A93 <$USERNAME>
+#ACT
+MOV A97 已被领取
+MOV A86 <$USERNAME>
+Div M51 <$STR(G53)> 100
+MUL M51 5
+GAMEGOLD + <$STR(M51)>
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第一,领取前一天回收件数的5%额外奖励，奖励为<$STR(M51)>元宝。
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第一,领取前一天回收件数的5%额外奖励，奖励为<$STR(M51)>元宝。
+messagebox 恭喜您领取了第一名奖励。<$STR(M51)>元宝。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起，你不是昨日的第一名玩家。
+BREAK
+
+
+
+[@第二]
+#IF
+EQUAL A98 已被领取
+#ACT
+messagebox 对不起，第二名奖励已经被领取了。
+break
+
+#IF
+EQUAL A87 <$USERNAME>
+#ACT
+messagebox 对不起，你已经领取了奖励，请不要重复点击。
+break
+
+#IF
+EQUAL A87 未被领取
+EQUAL A98 可以领取
+EQUAL A94 <$USERNAME>
+#ACT
+MOV A98 已被领取
+MOV A87 <$USERNAME>
+Div M51 <$STR(G54)> 100
+MUL M51 3
+GAMEGOLD + <$STR(M51)>
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第二,领取前一天回收件数的3%额外奖励，奖励为<$STR(M51)>元宝。
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第二,领取前一天回收件数的3%额外奖励，奖励为<$STR(M51)>元宝。
+messagebox 恭喜您领取了第二名奖励。<$STR(M51)>元宝。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起，你不是昨日的第二名玩家。
+BREAK
+
+
+
+
+[@第三]
+#IF
+EQUAL A99 已被领取
+#ACT
+messagebox 对不起，第三名奖励已经被领取了。
+break
+
+#IF
+EQUAL A88 <$USERNAME>
+#ACT
+messagebox 对不起，你已经领取了奖励，请不要重复点击。
+break
+
+#IF
+EQUAL A88 未被领取
+EQUAL A99 可以领取
+EQUAL A96 <$USERNAME>
+#ACT
+MOV A99 已被领取
+MOV A88 <$USERNAME>
+Div M51 <$STR(G55)> 100
+MUL M51 1
+GAMEGOLD + <$STR(M51)>
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第三,领取前一天回收件数的2%额外奖励，奖励为<$STR(M51)>元宝。
+SENDMSG 0 系统：玩家【<$USERNAME>】昨日回收件数排名第三,领取前一天回收件数的2%额外奖励，奖励为<$STR(M51)>元宝。
+messagebox 恭喜您领取了第三名奖励。<$STR(M51)>元宝。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起，你不是昨日的第三名玩家。
+BREAK
+
+
+
+
+
+

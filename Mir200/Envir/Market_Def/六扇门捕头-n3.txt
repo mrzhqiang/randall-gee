@@ -1,0 +1,256 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 10
+#ACT
+MOV U42 11
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<进行抓捕强盗，/SCOLOR=250>强盗随机掉落<藏宝图、任务卡/SCOLOR=250>\
+<藏宝图可以用商城“洛阳铲”进行挖宝，可以获得一些游戏物品/SCOLOR=253>\
+<任务卡可以兑换BOSS之家门票，押镖次数，重铸石，书页等等。/SCOLOR=70> \
+
+学习完毕，接下来去找<成就大师/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<成就大师/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<进行抓捕强盗，/SCOLOR=250>强盗随机掉落<藏宝图、任务卡/SCOLOR=250>\
+<藏宝图可以用商城“洛阳铲”进行挖宝，可以获得一些游戏物品/SCOLOR=253>\
+<任务卡可以兑换BOSS之家门票，押镖次数，重铸石，书页等等。/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\抓捕次数.txt [<$USERNAME>]
+#ACT
+CALCVAR HUMAN 抓捕次数 = 0
+SAVEVAR HUMAN 抓捕次数 ..\QuestDiary\标记数据\抓捕次数.txt
+LOADVAR HUMAN 抓捕次数 ..\QuestDiary\标记数据\抓捕次数.txt
+
+#IF
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<近日玛法强盗土匪之徒日益猖獗，奉国主命令，缉拿逃犯！/SCOLOR=250>\
+规则：你需要花费5万金币。来我这里探查某个逃犯下落。\
+      击杀他可能会掉落<藏宝盒|用于挖宝>、<任务卡|用于兑换>\
+      您今天可接抓捕次数{20/FCOLOR=249}次，你已经抓捕：{<$HUMAN(抓捕次数)>/FCOLOR=249}次\
+<探听逃犯下落/@找犯人>　　<任务卡兑换物品/@兑换>　　<离开/@exit>\
+
+
+[@找犯人]
+#IF
+CANMOVEECTYPE 抓捕副本
+#ACT
+SENDMSG 5 您已经创建了抓捕副本，请等待冷却！冷却时间10秒！
+break
+
+#IF
+CHECKVAR HUMAN 抓捕次数 < 20
+CheckGold 50000
+#act
+take 金币 50000
+CALCVAR HUMAN 抓捕次数 + 1
+SAVEVAR HUMAN 抓捕次数 ..\QuestDiary\标记数据\抓捕次数.txt
+CREATEECTYPE 抓捕副本 20
+break
+#ELSEACT
+MESSAGEBOX 创建失败，您的金币不足5万！或者抓捕次数用尽！\
+break
+
+
+
+
+[@CreateEctype_NoExists]
+#IF
+#ACT
+MESSAGEBOX 创建副本地图失败，副本不存在！
+
+[@CreateEctype_Fail]
+#IF
+#ACT
+MESSAGEBOX 创建副本失败，副本人数已满，请稍候再试！
+
+
+[@CreateEctype_IN]
+#IF
+#ACT
+SENDMSG 5 副本地图已经创建完成，可以直接进入了。
+
+[@CreateEctype_IN_Time]
+#IF
+#ACT
+SENDMSG 5 副本已经存在..无法创建。
+
+[@CreateEctype_OK]
+#IF
+#ACT
+MOVEECTYPE 抓捕副本 14 32
+GetRandomText ../QuestDiary/宝图/抓捕.txt S18
+MobEctypeMon SELF 27 29 <$Str(S18)> 1 5
+SENDMSG 5 副本地图创建成功，并初始化地图怪物成功。
+SENDMSG 5 副本地图创建成功，并初始化地图事件成功。
+
+[@MoveEctype_Fail_Time]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败，超过可传送时间
+
+[@MoveEctype_Fail]
+#IF
+#ACT
+SENDMSG 5 传到副本地图失败
+
+[@MoveEctype_OK]
+#IF
+#ACT
+SENDMSG 5 已传送到副本地图
+
+
+
+
+[@兑换]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+<欢迎来兑换任务卡！您可以在这里召唤宝宝、兑换物品！/SCOLOR=250>\
+2张<兑换/@书页>书页、3张<兑换/@荣誉>10荣誉、4张<兑换/@凭证>BOSS之家凭证、\
+5张<兑换/@重铸>重铸石、6张<兑换/@幻境>幻境凭证、10张<兑换/@金条>金条、\
+20张<兑换/@称号>称号玛法之星、5张<兑换/@押镖>增加押镖一次，每日不可超过11\
+　　　　　　　　　　　　　　　　　　　　<离开/@exit> \
+
+
+[@押镖]
+#IF
+CHECKVAR HUMAN 押镖上限 < 11
+#ACT
+#ELSEACT
+MESSAGEBOX 为了防止你精尽人亡，每天押镖最大上限为11次！
+break
+
+
+#IF
+checkitem 任务卡 5
+#ACT
+take 任务卡 5
+CALCVAR HUMAN 押镖上限 + 1
+SAVEVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+MESSAGEBOX 兑换成功，您的押镖次数+1！
+GOTO @兑换
+#ELSEACT
+MESSAGEBOX 购买次数每增加1次需任务卡5张！
+break
+
+
+
+
+
+
+
+
+
+[@金条]
+#IF
+checkitem 任务卡 10
+#ACT
+take 任务卡 10
+give 金条
+MESSAGEBOX 兑换成功，您获得金条！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+[@幻境]
+#IF
+checkitem 任务卡 6
+#ACT
+take 任务卡 6
+give 幻境凭证
+MESSAGEBOX 兑换成功，您获得幻境凭证！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+
+[@重铸]
+#IF
+checkitem 任务卡 5
+#ACT
+take 任务卡 5
+give 重铸石 1
+MESSAGEBOX 兑换成功，您获得重铸石一块！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+[@书页]
+#IF
+checkitem 任务卡 2
+#ACT
+take 任务卡 2
+give 书页 1
+MESSAGEBOX 兑换成功，您获得书页一张！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+
+[@荣誉]
+#IF
+checkitem 任务卡 3
+#ACT
+take 任务卡 3
+GAMEGLORY + 10
+MESSAGEBOX 兑换成功，您获得荣誉10点！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+
+[@凭证]
+#IF
+checkitem 任务卡 4
+#ACT
+take 任务卡 4
+give BOSS之家凭证
+MESSAGEBOX 兑换成功，您获得BOSS之家凭证！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK 
+
+
+
+
+[@称号]
+#IF
+checkitem 任务卡 20
+#ACT
+take 任务卡 20
+GIVEFENGHAO 玛法之星
+MESSAGEBOX 兑换成功，你获得了“玛法之星”称号！
+break
+#ELSEACT
+MESSAGEBOX 你没有所需物品！
+BREAK
+
+
+
+
+

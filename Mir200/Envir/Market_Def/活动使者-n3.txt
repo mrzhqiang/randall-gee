@@ -1,0 +1,390 @@
+[@main]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 145 0
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<多倍经验/@多倍经验>　　　<参加活动等级：/FCOLOR=69>30级　　　<活动次数：/FCOLOR=69>每天1次\
+　　　　　　　　　　　　　　　　　<活动可随机获得“三倍　四倍　十倍经验”一小时，小心被覆盖/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<━━━━━━━━━━━━━━━━━━━━━━━━━━/SCOLOR=249>\
+　　　　　　　　　　　　　　　　　<新人任务/@新人>　　　<参加活动等级：/FCOLOR=69>0级　　　<活动次数：/FCOLOR=69>帐号1次\
+　　　　　　　　　　　　　　　　　<一些游戏设置、基础任务，可以获得一些小额经验奖励/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<━━━━━━━━━━━━━━━━━━━━━━━━━━/SCOLOR=249>\
+　　　　　　　　　　　　　　　　　<寻找NPC/@游荡>　　　<参加活动等级：/FCOLOR=69>0级-60级　　　<活动次数：/FCOLOR=69>每天1次\
+　　　　　　　　　　　　　　　　　<寻找在地图某处的NPC，需要寻找2名。完成可获得经验奖励/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<━━━━━━━━━━━━━━━━━━━━━━━━━━/SCOLOR=249>\
+　　　　　　　　　　　　　　　　　<讨伐任务/@讨伐>　　　<参加活动等级：/FCOLOR=69>35级　　　<活动次数：/FCOLOR=69>每天1次\
+　　　　　　　　　　　　　　　　　<领取需要10W金币.击杀指定数量的魔物.可获得藏宝盒+任务卡+经验+30点荣誉+金币/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<━━━━━━━━━━━━━━━━━━━━━━━━━━/SCOLOR=249>\
+　　　　　　　　　　　　　　　　　<每日收集/@收集>　　　<参加活动等级：/FCOLOR=69>30级　　　<活动次数：/FCOLOR=69>每天1次\
+　　　　　　　　　　　　　　　　　<按服务器要求，提交所需物品，每天随机收取物品。/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<━━━━━━━━━━━━━━━━━━━━━━━━━━/SCOLOR=249>\
+
+
+[@收集]
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 145 0
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　　　　　　<今日收集任务：/FCOLOR=69><物品收集/FCOLOR=250> \ \
+　　　　　　　　　　　　　　　　　<任务要求/FCOLOR=250>:每日只可以完成一次.\ \
+　　　　　　　　　　　　　　　　　<任务目标/FCOLOR=250>:今日收集物品：<$STR(A19)> X <$STR(G19)> 个.\ \
+　　　　　　　　　　　　　　　　　<任务奖励/FCOLOR=250>:经验 + <20W*等级>. 声望 + 50.元宝 + 2.\ \
+　　　　　　　　　　　　　　　　　<完成任务/@任务1完>\
+
+[@任务1完]
+#IF
+CheckTextList ..\QuestDiary\标记数据\收集.txt <$USERNAME>
+#ACT
+MESSAGEBOX \\[任务提示]：今日的收集任务您已完成，请领取其他任务！
+BREAK
+
+#IF
+NOT CheckTextList ..\QuestDiary\标记数据\收集.txt <$USERNAME>
+CHECKITEM <$STR(A19)> <$STR(G19)>
+#ACT
+ADDTextList ..\QuestDiary\标记数据\收集.txt <$USERNAME>
+TAKE <$STR(A19)> <$STR(G19)>
+CREDITPOINT + 50
+GAMEGOLD + 2
+MOV S$奖励经验 200000
+MUL S$奖励经验 <$LEVEL>
+CHANGEEXP + <$STR(S$奖励经验)>
+MESSAGEBOX \\[任务提示]：收集任务奖励[200W经验+声望50点+元宝5]领取成功！
+SendMsg 0 {每日任务|151:0:1}：恭喜{%s|227:0:1}完成{收集|254:0:1}任务，获得奖励{200W经验+声望50点+元宝2个|223:0:1}！
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX \\[任务提示]：您收集的[<$STR(A19)>]数量不够　<$STR(G19)>，无法提交任务！
+BREAK
+
+
+
+
+[@新人]
+#act
+#CALL [\任务\新手任务.txt] @新人任务
+
+
+
+[@讨伐]
+#IF
+CheckTextList ..\QuestDiary\标记数据\讨伐名单.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您的名字已经领取过今天的讨伐任务了，请明日再来领取。\
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\讨伐机器码.txt <$MACHINEID>
+#ACT
+MESSAGEBOX 您的机器码已经领取过今天的讨伐任务了，请明日再来领取。\
+break
+
+#IF
+CHECKLEVELEX < 35
+#ACT
+MESSAGEBOX 您的不足35级,讨伐任务对您来说太难了.\
+break
+
+#IF
+NOT CheckGold 100000
+#act
+MESSAGEBOX 您的金币不足,讨伐任务需要10W金币！
+break
+
+#IF
+CheckGold 100000
+#act
+take 金币 100000
+AddTextList ..\QuestDiary\标记数据\讨伐机器码.txt <$MACHINEID>
+AddTextList ..\QuestDiary\标记数据\讨伐名单.txt <$USERNAME>
+set [200] 0
+set [201] 0
+set [202] 0
+set [203] 0
+set [204] 0
+set [205] 0
+set [206] 0
+set [207] 0
+set [208] 0
+set [209] 0
+set [210] 0
+Movr P0 11
+goto @领取讨伐
+#ELSEACT
+MESSAGEBOX 您的金币不足,讨伐任务需要10W金币！
+break
+
+[@领取讨伐]
+#IF
+equal P0 11
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮消灭我<沃玛三>中的<沃玛勇士>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [200] 1
+mov N10 0
+break
+
+#IF
+equal P0 10
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮消灭我<猪七>中的<白野猪>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [201] 1
+mov N10 0
+break
+
+#IF
+equal P0 9
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<祖玛七层三>中的<祖玛弓箭手>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [202] 1
+mov N10 0
+break
+
+#IF
+equal P0 8
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<死亡棺材>中的<蜈蚣>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [203] 1
+mov N10 0
+break
+
+#IF
+equal P0 7
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<抉择之地>中的<月魔蜘蛛>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [204] 1
+mov N10 0
+break
+
+
+#IF
+equal P0 6
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<霸者大厅>中的<白野猪·精英>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [205] 1
+mov N10 0
+break
+
+
+#IF
+equal P0 5
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<封魔殿>中的<虹魔教主>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [206] 1
+break
+
+#IF
+equal P0 4
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<牛魔寺庙大厅>中的<牛魔祭司>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [207] 1
+mov N10 0
+break
+
+#IF
+equal P0 3
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<尸王殿>中的<尸王>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [208] 1
+mov N10 0
+break
+
+#IF
+equal P0 2
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<魔龙血域>中的<魔龙力士>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [209] 1
+mov N10 0
+break
+
+#IF
+#say
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　最近妖怪增加了许多，\
+　　　　　　　　　　　　　　　　　请帮我消灭<情缘峡谷>中的<梅花鹿>。\ \
+　　　　　　　　　　　　　　　　　<注意：消灭足够数量的怪物后系统直接完成任务！>\ \
+　　　　　　　　　　　　　　　　　<如果遗忘任务内容，查询任务栏-日常活动-讨伐任务即可/FCOLOR=250>\
+　　　　　　　　　　　　　　　　　『<返回/@main>』\ \ \ \ \  
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 120 0
+set [210] 1
+mov N10 0
+break
+
+
+
+
+[@游荡]
+#IF
+CheckTextList ..\QuestDiary\标记数据\游荡.txt <$USERNAME>
+#ACT
+messagebox 对不起，您今天已经领取任务了！
+break
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 39 206 0 4 0 0 1 630 145 0
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　你每天有1次机会可以在这里领取<寻找NPC任务>\
+　　　　　　　　　　　　　　　　　获得<等级×5万经验>，还有<额外荣誉、金币、元宝、金刚石>等随机奖励！\
+　　　　　　　　　　　　　　　　　有没有心动了呢？赶紧试试吧！\
+　　　　　　　　　　　　　　　　　您今天还有 1 次机会领取噢！\
+　　　　　　　　　　　　　　　　　找到第一个NPC可获得经验奖励，找到第二个NPC可获得额外奖励！\
+　　　　　　　　　　　　　　　　　<领取/@领取任务>\
+#ACT
+break
+
+
+[@领取任务]
+#IF
+CHECKLEVELEX < 60
+#ACT
+MOV U33 0
+AddTextList ..\QuestDiary\标记数据\游荡.txt <$USERNAME>
+goto @main
+messagebox 您已经领取任务了，请找到在《同心小径》里面游荡的武士！
+break
+#ELSEACT
+messagebox 对不起，您等级已经超过60级了，这是新手任务！
+break
+
+
+
+
+
+
+
+
+
+[@多倍经验]
+#IF
+CheckTextList ..\QuestDiary\标记数据\多倍经验名单.txt <$USERNAME>
+#ACT
+messagebox 对不起，您今天已经领取过了！
+break
+
+
+#IF
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　你每天有1次机会可以在这里领取多倍经验\
+　　　　　　　　　　　　　　　　　随机获得“三倍　四倍　十倍经验”一小时\
+　　　　　　　　　　　　　　　　　有没有心动了呢？赶紧试试吧！\
+　　　　　　　　　　　　　　　　　您今天还有 1 次机会领取噢！\
+　　　　　　　　　　　　　　　　　<领取/@领取>\
+#ACT
+break
+
+
+[@领取]
+#IF
+random 20
+#ACT
+KILLMONEXPRATE 1000 3600
+AddTextList ..\QuestDiary\标记数据\多倍经验名单.txt <$USERNAME>
+goto @main
+messagebox 恭喜您获得十倍经验一小时！
+break
+
+#IF
+random 5
+#ACT
+KILLMONEXPRATE 400 3600
+AddTextList ..\QuestDiary\标记数据\多倍经验名单.txt <$USERNAME>
+goto @main
+messagebox 恭喜您获得四倍经验一小时！
+break
+
+#IF
+random 1
+#ACT
+KILLMONEXPRATE 300 3600
+AddTextList ..\QuestDiary\标记数据\多倍经验名单.txt <$USERNAME>
+goto @main
+messagebox 恭喜您获得三倍经验一小时！
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

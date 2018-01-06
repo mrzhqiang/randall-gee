@@ -1,0 +1,47 @@
+(@buy @sell @repair @s_repair )
+[@main]
+#IF
+checklevel 40
+#SAY
+我清楚你的能力,可是里面太恐怖了.. \
+你做好充分准备了吗?\ \
+<进入未知世界/@exit1>\
+<回到盟重/@mwmove> \
+<继续留在这里/@exit>\
+
+#ELSEACT
+goto @main-1
+[@main-1]
+里面是一个危险的未知世界， \
+最以你现在的实力还不能去那里， \
+等以后再来吧！ \
+我可以把你送回你原来的世界。\ \
+<回到盟重/@mwmove> \
+<继续留在这里/@exit>
+
+[@mwmove]
+#ACT
+mapmove n3 330 330
+break
+
+[@exit1]
+此地名为深渊。据说有神兵利器在此出现。\
+<我要去/@a1>\
+
+
+
+[@a1]
+#IF
+CHECKGAMEGLORY > 60
+CHECKLEVELEX > 49
+CheckGold 300000
+CheckItem 二锅头 1
+#ACT
+take 二锅头 1
+give 回城卷 1
+GAMEGLORY - 50
+take 金币 300000
+mapmove hf001 263 276
+break
+#ELSEsay
+你没有50点荣誉值、30万金币\再加一壶<二锅头>\又或者您没有达到61级，无法进入噢！

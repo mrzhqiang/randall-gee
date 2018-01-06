@@ -1,0 +1,336 @@
+[@自动采集]
+{
+#IF
+RANDOM 50
+#ACT
+MOVR N$纯度 22000 30000
+
+#IF
+RANDOM 30
+#ACT
+MOVR N$纯度 15000 22000
+
+#IF
+#ACT
+MOVR N$纯度 3000 15000
+
+#IF
+RANDOM 250
+#ACT
+give 紫水晶矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 天呐，你的运气爆表了竟然挖到一块《紫水晶矿》！ 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+#IF
+RANDOM 20
+#ACT
+give 金矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 天呐，你的运气爆表了竟然挖到一块《金矿》！ 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+
+#IF
+RANDOM 10
+#ACT
+give 黑铁矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 运气真好竟然挖到一块《黑铁矿》！ 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+
+#IF
+RANDOM 5
+#ACT
+give 银矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 运气不错，挖到一块《银矿》 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+
+#IF
+RANDOM 3
+#ACT
+give 铁矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 挖到一块破破烂烂的《铁矿》 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+#if
+#act
+give 铜矿 1
+LINKGIVEITEM
+ChangeItemDura -1 = N$纯度
+updateitem -1
+clearLinkItem
+SendCenterMsg 251 0 挖到一块破破烂烂的《铜矿》 0 3
+SENDDELAYMSG %s后开始自动采集。 3 255 1 @采集开始
+break
+
+[@采集开始]
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+GOTO @矿产回收
+break
+
+#IF
+CHECKMAPNAME D401
+#ACT
+SHOWPROGRESSBARDLG 7 @采集完成 正在采集,进度%d%... 1 @采集中断
+#ELSEACT
+messagebox 地图错误！已停止采集。
+break
+
+
+[@矿产回收]
+#IF
+#ACT
+Mov P10 0
+Goto @回收铜矿
+Break
+
+[@回收铜矿]
+#IF
+CHECKITEM 铜矿 1
+#ELSEACT
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铜矿 25
+#ACT
+Inc P10 125
+Take 铜矿 25
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 10
+#ACT
+Inc P10 50
+Take 铜矿 10
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 5
+#ACT
+Inc P10 25
+Take 铜矿 5
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 3
+#ACT
+Inc P10 15
+Take 铜矿 3
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 1
+#ACT
+Inc P10 5
+Take 铜矿 1
+Goto @回收铜矿
+Break
+
+[@回收铁矿]
+#IF
+CHECKITEM 铁矿 1
+#ELSEACT
+Goto @回收银矿
+Break
+#IF
+CheckItem 铁矿 25
+#ACT
+Inc P10 225
+Take 铁矿 25
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 10
+#ACT
+Inc P10 90
+Take 铁矿 10
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 5
+#ACT
+Inc P10 45
+Take 铁矿 5
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 3
+#ACT
+Inc P10 27
+Take 铁矿 3
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 1
+#ACT
+Inc P10 9
+Take 铁矿 1
+Goto @回收铁矿
+Break
+
+[@回收银矿]
+#IF
+CHECKITEM 银矿 1
+#ELSEACT
+Goto @回收金矿
+Break
+#IF
+CheckItem 银矿 15
+#ACT
+Inc P10 150
+Take 银矿 15
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 7
+#ACT
+Inc P10 70
+Take 银矿 7
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 3
+#ACT
+Inc P10 30
+Take 银矿 3
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 1
+#ACT
+Inc P10 10
+Take 银矿 1
+Goto @回收银矿
+Break
+
+[@回收金矿]
+#IF
+CHECKITEM 金矿 1
+#ELSEACT
+Goto @回收黑铁
+Break
+#IF
+CheckItem 金矿 10
+#ACT
+Inc P10 200
+Take 金矿 10
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 5
+#ACT
+Inc P10 100
+Take 金矿 5
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 3
+#ACT
+Inc P10 60
+Take 金矿 3
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 1
+#ACT
+Inc P10 20
+Take 金矿 1
+Goto @回收金矿
+Break
+
+[@回收黑铁]
+#IF
+CHECKITEM 黑铁矿 1
+#ELSEACT
+Goto @给钱
+Break
+#IF
+CheckItem 黑铁矿 10
+#ACT
+Inc P10 200
+Take 黑铁矿 10
+Goto @回收黑铁
+Break
+#IF
+CheckItem 金矿 5
+#ACT
+Inc P10 100
+Take 黑铁矿 5
+Goto @回收黑铁
+Break
+#IF
+CheckItem 黑铁矿 3
+#ACT
+Inc P10 60
+Take 黑铁矿 3
+Goto @回收黑铁
+Break
+#IF
+CheckItem 黑铁矿 1
+#ACT
+Inc P10 20
+Take 黑铁矿 1
+Goto @回收黑铁
+Break
+
+[@给钱]
+#IF
+Large P10 0
+Large U26 2
+#ACT
+DEC U26 3
+Mul P10 <$STR(P10)> 100
+Give 金币 <$STR(P10)>
+SENDDELAYMSG 贩卖成功，%s后开始自动采集。 3 255 1 @采集开始
+Break
+
+#IF
+Large P10 0
+#ACT
+Mul P10 <$STR(P10)> 100
+Give 金币 <$STR(P10)>
+messagebox 贩卖完毕，精力不足，已停止自动采集！
+Break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,491 @@
+[@跑环]
+{
+#IF
+#ACT
+OPENMERCHANTBIGDLG 9 3200 0 4 0 0 1 600 28 0
+break
+#SAY
+\ \ \ \
+　　　　　　　　　　<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+　　　　　　　　　　║<追/AUTOCOLOR=155,168,253,115,125>║║<忆/AUTOCOLOR=155,168,253,115,125>║║<传/AUTOCOLOR=155,168,253,115,125>║║<奇/AUTOCOLOR=155,168,253,115,125>║║<超/AUTOCOLOR=155,168,253,115,125>║║<级/AUTOCOLOR=155,168,253,115,125>║║<跑/AUTOCOLOR=155,168,253,115,125>║║<环/AUTOCOLOR=155,168,253,115,125>║║<任/AUTOCOLOR=155,168,253,115,125>║║<务/AUTOCOLOR=155,168,253,115,125>║\
+　　　　　　　　　　<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+　　　　　　　　　　　　<━━━━━━━━━超级跑环任务━━━━━━━━━/SCOLOR=249>\
+　　　枯燥的刷怪是否已经厌倦了？来点趣味性(变态)的任务环吧，\
+　　　这里有<500环>跑环任务，你可以在我这里领取.您当前的跑环积分:<【> <$STR(U38)> <】>\
+　　　任务基本是随机的，跑环可以保存，但是一星期只能接取 <1> 次跑环任务，请注意！\ \
+
+　　　》》<领取/@领环任务>《《<500环：/SCOLOR=250><找NPC、找装备、找物品、找种植物、杀怪、收集元宝>\
+　　　每环奖励： <88>×<当前环数/SCOLOR=250>×<人物等级/SCOLOR=70>+8000金币+跑环积分2点\
+　　　完成500环可获得：<炽焰金钻+罗汉果100颗！/SCOLOR=250> \ \
+
+　　　<10点跑环点/SCOLOR=250>可兑换物品：<当前跑环所需物品|250#使用10点跑环点数兑换当前所需物品/@当前兑换>\
+　　　< 2点跑环点/SCOLOR=250>可兑换物品：<1元宝|250#使用2点跑环点数兑换1元宝/@积分兑换元宝>  <100元宝|250#使用200点跑环点数兑换100元宝/@积分兑换元宝2>\
+　　　<18点跑环点/SCOLOR=250>可兑换物品：<宠物精元|250#使用18点跑环点数兑换1个宠物精元/@积分兑换精元>\ \
+　　　<您当前的环数是：/SCOLOR=250><【> <$STR(U35)> <】>  / <【> <500/SCOLOR=70> <】>\
+　　　<任务：/SCOLOR=250><【> {<$STR(T35)>/SCOLOR=70} <】>   \
+　　　<任务目标：/SCOLOR=250><【> {<$STR(T36)>/SCOLOR=70} <】>   <上交所需物品/@上交物品>\
+　　　<任务状态：/SCOLOR=250><【> {<$STR(T37)>/SCOLOR=253} <】>   \
+　　　<接受任务|250#接受一个新任务/@接受任务>　　<完成任务|250#提交状态已经完成的任务/@完成任务>　　<注销任务|250#花费金币注销一次任务，注销后该任务被跳过/@注销任务>　　<关闭/@exit>\
+
+
+
+
+
+[@积分兑换精元]
+#IF
+LARGE U38 17
+#ACT
+DEC U38 18
+GIVE 宠物精元
+SendMsg 6 兑换成功,获得宠物精元.
+goto @跑环
+break
+#ELSEACT
+SendMsg 6 跑环点数不足18点！
+break
+
+
+
+
+[@积分兑换元宝2]
+#IF
+LARGE U38 199
+#ACT
+DEC U38 200
+GAMEGOLD + 100
+SendMsg 6 兑换成功,获得100元宝.
+goto @跑环
+break
+#ELSEACT
+SendMsg 6 跑环点数不足200点！
+break
+
+
+
+[@积分兑换元宝]
+#IF
+LARGE U38 1
+#ACT
+DEC U38 2
+GAMEGOLD + 1
+SendMsg 6 兑换成功,获得1元宝.
+goto @跑环
+break
+#ELSEACT
+SendMsg 6 跑环点数不足2点！
+break
+
+
+
+[@当前兑换]
+#IF
+EQUAL T37 未接受
+#ACT
+messagebox 你没有接取任务呀，不要瞎点！
+break
+
+#if
+EQUAL T38 击杀怪物
+#ACT
+messagebox 对不起，您当前的任务是击杀怪物，不需要物品！
+break
+
+#IF
+EQUAL T37 未完成
+NOT EQUAL T38 寻找NPC
+NOT EQUAL T38 收集元宝
+LARGE U38 9
+#ACT
+messagebox 您确定要兑换当前跑环所需物品：{<$STR(T36)>/SCOLOR=70} 吗？？  @确定8829  @取消
+break
+#ELSEACT
+MESSAGEBOX 对不起，当前你的任务可能并不是寻找物品或者跑环点数不足！
+break
+
+[@确定8829]
+#IF
+EQUAL T37 未完成
+NOT EQUAL T38 寻找NPC
+NOT EQUAL T38 收集元宝
+LARGE U38 9
+#ACT
+DEC U38 10
+GiveStateItem <$STR(T36)> 1 1 1 1 1 1
+messagebox 您成功兑换到当前物品：{<$STR(T36)>/SCOLOR=70}，物品状态为绑定。
+break
+
+
+
+
+[@完成任务]
+#IF
+EQUAL T35 
+EQUAL T36 
+EQUAL T37 
+#ACT
+messagebox 请点击最上方的　》》领取《《　按钮进行500环任务的领取！！
+break
+
+#IF
+EQUAL T37 未完成
+#ACT
+messagebox 本环任务未完成，请加油！
+break
+
+#IF
+EQUAL T37 未接受
+#ACT
+messagebox 你没有接取任务呀，不要瞎点！
+break
+
+#if
+EQUAL U35 499
+EQUAL T37 已完成
+#ACT
+Give 炽焰金钻
+give 罗汉果[喂宠] 100
+Mul N30 88 <$LEVEL>
+Mul N30 <$STR(U35)>
+ChangeExp + <$Str(N30)>
+give 金币 8000
+inc u38 2
+INC U35 1
+MOV T35 未接受
+MOV T36 未接受
+MOV T37 未接受
+SendNewLineMsg 0 250 0 15 100 10 1 玩家<$USERNAME>完成了本周500环跑环，获得炽焰金钻+罗汉果100颗！
+messagebox 您获得了500环特殊奖励，基础奖励+炽焰金钻+罗汉果100颗！
+break
+
+
+#if
+EQUAL U35 500
+#ACT
+messagebox 您已经完成本周500环任务了，请等待下个星期！
+break
+
+#IF
+EQUAL T37 已完成
+random 55
+#ACT
+INC U35 1
+MOV T35 未接受
+MOV T36 未接受
+MOV T37 未接受
+Mul N30 88 <$LEVEL>
+Mul N30 <$STR(U35)>
+Mul N30 2
+ChangeExp + <$Str(N30)>
+give 金币 32000
+inc u38 4
+SendNewLineMsg 0 250 0 15 100 10 1 玩家<$USERNAME>在完成任务的时候,突然喜从天降,获得双倍奖励真是幸运！
+messagebox 已经成功完成了跑环任务，当前环数量+1，目前已完成<$STR(U35)>，跑环积分<$STR(U38)>！
+goto @跑环
+break
+
+#IF
+EQUAL T37 已完成
+#ACT
+INC U35 1
+MOV T35 未接受
+MOV T36 未接受
+MOV T37 未接受
+Mul N30 88 <$LEVEL>
+Mul N30 <$STR(U35)>
+ChangeExp + <$Str(N30)>
+give 金币 8000
+inc u38 2
+messagebox 已经成功完成了跑环任务，当前环数量+1，目前已完成<$STR(U35)>，跑环积分<$STR(U38)>！
+goto @跑环
+break
+
+
+
+
+
+
+
+[@上交物品]
+#IF
+EQUAL T35 
+EQUAL T36 
+EQUAL T37 
+#ACT
+messagebox 请点击最上方的　》》领取《《　按钮进行500环任务的领取！！
+break
+
+#if
+EQUAL T38 寻找NPC
+#ACT
+messagebox 对不起，您当前的任务是寻找NPC，不需要上缴物品！
+break
+
+#if
+EQUAL T38 击杀怪物
+#ACT
+messagebox 对不起，您当前的任务是击杀怪物，不需要上缴物品！
+break
+
+#IF
+EQUAL T37 未接受
+#ACT
+messagebox 你没有接取任务呀，不要瞎点！
+break
+
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#if
+EQUAL T38 收集元宝
+EQUAL T37 未完成
+CHECKGAMEGOLD > <$STR(U36)>
+#ACT
+GAMEGOLD - <$STR(U36)>
+MOV T37 已完成
+messagebox 扣除元宝<$STR(U36)>，本环任务已完成！
+goto @跑环
+break
+
+#if
+EQUAL T38 收集元宝
+EQUAL T37 未完成
+CHECKGAMEGOLD < <$STR(U36)>
+#ACT
+messagebox 需要扣除元宝<$STR(U36)>，您并没有那么多元宝！
+goto @跑环
+break
+
+#IF
+NOT CheckItem <$STR(T36)> 1
+#ACT
+messagebox 您并没有物品<$STR(T36)>！
+goto @跑环
+break
+
+
+#IF
+EQUAL T38 收集物品
+EQUAL T37 未完成
+CheckItem <$STR(T36)> 1
+#ACT
+take <$STR(T36)> 1
+MOV T37 已完成
+messagebox 上缴物品成功，本环任务已完成！
+goto @跑环
+break
+
+#IF
+EQUAL T38 收集种植
+EQUAL T37 未完成
+CheckItem <$STR(T36)> 1
+#ACT
+take <$STR(T36)> 1
+MOV T37 已完成
+messagebox 上缴物品成功，本环任务已完成！
+goto @跑环
+break
+
+
+
+
+[@接受任务]
+#IF
+EQUAL T35 
+EQUAL T36 
+EQUAL T37 
+#ACT
+messagebox 请点击最上方的　》》领取《《　按钮进行500环任务的领取！！
+break
+
+
+#IF
+EQUAL U35 500
+#ACT
+messagebox 对不起，本周任务已经达到500环了，请点击完成任务领奖！
+break
+
+#IF
+EQUAL T37 未完成
+#ACT
+messagebox 本环任务未完成，请不要再次接任务！
+break
+
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T35 未接受
+EQUAL T36 未接受
+EQUAL T37 未接受
+#ACT
+GetRandomText ..\QuestDiary\跑环任务\跑环任务.txt S34
+MOV T38 <$STR(S34)>
+GOTO @<$STR(T38)>
+break
+
+[@收集元宝]
+#IF
+EQUAL T38 收集元宝
+#ACT
+MOV T37 未完成
+movr U36 1 20
+MOV T36 <$STR(U36)>元宝
+MOV T35 收集当前所需对应元宝，上缴即可完成!目前需要<$STR(U36)>元宝!
+goto @跑环
+break
+
+[@寻找NPC]
+#IF
+EQUAL T38 寻找NPC
+#ACT
+MOV T37 未完成
+MOV T35 找到指定NPC即可完成任务!
+GetRandomText ..\QuestDiary\跑环任务\NPC名单.txt S34
+MOV T36 <$STR(S34)>
+goto @跑环
+break
+
+[@收集物品]
+#IF
+EQUAL T38 收集物品
+#ACT
+MOV T37 未完成
+MOV T35 找到指定物品上缴，即可完成任务!
+GetRandomText ..\QuestDiary\跑环任务\跑环物品.txt S34
+MOV T36 <$STR(S34)>
+goto @跑环
+break
+
+[@收集种植]
+#IF
+EQUAL T38 收集种植
+#ACT
+MOV T37 未完成
+MOV T35 找到指定物品上缴，即可完成任务!
+GetRandomText ..\QuestDiary\功能设置\种植物.txt S34
+MOV T36 <$STR(S34)>
+goto @跑环
+break
+
+
+
+[@击杀怪物]
+#IF
+EQUAL T38 击杀怪物
+#ACT
+MOV T37 未完成
+GetRandomText ..\QuestDiary\跑环任务\环怪.txt S34
+MOV T36 <$STR(S34)>
+MOVR U36 1 20
+MOV U37 0
+MOV T35 击杀/SCOLOR=70}　<$STR(U37)>/{<$STR(U36)>/SCOLOR=249}　<只/SCOLOR=70><【>{<$STR(T36)>/SCOLOR=253}<】>{即可完成!
+goto @跑环
+break
+
+
+
+
+
+
+
+
+
+[@领环任务]
+#IF
+CheckTextList ..\QuestDiary\标记数据\跑环名单.txt <$USERNAME>
+#ACT
+messagebox 对不起，您本周已经领取任务了！
+break
+
+#IF
+CHECKLEVELEX > 34
+#ACT
+MOV U35 0
+MOV T35 未接受
+MOV T36 未接受
+MOV T37 未接受
+AddTextList ..\QuestDiary\标记数据\跑环名单.txt <$USERNAME>
+messagebox 已经成功领取了跑环任务，请开始跑环把！
+goto @跑环
+break
+#ELSEACT
+messagebox 35级以下无法跑环！杀怪难度太大！
+break
+
+[@注销任务]
+#IF
+SMALL U26 10
+#act
+messagebox 精力不足10点，无法注销！！
+break
+
+#IF
+EQUAL T35 
+EQUAL T36 
+EQUAL T37 
+#ACT
+messagebox 请点击最上方的　》》领取《《　按钮进行500环任务的领取！！
+break
+
+#IF
+EQUAL T37 未接受
+#ACT
+messagebox 你没有接取任务呀，不要瞎点！
+break
+
+#IF
+NOT CheckTextList ..\QuestDiary\标记数据\跑环名单.txt <$USERNAME>
+#ACT
+messagebox 注销失败，您并未接受本周跑环任务！\您的任务可能是上星期未完成的.
+goto @跑环
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\跑环名单.txt <$USERNAME>
+LARGE U35 498
+#ACT
+messagebox 注销失败，最后环数无法注销，请自行完成！
+goto @跑环
+break
+
+#IF
+#ACT
+Mul N31 30 <$LEVEL>
+Mul N31 <$STR(U35)>
+goto @注销检测
+break
+
+[@注销检测]
+#IF
+NOT CheckGold <$STR(N31)>
+#ACT
+messagebox 您可能没有<$STR(N31)>金币来注销！\注销任务需要<$STR(N31)>金币，成功后跳过本次任务！
+goto @跑环
+break
+
+#IF
+LARGE U26 4
+CheckGold <$STR(N31)>
+CheckTextList ..\QuestDiary\标记数据\跑环名单.txt <$USERNAME>
+#ACT
+take 金币 <$STR(N31)>
+INC U35 1
+MOV T35 未接受
+MOV T36 未接受
+MOV T37 未接受
+DEC U26 5
+messagebox \<消耗5点精力>\已经成功注销了跑环任务，当前环数量+1，目前已完成<$STR(U35)>！
+goto @跑环
+break
+#ELSEACT
+messagebox 对不起，您可能没有5点精力，或者您本周并未接受环任务！
+break
+
+
+}

@@ -1,0 +1,726 @@
+[@赞助]
+{
+#IF
+EQUAL T5 会员五级
+#SAY
+　　       勇士这里是VIP系统：\
+           您是最尊贵的<VIP5>会员。\
+         您当前可以使用的<VIP5>特权是：\
+<感谢您的赞助！>  <查看所有VIP特权及费用./@VIP>\
+\ ┏━━━━┳━━━━┳━━━━┳━━━━┓
+\ ┃<每日签到/@签到2>┃<特权传送/@传送2>┃<赞助称号/@赞助称号3>┃<金币寄存/@清洗>┃
+\ ┣━━━━╋━━━━╋━━━━╋━━━━┫
+\ ┃<远程仓库/@远程仓库>┃<多倍经验/@多倍经验>┃<多倍攻击/@多倍攻击>┃<红名清洗/@洗红名>┃
+\ ┗━━━━┻━━━━┻━━━━┻━━━━┛\
+
+           ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+#ACT
+break
+
+#IF
+EQUAL T5 会员四级
+#SAY
+　　       勇士这里是VIP系统：\
+           您是最尊贵的<VIP4>会员。\
+         您当前可以使用的<VIP4>特权是：\
+<晋升VIP5./@UPVIP5>  <查看所有VIP特权及费用./@VIP>\
+\ ┏━━━━┳━━━━┳━━━━┳━━━━┓
+\ ┃<每日签到/@签到2>┃<特权传送/@传送2>┃<赞助称号/@赞助称号2>┃<金币寄存/@清洗>┃
+\ ┣━━━━╋━━━━╋━━━━╋━━━━┛
+\ ┃<远程仓库/@远程仓库>┃<多倍经验/@多倍经验>┃<红名清洗/@洗红名>┃
+\ ┗━━━━┻━━━━┻━━━━┛\
+
+           ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+#ACT
+break
+
+#IF
+EQUAL T5 会员三级
+#SAY
+　　       勇士这里是VIP系统：\
+           您是最尊贵的<VIP3>会员。\
+         您当前可以使用的<VIP3>特权是：\
+<晋升VIP4./@UPVIP4>  <查看所有VIP特权及费用./@VIP>\
+\ ┏━━━━┳━━━━┳━━━━┳━━━━┓
+\ ┃<每日签到/@签到>┃<特权传送/@传送2>┃<赞助称号/@赞助称号2>┃<金币寄存/@清洗>┃
+\ ┣━━━━╋━━━━╋━━━━┻━━━━┛
+\ ┃<多倍经验/@多倍经验1>┃
+\ ┗━━━━┻━━━━━┛\
+
+           ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+#ACT
+break
+
+#IF
+EQUAL T5 会员二级
+#SAY
+　　       勇士这里是VIP系统：\
+           您是最尊贵的<VIP2>会员。\
+         您当前可以使用的<VIP2>特权是：\
+<晋升VIP3./@UPVIP3>  <查看所有VIP特权及费用./@VIP>\
+\ ┏━━━━┳━━━━┳━━━━┳━━━━┓
+\ ┃<每日签到/@签到>┃<特权传送/@传送2>┃<赞助称号/@称号>┃<金币寄存/@清洗>┃
+\ ┣━━━━╋━━━━╋━━━━┻━━━━┛\
+\ ┃<多倍经验/@多倍经验2>┃
+\ ┗━━━━┻━━━━━┛\
+
+           ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+#ACT
+break
+
+#IF
+EQUAL T5 会员一级
+#SAY
+　　       勇士这里是VIP系统：\
+           您是最尊贵的<VIP1>会员。\
+         您当前可以使用的<VIP1>特权是：\
+<晋升VIP2./@UPVIP2>  <查看所有VIP特权及费用./@VIP>\
+\ ┏━━━━┳━━━━┳━━━━┳━━━━┓
+\ ┃<每日签到/@签到>┃<特权传送/@传送>┃<赞助称号/@称号>┃<金币寄存/@清洗>┃
+\ ┗━━━━┻━━━━┻━━━━┻━━━━┛\
+
+           ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+
+
+#ELSESAY
+<[VIP1]：/FCOLOR=244><签到、低级传送、称号、金币寄存/FCOLOR=168>\
+<[VIP2]：/FCOLOR=244><含V1、1.5倍经验、高级传送/FCOLOR=168>\
+<[VIP3]：/FCOLOR=244><含V2、2.0倍经验、5%提升爆率称号/FCOLOR=168>\
+<[VIP4]：/FCOLOR=244><含V3、2.5倍经验、每日高级福利、洗红名/FCOLOR=168>\
+<[VIP5]：/FCOLOR=244><含V4、1.2倍攻击、原地复活、10%爆率提升称号/FCOLOR=168>\
+您目前并不是VIP，您可以<购买赞助名单/@购买>，感谢您的游玩！\ \ 
+<VIP1-VIP2 需100元宝> <VIP2-VIP3 需388元宝>\
+<VIP3-VIP4 需888元宝> <VIP4-VIP5 需1288元宝> <返回/@赞助>\ 
+            ╋<请合理运用时间,游戏无限,时间有限>╋\
+
+
+[@VIP]
+#SAY
+<[VIP1]：/FCOLOR=244><签到、低级传送、称号、金币寄存/FCOLOR=168>\
+<[VIP2]：/FCOLOR=244><含V1、1.5倍经验、高级传送/FCOLOR=168>\
+<[VIP3]：/FCOLOR=244><含V2、2.0倍经验、5%提升爆率称号/FCOLOR=168>\
+<[VIP4]：/FCOLOR=244><含V3、2.5倍经验、每日高级福利、洗红名/FCOLOR=168>\
+<[VIP5]：/FCOLOR=244><含V4、1.2倍攻击、原地复活、10%爆率提升称号/FCOLOR=168>\
+<---------------------------------------------/FCOLOR=13>\
+<VIP1-VIP2 需100元宝> <VIP2-VIP3 需388元宝>\
+<VIP3-VIP4 需888元宝> <VIP4-VIP5 需1288元宝> <返回/@赞助>\ 
+【注：元宝通过金刚石兑换、战场活动、土豪发红包、击杀BOSS获得】
+
+
+[@远程仓库]
+#IF
+EQUAL T2 开启仓库
+#ACT
+OpenStorageView 1
+
+#ELSESAY
+这里是私人仓库 总共支持300件物品\
+可视化管理,右键存入取出 方便快捷\
+现在开通仅需 40万 !\
+<缴纳开启/@特殊仓库>
+
+
+[@特殊仓库]
+#IF
+checkgold 400000
+#ACT
+take 金币 400000
+MOV T2 开启仓库
+MESSAGEBOX 超级仓库已经开启,欢迎使用!旧仓库物品请去其他城市找仓库保管员!
+goto @赞助
+#ELSEACT
+MESSAGEBOX 您并没有40万!
+
+
+
+[@多倍经验]
+#ACT
+KILLMONEXPRATE 250 0 1
+sendmsg 7 [提示]：你获得了永久2.5倍经验时间。如果失效，请再次点击多倍经验！
+break
+
+[@多倍经验1]
+#ACT
+KILLMONEXPRATE 200 0 1
+sendmsg 7 [提示]：你获得了永久2.0倍经验时间。如果失效，请再次点击多倍经验！
+break
+
+[@多倍经验2]
+#ACT
+KILLMONEXPRATE 150 0 1
+sendmsg 7 [提示]：你获得了永久1.5倍经验时间。如果失效，请再次点击多倍经验！
+break
+
+[@多倍攻击]
+#ACT
+POWERRATE 120 0 1
+sendmsg 7 [提示]：你获得了永久1.2倍攻击。如果失效，请再次点击多倍攻击！
+break
+
+
+
+[@赞助称号2]
+#IF
+CHECKFENGHAO vip3
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+EQUAL T5 会员三级
+#ACT
+GIVEFENGHAO vip3
+sendmsg 7 [提示]：兑换成功，你获得了“VIP3”称号！该称号只有装备有效！
+break
+
+#IF
+EQUAL T5 会员四级
+#ACT
+GIVEFENGHAO vip3
+sendmsg 7 [提示]：兑换成功，你获得了“VIP3”称号！该称号只有装备有效！
+break
+
+
+
+[@赞助称号3]
+#IF
+CHECKFENGHAO 雄霸天下
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+EQUAL T5 会员五级
+#ACT
+GIVEFENGHAO 雄霸天下
+sendmsg 7 [提示]：兑换成功，你获得了“雄霸天下”称号！该称号只有装备有效！
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@UPVIP2]
+#IF
+EQUAL T5 会员一级
+CHECKGAMEGOLD > 99
+#ACT
+GAMEGOLD - 100
+MOV T5 会员二级
+SendNewLineMsg 0 251 0 15 100 10 1  土豪玩家<$USERNAME>使用元宝购买了VIP2，期待他能翻云覆雨！
+goto @赞助
+break
+#ELSESAY
+对不起，您元宝不足100！
+
+
+[@UPVIP3]
+#IF
+EQUAL T5 会员二级
+CHECKGAMEGOLD > 387
+#ACT
+GAMEGOLD - 388
+MOV T5 会员三级
+SendNewLineMsg 0 251 0 15 100 10 1  土豪玩家<$USERNAME>使用元宝购买了VIP3，期待他能颠覆大陆！
+goto @赞助
+break
+#ELSESAY
+对不起，您元宝不足388！
+
+[@UPVIP4]
+#IF
+EQUAL T5 会员三级
+CHECKGAMEGOLD > 887
+#ACT
+GAMEGOLD - 888
+MOV T5 会员四级
+SendNewLineMsg 0 251 0 15 100 10 1  土豪玩家<$USERNAME>使用元宝购买了VIP4，期待他能攀上顶峰！
+goto @赞助
+break
+#ELSESAY
+对不起，您元宝不足888！
+
+
+
+[@UPVIP5]
+#IF
+EQUAL T5 会员四级
+CHECKGAMEGOLD > 1287
+#ACT
+GAMEGOLD - 1288
+MOV T5 会员五级
+SendNewLineMsg 0 251 0 15 100 10 1  土豪玩家<$USERNAME>使用元宝购买了VIP5，感谢他赞助服务器！
+goto @赞助
+break
+#ELSESAY
+对不起，您元宝不足1288！
+
+
+[@称号]
+#IF
+CHECKFENGHAO 服务器赞助商
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+#ACT
+GIVEFENGHAO 服务器赞助商
+sendmsg 7 [提示]：兑换成功，你获得了“服务器赞助商”称号！
+break
+
+[@签到2]
+#IF
+CheckTextList ..\QuestDiary\标记数据\赞助已领取.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您已经领取过了!
+break
+
+#IF
+OnLineLongMin < 10
+#ACT
+MESSAGEBOX 您在线时间未满10分钟！
+break
+
+#OR
+EQUAL T5 会员五级
+EQUAL T5 会员四级
+#ACT
+GAMEGOLD + 5
+give 金币 800000
+GAMEGLORY + 5
+GAMEDIAMOND + 2
+CREDITPOINT + 10
+give 大还丹 30
+MESSAGEBOX 恭喜你获得赞助每日签到高级礼包1份！\内含：80万金币+5点荣誉+5元宝+金刚石2点+声望10点+30颗大还丹！
+AddTextList ..\QuestDiary\标记数据\赞助已领取.txt <$USERNAME>
+SendNewLineMsg 0 251 0 15 100 10 1 感谢:玩家『<$USERNAME>』赞助服务器,获得每日高级礼包.||内含：80万金币+5点荣誉+5元宝+金刚石2点+声望10点+30颗大还丹！
+goto @main
+#ELSEACT
+MESSAGEBOX 您不在领取名录里!
+
+
+[@签到]
+#IF
+CheckTextList ..\QuestDiary\标记数据\赞助已领取.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您已经领取过了!
+break
+
+#IF
+OnLineLongMin < 10
+#ACT
+MESSAGEBOX 您在线时间未满10分钟！
+break
+
+#OR
+EQUAL T5 会员三级
+EQUAL T5 会员二级
+EQUAL T5 会员一级
+#ACT
+GAMEGOLD + 2
+give 金币 200000
+GAMEGLORY + 3
+MESSAGEBOX 恭喜你获得赞助每日签到礼包1份！内含：20万金币+3点荣誉+2元宝
+AddTextList ..\QuestDiary\标记数据\赞助已领取.txt <$USERNAME>
+SendNewLineMsg 0 251 0 15 100 10 1 感谢:玩家『<$USERNAME>』赞助服务器,||获得每日礼物20万金币以及3点荣誉+2元宝.
+goto @main
+#ELSEACT
+MESSAGEBOX 您不在领取名录里!
+
+[@传送]
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<沃玛三层/@JM7>┃<猪洞七层/@JM8>┃<祖玛七层/@JM5>┃<死亡棺材/@JM6>┃<抉择之地/@S6>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<比齐矿区/@JN1>┃<蜈蚣洞穴/@JN2>┃<天然洞穴/@JM1>┃<牛魔四层/@JM2>┃<封魔矿区/@FENGMOKOU>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<未知暗殿/@JXJDVE>┃<尸 魔 洞/@JM3>┃<骨 魔 洞/@JM4>┃<尸王大殿/@LM2>┃<沙城区域/@沙城区域>┃\
+┗━━━━┻━━━━┻━━━━┻━━━━┻━━━━┛\
+
+
+
+
+[@传送2]
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<沃玛三层/@JM7>┃<猪洞七层/@JM8>┃<祖玛七层/@JM5>┃<死亡棺材/@JM6>┃<抉择之地/@S6>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<比齐矿区/@JN1>┃<蜈蚣洞穴/@JN2>┃<天然洞穴/@JM1>┃<牛魔四层/@JM2>┃<封魔矿区/@FENGMOKOU>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<未知暗殿/@JXJDVE>┃<尸 魔 洞/@JM3>┃<骨 魔 洞/@JM4>┃<尸王大殿/@LM2>┃<BOSS之家/@之家>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<堕落魔域/@JM1>┃<沙影之道/@沙道>┃<桃园之门/@TY>┃<雪域门口/@雪域>┃<其他地图/@其他>┃\
+┗━━━━┻━━━━┻━━━━┻━━━━┻━━━━┛\
+
+
+[@其他]
+其他地图说明：\
+<狐月地图>需要从土城仓库边上林小姐进入\
+<火龙神殿>需要从雷炎洞穴三层找NPC进入\
+<雷炎洞穴>需要找天机老人进入\
+<蛮荒沼泽、半兽人祭坛>需要从新人村右下找NPC进入\
+<魔域深渊>需要找桃园神秘老人进入\
+<返 回/@传送2>
+
+
+[@TY]
+#ACT
+give 回城卷 1
+mapmove NR001
+BREAK
+
+
+
+[@雪域]
+#ACT
+give 回城卷 1
+mapmove n3 927	117 
+BREAK
+
+
+
+
+[@沙道]
+移动到沙影之道必须具备下列两个条件！\
+①：需要5万金币 ②：需要四转\
+支付这些钱，移动吗？\
+<移动/@移动3> \ 
+<不/@exit> \
+<返 回/@传送2>
+
+[@移动3]
+#IF 
+#ACT 
+give 回城卷 1
+mapmove H201
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有5万金币吗？②：你四转了吗？\\
+<离开/@exit>\
+
+
+[@之家]
+移动到幻境必须具备下列两个条件！\
+①需要BOSS之家凭证\
+支付这些钱，移动吗？\
+<移动/@移动2> \ 
+<不/@exit> \
+<返 回/@传送2>
+
+[@移动2]
+#IF 
+#ACT 
+TimeRecall 50
+give 回城卷 1
+mapmove F010
+SendMsg 5 你进入了BOSS之家，50分钟后返回土城
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①你有BOSS之家凭证吗？\
+BOSS之家凭证？我从来没听说过呀？\
+听说 情缘峡谷和魔域通道会掉落\
+情缘峡谷在祖玛七层三的某个地点进入。\
+魔域通道在封魔殿的某个地方进入。 \
+<离开/@exit>\
+
+
+[@JM1]
+#ACT
+give 回城卷 1
+mapmove E001
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@沙]
+#ACT
+give 回城卷 1
+mapmove H201
+BREAK
+
+[@S6]
+#ACT
+give 回城卷 1
+mapmove D1004
+BREAK
+#ELSESAY 
+你身上的钱不够！抉择需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM7]
+#ACT
+give 回城卷 1
+mapmove nD024
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM8]
+#ACT 
+give 回城卷 1
+mapmove D716
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM5]
+#ACT
+give 回城卷 1
+mapmove D5071 8 10
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM6]
+#ACT
+give 回城卷 1
+mapmove D606
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+[@沙城区域]
+#IF
+#ACT
+give 回城卷 1
+mapmove n3 716 407
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JN1]
+#ACT
+give 回城卷 1
+mapmove D401
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JN2]
+#ACT
+give 回城卷 1
+mapmove D601
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM1]
+#ACT 
+give 回城卷 1
+mapmove E001
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM2]
+#ACT
+give 回城卷 1
+mapmove nD2075
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+[@FENGMOKOU]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1 
+mapmove n4 54 74
+break
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JXJDVE]
+#ACT
+give 回城卷 1
+mapmove M001
+BREAK
+#ELSESAY 
+你身上的钱不够！进入需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM3]
+#ACT
+give 回城卷 1
+mapmove D2051
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JM4]
+#ACT
+give 回城卷 1
+mapmove D2061
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@LM2]
+#ACT
+give 回城卷 1 
+mapmove Q004
+break
+#ELSESAY 
+你身上的钱不够！进入需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@沙城区域]
+#ACT
+give 回城卷 1
+mapmove n3 716 407
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@S1]
+#ACT
+give 回城卷 1
+mapmove D023
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@S2]
+#ACT
+give 回城卷 1
+mapmove D711
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@S3]
+#ACT
+give 回城卷 1
+mapmove D503
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@S5]
+#ACT
+give 回城卷 1
+mapmove D10011
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@NN7]
+#ACT
+give 回城卷 1
+mapmove D2071
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+
+[@清洗]
+#SAY
+您已经在我这里寄存了<$STR(U44)>金币\
+请问你要？？\
+<寄存/@@InPutString59>      <取出/@@InPutString62>\
+
+[@InPutString59]
+#IF
+LARGE U44 100000000
+#ACT
+MESSAGEBOX 目前您寄存的金币超过了一亿.暂时不允许寄存.
+break
+
+#IF
+CheckGold <$STR(S59)>
+#ACT
+INC U44 <$STR(S59)>
+take 金币 <$STR(S59)>
+MESSAGEBOX 您成功寄存了金币<$STR(S59)>。
+goto @清洗
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多金币！
+
+[@InPutString62]
+#IF
+SMALL S62 1
+#act
+messagebox 请输入1以上的数字
+break
+
+#IF
+LARGE U44 <$STR(S62)>
+#ACT
+give 金币 <$STR(S62)>
+DEC U44  <$STR(S62)>
+goto @清洗
+#ELSEACT
+MESSAGEBOX 　对不起，您寄存的金币少于您输入的数额！
+
+
+
+
+
+[@洗红名]
+#IF
+checkgold 500000
+#ACT
+take 金币 500000
+CHANGEPKPOINT = 0
+#SAY
+您的PK点数已经清除,请多做善事，少行恶。
+#ELSESAY
+对不起，您金币不足50万！
+
+
+[@购买]
+#IF
+CHECKGAMEGOLD > 19
+#ACT
+GAMEGOLD - 20
+MOV T5 会员一级
+SendNewLineMsg 0 251 0 15 100 10 1  土豪玩家<$USERNAME>使用元宝购买了赞助特权！！！
+goto @赞助
+break
+#ELSESAY
+对不起，您元宝不足20！
+
+
+
+
+
+
+
+
+
+
+
+}
+

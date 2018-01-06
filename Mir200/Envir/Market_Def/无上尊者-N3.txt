@@ -1,0 +1,180 @@
+[@main]
+#IF
+Equal T42 无上尊者
+#SAY
+您已经成为了：二转-[无上尊者]，赶紧去学习想学的技能吧！\
+#ACT
+break
+
+#IF
+Equal T42 第二步完成
+#SAY
+恭喜您，条件达到，目前第三个任务就是:\
+<收集 “真龙碎片” 5 个>\
+<我已经收集了/@交第三步>\
+<你麻痹，算你狠！/@exit>\
+#ACT
+break
+
+#IF
+Equal T42 第二步接受
+#SAY
+恭喜您，条件达到，目前第二个任务就是:\
+<击杀怪物 “世界BOSS·万恶” 1 次>\
+
+<你麻痹，算你狠！/@exit>\
+#ACT
+break
+
+#IF
+Equal T42 第一步接受
+#SAY
+恭喜您，条件达到，目前第一个任务就是:\
+<收集 “传奇碎片” 30 个>\
+<收集 “飞龙战链” 1  个>\
+<收集 “炽焰金钻” 1  个>\
+<我已经收集到了/@交第一步>\
+<你麻痹，算你狠！/@exit>\
+#ACT
+break
+
+#IF
+Equal T42 
+#SAY
+hi！新人，是不是已经厌倦了固定的技能走法？\
+想尝试搭配玩法？想尝试一下更好玩的其他技能？\
+<我想要进行二转/@二转开始>\
+
+#ACT
+break
+
+
+
+[@二转开始]
+#IF
+CHECKLEVELEX < 100
+#ACT
+MESSAGEBOX 100级以后再来找我！
+break
+
+#IF
+Equal T42 
+#SAY
+呵呵，很好，我就喜欢你这样上进的年轻人，\
+二转要满足一下条件方可进行二转:\
+<1，完成10转>\
+<2，拥有称号“出神入化”>\
+<3，拥有一套“神佑”>\
+<4，精力值超过3000点>\
+<5，元宝超过2000>\
+接受任务后，将扣除<100元宝，500精力>\
+您确定要接受二转任务？\
+
+<我需要进行二转/@二转>        <挖槽，这么贵，算了！/@exit>\
+
+[@二转]
+#IF
+Equal T42 
+CHECKRENEWLEVEL > 9
+CHECKFENGHAO 出神入化
+CHECKITEMW 子鼠神佑 1
+CHECKITEMW 丑牛神佑 1
+CHECKITEMW 寅虎神佑 1
+CHECKITEMW 卯兔神佑 1
+CHECKITEMW 辰龙神佑 1
+CHECKITEMW 巳蛇神佑 1
+CHECKITEMW 午马神佑 1
+CHECKITEMW 未羊神佑 1
+CHECKITEMW 申猴神佑 1
+CHECKITEMW 酉鸡神佑 1
+CHECKITEMW 戌狗神佑 1
+CHECKITEMW 亥猪神佑 1
+large U26 2999
+checkgamegold > 1999
+#ACT
+MOV T42 第一步接受
+gamegold - 100
+DEC u26 500
+#SAY
+恭喜您，条件达到，目前第一个任务就是:\
+<收集 “传奇碎片” 30 个>\
+<收集 “飞龙战链” 1  个>\
+<收集 “炽焰金钻” 1  个>\
+<我已经收集到了/@交第一步>\
+<你麻痹，算你狠！/@exit>\
+
+#ELSEACT
+SendMsg 6 对不起，您可能未满足二转条件！
+break
+
+
+[@交第一步]
+#IF
+CheckItem 传奇碎片 30
+CheckItem 飞龙战链 1
+CheckItem 炽焰金钻 1
+Equal T42 第一步接受
+#ACT
+TAKE 传奇碎片 30
+TAKE 飞龙战链 1
+TAKE 炽焰金钻 1
+MOV T42 第二步接受
+SendMsg 6 恭喜您完成第一步
+break
+#SAY
+恭喜您，条件达到，目前第二个任务就是:\
+<击杀怪物 “世界BOSS·万恶” 1 次>\
+
+<你麻痹，算你狠！/@exit>\
+#ELSEACT
+SendMsg 6 对不起，您可能未收集到物品，请收集完毕再来找我吧！
+break
+
+
+[@交第三步]
+#IF
+CheckItem 真龙碎片 5
+#ACT
+TAKE 真龙碎片 5
+MOV T42 无上尊者
+SendMsg 6 恭喜您完成二转，您已经是[无上尊者]了!
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

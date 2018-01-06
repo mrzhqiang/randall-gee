@@ -1,0 +1,10 @@
+[@二转杀怪]
+{
+#IF
+EQUAL T42 第二步接受
+EQUAL <$KILLMONNAME> 世界BOSS·万恶
+#ACT
+MOV T42 第二步完成
+SendMsg 6 击杀二转怪“世界BOSS·万恶”成功，您可以回去回复任务了
+break
+}

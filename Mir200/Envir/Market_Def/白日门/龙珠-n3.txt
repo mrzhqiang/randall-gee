@@ -1,0 +1,97 @@
+[@main]
+年轻的英雄啊，你能够在这里找到我，足以证明我们之\
+间有缘。既然有缘相遇，就让我来帮你实现一个心愿吧。\
+说吧，你想要实现什么样的愿望？\ \
+\<ItemShow:321:1:0:0:1> <ItemShow:322:1:0:0:1> <ItemShow:323:1:0:0:1> <ItemShow:324:1:0:0:1> <ItemShow:325:1:0:0:1> <ItemShow:326:1:0:0:1> <ItemShow:327:1:0:0:1> \
+\ \
+\ \
+【《<七龙珠许愿望/@qilongzhu1>》】      【《<九龙珠许愿望/@qilongzhu1>》】\  \
+\      <真的这么厉害？我看是假的吧....../@exit>
+
+
+
+
+[@qilongzhu1]
+我是小神龙，您确定收集到七龙珠了吗，如果收集到了可以发挥它\
+的光芒可以实现你的愿望，\
+<财富=金砖>\
+<经验=1500万>\ 
+<宝石=随机加星石5颗+宝石袋>\  \
+\      【<我要财富/@我要财富>】   【<我要经验/@我要经验>】   【<我要宝石/@我要装备>】\ \
+
+
+
+[@我要装备]
+#IF
+checkitem 一星珠 1
+checkitem 二星珠 1
+checkitem 三星珠 1
+checkitem 四星珠 1
+checkitem 五星珠 1
+checkitem 六星珠 1
+checkitem 七星珠 1
+#ACT
+take 一星珠 1
+take 二星珠 1
+take 三星珠 1
+take 四星珠 1
+take 五星珠 1
+take 六星珠 1
+take 七星珠 1
+give 随机加星石 5
+give 随机宝石袋
+messagebox 恭喜您，获得：随机加星石5颗+随机宝石袋 一件！ 
+SENDMSG 0 [神话]：勇士『<$USERNAME>』手持七龙珠，大喊我要宝石宝石！神龙瞟了一眼『<$USERNAME>』，于是丢下『随机加星石5颗+随机宝石袋』就走了！
+close
+break
+#elseact
+SENDMSG 7 集齐七颗龙珠我就能满足你的愿望！
+goto @main
+
+[@我要财富]
+#IF
+checkitem 一星珠 1
+checkitem 二星珠 1
+checkitem 三星珠 1
+checkitem 四星珠 1
+checkitem 五星珠 1
+checkitem 六星珠 1
+checkitem 七星珠 1
+#ACT
+give 金砖 1
+take 一星珠 1
+take 二星珠 1
+take 三星珠 1
+take 四星珠 1
+take 五星珠 1
+take 六星珠 1
+take 七星珠 1
+SENDMSG 0 [神话]：勇士『<$USERNAME>』手持七龙珠，大喊我要钱钱钱钱！神龙瞟了一眼『<$USERNAME>』，于是丢下『金砖』就走了！
+close
+#elseact
+SENDMSG 7 集齐七颗龙珠我就能满足你的愿望！
+goto @main
+
+[@我要经验]
+#IF
+checkitem 一星珠 1
+checkitem 二星珠 1
+checkitem 三星珠 1
+checkitem 四星珠 1
+checkitem 五星珠 1
+checkitem 六星珠 1
+checkitem 七星珠 1
+#ACT
+CHANGEEXP + 15000000
+take 一星珠 1
+take 二星珠 1
+take 三星珠 1
+take 四星珠 1
+take 五星珠 1
+take 六星珠 1
+take 七星珠 1
+SENDMSG 0 [神话]：勇士『<$USERNAME>』手持七龙珠，大喊我要经验经验！神龙瞟了一眼『<$USERNAME>』，于是丢下『一千五百万经验』就走了！
+close
+#elseact
+SENDMSG 7 集齐七颗龙珠我就能满足你的愿望！
+goto @main

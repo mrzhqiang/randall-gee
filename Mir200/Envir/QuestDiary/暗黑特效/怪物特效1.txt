@@ -1,0 +1,176 @@
+[@怪物特效1]
+{
+#IF
+CheckItem 符文：蔑视一切 1
+#ACT 
+MOV N500 <$ATTACKMONSTER_HP>
+MOV N501 <$ATTACKMONSTER_MAXHP>
+DIV N501 <$STR(N500)>
+goto @texiaoMS
+break
+
+#IF
+CheckJob Warrior
+#ACT
+break
+
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 100
+#ACT
+MOV N$宽度坐标 <$ClientWidth>
+DEC N$宽度坐标 780
+DIV N$宽度坐标 2
+MOV N$高度坐标 20
+SCREENEFFECT <$STR(N$宽度坐标)> <$STR(N$高度坐标)> 39 568 1 3 800 0 0
+SendCenterMsg 249 251 .......................................... 0 3
+SendCenterMsg 249 0 >>>怪物【<$CURRRTARGETNAME>】攻击，使你失明了...<<< 0 3
+SendCenterMsg 249 251 .......................................... 0 3
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【失明】效果触发，持续3秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 100
+#ACT
+ChangeState 2 1
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【冰冻】效果触发，被冰冻1秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 150
+#ACT
+AddhpPer - 10
+M.AddhpPer + 5
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【吸血】效果触发，怪物吸取了你的血量 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 200
+#ACT
+ChangeModeEx 9 3
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【迷茫】效果触发，你丧失攻击能力，持续3秒 255 253
+break
+
+;#IF
+;CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+;random 100
+;#ACT
+;MOV P200 0
+;MOV P200 <$MAXHP>
+;DIV P200 2
+;ChangeHumAbility 11 - <$STR(P200)> 5
+;SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【诅咒】效果触发，血量上限被削减<$STR(P200)>，持续5秒 255 253
+;break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 500
+#ACT
+MOV P201 0
+MOV P202 0
+MOV P203 0
+MOV P204 0
+MOV P205 0
+MOV P201 <$MAXAC>
+MOV P202 <$MAXMAC>
+MOV P203 <$MAXDC>
+MOV P204 <$MAXMC>
+MOV P205 <$MAXSC>
+DIV P201 2
+DIV P202 2
+DIV P203 2
+DIV P204 2
+DIV P205 2
+ChangeHumAbility 2 - <$STR(P201)> 3
+ChangeHumAbility 4 - <$STR(P202)> 3
+ChangeHumAbility 6 - <$STR(P203)> 3
+ChangeHumAbility 8 - <$STR(P204)> 3
+ChangeHumAbility 10 - <$STR(P205)> 3
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【虚弱】效果触发，全属性下降一半，持续3秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 150
+#ACT
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+GMExecute Backstep 8
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【混乱】效果触发，角色不受控制，持续4秒 255 253
+break
+
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 300
+#ACT
+POWERRATE 70 3
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【降头】效果触发，攻击伤害下降30%，持续3秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 150
+#ACT
+AddMpPer - 25
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【吸魔】效果触发，怪物抽取了你的魔量 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 150
+#ACT
+MAKEPOSION 0 30 30
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【毒素】效果触发，持续中毒30秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 150
+#ACT
+ChangeState 6 5
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【定身】效果触发，无法移动5秒 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 100
+#ACT
+M.MAPMOVE <$MAP> <$X> <$Y>
+SENDMSG 6 怪物【<$CURRRTARGETNAME>】,【瞬移】效果触发，瞬间飞到玩家身边 255 253
+break
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\宝图\显血怪物1.txt <$CURRRTARGETNAME>
+random 200
+#ACT
+ChangeHumAbility 1 = 0 5
+ChangeHumAbility 2 = 0 5
+ChangeHumAbility 3 = 0 5
+ChangeHumAbility 4 = 0 5
+SENDMSG 6 你被怪物【<$CURRRTARGETNAME>】攻击了。【破甲】效果触发，双防下降为0，持续5秒 255 253
+break
+
+[@texiaoMS]
+#IF
+LARGE N501 10
+random 3
+#ACT
+M.HumanHP - <$ATTACKMONSTER_MAXHP> 300
+SendMsg 6 [符文：蔑视一切]生效，发动技能：斩杀 255 253
+break
+}

@@ -1,0 +1,264 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 11
+#ACT
+MOV U42 12
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<可以使用成就点/SCOLOR=250>兑换<属性称号/SCOLOR=250>\
+<这些属性称号完全不需要佩戴，获得后就生效/SCOLOR=253>\
+<成就点需要通过--任务--成就任务，完成成就即可获得成就点/SCOLOR=70> \
+
+学习完毕，接下来去找<龙门镖局/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<龙门镖局/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<可以使用成就点/SCOLOR=250>兑换<属性称号/SCOLOR=250>\
+<这些属性称号完全不需要佩戴，获得后就生效/SCOLOR=253>\
+<成就点需要通过--任务--成就任务，完成成就即可获得成就点/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+CHECKFENGHAO 初学乍练
+#ACT
+mov S120 <【已拥有初学乍练】>
+#ELSEACT
+mov S120 <【1点兑换初学乍练】/@称号任务1>
+
+#IF
+CHECKFENGHAO 略有小成
+#ACT
+mov S121 <【已拥有略有小成】>
+#ELSEACT
+mov S121 <【10点兑换略有小成】/@称号任务2>
+
+#IF
+CHECKFENGHAO 渐入佳境
+#ACT
+mov S122 <【已拥有渐入佳境】>
+#ELSEACT
+mov S122 <【20点兑换渐入佳境】/@称号任务3>
+
+#IF
+CHECKFENGHAO 驾轻就熟
+#ACT
+mov S123 <【已拥有驾轻就熟】>
+#ELSEACT
+mov S123 <【30点兑换驾轻就熟】/@称号任务4>
+
+
+#IF
+CHECKFENGHAO 融会贯通
+#ACT
+mov S124 <【已拥有融会贯通】>
+#ELSEACT
+mov S124 <【40点兑换融会贯通】/@称号任务5>
+
+#IF
+CHECKFENGHAO 炉火纯青
+#ACT
+mov S125 <【已拥有炉火纯青】>
+#ELSEACT
+mov S125 <【50点兑换炉火纯青】/@称号任务6>
+
+#IF
+CHECKFENGHAO 已有大成
+#ACT
+mov S126 <【已拥有已有大成】>
+#ELSEACT
+mov S126 <【60点兑换已有大成】/@称号任务7>
+
+#IF
+CHECKFENGHAO 登峰造极
+#ACT
+mov S127 <【已拥有登峰造极】>
+#ELSEACT
+mov S127 <【70点兑换登峰造极】/@称号任务8>
+
+#IF
+CHECKFENGHAO 深不可测
+#ACT
+mov S128 <【已拥有深不可测】>
+#ELSEACT
+mov S128 <【80点兑换深不可测】/@称号任务9>
+
+#IF
+CHECKFENGHAO 天人合一
+#ACT
+mov S128 <【已拥有天人合一】>
+#ELSEACT
+mov S128 <【90点兑换天人合一】/@称号任务10>
+
+#IF
+#ACT
+#SAY
+您好，我是成就大师，在这里，您可以用成就来获得<称号/SCOLOR=249>\ \
+
+您当前所剩<成就点数/SCOLOR=253>为：<【/FCOLOR=148>< <$Str(U25)>/SCOLOR=253><】/FCOLOR=148>\ \
+当前可领取的称号有：<以下称号无需佩戴即可获得属性！/SCOLOR=249>\ \
+<$Str(S120)>  <$Str(S121)> <$Str(S122)>\
+<$Str(S123)> <$Str(S124)> <$Str(S125)>\
+<$Str(S126)> <$Str(S127)> <$Str(S128)>\
+　　　　　　　　　　　　　　　　　　　　　　　<算了/@exit>\
+
+
+[@称号任务1]
+#IF
+LARGE U25 1
+#ACT
+DEC U25 1
+SENDMSG 5 恭喜您成功消耗1点成就点！当前成就点数：<$Str(U25)>，获得称号-初学乍练
+GIVEFENGHAO 初学乍练
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【初学乍练】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@称号任务2]
+#IF
+CHECKFENGHAO 初学乍练
+LARGE U25 9
+#ACT
+DEC U25 10
+SENDMSG 5 恭喜您成功消耗10点成就点！当前成就点数：<$Str(U25)>，获得称号-略有小成
+GIVEFENGHAO 略有小成
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【略有小成】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足10！\或者尚未获得初学乍练！
+break
+
+[@称号任务3]
+#IF
+CHECKFENGHAO 略有小成
+LARGE U25 19
+#ACT
+DEC U25 20
+SENDMSG 5 恭喜您成功消耗20点成就点！当前成就点数：<$Str(U25)>，获得称号-渐入佳境
+GIVEFENGHAO 渐入佳境
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【渐入佳境】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足20！\或者尚未获得略有小成！
+break
+
+[@称号任务4]
+#IF
+CHECKFENGHAO 渐入佳境
+LARGE U25 29
+#ACT
+DEC U25 30
+SENDMSG 5 恭喜您成功消耗30点成就点！当前成就点数：<$Str(U25)>，获得称号-驾轻就熟
+GIVEFENGHAO 驾轻就熟
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【驾轻就熟】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足30！\或者尚未获得渐入佳境！
+break
+
+
+[@称号任务5]
+#IF
+CHECKFENGHAO 驾轻就熟
+LARGE U25 39
+#ACT
+DEC U25 40
+SENDMSG 5 恭喜您成功消耗40点成就点！当前成就点数：<$Str(U25)>，获得称号-融会贯通
+GIVEFENGHAO 融会贯通
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【融会贯通】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足40！\或者尚未获得驾轻就熟！
+break
+
+[@称号任务6]
+#IF
+CHECKFENGHAO 融会贯通
+LARGE U25 49
+#ACT
+DEC U25 50
+SENDMSG 5 恭喜您成功消耗50点成就点！当前成就点数：<$Str(U25)>，获得称号-炉火纯青
+GIVEFENGHAO 炉火纯青
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【炉火纯青】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足50！\或者尚未获得融会贯通！
+break
+
+[@称号任务7]
+#IF
+CHECKFENGHAO 炉火纯青
+LARGE U25 59
+#ACT
+DEC U25 60
+SENDMSG 5 恭喜您成功消耗60点成就点！当前成就点数：<$Str(U25)>，获得称号-已有大成
+GIVEFENGHAO 已有大成
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【已有大成】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足60！\或者尚未获得炉火纯青！
+break
+
+[@称号任务8]
+#IF
+CHECKFENGHAO 已有大成
+LARGE U25 69
+#ACT
+DEC U25 70
+SENDMSG 5 恭喜您成功消耗70点成就点！当前成就点数：<$Str(U25)>，获得称号-登峰造极
+GIVEFENGHAO 登峰造极
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【登峰造极】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足70！\或者尚未获得已有大成！
+break
+
+[@称号任务9]
+#IF
+CHECKFENGHAO 登峰造极
+LARGE U25 79
+#ACT
+DEC U25 80
+SENDMSG 5 恭喜您成功消耗80点成就点！当前成就点数：<$Str(U25)>，获得称号-深不可测
+GIVEFENGHAO 深不可测
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【深不可测】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足80！\或者尚未获得登峰造极！
+break
+
+[@称号任务10]
+#IF
+CHECKFENGHAO 深不可测
+LARGE U25 89
+#ACT
+DEC U25 90
+SENDMSG 5 恭喜您成功消耗90点成就点！当前成就点数：<$Str(U25)>，获得称号-天人合一
+GIVEFENGHAO 天人合一
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于获得了【天人合一】。
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 获取失败，您成就不足90！\或者尚未获得深不可测！
+break

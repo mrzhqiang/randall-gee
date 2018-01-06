@@ -1,0 +1,66 @@
+[@main]
+#if
+EQUAL T38 寻找NPC
+EQUAL T36 紫水晶屋被偷袭的玩家
+#SAY
+你是谁？从哪来？到哪去？\
+
+<跑环任务/@跑环寻找>   <退出/@exit>\
+
+#ACT
+break
+
+
+#IF
+checkitem 紫水晶矿 1
+#SAY
+　　+_+竟然是紫水晶矿！！\
+8万8888金币卖给我咋样？\
+
+<好吧，卖你了！/@回收>  <去你的！/@Exit>\  
+
+
+#ACT
+break
+
+#IF
+#SAY
+　　你是什么鬼？\
+
+  <去你的！/@Exit>\  
+
+
+
+[@回收]
+#IF
+checkitem 紫水晶矿 1
+#ACT
+TAKE 紫水晶矿 1
+GIVE 金币 88888
+sendmsg 6 回收紫水晶矿成功，获得88888金币！
+goto @main
+break
+
+
+
+
+
+
+
+[@跑环寻找]
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T38 寻找NPC
+EQUAL T36 紫水晶屋被偷袭的玩家
+#ACT
+MOV T37 已完成
+messagebox 哈哈，被你找到了啊，赶紧交任务把！！
+break
+#ELSEACT
+messagebox 你是不是找错人了！！
+break

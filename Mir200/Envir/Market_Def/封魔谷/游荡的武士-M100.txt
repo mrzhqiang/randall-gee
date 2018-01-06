@@ -1,0 +1,32 @@
+[@main]
+#IF
+CheckTextList ..\QuestDiary\标记数据\游荡.txt <$USERNAME>
+EQUAL U33 0
+#SAY
+你真的找到我了?不容易啊,我在这里练习法师的瞬息移动呢\
+每隔5分钟我将换一个地方\
+抓紧时间哦~~~~要不我飞了\
+　\
+<领取今天的经验奖励/@奖励>
+
+#ELSESAY
+我正在学《瞬息移动》哟，每个5分钟我就会飞走！\
+怎么样厉害吗？\
+
+<厉害厉害！/@exit>
+
+
+[@奖励]
+#IF
+CheckTextList ..\QuestDiary\标记数据\游荡.txt <$USERNAME>
+EQUAL U33 1
+#ACT
+MESSAGEBOX  年轻人不要太贪心,每天一次就够喽!!
+close
+#ELSEACT
+MOV U33 1
+Mul N8 50000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+MESSAGEBOX  你已经找到我了，赶紧去《骨魔洞五层》找到游荡的道士!!
+SENDMSG 0 【寻找NPC】：玩家<$USERNAME>历经千辛万苦，找到了游荡武士，获得<$Str(N8)>点的经验奖励！
+close

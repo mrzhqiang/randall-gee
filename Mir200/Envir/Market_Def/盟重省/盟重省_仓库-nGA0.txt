@@ -1,0 +1,54 @@
+[@main]
+您好，这里是庄园，请问你有什么需要帮忙的？\
+<打开仓库/@打开>\ \
+<返回盟重/@3>\
+
+
+
+
+
+
+[@百草园]
+#IF
+#ACT
+mapmove grly 44 36
+break
+
+
+[@3]
+#IF
+#ACT
+mapmove n3 330 330
+break
+
+
+
+
+[@打开]
+#IF
+EQUAL T2 开启仓库
+#ACT
+OpenStorageView 1
+
+#ELSESAY
+这里是私人仓库 总共支持300件物品\
+可视化管理,右键存入取出 方便快捷\
+现在开通仅需 40万 !\
+<缴纳开启/@特殊仓库>
+
+
+[@特殊仓库]
+#IF
+checkgold 400000
+#ACT
+take 金币 400000
+MOV T2 开启仓库
+MESSAGEBOX 超级仓库已经开启,欢迎使用!旧仓库物品请去其他城市找仓库保管员!
+goto @main
+#ELSEACT
+MESSAGEBOX 您并没有40万!
+
+
+
+
+

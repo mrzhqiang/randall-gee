@@ -1,0 +1,56 @@
+[@main]
+#ACT
+OPENMERCHANTBIGDLG 9 3832 0 4 0 0 1 640 25 0
+#SAY
+\ \ \ \ \                                              　　　　 <玛法皇榜/SCOLOR=249>\                                       <普天之下，莫非王土。率土之滨，莫非王臣。/SCOLOR=250>\ \
+
+　　　　　　　　　　　　　<近日玛法战事连连,国库空虚,寻有识之士帮忙/SCOLOR=250>\ \
+　　　　　　　　　　　　　当前国库急需【{<$STR(A333)>/SCOLOR=249}】一个,第一个上缴国库,将获取丰厚的奖励\ \
+　　　　　　　　　　　　　奖励:<随机奖励/SCOLOR=249> 经  验:{<$STR(A334)>/SCOLOR=250}\ 
+　　　　　　　　　　　　　　　 <随机奖励/SCOLOR=249> 金  币:{<$STR(A335)>/SCOLOR=250}\
+　　　　　　　　　　　　　　　 <固定奖励/SCOLOR=250> 荣  誉:<10/SCOLOR=250>\
+　　　　　　　　　　　　　　 　<固定奖励/SCOLOR=250> 声  望:<5/SCOLOR=250>\
+　　　　　　　　　　　　　　　 <固定奖励/SCOLOR=250> 元  宝:<2/SCOLOR=250>\
+　　　　　　　　　　　　　　   <固定奖励/SCOLOR=250> 金刚石:<5/SCOLOR=250>\ \
+　　　　　　　　　　　　　当前上缴皇榜玩家:【{<$STR(A336)>/SCOLOR=249}】\ \
+　　　　　　　　　　　　　　　　　　　　　         <上缴/@上缴>\ \
+　　　　　　　　　　　　　　　　　　　　　         <离开/@exit>  \
+
+
+
+[@上缴]
+#IF
+NOT EQUAL A336 未有人上缴
+#ACT
+MESSAGEBOX 已经有人上缴过了,请等待皇榜重新发放吧.
+break
+
+#IF
+checkitem <$STR(A333)> 1
+EQUAL A336 未有人上缴
+#ACT
+take <$STR(A333)> 1
+CHANGEEXP + <$STR(A334)>
+give 金币 <$STR(A335)>
+GAMEGLORY + 10
+mov A336 <$USERNAME>
+CREDITPOINT + 5
+GAMEGOLD + 2
+GAMEDIAMOND + 5
+SendCenterMsg 0 251 恭喜:勇士『<$USERNAME>』揭皇榜成功,获得大量经验和金币以及10点荣誉和5点声望+2元宝+5金刚石. 1 6 0
+close
+#ELSEACT
+MESSAGEBOX 你没有所需物品无法给予你奖励.
+BREAK
+
+
+
+
+
+
+
+
+
+
+
+ 

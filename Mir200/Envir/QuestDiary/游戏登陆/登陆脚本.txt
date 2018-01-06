@@ -1,0 +1,274 @@
+
+;┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+[@登陆设置]
+{
+#IF
+ISNEWHUMAN
+#ACT
+SENDMSG 0 服务器公告:欢迎新玩家〖%s〗加入<$SERVERNAME>!我们的征途是星辰大海！
+
+#IF
+ISCASTLEMASTER
+#ACT
+SENDMSG 0 号令天下的沙城主『<$USERNAME>』进入了<$SERVERNAME>!
+
+
+
+#IF
+Equal T42 无上尊者
+#ACT
+mov S88 ※无上◆尊者※
+SENDMSG 6 欢迎您，伟大的《无上尊者》大人！
+goto @称呼
+break
+
+
+#IF
+gender man
+CheckJob Warrior
+#ACT
+mov S88 圣☆者
+SENDMSG 6 欢迎您，伟大的《圣者》大人！
+goto @称呼
+break
+
+#IF
+gender woman
+CheckJob Warrior
+#ACT
+mov S88 剑☆姬
+SENDMSG 6 欢迎您，伟大的《剑姬》大人！
+goto @称呼
+break
+
+#IF
+gender man
+CheckJob Taoist
+#ACT
+mov S88 阴☆阳
+SENDMSG 6 欢迎您，伟大的《阴阳》大人！
+goto @称呼
+break
+#IF
+gender woman
+CheckJob Taoist
+#ACT
+mov S88 魅☆姬
+SENDMSG 6 欢迎您，伟大的《魅姬》大人！
+goto @称呼
+break
+#IF
+gender man
+CheckJob Wizard
+#ACT
+mov S88 烈☆焰
+SENDMSG 6 欢迎您，伟大的《烈焰》大人！
+goto @称呼
+break
+#IF
+gender woman
+CheckJob Wizard
+#ACT
+mov S88 寒☆冰
+SENDMSG 6 欢迎您，伟大的《寒冰》大人！
+goto @称呼
+break
+
+
+
+
+
+
+
+
+
+[@称呼]
+#IF
+EQUAL T5 会员五级
+#ACT
+mov S89 超级VIP大神
+SENDMSG 0 【{欢迎|251:249:1}】： 本服{超级VIP大神|251:249:1}玩家【{<$USERNAME>|251:249:1}】进入游戏！大家赶紧去抱大腿吧！
+
+#IF
+EQUAL T5 会员四级
+#ACT
+mov S89 四级VIP大神
+SENDMSG 0 【{欢迎|251:249:1}】：提供服务赞助的{四级VIP大神|251:249:1}玩家【{<$USERNAME>|251:249:1}】进入了游戏！
+
+#IF
+EQUAL T5 会员三级
+#ACT
+mov S89 三级VIP大神
+SENDMSG 6 欢迎您，伟大的《三级会员》大人！
+SENDMSG 0 【{欢迎|251:249:1}】：提供服务赞助的{三级VIP大神|251:249:1}玩家【{<$USERNAME>|251:249:1}】进入了游戏！
+
+
+#IF
+EQUAL T5 会员二级
+#ACT
+mov S89 二级VIP大神
+SENDMSG 0 【{欢迎|251:249:1}】：提供服务赞助的{二级VIP大神|251:249:1}玩家【{<$USERNAME>|251:249:1}】进入了游戏！
+
+
+#IF
+EQUAL T5 会员一级
+#ACT
+mov S89 一级VIP大神
+SENDMSG 0 【{欢迎|251:249:1}】：提供服务赞助的{一级VIP大神|251:249:1}玩家【{<$USERNAME>|251:249:1}】进入了游戏！
+
+#IF
+NOT EQUAL T5 会员五级
+NOT EQUAL T5 会员四级
+NOT EQUAL T5 会员三级
+NOT EQUAL T5 会员二级
+NOT EQUAL T5 会员一级
+#ACT
+mov S89 休闲玩家
+
+#IF
+CheckLevelEx > 0
+#ACT
+MOV S98 
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\男战士.txt
+#ACT
+INC S98 天下第一◎男战士
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一男战士【<$USERNAME>】上线了,享受1.2倍攻击！！！
+POWERRATE 120 9999
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\男道士.txt
+#ACT
+INC S98 天下第一◎男道士
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一男道士【<$USERNAME>】上线了,享受1.2倍道术！！！
+POWERRATE 120 9999
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\男法师.txt
+#ACT
+INC S98 天下第一◎男法师
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一男法师【<$USERNAME>】上线了,享受1.2倍魔法！！！
+POWERRATE 120 9999
+
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\女战士.txt
+#ACT
+INC S98 天下第一◎女战士
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一女战士【<$USERNAME>】上线了,享受1.2倍攻击！！！
+POWERRATE 120 9999
+
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\女道士.txt
+#ACT
+INC S98 天下第一◎女道士
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一女道士【<$USERNAME>】上线了,享受1.2倍道术！！！
+POWERRATE 120 9999
+
+
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\天下第一\女法师.txt
+#ACT
+INC S98 天下第一◎女法师
+CHANGENAMECOLOR 254
+SENDMSG 0 天下第一女法师【<$USERNAME>】上线了,享受1.2倍魔法！！！
+POWERRATE 120 9999
+
+#IF
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\女道士.txt <$USERNAME>
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\男道士.txt <$USERNAME>
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\女法师.txt <$USERNAME>
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\男法师.txt <$USERNAME>
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\女战士.txt <$USERNAME>
+NOT CheckTextList ..\QuestDiary\数据文件\天下第一\男战士.txt <$USERNAME>
+#ACT
+mov S98 无名小辈
+
+#IF
+Equal U20 1
+#ACT
+MOV S89 ∽洪荒∨之力∽
+
+
+#IF
+CHECKRENEWLEVEL = 0
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★未转·小虾米★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+
+#IF
+CHECKRENEWLEVEL = 1
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★一转:生死境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★一转:生死境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+#IF
+CHECKRENEWLEVEL = 2
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★二转:解脱境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★二转:解脱境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+#IF
+CHECKRENEWLEVEL = 3
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★三转:炼气境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★三转:炼气境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+#IF
+CHECKRENEWLEVEL = 4
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★四转:无为境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★四转:无为境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+
+#IF
+CHECKRENEWLEVEL = 5
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★五转:天人境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★五转:天人境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+
+#IF
+CHECKRENEWLEVEL = 6
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★六转:地仙境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★六转:地仙境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+#IF
+CHECKRENEWLEVEL = 7
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★七转:大乘境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★七转:大乘境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+
+#IF
+CHECKRENEWLEVEL = 8
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★八转:散仙境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★八转:稀有境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+#IF
+CHECKRENEWLEVEL = 9
+#ACT
+SETRANKLEVELNAME %s\┈┈━═★九转:焚天境★═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{★九转:焚天境★|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！
+
+
+#IF
+CHECKRENEWLEVEL = 10
+#ACT
+SETRANKLEVELNAME %s\┈┈━═☆【十转:噬天境】☆═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{☆【十转:噬天境】☆|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！大家快来跪拜阿!!
+
+#IF
+CHECKRENEWLEVEL = 11
+#ACT
+SETRANKLEVELNAME %s\┈┈━═☆【六道轮回重生】☆═━┈┈\≮追忆☆传奇≯\≮<$STR(S88)>≯\≮<$STR(S89)>≯\≮<$STR(S98)>≯
+SENDMSG 0 【{欢迎|251:249:1}】：突破┈┈━═{☆【六道轮回重生】☆|251:249:1}═━┈┈玩家【{<$USERNAME>|251:249:1}】身披金甲圣衣，脚踏七色云彩进入了游戏！大家快来跪拜阿!!
+}

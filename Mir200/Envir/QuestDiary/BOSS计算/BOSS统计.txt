@@ -1,0 +1,53 @@
+[@Í³¼ÆÉËº¦]
+{
+#IF
+#ACT
+CALCVAR HUMAN BOSSÉËº¦ + <$PKPOWER>
+SAVEVAR HUMAN BOSSÉËº¦ ..\QuestDiary\BOSS¼ÆËã\ÉËº¦¼ÇÂ¼.txt
+LoadVar HUMAN BOSSÉËº¦ ..\QuestDiary\BOSS¼ÆËã\ÉËº¦¼ÇÂ¼.txt
+SortVarToList BOSSÉËº¦ ..\QuestDiary\BOSS¼ÆËã\ÉËº¦¼ÇÂ¼.txt ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 0 1
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 0 A200 G200
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 1 A201 G201
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 2 A202 G202
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 3 A203 G203
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 4 A204 G204
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 5 A205 G205
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 6 A206 G206
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 7 A207 G207
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 8 A208 G208
+GetListString ..\QuestDiary\BOSS¼ÆËã\ÉËº¦ÅÅÐò.txt 9 A209 G209
+OPENMERCHANTBIGDLG 28 814 0 0 -317 45 1 460 15 0
+break
+#SAY
+\ \ \
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<¡¾/SCOLOR=94><ÉËº¦ÅÅÐÐ/SCOLOR=250><¡¿/SCOLOR=94>¡¡<Hot~/SCOLOR=22>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<----------------------------------/SCOLOR=160>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<10ÃûÍâ¹Ì¶¨½±Àø£¬1-10ÃûËæ»ú½±/SCOLOR=242>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<----------------------------------/SCOLOR=160>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÒ»Ãû£º/SCOLOR=253>{<$STR(A200)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G200)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚ¶þÃû£º/SCOLOR=253>{<$STR(A201)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G201)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÈýÃû£º/SCOLOR=253>{<$STR(A202)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G202)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<----------------------------------/SCOLOR=160>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚËÄÃû£º/SCOLOR=253>{<$STR(A203)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G203)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÎåÃû£º/SCOLOR=253>{<$STR(A204)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G204)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÁùÃû£º/SCOLOR=253>{<$STR(A205)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G205)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<----------------------------------/SCOLOR=160>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÆßÃû£º/SCOLOR=253>{<$STR(A206)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G206)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚ°ËÃû£º/SCOLOR=253>{<$STR(A207)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G207)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚ¾ÅÃû£º/SCOLOR=253>{<$STR(A208)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G208)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<µÚÊ®Ãû£º/SCOLOR=253>{<$STR(A209)>/SCOLOR=151}¡¡<ÉËº¦£º/SCOLOR=253>{<$STR(G209)>/SCOLOR=250}\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<----------------------------------/SCOLOR=160>\
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡<¡ù/SCOLOR=245><¸ÐÐ»ÓÐÄúµÄÅã°é/SCOLOR=242><¡ù/SCOLOR=245>\
+
+
+
+
+
+
+
+
+
+
+
+
+}

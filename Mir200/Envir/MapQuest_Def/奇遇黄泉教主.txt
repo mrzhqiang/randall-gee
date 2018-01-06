@@ -1,0 +1,60 @@
+[@main]
+#IF
+random 5
+#ACT
+#CALL [\宝图\翻牌.txt] @翻牌调用
+break
+
+#IF
+random 5
+#ACT
+#CALL [\功能设置\奇遇传送.txt] @奇遇传送
+break
+
+#IF
+random 10
+#ACT
+RECALLMOB 黄泉教主 7 20  1
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，黄泉教主做他的奴隶20分钟！！
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，黄泉教主做他的奴隶20分钟！！
+break
+
+#IF
+random 10
+#ACT
+CHANGEEXP + 150000
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得经验：15万！！
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得经验：15万！！
+break
+
+#IF
+random 5
+#ACT
+CREDITPOINT + 30
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得声望：30点!
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得声望：30点!
+break
+
+#IF
+random 5
+#ACT
+KILLMONEXPRATE 200 600
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得双倍经验10分钟！！
+SENDMSG 0 恭喜<$USERNAME>挑战%m成功，奇遇事件触发，获得双倍经验10分钟！！
+break
+
+#IF
+random 3
+#ACT
+MAKEPOSION 5 60 10
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了黄泉教主的诅咒，被硬生生麻痹1分钟！！
+SENDMSG 0 <$USERNAME>挑战%m成功，受到了黄泉教主的诅咒，被硬生生麻痹1分钟！！
+break
+
+#IF
+random 3
+#ACT
+gamegold + 1
+SENDMSG 0 <$USERNAME>挑战%m成功，获得了黄泉教主慷慨送出的[1元宝]！！
+SENDMSG 0 <$USERNAME>挑战%m成功，获得了黄泉教主慷慨送出的[1元宝]！！
+break

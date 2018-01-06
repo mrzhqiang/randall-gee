@@ -1,0 +1,50 @@
+[@main]
+你一定听说了吧，有人已经发现了传说中的迷之幻境！\
+现在我已经知道了去幻境的方法，你有勇气去接受挑战吗？\ \
+
+<想去盟重/@leave>\
+<去魔龙岭/@movem>\
+<确定/@exit>
+
+[@leave]
+移动到土城需要金币  \
+不能让你免费使用 \
+你必须支付2000金币 \ 
+你想花这笔钱吗? \ \
+   
+   <移动/@pay1> \ 
+   <返回/@main>  
+[@moveh]
+#IF
+CHECKCREDITPOINT > 3
+#ACT
+CREDITPOINT - 4
+give 回城卷 1
+mapmove H006 28 74
+SENDMSG 6 您的当前声望指数为：<$CREDITPOINT>
+#ELSEACT
+messagebox 进入幻境六层需要4点声望值！
+
+[@pay1]
+#IF
+#ACT
+take 金币 2000
+mapmove n3   330  330
+
+[@moved]
+#IF
+#ACT
+take 金币 2000
+mapmove n6 471 377
+
+[@movex]
+#IF
+#ACT
+take 金币 2000
+mapmove n6 460 68
+
+[@movem]
+#IF
+#ACT
+take 金币 2000
+mapmove n63

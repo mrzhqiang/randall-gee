@@ -1,0 +1,598 @@
+[@main]
+#ACT
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+break
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+　　　　　　　　　　　　　　　　　║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+　　　　　　　　　　　　　　　　　<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+　　　　　　　　　　　　　　　　　<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+　　　　　　　　　　　　　　　　　您好.您可以在这里领取特定节日的节日礼物.祝你节日愉快!\
+　　　　　　　　　　　　　　　　　如果你有了节日礼物了可以在这里打开您的节日礼物!\
+　　　　　　　　　　　　　　　　　<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼物/@领取> <可领节日查询/@查询>  <离 开/@EXIT>\
+
+
+[@查询]
+#ACT
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+break
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　可领取的节日有：\
+　　　　　　　　　　　　　　　　　1月1日<[元旦]/FCOLOR=69>      1月27日<[除夕]/FCOLOR=69>　　　1月28日<[大年初一]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　2月11日<[元宵节]/FCOLOR=69>   2月14日<[情人节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　3月8日<[妇女节]/FCOLOR=69>　　3月12日<[植树节]/FCOLOR=69>　　3月15日<[消费者日]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　4月1日<[愚人节]/FCOLOR=69>　　4月4日<[清明节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　5月1日<[劳动节]/FCOLOR=69>　　5月4日<[青年节]/FCOLOR=69>　　 5月14日<[母亲节]/FCOLOR=69>　　5月30日<[端午节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　6月1日<[儿童节]/FCOLOR=69>    6月18日<[父亲节]/FCOLOR=69>    6月16日<[服务器四周年]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　7月1日<[建党日、香港回归日]/FCOLOR=69>　　　　　 7月7日<[抗战纪念日]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　8月1日<[建军节]/FCOLOR=69>　　8月28日<[七夕情人节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　9月3日<[抗战胜利日]/FCOLOR=69>　9月5日<[中元节(鬼节)]/FCOLOR=69>　9月10日<[教师节]/FCOLOR=69>　9月18日<[中国国耻日]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　10月1日<[国庆节]/FCOLOR=69>　　10月4日<[中秋节]/FCOLOR=69>　 10月28日<[重阳节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　11月11日<[双11购物节、光棍节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　12月20日<[澳门回归日]/FCOLOR=69> 12月24日<[平安夜]/FCOLOR=69>　　12月25日<[圣诞节]/FCOLOR=69>\
+　　　　　　　　　　　　　　　　　<返     回/@main>  <离     开/@EXIT>\
+
+[@领取]
+#IF
+EQUAL <$MONTH> 12
+EQUAL <$DAY> 24
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是12月24日<[平安夜]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 9
+EQUAL <$DAY> 18
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是9月18日<[中国国耻日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 9
+EQUAL <$DAY> 5
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是9月5日<[中元节(鬼节)]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+
+#IF
+EQUAL <$MONTH> 1
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是1月1日<[元旦节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 1
+EQUAL <$DAY> 27
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是1月27日<[除夕]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 1
+EQUAL <$DAY> 28
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是1月28日<[大年初一]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 2
+EQUAL <$DAY> 11
+#SAY
+
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是2月11日<[元宵节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 2
+EQUAL <$DAY> 14
+#SAY
+
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是2月14日<[情人节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+
+#IF
+EQUAL <$MONTH> 6
+EQUAL <$DAY> 18
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是6月18日<[父亲节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+
+#IF
+EQUAL <$MONTH> 5
+EQUAL <$DAY> 30
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是5月30日<[端午节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 3
+EQUAL <$DAY> 8
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是3月8日<[妇女节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 3
+EQUAL <$DAY> 12
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是3月12日<[植树节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 3
+EQUAL <$DAY> 15
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是3月15日<[消费者权益日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 4
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是4月1日<[愚人节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 4
+EQUAL <$DAY> 4
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是4月4日<[清明节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 5
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是5月1日<[劳动节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 5
+EQUAL <$DAY> 4
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是5月4日<[青年节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 5
+EQUAL <$DAY> 14
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是5月14日<[母亲节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 6
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是6月1日<[儿童节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 7
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是7月1日<[党的生日、香港回归日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 7
+EQUAL <$DAY> 7
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是7月7日<[抗日战争纪念日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 8
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是8月1日<[建军节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 6
+EQUAL <$DAY> 16
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是6月16日<[服务器三周年庆典]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 8
+EQUAL <$DAY> 28
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是8月28日<[七夕情人节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 9
+EQUAL <$DAY> 3
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是9月3日<[抗战胜利纪念日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 9
+EQUAL <$DAY> 10
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是9月10日<[教师节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 10
+EQUAL <$DAY> 4
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是10月4日<[中秋节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 10
+EQUAL <$DAY> 1
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是10月1日<[国庆节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 10
+EQUAL <$DAY> 28
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是10月28日<[重阳节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 11
+EQUAL <$DAY> 11
+#SAY
+\ \ \ \ \ \ \ \ \ \
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是11月11日<[购物节、光棍节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 12
+EQUAL <$DAY> 21
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是12月21日<[冬至]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 12
+EQUAL <$DAY> 20
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是12月20日<[澳门回归纪念日]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+#IF
+EQUAL <$MONTH> 12
+EQUAL <$DAY> 25
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\
+　　　　　　　　　　　　　　　　　今天是12月25日<[圣诞节]/FCOLOR=69>，为庆祝节日的到来。\
+　　　　　　　　　　　　　　　　　为您提供了精美的礼物。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　<领取节日礼品/@领取礼物>   <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+
+#IF
+#SAY
+\ \ \ \ \ \ \ \ \ \
+
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\
+　　　　　　　　　　　　　　　　　今天是{[<$DATETIME>]/FCOLOR=249}，并没有什么节日。\
+　　　　　　　　　　　　　　　　　<════════════════════════════/SCOLOR=250>\\ \
+　　　　　　　　　　　　　　　　　                            <离 开/@EXIT>\
+#act
+OPENMERCHANTBIGDLG 39 202 0 4 0 0 1 590 150 0
+BREAK
+
+
+
+[@领取礼物]
+#IF
+CheckTextList ..\QuestDiary\标记数据\节日礼物领取名单2.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您的名字已经领取过今天的礼物了，请在下次节日时再来领取。\
+#ELSEACT
+GOTO @检测机器
+
+[@检测机器]
+#IF
+CheckTextList ..\QuestDiary\标记数据\节日礼物领取名单.txt <$MACHINEID>
+#ACT
+MESSAGEBOX 您的机器码已经领取过今天的礼物了，请在下次节日时再来领取。\
+#ELSEACT
+GOTO @检测等级
+
+[@检测等级]
+#IF
+CHECKLEVELEX > 69
+#ACT
+GAMEGOLD + 20
+CHANGEEXP + 280000000
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单.txt <$MACHINEID> 
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单2.txt <$USERNAME>
+MESSAGEBOX 根据您的等级，已经成功领取了[2亿8000万经验]+20元宝
+CLOSE
+BREAK
+
+#IF
+CHECKLEVELEX > 59
+#ACT
+GAMEGOLD + 10
+CHANGEEXP + 50000000
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单.txt <$MACHINEID> 
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单2.txt <$USERNAME>
+MESSAGEBOX 根据您的等级，已经成功领取了[5000万经验]+10元宝
+CLOSE
+BREAK
+
+#IF
+CHECKLEVELEX > 49
+#ACT
+CHANGEEXP + 9000000
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单.txt <$MACHINEID> 
+AddTextList ..\QuestDiary\标记数据\节日礼物领取名单2.txt <$USERNAME>
+MESSAGEBOX 根据您的等级，已经成功领取了[900万经验]
+CLOSE
+BREAK
+
+#IF
+CHECKLEVELEX < 40
+#ACT
+MESSAGEBOX 您的等级还不够40，无法领取节日礼物。
+BREAK

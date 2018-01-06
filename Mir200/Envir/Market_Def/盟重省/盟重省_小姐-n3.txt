@@ -1,0 +1,64 @@
+[@main]
+#if
+EQUAL T38 寻找NPC
+EQUAL T36 盟重省林小姐
+#SAY
+我还想多赚点钱呢~!\
+穷鬼快给我滚开！！\ \
+
+<跑环任务/@跑环寻找>   <退出/@exit>\
+
+#ACT
+break
+
+#IF
+#SAY
+我还想多赚点钱呢~!\
+进入弧月需要 <50点荣誉>+特殊药水!!!!\
+药水好像在<叛逃卫士、变异骷髅等>身上掉出\
+去封魔谷外圈逛逛吧，有可能掉落特殊药水\
+<去弧月/@去弧月>\
+<取消/@exit>
+
+[@跑环寻找]
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T38 寻找NPC
+EQUAL T36 盟重省林小姐
+#ACT
+MOV T37 已完成
+messagebox 哈哈，被你找到了啊，赶紧交任务把！！
+break
+#ELSEACT
+messagebox 你是不是找错人了！！
+break
+
+
+[@去弧月]
+#IF
+checkitem 狐月卷轴 1
+#ACT
+take 狐月卷轴 1
+mapmove nfox02
+MESSAGEBOX 请小心.......
+break
+
+#IF
+CHECKGAMEGLORY > 49
+checkitem 特殊药水 1
+#ACT
+take 特殊药水
+GAMEGLORY - 50
+mapmove nfox02
+MESSAGEBOX 请小心.......
+break
+
+#IF
+#ACT
+MESSAGEBOX 对不起,您可能没有卷轴,或者没有特殊药水........
+break

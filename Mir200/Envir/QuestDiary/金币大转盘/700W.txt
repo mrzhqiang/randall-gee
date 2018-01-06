@@ -1,0 +1,815 @@
+[@700W]
+{
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=249> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W0
+[@700W0]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=249>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W1
+[@700W1]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=249>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W2
+[@700W2]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=249>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W3
+[@700W3]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W4
+[@700W4]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W5
+[@700W5]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W6
+[@700W6]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W7
+[@700W7]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W8
+[@700W8]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W9
+[@700W9]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W10
+[@700W10]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W11
+[@700W11]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=249>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W12
+[@700W12]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=249>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W13
+[@700W13]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=249>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W14
+[@700W14]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=249> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W15
+[@700W15]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=249> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 100 @700W16
+[@700W16]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=249> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W17
+[@700W17]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=249>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W18
+[@700W18]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=249>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W19
+[@700W19]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=249>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W20
+[@700W20]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W21
+[@700W21]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W22
+[@700W22]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W23
+[@700W23]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W24
+[@700W24]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=249> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W25
+[@700W25]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W26
+[@700W26]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W27
+[@700W27]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=249>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W28
+[@700W28]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=249>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W29
+[@700W29]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=249>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W30
+[@700W30]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=249>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W31
+[@700W31]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=249> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W32
+[@700W32]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=249> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 500 @700W33
+[@700W33]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=249> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 1000 @700W34
+[@700W34]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=249>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 1000 @700W35
+[@700W35]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=249>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 1000 @700W36
+[@700W36]
+#SAY
+正在进行游戏.中途下线.游戏无效.金币不退还!\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=249>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ACT
+DELAYGOTO 1000 @700W37
+[@700W37]
+#IF
+LARGE M32 0
+#SAY
+游戏结束!!此次中奖项目：<经验700W>    该项目你押了：[<$STR(M32)>] 注\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/AUTOCOLOR=249,251,252,191,250,70,245,254,253>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　  <领取奖品/@领取700W>　            　　                    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　  <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSESAY
+游戏结束!!此次中奖项目：<经验700W>    该项目你押了：[<$STR(M32)>] 注\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/AUTOCOLOR=249,251,252,191,250,70,245,254,253>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　  <重新游戏/@MAIN>　            　　                    <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　  <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+[@领取700W]
+#IF
+#ACT
+SENDMSG 0 [%s]押[700万]经验中[<$STR(M32)>]注.奖励经验[700万X<$STR(M32)>]!
+MUL M32 7000000
+CHANGEEXP + <$STR(M32)>
+MOV M32 0
+GOTO @MAIN
+break
+#ELSEACT
+SENDMSG 0 [%s]押[700万]经验中[<$STR(M32)>]注.奖励经验[700万X<$STR(M32)>]!
+MUL M32 7000000
+CHANGEEXP + <$STR(M32)>
+MOV M32 0
+GOTO @MAIN
+break
+}

@@ -1,0 +1,105 @@
+(@storage @getback )
+%100
+[@main]
+#IF 
+#SAY
+注意：本服为月卡版本，您当前的充值额度为：<$HUMAN(充值额度)>\
+您当前的元宝为：<$GAMEGOLD>个，购买点卡后，充值额度一律清0.\
+您已经累计冲值元宝:<$HUMAN(元宝充值)> \
+<网银、各类点卡、支付宝等其他方式点击进入/@weburl>\
+<领取元宝/@HF领取>\
+<7点额度+7元宝购买《周卡》/@周卡购买>\
+<30点额度+30元宝购买《月卡》/@月卡购买>\ \
+　<回土/@回土>\
+　\
+[@HF领取]
+#CALL [\HF元宝\hf.txt] @领取元宝
+#CALL [\HF积分\hf.txt] @领取积分
+#CALL [\HF积分1\hf.txt] @领取积分1
+break
+
+;【请注意，以上仅仅是购卡，请添加自己的充值连接以及充值NPC。】
+
+[@weburl]
+#IF
+#ACT
+OpenWebSite http://server200.236pay.com/User/Center?Gameid=07F226706A7645F7&Groupid=B7CCBD18667D108C
+break
+
+[@回土]
+#OR
+checkNameList ..\QuestDiary\月卡\周卡名单.txt
+checkNameList ..\QuestDiary\月卡\月卡名单.txt
+#act
+MAPMOVE n3 330 331
+#elseact
+messagebox 本服为月卡版本，需充值月卡后才能继续游戏\
+SENDMSG 5 〖提示〗:本服不支持固定电话和短信充值
+SENDMSG 5 〖提示〗:本服为月卡版本，需充值月卡后才能继续游戏
+
+[@周卡购买]
+#IF
+CHECKBAGSIZE  1
+CHECKGAMEGOLD > 6
+CHECKVAR HUMAN 充值额度 > 6
+#ACT
+GAMEGOLD - 7
+CALCVAR HUMAN 充值额度 = 0
+SAVEVAR HUMAN 充值额度 ..\QuestDiary\充值积分\充值额度Save.txt
+Gmexecute ReleaseShutup Self
+addnamelist ..\QuestDiary\月卡\周卡名单.txt
+ADDUSERDATE ..\QuestDiary\月卡\时间记载.txt
+SENDMSG 5 提示:冲值成功!你帐号剩余时间7天!
+SENDMSG 5 提示:请小退一次!
+MAPMOVE n3 330 331
+#elseact
+messagebox 对不起!购买安安周卡需要支付7元宝
+SENDMSG 5 %s对不起！您当前的元宝：<$GAMEGOLD>个，充值额度是<$HUMAN(充值额度)>，需要达到7点，才能购买！
+
+[@月卡购买]
+#IF
+CHECKBAGSIZE  1
+CHECKVAR HUMAN 充值额度 > 29
+CHECKGAMEGOLD > 29
+#ACT
+GAMEGOLD - 30
+CALCVAR HUMAN 充值额度 = 0
+SAVEVAR HUMAN 充值额度 ..\QuestDiary\充值积分\充值额度Save.txt
+Gmexecute ReleaseShutup Self
+addnamelist ..\QuestDiary\月卡\月卡名单.txt
+ADDUSERDATE ..\QuestDiary\月卡\时间记载.txt
+SENDMSG 5 提示:冲值成功!你帐号剩余时间30天!
+SENDMSG 5 提示:请小退一次!
+MAPMOVE n3 330 331
+#elseact
+messagebox 对不起!购买安安月卡需要支付30元宝
+SENDMSG 5 %s对不起！您当前的元宝：<$GAMEGOLD>个，充值额度是<$HUMAN(充值额度)>，需要达到30点，才能购买！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+[@特殊属性调整]
+{
+#ACT
+MOVR N$属性类型 <$STR(N$防御)> 14
+
+#OR
+equal N$属性类型 7
+equal N$属性类型 6
+#ACT
+MOVR N$属性点 10 20
+#ELSEACT
+MOVR N$属性点 1 4
+}
+
+[@特殊属性调整传说]
+{
+#ACT
+MOVR N$属性类型 <$STR(N$防御)> 14
+
+#OR
+equal N$属性类型 7
+equal N$属性类型 6
+#ACT
+MOVR N$属性点 15 30
+#ELSEACT
+MOVR N$属性点 1 7
+}

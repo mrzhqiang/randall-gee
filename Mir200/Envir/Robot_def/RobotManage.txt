@@ -1,0 +1,1002 @@
+[@刷新转盘]
+#IF
+#act
+GMEXECUTE 开始提问 @刷新转盘啦
+break
+
+[@清除数据]
+#ACT
+MOV G83 0
+INC G130 1
+MOV A16 不可领取
+MOV A76 虚位以待
+clearnamelist ..\QuestDiary\标记数据\收集.txt
+clearnamelist ..\QuestDiary\标记数据\膜拜.txt
+clearnamelist ..\QuestDiary\标记数据\节日礼物领取名单.txt
+clearnamelist ..\QuestDiary\标记数据\节日礼物领取名单2.txt
+clearnamelist ..\QuestDiary\标记数据\赞助已领取.txt
+clearnamelist ..\QuestDiary\标记数据\巡游名单.txt
+clearnamelist ..\QuestDiary\标记数据\讨伐名单.txt
+clearnamelist ..\QuestDiary\标记数据\讨伐机器码.txt
+clearnamelist ..\QuestDiary\标记数据\参拜名单.txt
+clearnamelist ..\QuestDiary\标记数据\签到名单.txt
+clearnamelist ..\QuestDiary\标记数据\签到机器码.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\押镖次数.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\抓捕次数.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\副本次数.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\红包机器码.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\多倍经验名单.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\游荡.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\变量数据.txt
+CLEARNAMELIST ..\QuestDiary\标记数据\排序的文件.txt
+SortVarToList 回收元宝 ..\QuestDiary\回收数据\变量数据.txt ..\QuestDiary\回收数据\排序数据.txt 0 1
+GetListString ..\QuestDiary\回收数据\排序数据.txt 0 A90 G46
+GetListString ..\QuestDiary\回收数据\排序数据.txt 1 A91 G47
+GetListString ..\QuestDiary\回收数据\排序数据.txt 2 A92 G48
+MOV G53 <$STR(G46)>
+MOV G54 <$STR(G47)>
+MOV G55 <$STR(G48)>
+MOV G49 0
+MOV A93 <$STR(A90)>
+MOV A94 <$STR(A95)>
+MOV A96 <$STR(A92)>
+MOV A97 可以领取
+MOV A98 可以领取
+MOV A99 可以领取
+MOV A86 未被领取
+MOV A87 未被领取
+MOV A88 未被领取
+CLEARNAMELIST ..\QuestDiary\回收数据\变量数据.txt
+CLEARNAMELIST ..\QuestDiary\回收数据\排序数据.txt
+SENDMSG 0 系统：回收排行榜已经结算完毕，今天的第一名玩家是：<$STR(A93)>，第二名是：<$STR(A94)>，第三名玩家是：<$STR(A96)>，请及时领奖
+SENDMSG 0 系统：回收排行榜已经结算完毕，今天的第一名玩家是：<$STR(A93)>，第二名是：<$STR(A94)>，第三名玩家是：<$STR(A96)>，请及时领奖
+SENDMSG 0 系统：回收排行榜已经结算完毕，今天的第一名玩家是：<$STR(A93)>，第二名是：<$STR(A94)>，第三名玩家是：<$STR(A96)>，请及时领奖
+GetRandomText ..\QuestDiary\皇榜\物品.txt S33
+MOV A19 <$STR(S33)>
+MOVR G19 1 11
+CLEARNAMELIST ..\QuestDiary\充值积分\充值额度Save.txt
+SENDMSG 0 系统：今日的收集任务为：收集物品<$STR(A19)>×<$STR(G19)>件！
+SENDMSG 0 系统：今日的收集任务为：收集物品<$STR(A19)>×<$STR(G19)>件！
+SENDMSG 0 系统：今日的收集任务为：收集物品<$STR(A19)>×<$STR(G19)>件！
+break
+
+
+[@清除跑环]
+#ACT
+CLEARNAMELIST ..\QuestDiary\标记数据\跑环名单.txt
+break
+
+
+
+[@红包开启]
+#IF
+#ACT
+MOV A43 允许领取
+SortVarToList QHP ..\QuestDiary\标记数据\变量数据.txt ..\QuestDiary\标记数据\排序的文件.txt 0 1
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 0 A40 G40
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 1 A41 G41
+GetListString ..\QuestDiary\标记数据\排序的文件.txt 2 A42 G42
+SENDMSG 1 红包排行榜已经可以领取奖励了,请速度领取噢!
+SENDMSG 1 红包排行榜已经可以领取奖励了,请速度领取噢!
+SENDMSG 1 红包排行榜已经可以领取奖励了,请速度领取噢!
+break
+
+
+[@红包关闭]
+#IF
+#ACT
+MOV A43 不许领取
+SENDMSG 1 红包排行榜已经关闭领奖了,没领到的只能等明天了!!
+SENDMSG 1 红包排行榜已经关闭领奖了,没领到的只能等明天了!!
+SENDMSG 1 红包排行榜已经关闭领奖了,没领到的只能等明天了!!
+break
+
+
+
+[@早上提示]
+#IF
+#act
+SENDMSG 1 亲爱的玩家，现在已经是早上了
+SENDMSG 1 游戏虽然好玩，可别忘了工作和学习的时间
+
+[@中午提示]
+#IF
+#act
+SENDMSG 1 亲爱的玩家，现在已经是中午了
+SENDMSG 1 游戏虽然好玩，可别忘了多陪陪你的朋友和家人
+
+[@晚上提示]
+#IF
+#act
+SENDMSG 1 亲爱的玩家，现在已经是晚上了
+SENDMSG 1 游戏虽然好玩，也别忘了陪朋友和家人吃顿晚饭
+
+[@凌晨提示]
+#IF
+#act
+SENDMSG 1 亲爱的玩家，现在已经是凌晨了
+SENDMSG 1 游戏虽然好玩，也别忘了是不是该休息了
+
+
+
+
+[@鸡]
+#IF 
+EQUAL G130 0
+#ACT
+MONGENEX n4 225 207 送财鸡 1 5 253
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+break
+
+#IF 
+EQUAL G130 1
+#ACT
+MONGENEX n4 225 207 送财鸡 1 5 253
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+break
+
+#IF 
+EQUAL G130 2
+#ACT
+MONGENEX n4 225 207 送财鸡 1 5 253
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+break
+
+#if
+random 3
+#act
+MONGENEX n4 225 207 世界BOSS·电尸 1 1 253
+SuperMoveMsg 0 251 0 20 100 5 封魔谷皇宫门口刷出-<世界BOSS·电尸>!!!各位赶紧前往击杀呀!
+SENDMSG 1 封魔谷皇宫门口刷出-<世界BOSS·电尸>!!!各位赶紧前往击杀呀!
+SENDMSG 1 封魔谷皇宫门口刷出-<世界BOSS·电尸>!!!各位赶紧前往击杀呀!
+BREAK
+
+#if
+random 4
+#act
+MONGENEX n4 225 207 世界BOSS·万恶 1 1 253
+SuperMoveMsg 0 251 0 20 100 5 封魔谷皇宫门口刷出-<世界BOSS·万恶>!!!各位赶紧前往击杀呀!
+SENDMSG 1 封魔谷皇宫门口刷出-<世界BOSS·万恶>!!!各位赶紧前往击杀呀!
+SENDMSG 1 封魔谷皇宫门口刷出-<世界BOSS·万恶>!!!各位赶紧前往击杀呀!
+BREAK
+
+#if
+#act
+MONGENEX n4 225 207 送财鸡 1 5 253
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+SENDMSG 1 送财鸡活动开启，大量的送财鸡出现在封魔谷皇宫门口，爆大量金币
+BREAK
+
+[@卫士]
+#if
+#act
+MOV A2 叛逃卫士
+GMEXECUTE 开始提问 @叛逃卫士
+MONGENEX D710 27 25 叛逃卫士 5 10 253
+SENDMSG 1 ╔═╦══════════╗ 
+SENDMSG 1 ║★║《叛逃卫士》活动开始║ 
+SENDMSG 1 ║叛╠══════════╣ 
+SENDMSG 1 ║逃║地点：[石墓入口一层]║
+SENDMSG 1 ║卫║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 1 ║士║沃玛卫士携带财宝出逃║ 
+SENDMSG 1 ║★║教主说，击杀财宝归他║ 
+SENDMSG 1 ╚═╩══════════╝
+Break
+
+
+
+[@皇榜]
+#IF
+#ACT
+GetRandomText ..\QuestDiary\皇榜\物品.txt S33
+MOV A333 <$STR(S33)>
+GetRandomText ..\QuestDiary\皇榜\经验.txt S34
+MOV A334 <$STR(S34)>
+GetRandomText ..\QuestDiary\皇榜\元宝.txt S35
+MOV A335 <$STR(S35)>
+MOV A336 未有人上缴
+SendCenterMsg 0 251 皇榜任务,已经发布,当前需要【<$STR(S33)>】，请大家努力揭皇榜,本次经验【<$STR(S34)>】，金币【<$STR(S35)>】！ 1 30
+SendCenterMsg 0 251 皇榜任务,已经发布,当前需要【<$STR(S33)>】，请大家努力揭皇榜,本次经验【<$STR(S34)>】，金币【<$STR(S35)>】！ 1 30
+SendCenterMsg 0 251 皇榜任务,已经发布,当前需要【<$STR(S33)>】，请大家努力揭皇榜,本次经验【<$STR(S34)>】，金币【<$STR(S35)>】！ 1 30
+BREAK
+
+[@七龙珠任务]
+#IF
+equal G5 0
+#ACT
+SENDMSG 0 携带着[一星珠]的魔兽出现在石墓五层(174,79)
+SENDMSG 0 携带着[一星珠]的魔兽出现在石墓五层(174,79)
+SENDMSG 0 携带着[一星珠]的魔兽出现在石墓五层(174,79)
+MONGENEX D715 174 79 一星守卫  1 1 253
+inc G5 1
+break
+
+#IF
+equal G5 1
+#ACT
+SENDMSG 0 携带着[二星珠]的魔兽出现在桃源之门(99,99)
+SENDMSG 0 携带着[二星珠]的魔兽出现在桃源之门(99,99)
+SENDMSG 0 携带着[二星珠]的魔兽出现在桃源之门(99,99)
+MONGENEX nr001 99 99 二星守卫  1 1 253
+inc G5 1
+break
+
+#IF
+equal G5 2
+#ACT
+SENDMSG 0 携带着[三星珠]的魔兽出现在祖玛五层(99,188)
+SENDMSG 0 携带着[三星珠]的魔兽出现在祖玛五层(99,188)
+SENDMSG 0 携带着[三星珠]的魔兽出现在祖玛五层(99,188)
+MONGENEX D505 99 188 三星守卫  1 1 253
+inc G5 1
+break
+
+#IF
+equal G5 3
+#ACT
+SENDMSG 0 携带着[四星珠]的魔兽出现在死亡棺材(183,102)
+SENDMSG 0 携带着[四星珠]的魔兽出现在死亡棺材(183,102)
+SENDMSG 0 携带着[四星珠]的魔兽出现在死亡棺材(183,102)
+MONGENEX D606 183 102 四星守卫  3 1 253
+inc G5 1
+break
+
+#IF
+equal G5 4
+#ACT
+SENDMSG 0 携带着[五星珠]的魔兽出现在幽冥回廊(11,54)
+SENDMSG 0 携带着[五星珠]的魔兽出现在幽冥回廊(11,54)
+SENDMSG 0 携带着[五星珠]的魔兽出现在幽冥回廊(11,54)
+MONGENEX D2009 11 54 五星守卫  1 1 253
+inc G5 1
+break
+
+#IF
+equal G5 5
+#ACT
+SENDMSG 0 携带着[六星珠]的魔兽出现在幻境五层(96,273)
+SENDMSG 0 携带着[六星珠]的魔兽出现在幻境五层(96,273)
+SENDMSG 0 携带着[六星珠]的魔兽出现在幻境五层(96,273)
+MONGENEX H005 96 273 六星守卫  1 1 253
+inc G5 1
+break
+
+#IF
+equal G5 6
+#ACT
+SENDMSG 0 携带着[七星珠]的魔兽出现在牛魔五层(131,126)
+SENDMSG 0 携带着[七星珠]的魔兽出现在牛魔五层(131,126)
+SENDMSG 0 携带着[七星珠]的魔兽出现在牛魔五层(131,126)
+MONGENEX D2076 131 126 七星守卫  1 1 253
+mov G5 0
+break
+
+
+
+;————————————————————————————————
+
+[@抢水]
+#IF
+#ACT
+GMEXECUTE 开始提问 @抢水1
+MOV A3 正在进行
+MONGENEX G002 38 39 毛脸雷公嘴  1 1 253
+MONGENEX G002 38 59 毛脸雷公嘴  1 1 253
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《财神的恩赐》  开始║ 
+SENDMSG 0 ║在╠══════════╣ 
+SENDMSG 0 ║线║地点： [OX质问屋]   ║
+SENDMSG 0 ║泡║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║点║OX地图出现了四只妖怪║ 
+SENDMSG 0 ║★║毛脸雷公嘴正在捣乱  ║ 
+SENDMSG 0 ╚═╩══════════╝ 
+Break
+
+[@停止抢水]
+#IF
+#ACT
+GMEXECUTE 开始提问 @停止抢水1
+MOV A3 结束
+CLEARMAPMON G002
+SendMsg 0 【活动】：财神的恩赐活动已经结束,请期待下一次活动！！
+SendMsg 0 【活动】：财神的恩赐活动已经结束,请期待下一次活动！！
+SendMsg 0 【活动】：财神的恩赐活动已经结束,请期待下一次活动！！
+Break
+
+;————————————————————————————————
+[@怪物攻城]
+#if
+#ACT
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《怪物攻城》即将开始║ 
+SENDMSG 0 ║怪╠══════════╣ 
+SENDMSG 0 ║物║地点：[封魔谷城内]　║
+SENDMSG 0 ║攻║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║城║怪物攻城10分钟后开始║ 
+SENDMSG 0 ║★║怪物攻城10分钟后开始║  
+SENDMSG 0 ╚═╩══════════╝
+Break
+
+
+[@怪物攻城开始]
+#IF
+#act
+MONGENEX n4 225 207 雷炎蛛王  1 1 253
+MONGENEX n4 225 207 狐月天珠  1 1 253
+MONGENEX n4 225 207 雷炎蛛王  1 1 253
+MONGENEX n4 225 207 堕落战士  1 18
+MONGENEX n4 225 207 堕落明王  1 1
+MONGENEX n4 225 207 重装使者  1 1 253
+MONGENEX n4 225 207 地藏王  1 2 253
+MONGENEX n4 225 207 赤月恶魔  1 1 253
+MONGENEX n4 225 207 虹魔教主  5 2 253
+MONGENEX n4 225 207 暗之虹膜教主  5 2 253
+MONGENEX n4 225 207 虹魔蝎卫  3 10
+MONGENEX n4 225 207 虹魔猪卫  3 10
+MONGENEX n4 225 207 祖玛弓箭手3  3 20
+MONGENEX n4 225 207 千年树妖 1 3 253
+MONGENEX n4 225 207 石墓尸王  2 3 253
+MONGENEX n4 225 207 角蝇  5 9
+SuperMoveMsg 0 251 0 20 100 5 警告!警告!封魔谷城内出现了赤月恶魔!! 封魔谷需要玩家守护! 
+SENDMSG 0 警告!警告!封魔谷城内出现了赤月恶魔!!! 封魔谷需要玩家守护! 
+SENDMSG 0 警告!警告!封魔谷城内出现了赤月恶魔!!!! 封魔谷需要玩家守护! 
+break
+
+[@检测攻城]
+#if
+CheckMapSameMonCount n4 赤月恶魔 = 0
+#act
+SuperMoveMsg 0 251 0 20 100 5 赤月恶魔已经死亡本次防守成功!!封魔谷大肆庆祝!玩家获得30分钟双倍经验!
+SENDMSG 0 赤月恶魔已经死亡本次防守成功!!封魔谷大肆庆祝!玩家获得30分钟双倍经验!
+SENDMSG 0 赤月恶魔已经死亡本次防守成功!!封魔谷大肆庆祝!玩家获得30分钟双倍经验!
+Gmexecute 开始提问 @全服奖励
+#ELSEACT
+SuperMoveMsg 0 251 0 20 100 5 赤月恶魔依旧存活本次防守失败!!封魔谷损失了大批财物!玩家简直是废物!
+SENDMSG 0 赤月恶魔依旧存活本次防守失败!!封魔谷损失了大批财物!玩家简直是废物!
+SENDMSG 0 赤月恶魔依旧存活本次防守失败!!封魔谷损失了大批财物!玩家简直是废物!
+
+
+
+
+
+
+[@下雪]
+#if
+#ACT
+GMEXECUTE 开始提问 @下雪
+
+
+[@花瓣]
+#if
+#ACT
+GMEXECUTE 开始提问 @花瓣
+
+
+[@黄沙]
+#if
+#ACT
+GMEXECUTE 开始提问 @黄沙
+
+
+
+[@下雪1]
+#if
+#ACT
+GMEXECUTE 开始提问 @下雪1
+
+
+[@花瓣1]
+#if
+#ACT
+GMEXECUTE 开始提问 @花瓣1
+
+
+[@世界BOSS]
+#IF 
+EQUAL G130 0
+#ACT
+break
+
+#IF 
+EQUAL G130 1
+#ACT
+break
+
+#IF 
+EQUAL G130 2
+#ACT
+break
+
+#IF
+random 15
+#act
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX nD024 40 40 <$Str(S18)> 50 1 253
+SuperMoveMsg 0 249 0 20 100 1 噩耗传来“<$Str(S18)>”出现在了沃玛寺庙三层!请赶紧前往击杀!
+SENDMSG 0 噩耗传来“<$Str(S18)>”出现在了沃玛寺庙三层!请赶紧前往击杀!
+break
+
+#IF
+random 15
+#act
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX ND717 28 42 <$Str(S18)> 50 1 253
+SuperMoveMsg 0 249 0 20 100 1 噩耗传来“<$Str(S18)>”出现在了猪洞七层!请赶紧前往击杀!
+SENDMSG 0 噩耗传来“<$Str(S18)>”出现在了猪洞七层!请赶紧前往击杀!
+break
+
+#IF
+random 15
+#act
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX n4 255 230 <$Str(S18)> 50 1 253
+SuperMoveMsg 0 249 0 20 100 1 噩耗传来“<$Str(S18)>”出现在了封魔谷!请赶紧前往击杀!
+SENDMSG 0 噩耗传来“<$Str(S18)>”出现在了封魔谷!请赶紧前往击杀!
+break
+
+#IF
+random 15
+#act
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX nD2079 50 50 <$Str(S18)> 20 1 253
+SuperMoveMsg 0 249 0 20 100 1 噩耗传来“<$Str(S18)>”出现在了牛魔大厅!请赶紧前往击杀!
+SENDMSG 0 噩耗传来“<$Str(S18)>”出现在了牛魔大厅!请赶紧前往击杀!
+break
+
+
+
+[@怪物攻城2]
+#IF
+#act
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX n3 357 340 <$Str(S18)> 1 1 253
+MONGENEX n3 357 340 雷炎蛛王  1 1 253
+MONGENEX n3 357 340 狐月天珠  1 1 253
+MONGENEX n3 357 340 雷炎蛛王  1 1 253
+MONGENEX n3 357 340 堕落战士  1 18
+MONGENEX n3 357 340 堕落明王  1 1 253
+MONGENEX n3 357 340 重装使者  1 1 253
+MONGENEX n3 357 340 地藏王  1 2 253
+MONGENEX n3 357 340 赤月恶魔  1 1 253
+MONGENEX n3 357 340 虹魔教主  5 2 253
+MONGENEX n3 357 340 暗之虹膜教主  5 2 253
+MONGENEX n3 357 340 虹魔蝎卫  3 10
+MONGENEX n3 357 340 虹魔猪卫  3 10
+MONGENEX n3 357 340 千年树妖 1 3
+MONGENEX n3 357 340 石墓尸王  2 3 253
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX n3 357 340 <$Str(S18)> 1 1
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+MONGENEX n3 357 340 <$Str(S18)> 1 1
+SuperMoveMsg 0 249 0 20 100 5 警告!警告!土城药店出现了赤月恶魔!土城药店需要玩家守护! 
+SENDMSG 0 警告!警告!土城药店出现了赤月恶魔!!!土城药店需要玩家守护! 
+SENDMSG 0 警告!警告!土城药店出现了赤月恶魔!!!! 土城药店需要玩家守护! 
+break
+
+[@金猪]
+#if
+#ACT
+MONGENEX D2008 50 50 土豪金猪  20 1 253
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《土豪金猪》活动开始║ 
+SENDMSG 0 ║土╠══════════╣ 
+SENDMSG 0 ║豪║地点：[霸者大厅处]　║
+SENDMSG 0 ║金║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║猪║霸者大厅出现一只金猪║ 
+SENDMSG 0 ║★║必掉一根金条+声望卷 ║  
+SENDMSG 0 ╚═╩══════════╝
+GMEXECUTE 开始提问 @打土豪活动
+Break
+
+
+[@战场]
+#if
+#ACT
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《激情战场》即将开始║ 
+SENDMSG 0 ║即╠══════════╣ 
+SENDMSG 0 ║将║地点：[远古の战场]　║
+SENDMSG 0 ║开║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║始║战场刷出20只战场老龟║ 
+SENDMSG 0 ║★║击怪得元宝杀人得经验║  
+SENDMSG 0 ╚═╩══════════╝
+Break
+
+[@战场开始]
+#if
+#ACT
+MOV A5 战场开始
+MONGENEX Nlts102 66 39 战场老龟  20 20 253
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《激情战场》活动开始║ 
+SENDMSG 0 ║活╠══════════╣ 
+SENDMSG 0 ║动║地点：[远古の战场]　║
+SENDMSG 0 ║开║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║始║战场刷出20只战场老龟║ 
+SENDMSG 0 ║★║杀怪得元宝杀人得经验║  
+SENDMSG 0 ╚═╩══════════╝
+GMEXECUTE 开始提问 @战场活动
+Break
+
+[@战场第二波]
+#if
+#ACT
+MONGENEX Nlts102 66 39 战场老龟  20 20 253
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《激情战场》活动开始║ 
+SENDMSG 0 ║活╠══════════╣ 
+SENDMSG 0 ║动║地点：[远古の战场]　║
+SENDMSG 0 ║开║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║始║战场刷出20只战场老龟║ 
+SENDMSG 0 ║★║杀怪得元宝杀人得经验║  
+SENDMSG 0 ╚═╩══════════╝
+GMEXECUTE 开始提问 @战场活动
+Break
+
+
+[@战场结束]
+#if
+#ACT
+MOV A5 战场结束
+CLEARMAPMON  Nlts102
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《激情战场》活动结束║ 
+SENDMSG 0 ║活╠══════════╣ 
+SENDMSG 0 ║动║地点：[远古の战场]　║
+SENDMSG 0 ║结║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║束║本次活动已经完美结束║ 
+SENDMSG 0 ║★║本次活动已经完美结束║  
+SENDMSG 0 ╚═╩══════════╝
+GMEXECUTE 开始提问 @战场结束
+Break
+
+
+
+[@问答开始]
+#ACT
+MOV G10 0
+MOV A4 (虚位以待)
+clearnamelist ..\QuestDiary\标记数据\答题机器码.txt
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《智力问答》现在开始║ 
+SENDMSG 0 ║智╠══════════╣ 
+SENDMSG 0 ║力║地点：任　何　地　点║
+SENDMSG 0 ║问║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║答║智力问答现在开始提问║ 
+SENDMSG 0 ║★║智力问答现在开始提问║  
+SENDMSG 0 ╚═╩══════════╝
+Gmexecute 开始提问 @智力问答
+Break
+
+[@问答结束]
+#act
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《智力问答》已经结束║ 
+SENDMSG 0 ║智╠══════════╣ 
+SENDMSG 0 ║力║地点：任　何　地　点║
+SENDMSG 0 ║问║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║答║智力问答现在已经结束║ 
+SENDMSG 0 ║★║正在验证全服答题数量║  
+SENDMSG 0 ╚═╩══════════╝
+Gmexecute 开始提问 @智力问答结束
+Gmexecute 开始提问 @智力问答结束
+Break
+
+[@问答结束统计]
+#act
+Gmexecute 开始提问 @智力问答结束
+SendMsg 0 [公告]：本次智力竞赛玩家[<$STR(A4)>]才思敏捷，学富五车，以答对[<$STR(G10)>]题的成绩，位居此次答题榜首！特奖励50万经验+金砖！以示表彰！
+Gmexecute 开始提问 @智力问答发放奖励
+Break
+
+
+
+
+
+[@报道]
+#IF
+EQUAL G9 0
+#ACT
+break
+
+#IF
+LARGE G21 9999
+#ACT
+mov G38 2
+goto @检测
+break
+
+#IF
+SMALL G21 1
+#ACT
+mov G38 1
+goto @检测
+break
+
+#IF
+random 3
+EQUAL G38 1
+#ACT
+mov G38 1
+goto @检测2
+break
+
+#IF
+random 3
+EQUAL G38 2
+#ACT
+mov G38 2
+goto @检测2
+break
+
+#IF
+#ACT
+movr G38 3
+#ACT
+goto @检测
+break
+
+[@检测]
+#IF
+EQUAL G9 1
+EQUAL G38 2
+#ACT
+movr G22 300
+INC G22 5
+DEC G21 <$STR(G22)>
+MOV A52	<跌幅：/SCOLOR=250>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇目前股价<$STR(G21)>║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║股价疯狂大跌<$STR(G22)>点！ ║ 
+SENDMSG 0 ║★║熊市似乎已经来临！　║  
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+#IF
+EQUAL G9 1
+EQUAL G38 1
+#ACT
+movr G22 300
+INC G22 1
+INC G21 <$STR(G22)>
+MOV A52	<涨幅：>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇目前股价<$STR(G21)>║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║股价疯狂大涨<$STR(G22)>点！ ║ 
+SENDMSG 0 ║★║牛市似乎已经来临！　║  
+SENDMSG 0 ╚═╩══════════╝
+break
+
+#IF
+EQUAL G9 1
+EQUAL G38 0
+#ACT
+MOV G22 0
+MOV A52	<平稳：/SCOLOR=70>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇目前股价<$STR(G21)>║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║股市目前比较平稳！　║ 
+SENDMSG 0 ║★║股市目前比较平稳！　║  
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+[@检测2]
+#IF
+EQUAL G9 1
+EQUAL G38 2
+#ACT
+movr G22 300
+INC G22 5
+DEC G21 <$STR(G22)>
+MOV A52	<连续暴跌：/SCOLOR=250>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇目前股价<$STR(G21)>║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║股价持续下跌<$STR(G22)>点！ ║ 
+SENDMSG 0 ║★║熊市太可怕了！　    ║  
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+#IF
+EQUAL G9 1
+EQUAL G38 1
+#ACT
+movr G22 300
+INC G22 1
+INC G21 <$STR(G22)>
+MOV A52	<持续上涨：>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇目前股价<$STR(G21)>║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║股价持续上涨<$STR(G22)>点！ ║ 
+SENDMSG 0 ║★║股民纷纷欢欣雀跃！　║  
+SENDMSG 0 ╚═╩══════════╝
+break
+
+[@开盘OK]
+#ACT
+MOV G9 1
+movr G26 5000
+MOV G20 <$STR(G26)>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇开盘时间已到║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║今日追忆传奇开盘价格║ 
+SENDMSG 0 ║★║开盘价格<$STR(G20)>  ║ 
+SENDMSG 0 ╚═╩══════════╝
+break
+
+[@停盘]
+#ACT
+MOV G9 0
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇停盘时间已到║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║请等待开盘后进行交易║ 
+SENDMSG 0 ║★║请等待开盘后进行交易║  
+SENDMSG 0 ╚═╩══════════╝
+break
+[@开盘]
+#ACT
+MOV G9 1
+movr G26 300
+DEC G21 <$STR(G26)>
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》股票系统║ 
+SENDMSG 0 ║股╠══════════╣ 
+SENDMSG 0 ║票║追忆传奇开盘时间已到║
+SENDMSG 0 ║系║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║统║现在追忆传奇股票价格║ 
+SENDMSG 0 ║★║现价格<$STR(G21)>   ║
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+
+
+[@沙巴克]
+#IF 
+EQUAL G130 0
+#ACT
+break
+
+#IF 
+EQUAL G130 1
+#ACT
+break
+
+#IF 
+EQUAL G130 2
+#ACT
+break
+
+#IF 
+EQUAL G130 3
+#ACT
+AddAttackSabukAll 0
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》自动攻城║ 
+SENDMSG 0 ║自╠══════════╣ 
+SENDMSG 0 ║动║追忆传奇自动攻城提示║
+SENDMSG 0 ║攻║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║城║  今晚8点首次攻城   ║ 
+SENDMSG 0 ║★║城主获得1000元宝奖励║
+SENDMSG 0 ╚═╩══════════╝
+break
+
+#IF
+#ACT
+AddAttackSabukAll 0
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》自动攻城║ 
+SENDMSG 0 ║自╠══════════╣ 
+SENDMSG 0 ║动║追忆传奇自动攻城提示║
+SENDMSG 0 ║攻║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║城║  今晚8点准时攻城   ║ 
+SENDMSG 0 ║★║城主获得300元宝奖励 ║
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+[@领奖提示]
+#IF 
+EQUAL G130 0
+#ACT
+break
+
+#IF 
+EQUAL G130 1
+#ACT
+break
+
+#IF 
+EQUAL G130 2
+#ACT
+break
+
+#IF 
+EQUAL G130 3
+#ACT 
+Gmexecute 开始提问 @城主
+SENDMSG 0 [领奖]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！
+SENDMSG 0 [领奖]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！
+SENDMSG 0 [领奖]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！
+SendCenterMsg 0 251 (*)[领奖提示]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！ 1 30
+SendCenterMsg 0 251 (*)[领奖提示]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！ 1 30
+SendCenterMsg 0 251 (*)[领奖提示]城主『<$LORD>』领取首次攻城奖励：1000元宝！恭喜他们行会！请失败的行会努力！ 1 30
+BREAK
+
+#if
+#act
+Gmexecute 开始提问 @城主 
+SENDMSG 0 [领奖]沙城主『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!!
+SENDMSG 0 [领奖]沙城主『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!!
+SENDMSG 0 [领奖]沙城主『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!!
+SendCenterMsg 0 251 (*)[领奖提示]『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!! 1 30
+SendCenterMsg 0 251 (*)[领奖提示]『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!! 1 30
+SendCenterMsg 0 251 (*)[领奖提示]『<$LORD>』自豪的领走了今日的攻城奖励元宝300个!! 1 30
+BREAK
+
+
+
+[@天下喊喊]
+#if
+#ACT
+GuildNoticeMsg 151 180 ╔═══╗╔═════════════════════╗
+GuildNoticeMsg 151 180 ║[天下]╠║天下第一活动在10分钟后开启，请做好准备！　║
+GuildNoticeMsg 151 180 ║[第一]╠║优胜者将奖励“威震八方”称号 + 50元宝 　　║
+GuildNoticeMsg 151 180 ╚═══╝╚═════════════════════╝
+MOV A76 虚位以待
+
+[@天下喊喊2]
+#if
+#ACT
+GuildNoticeMsg 151 180 ╔═══╗╔═════════════════════╗
+GuildNoticeMsg 151 180 ║[天下]╠║天下第一活动正式开启！前往土左下角参加！　║
+GuildNoticeMsg 151 180 ║[第一]╠║坚持到最后的玩家为获胜者、快参与激情吧！　║
+GuildNoticeMsg 151 180 ╚═══╝╚═════════════════════╝
+Gmexecute 开始提问 @天下11
+MOV A72 开启
+
+[@天下喊喊3]
+#if
+#ACT
+GuildNoticeMsg 151 180 ╔═══╗╔═════════════════════╗
+GuildNoticeMsg 151 180 ║[天下]╠║　　　　　《天下第一大门已关闭》　　　　　║
+GuildNoticeMsg 151 180 ║[第一]╠║　　　让我们期待今天的天下第一出现吧　　　║
+GuildNoticeMsg 151 180 ╚═══╝╚═════════════════════╝
+MOV A72 关闭
+
+
+[@天下关闭]
+#if
+#ACT
+GuildNoticeMsg 151 180 ╔═══╗╔═════════════════════╗
+GuildNoticeMsg 151 180 ║[天下]╠║　　　　　《天下第一大门已结束》　　　　　║
+GuildNoticeMsg 151 180 ║[第一]╠║　　　让我们静静等待天下第一的出现吧！　　║
+GuildNoticeMsg 151 180 ╚═══╝╚═════════════════════╝
+MOV A72 已经结束
+
+
+[@龙卫奖励提示]
+#if
+#ACT
+SENDMSG 0 ╔═╦════════════╗ 
+SENDMSG 0 ║★║  《追忆传奇》龙卫奖励  ║ 
+SENDMSG 0 ║龙╠════════════╣ 
+SENDMSG 0 ║卫║追忆传奇龙卫奖励幸运发放║
+SENDMSG 0 ║赏║┈┈┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║赐║今日共计参拜人数<$STR(G83)>┈┈┈║ 
+SENDMSG 0 ║★║幸运玩家将于2分钟后揭晓 ║
+SENDMSG 0 ╚═╩════════════╝
+break
+
+[@龙卫奖励]
+#if
+#ACT
+GetRandomText ..\QuestDiary\标记数据\参拜名单.txt A77
+SENDMSG 0 ╔═╦═════════════╗ 
+SENDMSG 0 ║★║  《追忆传奇》龙卫奖励    ║ 
+SENDMSG 0 ║龙╠═════════════╣ 
+SENDMSG 0 ║卫║今天的幸运玩家是：<$STR(A77)>║
+SENDMSG 0 ║赏║┈┈┈┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║赐║今日共计参拜人数<$STR(G83)>┈┈┈┈║ 
+SENDMSG 0 ║★║幸运玩家获得人数*20万经验 ║
+SENDMSG 0 ╚═╩═════════════╝
+goto @检测在线
+break
+
+
+[@检测在线]
+#if
+CheckOnline <$STR(A77)>
+#ACT
+Gmexecute 开始提问 @幸运玩家
+Break
+#ELSEACT
+Mul N9 200000 <$STR(G83)>
+SendNewLineMsg 0 249 0 15 100 10 1 【惋惜】：今日的幸运玩家<$STR(A77)>并不在线，<$Str(N9)>经验付诸东流！
+break
+
+
+[@全民奔跑提示]
+#IF
+#ACT
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》全民奔跑║ 
+SENDMSG 0 ║全╠══════════╣ 
+SENDMSG 0 ║民║追忆传奇全民奔跑提示║
+SENDMSG 0 ║奔║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║跑║奔跑将于1分钟后开始!║ 
+SENDMSG 0 ║★║请注意清空背包!!!!!!║ 
+SENDMSG 0 ╚═╩══════════╝
+break
+
+[@全民奔跑]
+#IF
+#ACT
+MOV G62 1
+MONGENEX n3 342 324 青龙 1 1 253
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》全民奔跑║ 
+SENDMSG 0 ║全╠══════════╣ 
+SENDMSG 0 ║民║追忆传奇全民奔跑提示║
+SENDMSG 0 ║奔║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║跑║奔跑吧！兄弟！      ║ 
+SENDMSG 0 ║★║奔跑吧！兄弟！      ║
+SENDMSG 0 ╚═╩══════════╝
+Gmexecute 开始提问 @开始奔跑
+break
+
+[@全民奔跑结束]
+#IF
+#ACT
+MOV G62 0
+SENDMSG 0 ╔═╦══════════╗ 
+SENDMSG 0 ║★║《追忆传奇》全民奔跑║ 
+SENDMSG 0 ║全╠══════════╣ 
+SENDMSG 0 ║民║追忆传奇全民奔跑提示║
+SENDMSG 0 ║奔║┈┈┈┈┈┈┈┈┈┈║ 
+SENDMSG 0 ║跑║奔跑活动已经结束了！║ 
+SENDMSG 0 ║★║奔跑活动已经结束了！║ 
+SENDMSG 0 ╚═╩══════════╝
+break
+
+
+
+
+
+
+
+
+
+
+
+

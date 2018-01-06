@@ -1,0 +1,1160 @@
+[@传送员]
+{
+#CALL [\游戏登陆\月卡设置.txt] @月卡
+
+#IF
+#SAY
+欢迎光临!你可以在我这里享受以下服务.\
+请选择你要前往的地区:<世界地图/@世界地图>\
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<城区传送/@ANQUAN>┃<险恶区域/@XIANE>┃<超级传送|249#超级传送，可前往其他地图{FCOLOR=250}/@超级>┃<庄园之城|249#迷失在庄园/@庄园>┃<万蝠古窟|249#探索灵蛇装备/@万蝠>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┛\
+┃<副本大厅|249#赚取声望、经验、装备、每日副本/@去副本>┃<挑战幻境/@huan>┃<挖矿传送|249#可前往自动挖矿/@挖矿传送>┃<紫水晶屋|249#回收紫水晶矿/@紫水晶>┃\
+┗━━━━┻━━━━┻━━━━┻━━━━┛\
+
+
+[@万蝠]
+#IF
+CHECKITEMW 子鼠神佑 1
+CHECKITEMW 丑牛神佑 1
+CHECKITEMW 寅虎神佑 1
+CHECKITEMW 卯兔神佑 1
+CHECKITEMW 辰龙神佑 1
+CHECKITEMW 巳蛇神佑 1
+CHECKITEMW 午马神佑 1
+CHECKITEMW 未羊神佑 1
+CHECKITEMW 申猴神佑 1
+CHECKITEMW 酉鸡神佑 1
+CHECKITEMW 戌狗神佑 1
+CHECKITEMW 亥猪神佑 1
+checklevelex > 104
+CheckGold 2000000
+#ACT
+take 金币 2000000
+MAP ygsd1
+break
+#ELSESAY
+对不起，无法进入万蝠古窟\
+进入万蝠古窟需要：\
+<佩戴一套完整神佑>\
+<200万金币>\
+<实力不足不能让你去>\
+即可进入！\
+
+<返回/@main>
+
+
+[@紫水晶]
+#IF
+#ACT
+MAP D608
+break
+
+[@世界地图]
+#SAY
+请选择：\
+<1024*927版大世界地图(按ESC即可关闭)/@大地图>\
+<512*464 版小世界地图(按ESC即可关闭)/@小地图>\
+
+
+
+
+
+[@小地图]
+#ACT
+OPENMERCHANTBIGDLG 39 573 1 4 0 0 1 0 0
+break
+
+[@大地图]
+#ACT
+OPENMERCHANTBIGDLG 39 572 1 4 0 0 1 0 0
+break
+
+
+[@ANQUAN]
+#IF
+checklevelex > 6
+#SAY
+这里是<城区传送>服务,你必须给我2000金币的报酬!\
+┏━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<比齐大城/@JIANAN>┃<毒蛇山谷/@FENGDI>┃<银杏小村/@XIAGU>┃<比奇村庄/@HAIBIN>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<盟重土城/@YASHU>┃<苍月之岛/@HUANGCHENG>┃<封魔神谷/@JIANYU>┃<白 日 门/@SHADINDAO>┃\
+┣━━━━╋━━━━╋━━━━┻━━━━┛\
+┃<神龙帝国/@神龙>┃<魔 龙 城/@魔龙>┃\
+┗━━━━┻━━━━┛\
+#ELSESAY
+照你现在这个级别,我没什么能帮的上你!\
+请你练到7级再来找我吧，祝你好运!\
+
+
+
+
+
+
+
+[@挖矿传送]
+#IF
+#ACT
+mapmove D401 84 13
+break
+
+
+[@魔龙]
+#IF
+CHECKLEVELEX < 40
+#ACT
+MESSAGEBOX 对不起,你未满40级,请40级以后才来!
+break
+
+#IF
+CheckGold 20000
+#ACT
+take 金币 20000
+mapmove n6 125 157
+#ELSEACT
+messagebox 对不起，进入需要2万金币！
+
+[@神龙]
+#IF
+checklevelex > 50
+checkgold 80000
+#ACT
+take 金币 80000
+mapmove mhfy 63 55
+break 
+#ELSESAY 
+你身上的钱不够！需要8万金币50级以上，请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@庄园]
+#ACT
+messagebox 庄园已关闭
+break
+
+#IF
+checkgold 8000
+#ACT
+take 金币 8000
+mapmove nGA0 70 69
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+
+[@去副本]
+#IF
+CHECKLEVELEX > 49
+#ACT
+mapmove EM200
+break
+#ELSEACT
+MESSAGEBOX 你太弱了,50了再来把!!
+break
+
+
+
+[@JIANAN] 
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove n0 328 264
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@FENGDI] 
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 2 500 485
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@XIAGU] 
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove n0 635 612 
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@HAIBIN] 
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove n0 290 615 
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@YASHU] 
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove n3 330 330 
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@HUANGCHENG]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000 
+mapmove n5 140 330
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@JIANYU]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove n4 240 200
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@SHADINDAO]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000 
+mapmove n11 180 325
+break 
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+;------------------------------------
+
+
+
+[@移动3]
+#IF 
+checkgold 100000
+CHECKRENEWLEVEL > 3
+#ACT 
+take 金币 100000
+give 回城卷 1
+mapmove H201
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有10万金币吗？②：你四转了吗？\\
+<离开/@exit>\
+
+
+
+[@超级]
+#IF
+checklevelex > 49
+#SAY
+这里是<超级地区>服务，按照你的级别你可以前往以下地区:\
+当然你还得付给我<5000金币+2荣誉>的报酬!\
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<祖玛七层/@祖七>┃<赤月魔穴/@赤魔>┃<恶魔祭坛/@恶魔>┃<封魔大殿/@封大>┃<牛魔大殿/@牛殿>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<沙藏宝阁/@沙藏>┃<情缘峡谷/@情缘>┃<堕落魔域/@堕魔>┃<魔龙大殿/@魔大>┃<魔龙血域/@魔血>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<迷失之家/@迷失>┃<桃园之门/@桃园>┃<尸魔三层/@尸三>┃<骨魔五层/@骨五>┃<霸者大厅/@霸者>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━╋\
+┃<王者禁地/@王者>┃<雷炎大殿/@雷炎>┃<狐月祭坛/@狐月>┃<雪域圣殿/@雪域>┃<半兽陵墓/@陵墓>┃\
+┗━━━━┻━━━━┻━━━━┻━━━━┻━━━━┛\
+#ELSESAY
+对不起，您未满50级，无法使用超级传送！
+
+
+[@霸者]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D2008
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@迷失]
+#IF 
+CheckGold 2000000
+CHECKCREDITPOINT > 19
+CHECKLEVELEX > 59
+checkGAMEGLORY > 29
+#ACT
+TimeRecall 30
+take 金币 2000000
+give 回城卷 1
+CREDITPOINT - 20
+GAMEGLORY - 30
+mapmove nch001
+messagebox 您进入了迷失BOSS之家。您有30分钟的时间，超过后自动返回土城
+#ELSEACT
+messagebox 对不起，进入迷失BOSS之家需要200万金币，20点声望+30荣誉！\并且需要60级以上！
+
+
+[@陵墓]
+#IF 
+CheckGold 500000
+CHECKCREDITPOINT > 1
+CHECKLEVELEX > 74
+checkGAMEGLORY > 9
+#ACT
+take 金币 300000
+CREDITPOINT - 2
+give 回城卷 1
+GAMEGLORY - 10
+mapmove bsrlm05
+#ELSEACT
+messagebox 对不起，进入半兽人陵墓五需要50万金币，2点声望+10荣誉！\并且需要75级以上！
+
+
+[@魔大]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove EM100
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@魔血]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove 66
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@王者]
+#IF 
+checkgold 50000
+checkGAMEGLORY > 29
+#ACT 
+take 金币 50000
+give 回城卷 1
+GAMEGLORY - 30
+mapmove H106
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<50000金币>吗？②：你有<30点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@尸三]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D2052
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@骨五]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D2067
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@桃园]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove NR001
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@情缘]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove F003
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@堕魔]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove DM002
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@祖七]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D5074
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+[@赤魔]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D10062
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+[@牛殿]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove nD2079
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+[@沙藏]
+#IF 
+checkgold 90000
+checkGAMEGLORY > 4
+#ACT 
+take 金币 90000
+give 回城卷 1
+GAMEGLORY - 5
+mapmove NF002
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<90000金币>吗？②：你有<5点荣誉>吗？\\
+<离开/@exit>\
+
+[@封大]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove nD2013
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+[@恶魔]
+#IF 
+checkgold 5000
+checkGAMEGLORY > 1
+#ACT 
+take 金币 5000
+give 回城卷 1
+GAMEGLORY - 2
+mapmove D10061
+#ELSESAY
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有<5000金币>吗？②：你有<2点荣誉>吗？\\
+<离开/@exit>\
+
+
+
+
+
+[@XIANE]
+#IF
+checklevelex > 39
+#SAY
+这里是<险恶地区>服务，按照你的级别你可以前往以下地区:\
+当然你还得付给我<3000金币>的报酬!\
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<比齐矿区/@比矿>┃<蜈蚣洞穴/@蜈蚣>┃<封魔矿区/@封矿>┃<尸 魔 洞/@尸魔>┃<尸王大殿/@尸王>┃<沃玛三层/@沃三>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<猪洞七层/@猪七>┃<祖玛五层/@祖五>┃<死亡棺材/@死亡>┃<骨 魔 洞/@骨魔>┃<抉择之地/@抉择>┃<未知暗殿/@未知>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<沙城区域/@沙城>┃<牛魔四层/@牛四>┃<沙影之道/@沙道>┃<堕落魔域/@堕落>┃<尸皇洞穴/@尸皇>┃<BOSS之家/@BOSS>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<石原旷野/@石原>┃<雷炎一层/@雷一>┃<狐月山区/@狐月>┃<真龙大殿/@真龙>┃<雪域一层/@雪一>┃<血池魔窟/@血池>┃\
+┗━━━━┻━━━━┻━━━━┻━━━━┻━━━━┻━━━━┛\
+#ELSEACT
+goto @22
+
+
+
+
+[@22]
+#IF
+checklevelex > 25
+#SAY
+这里是<险恶地区>服务，按照你的级别40级前你可以前往以下地区:\ 
+当然你还得付给我<3000金币>的报酬!\
+┏━━━━┳━━━━┳━━━━┳━━━━┳━━━━┓\
+┃<沃玛二层/@沃二>┃<猪洞五层/@猪五>┃<祖玛四层/@祖四>┃<赤月峡谷/@赤月>┃<封魔矿区/@封矿>┃\
+┣━━━━╋━━━━╋━━━━╋━━━━╋━━━━┫\
+┃<比齐矿区/@比矿>┃<蜈蚣洞穴/@蜈蚣>┃<尸王大殿/@尸王>┃<牛魔入口/@牛魔>┃<尸 魔 洞/@尸魔>┃\
+┣━━━━╋━━━━┻━━━━┻━━━━┻━━━━┛\
+┃<骨 魔 洞/@骨魔>┃\
+┗━━━━┛\
+#ELSEACT
+goto @1
+
+[@1]
+#IF
+checklevelex < 26
+#SAY
+这里是<险恶地区>服务，按照你的级别26级前你只能前往以下地区:\ 
+当然你还得付给我<3000金币>的报酬!\
+┏━━━━┳━━━━┳━━━━┓\
+┃<比齐矿区/@比矿>┃<蜈蚣洞穴/@蜈蚣>┃<封魔矿区/@封矿>┃\
+┗━━━━┻━━━━┻━━━━┛\
+
+#ELSESAY
+照你现在这个级别,我没什么能帮的上你!\
+请你练到7级再来找我吧，祝你好运!\
+
+
+
+[@比矿]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D401
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@蜈蚣]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D601
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@封矿]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1 
+mapmove n4 54 74
+break
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@尸魔]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D2051
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@尸王]
+#IF
+checkgold 50000
+#ACT
+take 金币 50000 
+give 回城卷 1 
+mapmove Q004
+break
+#ELSESAY 
+你身上的钱不够！进入需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@沃三]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000 
+give 回城卷 1
+mapmove nD024
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@猪七]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000 
+give 回城卷 1
+mapmove D716
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@祖五]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D505
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@死亡]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D606
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@骨魔]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D2061
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@抉择]
+#IF
+checkgold 50000
+#ACT
+take 金币 50000 
+give 回城卷 1
+mapmove D1004
+BREAK
+#ELSESAY 
+你身上的钱不够！抉择之地需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@未知]
+#IF
+checkgold 50000
+#ACT
+take 金币 50000
+give 回城卷 1
+mapmove M001
+BREAK
+#ELSESAY 
+你身上的钱不够！进入需要5W金币请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@沙城]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove n3 716 407
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@牛四]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove nD2075
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@沙道]
+移动到沙影之道必须具备下列两个条件！\
+①：需要10万金币 ②：需要四转\
+支付这些钱，移动吗？\
+<移动/@移动3> \ 
+<不/@exit> \
+<返 回/@Main>
+
+
+[@堕落]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove E001
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+[@尸皇]
+#IF
+checkgold 10000
+CHECKRENEWLEVEL > 6
+#ACT
+take 金币 10000
+give 回城卷 1
+mapmove D2
+BREAK
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有10万金币吗？②：你七转了吗？\\
+<离开/@exit>\
+
+
+[@BOSS]
+移动到幻境必须具备下列两个条件！\
+①需要BOSS之家凭证\
+支付这些钱，移动吗？\
+<移动/@BOSS1> \ 
+<不/@exit> \
+<返 回/@Main>
+
+
+[@BOSS1]
+#IF 
+checkitem BOSS之家凭证 1
+#ACT 
+TimeRecall 30
+take BOSS之家凭证 1
+give 回城卷 1
+mapmove F010
+SendMsg 5 你进入了BOSS之家，30分钟后返回土城
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①你有BOSS之家凭证吗？\
+BOSS之家凭证？我从来没听说过呀？\
+听说 情缘峡谷和魔域通道会掉落\
+情缘峡谷在祖玛七层三的某个地点进入。\
+魔域通道在封魔殿的某个地方进入。 \
+<离开/@exit>\
+
+
+[@石原]
+#IF
+checklevelex > 59
+#ACT
+MAPMOVE N0 320 653
+BREAK
+#ELSEsay
+对不起，您未满60级，无法前往！\
+<离开/@XIANE>\
+
+
+
+
+[@雷一]
+#IF
+EQUAL T4 开启雷炎
+#SAY
+恭喜您已经完成<雷炎洞穴>任务.您可以直接进入雷炎洞穴了!\ 
+\ 
+BOSS： 雷炎蛛王、火龙神\
+出产： 极低概率三龙系装备、王者系列、天龙系列装备\
+<注>：<进入需要消耗荣誉值30点./SCOLOR=254>您当前的荣誉值为:<$GAMEGLORY>.\ \
+
+      <进入雷炎一层/@进入雷炎一层>\
+#ACT
+break
+
+#IF
+#SAY
+您未完成<雷炎洞穴>任务.请先完成雷炎任务!\ 
+\ 
+
+      <从雷炎洞穴回来的月儿好像知道些什么....(她现在正在酒馆喝酒)>\
+      <酒馆在盟重书店隔壁....>\
+
+[@进入雷炎一层]
+#IF
+CHECKGAMEGLORY > 29
+#ACT
+give 回城卷 1
+GAMEGLORY - 30
+mapmove hl001
+break
+#ELSEsay
+你没有40点荣誉值，无法进入噢！
+
+[@雷炎]
+#IF
+EQUAL T4 开启雷炎
+#SAY
+恭喜您已经完成<雷炎洞穴>任务.您可以直接进入雷炎洞穴了!\ 
+\ 
+BOSS： 雷炎蛛王、火龙神\
+出产： 极低概率三龙系装备、王者系列、天龙系列装备\
+<注>：<进入需要消耗荣誉值40点./SCOLOR=254>您当前的荣誉值为:<$GAMEGLORY>.\ \
+
+      <进入雷炎大殿/@进入雷炎大殿>\
+#ACT
+break
+
+#IF
+#SAY
+您未完成<雷炎洞穴>任务.请先完成雷炎任务!\ 
+\ 
+
+      <从雷炎洞穴回来的月儿好像知道些什么....(她现在正在酒馆喝酒)>\
+      <酒馆在盟重书店隔壁....>\
+
+
+
+[@进入雷炎大殿]
+#IF
+CHECKGAMEGLORY > 39
+#ACT
+give 回城卷 1
+GAMEGLORY - 40
+mapmove H301
+break
+#ELSEsay
+你没有40点荣誉值，无法进入噢！
+
+
+[@狐月]
+#IF
+checkitem 狐月卷轴 1
+#ACT
+take 狐月卷轴 1
+mapmove nfox02
+break
+
+#IF
+CHECKGAMEGLORY > 59
+checkitem 特殊药水 1
+#ACT
+take 特殊药水
+GAMEGLORY - 60
+mapmove nfox02
+#ELSESAY
+对不起,您可能没有卷轴,或者没有特殊药水！\
+进入弧月需要 <60点荣誉>+特殊药水!!!!\
+药水好像在<叛逃卫士、变异骷髅等>身上掉出\
+去封魔谷外圈逛逛吧，有可能掉落特殊药水\
+如果你有<狐月卷轴>也可直接进入弧月！\
+<离开/@XIANE>\
+
+
+[@真龙]
+#SAY 
+亲爱的玩家<$USERNAME>： <真龙大殿>需要前往火龙神殿击杀火龙才可进入\
+且，需要携带传奇碎片20枚+进化碎片2枚方可进入。\
+<30元宝直接前往/@真龙1>\
+<离开/@exit>\
+
+[@真龙1]
+#IF
+CHECKGAMEGOLD > 29
+#ACT
+GAMEGOLD - 30
+map REDCAVE02
+break
+#ELSESAY 
+对不起,您没有30元宝,无法直接前往.
+
+
+[@雪域]
+#IF
+EQUAL T3 开启雪山
+#SAY
+恭喜您已经完成<雪山>任务.您可以直接进入<雪山>了!\ 
+那里天寒地冻，没有酒御寒可是不行的。\
+地图说明：本地图难度较高，容易冻伤。3秒掉血20\
+          请准备好回血药品或者魔血石\
+BOSS： 雪域魔王\
+出产： 极低概率王者\
+<注>：<进入需要消耗荣誉值50点./SCOLOR=254>您当前的荣誉值为:<$GAMEGLORY>.\ \
+      <进入雪山圣殿/@圣殿>\
+#ELSESAY
+对不起，您没有完成雪山任务。无法进入！\
+<接受任务./@任务>
+
+[@圣殿]
+#IF
+CHECKGAMEGLORY > 49
+#ACT
+give 回城卷 1
+GAMEGLORY - 50
+mapmove hell206
+break
+#ELSEsay
+你没有50点荣誉值，无法进入噢！
+
+[@任务]
+#IF
+#SAY
+给我一把 <霸者之刃>+<精灵头盔>我就让你进去！\ \
+<给予霸者之刃与精灵头盔/@霸者任务>
+
+[@霸者任务]
+#IF
+checkitem 精灵头盔 1
+checkitem 霸者之刃 1
+#ACT
+MOV T3 开启雪山
+take 霸者之刃
+take 精灵头盔
+give 重铸石 5
+give 书页 5
+CHANGEEXP + 5000000
+goto @main
+break
+#elsesay
+赶紧去收集把。\
+这些东西可不好找！\
+
+[@雪域一层]
+#IF
+EQUAL T3 开启雪山
+#SAY
+恭喜您已经完成<雪山>任务.您可以直接进入<雪山>了!\ 
+那里天寒地冻，没有酒御寒可是不行的。\
+地图说明：本地图难度较高，容易冻伤。3秒掉血20\
+          请准备好回血药品或者魔血石\
+BOSS： 雪域魔王\
+出产： 极低概率王者\
+<注>：<进入需要消耗荣誉值50点./SCOLOR=254>您当前的荣誉值为:<$GAMEGLORY>.\ \
+
+      <进入雪山一层/@圣殿一层>\
+#ELSESAY
+对不起，您没有完成雪山任务。无法进入！\
+<接受任务./@任务>
+
+[@圣殿一层]
+#IF
+CHECKLEVELEX > 54
+CHECKGAMEGLORY > 29
+#ACT
+give 回城卷 1
+GAMEGLORY - 30
+mapmove hell206
+break
+#ELSEsay
+你等级不到55或者没有30点荣誉！！！
+
+
+[@血池]
+#IF
+checkgold 150000
+CHECKRENEWLEVEL > 9
+CHECKLEVELEX > 79
+#ACT
+take 金币 150000
+give 回城卷 1
+mapmove XC1
+BREAK
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有15万金币吗？②：你十转了吗？③：你80级了吗？\\
+<离开/@exit>\
+
+
+
+
+
+
+
+[@沃二]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D023
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@猪五]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D715
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@祖四]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D504
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@赤月]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove D10011
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+[@牛魔]
+#IF
+checkgold 3000
+#ACT
+take 金币 3000  
+give 回城卷 1
+mapmove nD2070
+BREAK
+#ELSESAY 
+你身上的钱不够！请准备好后再来。\ \ \
+<离 开/@exit> \
+
+
+;------------------------------------
+
+[@huan]
+移动到幻境必须具备下列两个条件！\
+①：需要30万金币 ②：需要幻境凭证\
+支付这些钱，移动吗？\
+<移动/@移动> \ 
+<不/@exit> \
+<返 回/@Main>
+
+[@移动]
+#IF 
+checkgold 300000
+checkitem 幻境凭证 1
+#ACT 
+take 金币 300000
+take 幻境凭证 1
+give 回城卷 1
+mapmove H001 73 67 
+#ELSESAY 
+<$USERNAME> 你是否具备下列条件就想使用我们的服务!\ 
+①：你有30万金币吗？②：你有幻境凭证吗？\
+幻境凭证？我从来没听说过呀？\
+请去那些极品怪兽身上寻找凭证吧\
+找到凭证之后，我会为你打开传送之门。\ \
+<离开/@exit>\
+
+;------------------------------------
+
+
+}

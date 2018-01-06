@@ -1,0 +1,62 @@
+[@新手法宝]
+{
+#IF
+gender man
+CheckJob Warrior
+#ACT
+GiveStateItem 圣者·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+
+#IF
+gender WOMAN
+CheckJob Warrior
+#ACT
+GiveStateItem 剑姬·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+
+#IF
+gender man
+CheckJob Taoist
+#ACT
+GiveStateItem 阴阳·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+
+#IF
+gender WOMAN
+CheckJob Taoist
+#ACT
+GiveStateItem 魅姬·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+
+#IF
+gender man
+CheckJob Wizard
+#ACT
+GiveStateItem 烈焰·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+
+#IF
+gender woman
+CheckJob Wizard
+#ACT
+GiveStateItem 寒冰·一阶炼魂 1 1 1 0 1 1
+Give 首充大礼包
+
+INC U18 1
+break
+}

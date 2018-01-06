@@ -1,0 +1,225 @@
+(@bigstorage @biggetback @getnextpage @getPreviouspage @@InPutString @@InPutInteger )
+%100
+[@main]
+#IF
+Equal U43 1
+Equal U42 8
+#ACT
+MOV U42 9
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<存储物品/SCOLOR=250>最多可以拥有<2399个仓库格子/SCOLOR=250>\
+<使用金币扩充数量为2万到110万一格不等，格数越多收费越贵/SCOLOR=253>\
+<也可以使用800元宝，直接扩充4000格。/SCOLOR=70> \
+<开启后，再掏钱购买远程服务，即可远程使用仓库了！/SCOLOR=250>\
+
+学习完毕，接下来去找<宝石商人/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<宝石商人/SCOLOR=250>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<存储物品/SCOLOR=250>最多可以拥有<2399个仓库格子/SCOLOR=250>\
+<使用金币扩充数量为2万到110万一格不等，格数越多收费越贵/SCOLOR=253>\
+<也可以使用800元宝，直接扩充4000格。/SCOLOR=70> \
+<开启后，再掏钱购买远程服务，即可远程使用仓库了！/SCOLOR=249>\
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+EQUAL T2 开启仓库
+#SAY
+您好。我是仓库保管员。这里存放的物品不受限制。\
+无论你有多少物品，我这里都可以存放进去。\
+<存取物品/@打开>　　<扩充仓库1个格子|使用金币扩充格子/@扩充>\ \ \
+<800元宝扩充4000个格子|使用800元宝直接扩充4000格子/@扩充2>   <金币寄存/@寄存>\ \
+<离开/@exit> 
+#ELSESAY
+这里是私人仓库 总共支持200件物品\
+可视化管理,右键存入取出 方便快捷\
+现在开通仅需 40万 !\
+<缴纳开启/@特殊仓库>
+
+
+
+
+
+[@寄存]
+#SAY
+您已经在我这里寄存了<$STR(U44)>金币\
+请问你要？？\
+<寄存/@@InPutString59>      <取出/@@InPutString62>\
+
+[@InPutString59]
+#IF
+LARGE U44 500000000
+#ACT
+MESSAGEBOX 目前您寄存的金币超过了五亿.暂时不允许寄存.
+break
+
+#IF
+CheckGold <$STR(S59)>
+#ACT
+INC U44 <$STR(S59)>
+take 金币 <$STR(S59)>
+MESSAGEBOX 您成功寄存了金币<$STR(S59)>。
+goto @寄存
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多金币！
+
+[@InPutString62]
+#IF
+SMALL S62 1
+#act
+messagebox 请输入1以上的数字
+break
+
+#IF
+LARGE U44 <$STR(S62)>
+#ACT
+give 金币 <$STR(S62)>
+DEC U44  <$STR(S62)>
+goto @寄存
+#ELSEACT
+MESSAGEBOX 　对不起，您寄存的金币少于您输入的数额！
+
+
+
+
+
+
+
+
+
+
+
+[@特殊仓库]
+#IF
+checkgold 400000
+#ACT
+take 金币 400000
+MOV T2 开启仓库
+MESSAGEBOX 超级仓库已经开启,欢迎使用!旧仓库物品请去其他城市找仓库保管员!
+goto @main
+#ELSEACT
+MESSAGEBOX 您并没有40万!
+
+[@扩充]
+#IF
+LARGE U2 1999
+#ACT
+SendMsg 5 对不起，您的仓库已经超过2000格了！无法继续扩充！
+break
+
+#IF
+SMALL U2 2000
+LARGE U2 1799
+#ACT
+MOV P5 1100000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 1800
+LARGE U2 1699
+#ACT
+MOV P5 900000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 1700
+LARGE U2 1199
+#ACT
+MOV P5 500000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 1200
+LARGE U2 899
+#ACT
+MOV P5 300000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 800
+LARGE U2 499
+#ACT
+MOV P5 200000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 500
+LARGE U2 299
+#ACT
+MOV P5 100000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 300
+LARGE U2 49
+#ACT
+MOV P5 50000
+goto @升级扩充
+BREAK
+
+#IF
+SMALL U2 50
+#ACT
+MOV P5 20000
+goto @升级扩充
+BREAK
+
+[@升级扩充]
+#IF
+checkgold <$STR(P5)>
+#ACT
+take 金币 <$STR(P5)>
+SetBigStorageCount + 1
+INC U2 1
+SendMsg 5 扩充成功，扩展无限仓库可存数量为：<$STR(U2)>
+goto @main
+#ELSEACT
+MESSAGEBOX 您并没有<$STR(P5)>金币!每<$STR(P5)>扩充一格！
+
+
+
+[@扩充2]
+#ACT
+GetBigStorageCount N2
+INC N2 200
+
+#IF
+LARGE N2 2000
+#ACT
+SendMsg 5 对不起，您的仓库已经超过2000格了！无法继续扩充！
+break
+
+#IF
+CHECKGAMEGOLD > 799
+#ACT
+GAMEGOLD - 800
+SetBigStorageCount + 4000
+GetBigStorageCount N2
+INC N2 200
+SendMsg 5 扩展无限仓库可存数量为：<$STR(N2)>，已扩充4000格。
+goto @main
+#ELSEACT
+MESSAGEBOX 您并没有800元宝!每800元宝可直接扩充4000格子！
+
+
+[@打开]
+#ACT
+OpenStorageView 1
+break
+

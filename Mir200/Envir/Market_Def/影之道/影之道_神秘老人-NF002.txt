@@ -1,0 +1,39 @@
+[@main]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+checkitem 水 1
+Check [106] 0
+#SAY
+嗯嗯?是国王叫你来送水吗!真是辛苦你了!\
+你确定要给我水吗??\
+<给予/@给水>\
+<关闭/@exit>\
+#ACT
+break
+
+#IF
+#SAY
+这里就是真正的沙巴克藏宝阁了！\
+沙巴克的宝藏到底有多少......这个就不用我废话了吧,\
+就连那“王者禁地”才有的“霸者之刃”\
+都已经在这里收藏了好多把了，你能想到的所有宝藏这里都有了，\
+每天看着“地藏魔王”拿着“霸者之刃”在我面前炫耀，\
+我就想动手抢一把来耍耍！还有那“重装使者”，唉......\
+最后告诉你，在这里下线会回到“沙巴克影之道三层”\
+<离开/@exit>\
+
+
+[@给水]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+checkitem 水 1
+Check [106] 0
+#ACT
+take 水 1
+Mul N7 4000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+give 金币 3000
+set [106] 1
+MESSAGEBOX 感谢你帮我解渴,这点<$Str(N7)>经验你拿着,请去找下一位NPC把!
+#ELSEACT
+MESSAGEBOX 您的并没有水,或者您已经给我喝过了,请找下一位把!

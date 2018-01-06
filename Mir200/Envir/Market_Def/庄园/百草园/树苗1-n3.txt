@@ -1,0 +1,198 @@
+[@MAIN]
+#IF
+EQUAL T40 
+EQUAL T41 
+#ACT
+MOV T40 无植物
+MOV T41 无植物
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<安/AUTOCOLOR=155,168,253,115,125>║║<安/AUTOCOLOR=155,168,253,115,125>║║<传/AUTOCOLOR=155,168,253,115,125>║║<奇/AUTOCOLOR=155,168,253,115,125>║║<独/AUTOCOLOR=155,168,253,115,125>║║<家/AUTOCOLOR=155,168,253,115,125>║║<特/AUTOCOLOR=155,168,253,115,125>║║<色/AUTOCOLOR=155,168,253,115,125>║║<脚/AUTOCOLOR=155,168,253,115,125>║║<本/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<当前所属者：/SCOLOR=243><$USERNAME>　　<植物状态：/SCOLOR=243> <$STR(T40)>\
+<当前所剩时间：/SCOLOR=243><$STR(U34)> \
+<当前种植物：/SCOLOR=243><$STR(T41)>　×　<$STR(U28)>\
+
+<我要种植/@种菜>　<我要维护植物/@维护> <刷新状态/@MAIN>\
+<我要收获/@收菜>  <铲除植物/@清楚>\
+
+#ELSESAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<安/AUTOCOLOR=155,168,253,115,125>║║<安/AUTOCOLOR=155,168,253,115,125>║║<传/AUTOCOLOR=155,168,253,115,125>║║<奇/AUTOCOLOR=155,168,253,115,125>║║<独/AUTOCOLOR=155,168,253,115,125>║║<家/AUTOCOLOR=155,168,253,115,125>║║<特/AUTOCOLOR=155,168,253,115,125>║║<色/AUTOCOLOR=155,168,253,115,125>║║<脚/AUTOCOLOR=155,168,253,115,125>║║<本/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<当前所属者：/SCOLOR=243><$USERNAME>　　<植物状态：/SCOLOR=243> <$STR(T40)>\
+<当前所剩时间：/SCOLOR=243><$STR(U34)> \
+<当前种植物：/SCOLOR=243><$STR(T41)>　×　<$STR(U28)>\
+
+<我要种植/@种菜>　<我要维护植物/@维护> <刷新状态/@MAIN>\
+<我要收获/@收菜>  <铲除植物/@清楚>\
+
+
+
+[@清楚]
+#IF
+Large U26 9
+#ACT
+MOV T39 无人种植
+MOV T40 无植物
+MOV T41 无植物
+MOV U28 0
+MOV U34 0
+DEC U26 10
+goto @main
+MessageBox 消耗10点精力，清除成功!
+break
+#ELSEACT
+goto @main
+MessageBox 当前精力不足10,无法铲除植物!
+break
+
+[@维护]
+#IF
+EQUAL T40 未成熟
+#ACT
+MessageBox 该植物很健康!
+break
+
+#IF
+EQUAL T40 缺水
+#SAY
+目前植物缺水，您要浇水吗？？\
+
+<浇水/@浇水>\
+#ACT
+break
+
+#IF
+EQUAL T40 长虫
+#SAY
+目前植物长虫，您要除虫吗？？\
+
+<除虫/@除虫>\
+#ACT
+break
+
+#IF
+#SAY
+您并不是植物种植者，无法维护！\ \
+<返回/@MAIN>
+
+
+[@浇水]
+#IF
+EQUAL T40 未成熟
+#ACT
+MessageBox 该植物很健康!
+break
+
+#IF
+EQUAL T40 缺水
+Large U26 1
+#ACT
+MOV T40 未成熟
+DEC U26 1
+SendMsg 6 消耗1点精力，您浇水成功！
+goto @main
+break
+#ELSEACT
+MessageBox 您精力不足，无法浇水！
+
+[@除虫]
+#IF
+EQUAL T40 未成熟
+#ACT
+MessageBox 该植物很健康!
+break
+
+#IF
+EQUAL T40 长虫
+Large U26 1
+#ACT
+MOV T40 未成熟
+DEC U26 1
+INC U34 1
+SendMsg 6 消耗1点精力，您除虫成功！
+goto @main
+break
+#ELSEACT
+MessageBox 您精力不足，无法除虫！
+
+
+
+[@种菜]
+#IF
+EQUAL T40 无植物
+EQUAL T41 无植物
+CheckItem 罗汉果种子 1
+Large U26 4
+#ACT
+DEC U26 5
+take 种子 1
+MOV T41 罗汉果[喂宠]
+MOV U28 30
+MOV U34 20
+MOV T40 未成熟
+SendMsg 6 您成功种下了植物<$STR(T41)>　共<$STR(U28)>件！
+goto @main
+break
+
+#IF
+EQUAL T40 无植物
+EQUAL T41 无植物
+CheckItem 人参种子 1
+Large U26 4
+#ACT
+DEC U26 5
+take 种子 1
+MOV T41 人参[卖金币]
+MOV U28 30
+MOV U34 20
+MOV T40 未成熟
+SendMsg 6 您成功种下了植物<$STR(T41)>　共<$STR(U28)>件！
+goto @main
+break
+
+#IF
+EQUAL T40 无植物
+EQUAL T41 无植物
+CheckItem 种子 1
+Large U26 4
+#ACT
+DEC U26 5
+take 种子 1
+GetRandomText ..\QuestDiary\功能设置\种植物.txt S33
+MOV T41 <$STR(S33)>
+GetRandomText ..\QuestDiary\功能设置\种植数量.txt S34
+MOV U28 <$STR(S34)>
+MOV U34 20
+MOV T40 未成熟
+SendMsg 6 您成功种下了植物<$STR(T41)>　共<$STR(U28)>件！
+goto @main
+break
+#ELSEACT
+MessageBox 当前可能有人在种植！或者您没有种子!或者您精力不足5点！
+break
+
+[@收菜]
+#IF
+EQUAL T41 聚灵草[食用]
+NOT CheckBagSize <$STR(U28)>
+#ACT
+MessageBox 背包空间不足<$STR(U28)>，无法收获聚灵草[食用]！
+break
+
+#IF
+EQUAL T40 已成熟
+#ACT
+give <$STR(T41)> <$STR(U28)>
+SendMsg 6 您收获了种植物<$STR(T41)>　<$STR(U28)>件！
+MOV T40 无植物
+MOV T41 无植物
+MOV U28 0
+MOV U34 0
+goto @main
+break
+#ELSEACT
+MessageBox 植物并未成熟！
+break
+

@@ -1,0 +1,32 @@
+[@暗黑检测3]
+{
+#OR
+CheckContainsText <$G_WEAPON> 救赎的
+CheckContainsText <$G_DRESS> 救赎的
+CheckContainsText <$G_RIGHTHAND> 救赎的
+CheckContainsText <$G_HELMET> 救赎的
+CheckContainsText <$G_NECKLACE> 救赎的
+CheckContainsText <$G_RING_L> 救赎的
+CheckContainsText <$G_RING_R> 救赎的
+CheckContainsText <$G_ARMRING_L> 救赎的
+CheckContainsText <$G_ARMRING_R> 救赎的
+CheckContainsText <$G_BELT> 救赎的
+CheckContainsText <$G_BOOTS> 救赎的
+CheckContainsText <$G_CHARM> 救赎的
+CheckContainsText <$G_HAT> 救赎的
+CheckContainsText <$G_SHIELD> 救赎的
+CheckContainsText <$G_DRUM> 救赎的
+#ACT
+goto @救赎的
+break
+
+[@救赎的]
+#IF
+random 3
+#ACT
+REALIVE
+PLAYEFFECT 23 110 40 1 100 0 0 0 0
+SendCenterMsg 250 0 救赎之力发动，您复活了！ 0 3
+break
+
+}

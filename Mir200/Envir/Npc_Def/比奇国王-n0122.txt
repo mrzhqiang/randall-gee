@@ -1,0 +1,259 @@
+;1.76仿盛大基础随缘版本
+[@main]
+这里是比奇城堡宫殿.我是管理各种事情的国王.你有什么事情吗？\
+请注意:您在填写行会名称时一定要慎重。如果包含不健康、\
+有悖于社会精神文明的字眼，我们可以在不通知的情况下\
+做删除处理。我们愿与您共建网络文明，谢谢您的配合！\ 
+ <请求创建行会./@@buildguildnow>     <玛法巡游任务./@巡游>\
+ <申请行会战争./@guildwar>     <禀告所见所闻[交付剧情]/@剧情>\
+ <如何建立行会./@buildguildexp>     <申请饮酒./@饮酒>\
+ <有关行会战争./@guildwarexp>     <玛法画卷任务[支线剧情]/@剧情>\
+ <申请攻城战争./@requestcastlewar>\
+ 
+
+[@饮酒]
+#IF
+check [16] 0
+CHECKLEVELEX > 49
+LARGE U26 29
+checkitem 任务卡 10
+#ACT
+set [16] 1
+dec U26 30
+take 任务卡 10
+give 饮酒许可
+MESSAGEBOX 您获得了饮酒许可，请妥善保管!
+break
+#ELSEACT
+MESSAGEBOX 对不起，您可能已经领取过饮酒许可了，\或者没有30点精力和10张任务卡，\领取等级需要满足50级！
+break
+
+
+[@巡游]
+这里是比奇城堡宫殿.我是管理各种事情的国王.你有什么事情吗？\
+<玛法巡游任务>,需要玩家带着我给你的水去寻找7位NPC!\
+具体NPC请查看任务清单!全部送完后回来领取固定奖励!\
+<特别注意:每日22点以后无法领取巡游任务!/SCOLOR=254>\
+<领取后请尽量完成!否则请不要领取!过0点清空变量!/SCOLOR=254>\
+<我要接受今天的巡游任务./@开始>\
+<完成巡游任务./@完成>\
+
+[@开始]
+#IF
+CHECKLEVELEX < 20
+#ACT
+MESSAGEBOX 对不起,你未满20级,请20级以后才来接取任务!
+break
+
+#IF
+LARGE <$HOUR> 22
+#ACT
+MESSAGEBOX 对不起,已经超过22点,太晚了歇息把,明天再领取!
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您今天已经领取了巡游任务了,赶紧去完成把!
+#ELSEACT
+reset [100] 8
+give 水 7
+AddTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+MESSAGEBOX 您的机器码已经被记录!请速度去找NPC完成巡游任务吧!
+
+[@完成]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+Check [100] 1
+Check [101] 1
+Check [102] 1
+Check [103] 1
+Check [104] 1
+Check [105] 1
+Check [106] 1
+Check [107] 0
+#ACT
+ChangeExp + 5000000
+CREDITPOINT + 20
+set [107] 1
+GAMEGOLD + 10
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜:勇士『<$USERNAME>』完成巡游任务,获得500W经验+20点声望+10元宝.
+MESSAGEBOX 您今天已经完成了巡游任务了!获得了500W经验+20点声望+10元宝!
+#ELSEACT
+MESSAGEBOX 您的并没有交到7位NPC手中!\或者您已经完成了今天的巡游任务,请明日继续努力!
+
+
+[@剧情]
+#IF
+check [145] 1
+check [146] 1
+check [147] 1
+check [148] 1
+check [149] 1
+check [150] 1
+check [151] 1
+check [152] 1
+check [153] 1
+check [154] 1
+check [155] 0
+checkitem 画卷一 1
+checkitem 画卷二 1
+checkitem 画卷三 1
+checkitem 画卷四 1
+checkitem 画卷五 1
+checkitem 画卷六 1
+checkitem 画卷七 1
+checkitem 画卷八 1
+checkitem 画卷九 1
+#SAY
+哇，你真的全部都找到了啊？\
+你真行，来，给我把！\  \
+
+<拿去把，可累死我了。/@完成画卷>\
+#ACT
+break
+
+
+#IF
+check [143] 1
+check [144] 0
+#SAY
+我都听说了。这件事你做的很棒。\
+这是一点奖励，你拿着。\
+话说，整天在这皇宫里，也着实闷得慌\
+要是能看看外面的风景，那该有多好呢！\ \
+
+<是呢..../@exit>
+#ACT
+ChangeExp + 500000
+GAMEGLORY + 10
+GAMEGOLD + 2
+SendNewLineMsg 0 251 0 15 100 10 1 【剧情】：玩家<$USERNAME>完成了剧情，击杀了沃玛教主，获得了比奇国王的赞赏获得2元宝！
+set [144] 1
+break
+
+
+#IF
+check [144] 1
+check [145] 0
+#SAY
+跟你商量个事情。你看最近好多画家都在写生。\
+你能帮我找到他们，并且拿到玛法的画像吗？\
+这样我在宫殿里也会开心许多！\
+你愿意帮我不！\ \
+
+<好吧..../@帮国王>\
+<我很忙 还是不要了！/@exit>\
+#ACT
+break
+
+#IF
+#SAY
+我深深爱着这个大陆！\
+
+
+
+
+
+
+
+
+[@帮国王]
+#IF
+check [144] 1
+check [145] 0
+#SAY
+去找把，一共九位画家！\
+
+<好吧.../@exit>
+#ACT
+set [145] 1
+break
+
+[@完成画卷]
+#IF
+check [145] 1
+check [146] 1
+check [147] 1
+check [148] 1
+check [149] 1
+check [150] 1
+check [151] 1
+check [152] 1
+check [153] 1
+check [154] 1
+check [155] 0
+checkitem 画卷一 1
+checkitem 画卷二 1
+checkitem 画卷三 1
+checkitem 画卷四 1
+checkitem 画卷五 1
+checkitem 画卷六 1
+checkitem 画卷七 1
+checkitem 画卷八 1
+checkitem 画卷九 1
+#ACT
+take 画卷一 1
+take 画卷二 1
+take 画卷三 1
+take 画卷四 1
+take 画卷五 1
+take 画卷六 1
+take 画卷七 1
+take 画卷八 1
+take 画卷九 1
+CHANGEEXP + 9000000
+GIVEFENGHAO 任务狂人
+GAMEGOLD + 5
+MESSAGEBOX 你获得了“任务狂人”称号 + 5元宝！
+SendNewLineMsg 0 251 0 15 100 10 1 【画卷】：玩家<$USERNAME>完成了寻找画卷，获得了比奇国王的赞赏获得5元宝+[任务狂人]称号！
+set [155] 1
+break
+
+
+
+
+[@buildguildexp]
+建立行会你应该证明你有资格。必须支付100万金币作为基础\
+而且要取得位于沃玛寺庙底部深处的沃玛教主所拥有的号角!\ \
+<返回/@main>
+
+[@guildwar]
+填写与你交战的敌对行会的名字，申请行会战争必须支付3万金币\ \
+ <立即申请行会战争/@@guildwar>\
+<返回/@main>\
+
+[@guildwarexp]
+<行会战/@guildwar2>是一种合法的战争，因为目前有许多行会和\
+玩家都同意，这是<合法的/@warrule>的行会间战争。\
+你是否<请求/@guildwar>行会战争?战争将进行3小时,\你必须支付<$GUILDWARFEE>所规定的申请费用.\ \
+<返回/@main>
+
+[@guildwar2]
+当你请求行会战争的时候,相同行会成员的名字将会出现在蓝色的。\
+ 在另一方面,敌人的行会成员名字将会变成橘色的.开战中的行会\
+成员在此期间登录,信息窗口会有[××在与你行会进行行会战]\
+的信息出现，在这个时候，如果你杀敌了人的行会某一个成员,\
+系统对你的行为将不会被视为 PK 。 \ \
+<返回/@guildwarexp>
+
+[@warrule]
+行会战争在城市中不能发生,它在城市某范围外或内部竞赛区\
+域(一些建筑物之内)被启动.否则你 PK 你的身份将会是红色\
+的!甚至在战争期间。\ \
+<返回/@guildwarexp>
+
+[@requestcastlewar]
+请求对沙巴克作战你应该有祖玛教主的头像,你有它吗?战争将会在\ 
+申请日期的第 三 天内开始。\ \
+<给祖玛头像/@requestcastlewarnow>\
+<返回./@main>\
+
+[~@request_ok]
+你的请求被许可, <$CASTLEWARDATE> 战争将会发生在这个值得回忆\
+的日子...剩下的时间不多了，祝你好运!\ \
+<关闭./@exit>\
+
+[@@donate]
+已经记下了你提出的建议，请等待管理员回复，谢谢.\
+<关闭./@exit>\

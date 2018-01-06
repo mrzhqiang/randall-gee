@@ -1,0 +1,24 @@
+[@main]
+#IF
+check [145] 1
+check [154] 0
+#SAY
+这是我在这里画的，请交给国王！\
+
+<好的，给我吧！/@画卷>
+#ACT
+BREAK
+#IF
+#SAY
+你找我什么事！我正在画画！\
+
+<打扰了！/@exit>
+
+
+[@画卷]
+#IF
+#ACT
+give 画卷九
+set [154] 1
+goto @main
+break

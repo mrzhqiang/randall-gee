@@ -1,0 +1,66 @@
+[@月卡]
+{
+#IF
+;CHECKLEVELEX > 10
+#ACT
+break
+;GOTO @检查1
+;#ELSEACT
+;SENDMSG 5 提示:本服11级后需充卡才能游戏
+
+
+[@检查1]
+#if
+checkNameList ..\QuestDiary\月卡\周卡名单.txt
+#act
+goto @周卡检查
+#elseact
+goto @检查2
+
+[@检查2]
+#if
+checkNameList ..\QuestDiary\月卡\月卡名单.txt
+#act
+goto @月卡检查
+#elseact
+SENDMSG 5 提示:你的帐户没有冲值，请充卡在进行游戏
+mapmove n0139
+
+
+[@周卡检查]
+#IF
+CHECKUSERDATE ..\QuestDiary\月卡\时间记载.txt > 7 p0 p1
+#ACT
+Gmexecute shutup Self 600000
+DelNameList ..\QuestDiary\月卡\周卡名单.txt
+DELUSERDATE ..\QuestDiary\月卡\时间记载.txt
+SENDMSG 6 提示:周卡时间已到!
+
+#IF
+checknamelist ..\QuestDiary\月卡\周卡名单.txt
+#ACT
+Gmexecute ReleaseShutup Self 6000
+SENDMSG 6 提示:周卡时间剩余<$STR(p1)>天!
+#ELSEACT
+SENDMSG 5 提示:你的帐户没有冲值，请充卡在进行游戏
+mapmove n0139
+
+
+[@月卡检查]
+#IF
+CHECKUSERDATE ..\QuestDiary\月卡\时间记载.txt > 30 p0 p1
+#ACT
+Gmexecute shutup Self 600000
+DelNameList ..\QuestDiary\月卡\月卡名单.txt
+DELUSERDATE ..\QuestDiary\月卡\时间记载.txt
+SENDMSG 6 提示:月卡时间已到!
+
+#IF
+checknamelist ..\QuestDiary\月卡\月卡名单.txt
+#ACT
+Gmexecute ReleaseShutup Self 6000
+SENDMSG 6 提示:月卡时间剩余<$STR(p1)>天!
+#ELSEACT
+SENDMSG 5 提示:你的帐户没有冲值，请充卡在进行游戏
+mapmove n0139
+}

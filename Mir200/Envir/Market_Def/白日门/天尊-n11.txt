@@ -1,0 +1,163 @@
+[@main]
+#if
+EQUAL T38 寻找NPC
+EQUAL T36 白日门虎卫堂天尊
+#SAY
+见到像你这样年少气盛的勇士，想起了很久以前我年轻时候的事情。\
+现在的天尊装备正是我当时使用过的终级武器。\ \
+
+<跑环任务/@跑环寻找>   <退出/@exit>\
+
+#ACT
+break
+
+#IF
+check [139] 1
+check [140] 0
+#SAY
+我已经答应你去<沃玛寺庙>了\ \
+
+<好的！/@exit>
+#ACT
+break
+
+#IF
+check [136] 1
+check [138] 1
+check [139] 0
+checkitem 许中医的药 1
+#SAY
+你从杂货铺找来的药啊？\
+嘿，小伙子，我钟意你。\
+嗯，把药给我把。\ \
+
+<给您！/@继续2>
+#ACT
+break
+
+#IF
+check [136] 1
+check [137] 0
+check [138] 0
+check [139] 0
+checkitem 许中医的药 1
+#SAY
+直接花15万买的药啊？\
+真是破费了。\
+嗯，把药给我把。\ \
+
+<给您！/@继续3>
+#ACT
+break
+
+#IF
+check [131] 1
+check [136] 0
+#SAY
+嗯，需要帮忙啊。\
+可我一把老骨头的。怎么帮啊？\ \
+
+<没事。您老当益壮！/@继续>
+#ACT
+break
+
+#IF
+#SAY
+见到像你这样年少气盛的勇士，想起了很久以前我年轻时候的事情。\
+现在的天尊装备正是我当时使用过的终级武器。\ \
+
+<退出/@exit>
+
+
+
+[@继续]
+#IF
+check [131] 1
+check [136] 0
+#SAY
+小伙子可真能说。嗯,这样把。\
+最近咳嗽老犯，你帮带一颗<许中医的药>来\
+那药还蛮贵的。你要是弄的到，我就帮你去<沃玛寺庙>\ \
+获取途径一：药店购买，需<15w>金币，我将给你<30W金币>\
+获取途径二：杂货店兑换，需<5个>毒牙，我将给你<8W经验>\ \
+
+<我这就去！/@exit>
+#ACT
+SET [136] 1
+break
+
+
+[@继续2]
+#IF
+check [136] 1
+check [138] 1
+check [139] 0
+checkitem 许中医的药 1
+#SAY
+小伙子，去找教头看看把。\
+这点经验，不成敬意！\
+麻烦你了！\ \
+<我这就去！/@exit>
+#ACT
+take 许中医的药 1
+CHANGEEXP + 80000
+SET [139] 1
+MESSAGEBOX 您已经邀请了四位一同前往，回去找武术教头。\
+RefreshMissPage 主线任务
+break
+
+
+[@继续3]
+#IF
+check [136] 1
+check [137] 0
+check [138] 0
+check [139] 0
+checkitem 许中医的药 1
+#SAY
+小伙子，去找教头看看把。\
+这点金币，不成敬意！\
+麻烦你了！\ \
+<我这就去！/@exit>
+#ACT
+take 许中医的药 1
+give 金币 300000
+SET [139] 1
+MESSAGEBOX 您已经邀请了四位一同前往，回去找武术教头。\
+RefreshMissPage 主线任务
+break
+
+
+
+[@跑环寻找]
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T38 寻找NPC
+EQUAL T36 白日门虎卫堂天尊
+#ACT
+MOV T37 已完成
+messagebox 哈哈，这就被你找到了啊，赶紧交任务把！！
+break
+#ELSEACT
+messagebox 你是不是找错人了！！
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

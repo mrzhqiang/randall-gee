@@ -1,0 +1,69 @@
+[@main]
+#if
+EQUAL T38 寻找NPC
+EQUAL T36 封魔谷皇宫沃玛教主
+#SAY
+哈哈,有人来了.\
+封魔堡属于我的主人"虹魔教主",\
+你们是来给他当早餐的吧,嘿嘿...... \ \
+
+<跑环任务/@跑环寻找>   <退出/@exit>\
+
+#ACT
+break
+
+#IF
+CheckItem 沃玛教主的头颅 1
+#SAY
+我的头颅，我的头颅...... \
+把它给我， \
+我可以给你<等级×50000经验+200点荣誉！>\
+<给予头颅/@头颅>\
+<确定/@exit>
+
+#ACT
+break
+#IF
+#SAY
+哈哈,有人来了.\
+封魔堡属于我的主人"虹魔教主",\
+你们是来给他当早餐的吧,嘿嘿...... \ \
+<打听消息/@info>\
+<确定/@exit>
+
+[@info]
+前几天抓来一个疯疯癫癫的老头,\
+总说自己是什么掌管世人姻缘的神仙,\
+被我关到阁楼里去了.\
+你认识他吗?\ \
+<返回/@main>
+[@头颅]
+#IF
+CheckItem 沃玛教主的头颅 1
+#ACT
+take 沃玛教主的头颅 1
+MOV N7 0
+Mul N7 50000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+GAMEGLORY + 200
+SENDMSG 0 系统：玩家【<$USERNAME>】上缴了沃玛教主的头颅，获得<$Str(N7)>经验+200点荣誉
+goto @main
+break
+
+[@跑环寻找]
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T38 寻找NPC
+EQUAL T36 封魔谷皇宫沃玛教主
+#ACT
+MOV T37 已完成
+messagebox 哈哈，被你找到了啊，赶紧交任务把！！
+break
+#ELSEACT
+messagebox 你是不是找错人了！！
+break

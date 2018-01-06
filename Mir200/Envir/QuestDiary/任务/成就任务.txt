@@ -1,0 +1,2038 @@
+[@充值成就任务]
+{
+#IF
+Check [171] 1
+#ACT
+mov S120 <【已完成娱乐玩家】>
+#ELSEACT
+mov S120 <【娱乐玩家-累计充值10元】/@充值任务1>
+
+#IF
+Check [172] 1
+#ACT
+mov S121 <【已完成赞助玩家】>
+#ELSEACT
+mov S121 <【赞助玩家-累计充值30元】/@充值任务2>
+
+#IF
+Check [173] 1
+#ACT
+mov S122 <【已完成富户玩家】>
+#ELSEACT
+mov S122 <【富户玩家-累计充值50元】/@充值任务3>
+
+#IF
+Check [174] 1
+#ACT
+mov S123 <【已完成地主玩家】>
+#ELSEACT
+mov S123 <【地主玩家-累计充值100元】/@充值任务4>
+
+
+#IF
+Check [175] 1
+#ACT
+mov S124 <【已完成略有资产】>
+#ELSEACT
+mov S124 <【略有资产-累计充值200元】/@充值任务5>
+
+#IF
+Check [176] 1
+#ACT
+mov S125 <【已完成土豪玩家】>
+#ELSEACT
+mov S125 <【土豪玩家-累计充值500元】/@充值任务6>
+
+#IF
+Check [177] 1
+#ACT
+mov S126 <【已完成超级土豪】>
+#ELSEACT
+mov S126 <【超级土豪-累计充值800元】/@充值任务7>
+
+#IF
+Check [178] 1
+#ACT
+mov S127 <【已完成至尊土豪】>
+#ELSEACT
+mov S127 <【至尊土豪-累计充值1000元】/@充值任务8>
+
+#IF
+#SAY
+<$Str(S120)>\
+<$Str(S121)>\
+<$Str(S122)>\
+<$Str(S123)>\
+<$Str(S124)>\
+<$Str(S125)>\
+<$Str(S126)>\
+<$Str(S127)>\
+成就奖励为：<2-5-7-9-11-13-15-20点成就>\
+您当前的成就点为:<$Str(U25)>\
+
+
+[@充值任务1]
+#IF
+CHECKVAR HUMAN 元宝充值 > 9
+#ACT
+SET [171] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@充值任务2]
+#IF
+CHECKVAR HUMAN 元宝充值 > 29
+#ACT
+SET [172] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@充值任务3]
+#IF
+CHECKVAR HUMAN 元宝充值 > 49
+#ACT
+SET [173] 1
+INC U25 7
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@充值任务4]
+#IF
+CHECKVAR HUMAN 元宝充值 > 99
+#ACT
+SET [174] 1
+INC U25 9
+SENDMSG 5 恭喜您成功获得9点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@充值任务5]
+#IF
+CHECKVAR HUMAN 元宝充值 > 199
+#ACT
+SET [175] 1
+INC U25 11
+SENDMSG 5 恭喜您成功获得11点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@充值任务6]
+#IF
+CHECKVAR HUMAN 元宝充值 > 499
+#ACT
+SET [176] 1
+INC U25 13
+SENDMSG 5 恭喜您成功获得13点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@充值任务7]
+#IF
+CHECKVAR HUMAN 元宝充值 > 799
+#ACT
+SET [177] 1
+INC U25 15
+SENDMSG 5 恭喜您成功获得15点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@充值任务8]
+#IF
+CHECKVAR HUMAN 元宝充值 > 999
+#ACT
+SET [178] 1
+INC U25 20
+SENDMSG 5 恭喜您成功获得20点成就点！当前成就点数：<$Str(U25)>
+goto @充值成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+}
+
+
+
+[@技能成就任务]
+{
+#IF
+Check [89] 1
+#ACT
+mov S120 <【已完成觉醒成就】>
+#ELSEACT
+mov S120 <【习得本职业觉醒】/@技能任务1>
+
+#IF
+Check [90] 1
+#ACT
+mov S121 <【已转职无上尊者】>
+#ELSEACT
+mov S121 <【完成二次转职“无上尊者”】/@技能任务2>
+
+#IF
+Check [91] 1
+#ACT
+mov S122 <【完成召唤系成就】>
+#ELSEACT
+mov S122 <【习得“幽冥火符”】/@技能任务3>
+
+#IF
+Check [92] 1
+#ACT
+mov S123 <【完成辅助系成就】>
+#ELSEACT
+mov S123 <【习得“辅助·阴阳加持”】/@技能任务4>
+
+
+#IF
+Check [93] 1
+#ACT
+mov S124 <【完成道咒系成就】>
+#ELSEACT
+mov S124 <【习得“死亡之眼”】/@技能任务5>
+
+#IF
+Check [94] 1
+#ACT
+mov S125 <【完成元素电成就】>
+#ELSEACT
+mov S125 <【习得“五雷轰”】/@技能任务6>
+
+#IF
+Check [95] 1
+#ACT
+mov S126 <【完成元素火成就】>
+#ELSEACT
+mov S126 <【习得“流星火雨”】/@技能任务7>
+
+#IF
+Check [96] 1
+#ACT
+mov S127 <【完成剑术系成就】>
+#ELSEACT
+mov S127 <【习得“十步一杀”】/@技能任务8>
+
+#IF
+Check [97] 1
+#ACT
+mov S128 <【完成元素冰成就】>
+#ELSEACT
+mov S128 <【习得“冰霜雪雨”】/@技能任务9>
+#IF
+Check [98] 1
+#ACT
+mov S129 <【完成法气系成就】>
+#ELSEACT
+mov S129 <【习得“乾坤大挪移”】/@技能任务10>
+#IF
+Check [99] 1
+#ACT
+mov S130 <【完成道毒系成就】>
+#ELSEACT
+mov S130 <【习得“毒·十香软筋散”】/@技能任务11>
+#IF
+Check [108] 1
+#ACT
+mov S131 <【完成忍术系成就】>
+#ELSEACT
+mov S131 <【习得“忍术·影分身术”】/@技能任务12>
+
+#IF
+Check [109] 1
+#ACT
+mov S132 <【完成通灵术成就】>
+#ELSEACT
+mov S132 <【习得“忍术·通灵术”】/@技能任务13>
+
+#IF
+#SAY
+<$Str(S120)>\
+<$Str(S121)>\
+<$Str(S122)>\
+<$Str(S123)>\
+<$Str(S124)>\
+<$Str(S125)>\
+<$Str(S126)>\
+<$Str(S127)>\
+<$Str(S128)>\
+<$Str(S129)>\
+<$Str(S130)>\
+<$Str(S131)>\
+<$Str(S132)>\
+成就奖励为：<2点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@技能任务1]
+#OR
+CHECKSKILL 圣者·无敌 = 0
+CHECKSKILL 圣者·无敌 > 0
+CHECKSKILL 剑姬·无坚不摧 = 0
+CHECKSKILL 剑姬·无坚不摧 > 0
+CHECKSKILL 寒冰·冰封千里 = 0
+CHECKSKILL 寒冰·冰封千里 > 0
+CHECKSKILL 阴阳·雷霆法阵 = 0
+CHECKSKILL 阴阳·雷霆法阵 > 0
+CHECKSKILL 魅姬·尸气鼓荡 = 0
+CHECKSKILL 魅姬·尸气鼓荡 > 0
+CHECKSKILL 烈焰·焚天继海 = 0
+CHECKSKILL 烈焰·焚天继海 > 0
+#ACT
+SET [89] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@技能任务2]
+#IF
+Equal T42 无上尊者
+#ACT
+SET [90] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务3]
+#OR
+CHECKSKILL 幽冥火符 = 0
+CHECKSKILL 幽冥火符 > 0
+#ACT
+SET [91] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务4]
+#OR
+CHECKSKILL 辅助·阴阳加持 = 0
+CHECKSKILL 辅助·阴阳加持 > 0
+#ACT
+SET [92] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务5]
+#OR
+CHECKSKILL 死亡之眼 = 0
+CHECKSKILL 死亡之眼 > 0
+#ACT
+SET [93] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务6]
+#OR
+CHECKSKILL 五雷轰 = 0
+CHECKSKILL 五雷轰 > 0
+#ACT
+SET [94] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务7]
+#OR
+CHECKSKILL 流星火雨 = 0
+CHECKSKILL 流星火雨 > 0
+#ACT
+SET [95] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务8]
+#OR
+CHECKSKILL 十步一杀 = 0
+CHECKSKILL 十步一杀 > 0
+#ACT
+SET [96] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务9]
+#OR
+CHECKSKILL 冰霜雪雨 = 0
+CHECKSKILL 冰霜雪雨 > 0
+#ACT
+SET [97] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务10]
+#OR
+CHECKSKILL 乾坤大挪移 = 0
+CHECKSKILL 乾坤大挪移 > 0
+#ACT
+SET [98] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务11]
+#OR
+CHECKSKILL 毒·十香软筋散 = 0
+CHECKSKILL 毒·十香软筋散 > 0
+#ACT
+SET [99] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务12]
+#OR
+CHECKSKILL 忍术·影分身术 = 0
+CHECKSKILL 忍术·影分身术 > 0
+#ACT
+SET [108] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@技能任务13]
+#OR
+CHECKSKILL 忍术·通灵术 = 0
+CHECKSKILL 忍术·通灵术 > 0
+#ACT
+SET [109] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @技能成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+}
+
+
+
+
+[@装备成就任务]
+{
+#IF
+Check [17] 1
+#ACT
+mov S120 <【完成破损品级成就】>
+#ELSEACT
+mov S120 <【穿戴上破损的武器】/@装备任务1>
+
+#IF
+Check [18] 1
+#ACT
+mov S121 <【完成劣质品级成就】>
+#ELSEACT
+mov S121 <【拥有“劣质宝珠”】/@装备任务2>
+
+#IF
+Check [19] 1
+#ACT
+mov S122 <【完成精致品级成就】>
+#ELSEACT
+mov S122 <【拥有“精致宝珠”】/@装备任务3>
+
+#IF
+Check [20] 1
+#ACT
+mov S123 <【完成稀有品级成就】>
+#ELSEACT
+mov S123 <【拥有“稀有宝珠”】/@装备任务4>
+
+
+#IF
+Check [21] 1
+#ACT
+mov S124 <【完成卓越品级成就】>
+#ELSEACT
+mov S124 <【拥有“卓越宝珠”】/@装备任务5>
+
+#IF
+Check [29] 1
+#ACT
+mov S125 <【完成完美品级成就】>
+#ELSEACT
+mov S125 <【拥有“完美宝珠”】/@装备任务6>
+
+#IF
+Check [30] 1
+#ACT
+mov S126 <【完成史诗品级成就】>
+#ELSEACT
+mov S126 <【拥有“史诗宝珠”】/@装备任务7>
+
+#IF
+Check [37] 1
+#ACT
+mov S127 <【完成传说品级成就】>
+#ELSEACT
+mov S127 <【拥有“传说宝珠”】/@装备任务8>
+
+#IF
+Check [38] 1
+#ACT
+mov S128 <【完成可成长级成就】>
+#ELSEACT
+mov S128 <【穿戴可成长的武器】/@装备任务9>
+
+#IF
+Check [64] 1
+#ACT
+mov S130 <【完成命格破军成就】>
+#ELSEACT
+mov S130 <【凑齐命格“破军”】/@装备任务10>
+#IF
+Check [65] 1
+#ACT
+mov S131 <【完成命格破军成就】>
+#ELSEACT
+mov S131 <【凑齐命格“玄灵”】/@装备任务11>
+#IF
+Check [66] 1
+#ACT
+mov S132 <【完成命格破军成就】>
+#ELSEACT
+mov S132 <【凑齐命格“守护”】/@装备任务12>
+
+
+#IF
+Check [67] 1
+#ACT
+mov S133 <【完成碧水莲花成就】>
+#ELSEACT
+mov S133 <【佩戴“碧水莲花”】/@装备任务13>
+
+#IF
+Check [68] 1
+#ACT
+mov S134 <【完成千年寒冰成就】>
+#ELSEACT
+mov S134 <【佩戴“千年寒冰”】/@装备任务14>
+
+#IF
+Check [69] 1
+#ACT
+mov S135 <【完成十二生肖成就】>
+#ELSEACT
+mov S135 <【凑齐“十二生肖”】/@装备任务15>
+
+#IF
+Check [161] 1
+#ACT
+mov S136 <【完成一阶法宝成就】>
+#ELSEACT
+mov S136 <【拥有“一阶法宝”】/@装备任务16>
+#IF
+Check [162] 1
+#ACT
+mov S137 <【完成二阶法宝成就】>
+#ELSEACT
+mov S137 <【拥有“二阶法宝”】/@装备任务17>
+#IF
+Check [163] 1
+#ACT
+mov S138 <【完成三阶法宝成就】>
+#ELSEACT
+mov S138 <【拥有“三阶法宝”】/@装备任务18>
+#IF
+Check [164] 1
+#ACT
+mov S139 <【完成四阶法宝成就】>
+#ELSEACT
+mov S139 <【拥有“四阶法宝”】/@装备任务19>
+#IF
+Check [165] 1
+#ACT
+mov S140 <【完成十方法宝成就】>
+#ELSEACT
+mov S140 <【拥有“十方法宝”】/@装备任务20>
+#IF
+Check [166] 1
+#ACT
+mov S141 <【完成十方法宝成就】>
+#ELSEACT
+mov S141 <【拥有符文法力潮汐】/@装备任务21>
+#IF
+Check [167] 1
+#ACT
+mov S142 <【完成十方法宝成就】>
+#ELSEACT
+mov S142 <【拥有符文无尽潜能】/@装备任务22>
+#IF
+Check [168] 1
+#ACT
+mov S143 <【完成十方法宝成就】>
+#ELSEACT
+mov S143 <【拥有符文嗜血狂魔】/@装备任务23>
+#IF
+Check [169] 1
+#ACT
+mov S144 <【完成十方法宝成就】>
+#ELSEACT
+mov S144 <【拥有符文蔑视一切】/@装备任务24>
+#IF
+Check [170] 1
+#ACT
+mov S145 <【完成十方法宝成就】>
+#ELSEACT
+mov S145 <【拥有符文星穹暴涨】/@装备任务25>
+#IF
+#SAY
+<以下为品质类成就:/AUTOCOLOR=250>\
+<$Str(S120)>　<$Str(S128)>\
+<$Str(S121)>　<$Str(S122)>\
+<$Str(S123)>　<$Str(S124)>\
+<$Str(S125)>　<$Str(S126)>\
+<$Str(S127)>\
+<以下为收集型成就:/AUTOCOLOR=250>\
+<$Str(S130)>　<$Str(S131)>\
+<$Str(S132)>　<$Str(S133)>\
+<$Str(S134)>　<$Str(S135)>\
+<以下为打造型成就:/AUTOCOLOR=250>\
+<$Str(S136)>　<$Str(S137)>\
+<$Str(S138)>　<$Str(S139)>\
+<$Str(S140)>　<$Str(S141)>\
+<$Str(S142)>　<$Str(S143)>\
+<$Str(S144)>　<$Str(S145)>\
+成就奖励为：<2-10点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+
+[@装备任务16]
+#OR
+CHECKITEMW 魅姬·一阶炼魂 1
+CHECKITEMW 阴阳·一阶炼魂 1
+CHECKITEMW 寒冰·一阶炼魂 1
+CHECKITEMW 烈焰·一阶炼魂 1
+CHECKITEMW 剑姬·一阶炼魂 1
+CHECKITEMW 圣者·一阶炼魂 1
+#ACT
+SET [161] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务17]
+#OR
+CHECKITEMW 魅姬·二阶定魂 1
+CHECKITEMW 阴阳·二阶定魂 1
+CHECKITEMW 寒冰·二阶定魂 1
+CHECKITEMW 烈焰·二阶定魂 1
+CHECKITEMW 剑姬·二阶定魂 1
+CHECKITEMW 圣者·二阶定魂 1
+#ACT
+SET [162] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务18]
+#OR
+CHECKITEMW 魅姬·三阶觉醒 1
+CHECKITEMW 阴阳·三阶觉醒 1
+CHECKITEMW 寒冰·三阶觉醒 1
+CHECKITEMW 烈焰·三阶觉醒 1
+CHECKITEMW 剑姬·三阶觉醒 1
+CHECKITEMW 圣者·三阶觉醒 1
+#ACT
+SET [163] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务19]
+#OR
+CHECKITEMW 魅姬·四阶惊天 1
+CHECKITEMW 阴阳·四阶惊天 1
+CHECKITEMW 寒冰·四阶惊天 1
+CHECKITEMW 烈焰·四阶惊天 1
+CHECKITEMW 剑姬·四阶惊天 1
+CHECKITEMW 圣者·四阶惊天 1
+#ACT
+SET [164] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务20]
+#OR
+CHECKITEMW 魅姬·十方俱灭 1
+CHECKITEMW 阴阳·十方俱灭 1
+CHECKITEMW 寒冰·十方俱灭 1
+CHECKITEMW 烈焰·十方俱灭 1
+CHECKITEMW 剑姬·十方俱灭 1
+CHECKITEMW 圣者·十方俱灭 1
+#ACT
+SET [165] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@装备任务21]
+#IF
+CheckItem 符文：法力潮汐 1
+#ACT
+SET [166] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务22]
+#IF
+CheckItem 符文：无尽潜能 1
+#ACT
+SET [167] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务23]
+#IF
+CheckItem 符文：嗜血狂魔 1
+#ACT
+SET [168] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务24]
+#IF
+CheckItem 符文：蔑视一切 1
+#ACT
+SET [169] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务25]
+#IF
+CheckItem 符文：星穹暴涨 1
+#ACT
+SET [170] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务1]
+#IF
+CheckItemNameColor 1 10
+#ACT
+SET [17] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务2]
+#IF
+CheckItem 劣质宝珠 1
+#ACT
+SET [18] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务3]
+#IF
+CheckItem 精致宝珠 1
+#ACT
+SET [19] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务4]
+#IF
+CheckItem 稀有宝珠 1
+#ACT
+SET [20] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务5]
+#IF
+CheckItem 卓越宝珠 1
+#ACT
+SET [21] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务6]
+#IF
+CheckItem 完美宝珠 1
+#ACT
+SET [29] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务7]
+#IF
+CheckItem 史诗宝珠 1
+#ACT
+SET [30] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务8]
+#IF
+CheckItem 传说宝珠 1
+#ACT
+SET [37] 1
+INC U25 4
+SENDMSG 5 恭喜您成功获得4点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务9]
+#IF
+CheckItemNameColor 1 70
+#ACT
+SET [38] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务10]
+#IF
+CHECKITEMW 命格·破军·金 1
+CHECKITEMW 命格·破军·木 1
+CHECKITEMW 命格·破军·水 1
+CHECKITEMW 命格·破军·火 1
+CHECKITEMW 命格·破军·土 1
+#ACT
+SET [64] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务11]
+#IF
+CHECKITEMW 命格·玄灵·金 1
+CHECKITEMW 命格·玄灵·木 1
+CHECKITEMW 命格·玄灵·水 1
+CHECKITEMW 命格·玄灵·火 1
+CHECKITEMW 命格·玄灵·土 1
+#ACT
+SET [65] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@装备任务12]
+#IF
+CHECKITEMW 命格·守护·金 1
+CHECKITEMW 命格·守护·木 1
+CHECKITEMW 命格·守护·水 1
+CHECKITEMW 命格·守护·火 1
+CHECKITEMW 命格·守护·土 1
+#ACT
+SET [66] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@装备任务13]
+#IF
+CHECKITEMW 碧水莲花 1
+#ACT
+SET [67] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@装备任务14]
+#IF
+CHECKITEMW 千年寒冰 1
+#ACT
+SET [68] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@装备任务15]
+#IF
+CHECKITEMW 子鼠神佑 1
+CHECKITEMW 丑牛神佑 1
+CHECKITEMW 寅虎神佑 1
+CHECKITEMW 卯兔神佑 1
+CHECKITEMW 辰龙神佑 1
+CHECKITEMW 巳蛇神佑 1
+CHECKITEMW 午马神佑 1
+CHECKITEMW 未羊神佑 1
+CHECKITEMW 申猴神佑 1
+CHECKITEMW 酉鸡神佑 1
+CHECKITEMW 戌狗神佑 1
+CHECKITEMW 亥猪神佑 1
+#ACT
+SET [69] 1
+INC U25 8
+SENDMSG 5 恭喜您成功获得8点成就点！当前成就点数：<$Str(U25)>
+goto @装备成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+}
+
+
+
+
+
+
+
+
+[@称号成就任务]
+{
+#IF
+Check [49] 1
+#ACT
+mov S120 <【完成金币2亿】>
+#ELSEACT
+mov S120 <【拥有金币2亿】/@称号任务1>
+
+#IF
+Check [50] 1
+#ACT
+mov S121 <【完成金币5亿】>
+#ELSEACT
+mov S121 <【拥有金币5亿】/@称号任务2>
+
+#IF
+Check [51] 1
+#ACT
+mov S122 <【完成“雄霸天下”称号】>
+#ELSEACT
+mov S122 <【获得“雄霸天下”称号】/@称号任务3>
+
+#IF
+Check [52] 1
+#ACT
+mov S123 <【完成“国士无双”称号】>
+#ELSEACT
+mov S123 <【获得“国士无双”称号】/@称号任务4>
+
+
+#IF
+Check [53] 1
+#ACT
+mov S124 <【完成“出神入化”称号】>
+#ELSEACT
+mov S124 <【获得“出神入化”称号】/@称号任务5>
+
+#IF
+Check [54] 1
+#ACT
+mov S125 <【完成龙魂体魄50级】>
+#ELSEACT
+mov S125 <【龙魂体魄达到50级】/@称号任务6>
+
+#IF
+Check [56] 1
+#ACT
+mov S127 <【完成宝石“炽焰金钻”】>
+#ELSEACT
+mov S127 <【获得宝石“炽焰金钻”】/@称号任务8>
+
+#IF
+#SAY
+<$Str(S120)>  <$Str(S121)> \
+<$Str(S122)>\
+<$Str(S123)>\<$Str(S124)>\<$Str(S125)>\
+<$Str(S127)>\
+成就奖励为：<2点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@称号任务1]
+#IF
+CheckGold 200000000
+#ACT
+SET [49] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@称号任务2]
+#IF
+CheckGold 500000000
+#ACT
+SET [50] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@称号任务3]
+#IF
+CHECKFENGHAO 雄霸天下
+#ACT
+SET [51] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@称号任务4]
+#IF
+CHECKFENGHAO 国士无双
+#ACT
+SET [52] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@称号任务5]
+#IF
+CHECKFENGHAO 出神入化
+#ACT
+SET [53] 1
+INC U25 4
+SENDMSG 5 恭喜您成功获得4点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@称号任务6]
+#IF
+EQUAL U14 50
+#ACT
+SET [54] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@称号任务8]
+#IF
+CheckItem 炽焰金钻 1
+#ACT
+SET [56] 1
+INC U25 4
+SENDMSG 5 恭喜您成功获得4点成就点！当前成就点数：<$Str(U25)>
+goto @称号成就任务
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+}
+
+
+
+[@行会成就]
+{
+#IF
+Check [46] 1
+#ACT
+mov S120 <【完成行会会长】>
+#ELSEACT
+mov S120 <【成为行会会长】/@行会任务1>
+
+#IF
+Check [47] 1
+#ACT
+mov S121 <【完成行会成员20名】>
+#ELSEACT
+mov S121 <【拥有行会成员20名】/@行会任务2>
+
+
+#IF
+Check [48] 1
+#ACT
+mov S122 <【完成沙巴克城主】>
+#ELSEACT
+mov S122 <【成为沙巴克城主】/@行会任务3>
+
+#IF
+#SAY
+<$Str(S120)>\ \
+<$Str(S121)>\ \
+<$Str(S122)>\
+成就奖励为：<2-8点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@行会任务1]
+#IF
+ISGUILDMASTER
+#ACT
+SET [46] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@行会任务2]
+#IF
+CheckGuildMemberCount  > 19
+#ACT
+SET [47] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@行会任务3]
+#IF
+EQUAL <$LORD> <$USERNAME>
+#ACT
+SET [48] 1
+INC U25 8
+SENDMSG 5 恭喜您成功获得8点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+}
+
+
+[@行会成就任务]
+{
+#IF
+Check [40] 1
+#ACT
+mov S123 <【完成加入行会】>
+#ELSEACT
+mov S123 <【加入一个行会】/@行会任务4>
+
+#IF
+Check [46] 1
+#ACT
+mov S120 <【完成行会会长】>
+#ELSEACT
+mov S120 <【成为行会会长】/@行会任务1>
+
+#IF
+Check [47] 1
+#ACT
+mov S121 <【完成行会成员20名】>
+#ELSEACT
+mov S121 <【拥有行会成员20名】/@行会任务2>
+
+
+#IF
+Check [48] 1
+#ACT
+mov S122 <【完成沙巴克城主】>
+#ELSEACT
+mov S122 <【成为沙巴克城主】/@行会任务3>
+
+#IF
+#SAY
+<$Str(S120)>\ \
+<$Str(S121)>\ \
+<$Str(S122)>\ \
+<$Str(S123)>\
+成就奖励为：<2-8点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@行会任务4]
+#IF
+HAVEGUILD
+#ACT
+SET [40] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@行会任务1]
+#IF
+ISGUILDMASTER
+#ACT
+SET [46] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@行会任务2]
+#IF
+CheckGuildMemberCount  > 19
+#ACT
+SET [47] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@行会任务3]
+#IF
+EQUAL <$LORD> <$USERNAME>
+#ACT
+SET [48] 1
+INC U25 8
+SENDMSG 5 恭喜您成功获得8点成就点！当前成就点数：<$Str(U25)>
+goto @行会成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+}
+
+
+
+[@等级成就任务]
+{
+#IF
+Check [1] 1
+#ACT
+mov S120 <【完成07级】>
+#ELSEACT
+mov S120 <【升到07级】/@升级任务1>
+
+#IF
+Check [2] 1
+#ACT
+mov S121 <【完成10级】>
+#ELSEACT
+mov S121 <【升到10级】/@升级任务2>
+
+#IF
+Check [3] 1
+#ACT
+mov S122 <【完成20级】>
+#ELSEACT
+mov S122 <【升到20级】/@升级任务3>
+
+#IF
+Check [4] 1
+#ACT
+mov S123 <【完成30级】>
+#ELSEACT
+mov S123 <【升到30级】/@升级任务4>
+
+
+#IF
+Check [5] 1
+#ACT
+mov S124 <【完成40级】>
+#ELSEACT
+mov S124 <【升到40级】/@升级任务5>
+
+#IF
+Check [6] 1
+#ACT
+mov S125 <【完成50级】>
+#ELSEACT
+mov S125 <【升到50级】/@升级任务6>
+
+#IF
+Check [7] 1
+#ACT
+mov S126 <【完成60级】>
+#ELSEACT
+mov S126 <【升到60级】/@升级任务7>
+
+#IF
+Check [8] 1
+#ACT
+mov S127 <【完成70级】>
+#ELSEACT
+mov S127 <【升到70级】/@升级任务8>
+
+#IF
+Check [9] 1
+#ACT
+mov S128 <【完成80级】>
+#ELSEACT
+mov S128 <【升到80级】/@升级任务9>
+
+#IF
+Check [10] 1
+#ACT
+mov S129 <【完成90级】>
+#ELSEACT
+mov S129 <【升到90级】/@升级任务10>
+
+#IF
+Check [11] 1
+#ACT
+mov S130 <【完成100级】>
+#ELSEACT
+mov S130 <【升到100级】/@升级任务11>
+
+#IF
+Check [12] 1
+#ACT
+mov S131 <【完成110级】>
+#ELSEACT
+mov S131 <【升到110级】/@升级任务12>
+
+#IF
+Check [13] 1
+#ACT
+mov S132 <【完成120级】>
+#ELSEACT
+mov S132 <【升到120级】/@升级任务13>
+#IF
+Check [14] 1
+#ACT
+mov S133 <【完成重生】>
+#ELSEACT
+mov S133 <【完成重生】/@升级任务14>
+
+#IF
+#SAY
+<$Str(S120)>  <$Str(S121)>  <$Str(S122)>\
+<$Str(S123)>  <$Str(S124)>  <$Str(S125)>\
+<$Str(S126)>  <$Str(S127)>  <$Str(S128)>\
+<$Str(S129)>  <$Str(S130)>  <$Str(S131)>\
+<$Str(S132)>  <$Str(S133)>\
+成就奖励为：<2点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+[@升级任务1]
+#IF
+Check [1] 0
+CHECKLEVELEX > 6
+#ACT
+SET [1] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@升级任务2]
+#IF
+Check [2] 0
+CHECKLEVELEX > 9
+#ACT
+SET [2] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@升级任务3]
+#IF
+Check [3] 0
+CHECKLEVELEX > 19
+#ACT
+SET [3] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务4]
+#IF
+Check [4] 0
+CHECKLEVELEX > 29
+#ACT
+SET [4] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务5]
+#IF
+Check [5] 0
+CHECKLEVELEX > 39
+#ACT
+SET [5] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+
+[@升级任务6]
+#IF
+Check [6] 0
+CHECKLEVELEX > 49
+#ACT
+SET [6] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+
+[@升级任务7]
+#IF
+Check [7] 0
+CHECKLEVELEX > 59
+#ACT
+SET [7] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务8]
+#IF
+Check [8] 0
+CHECKLEVELEX > 69
+#ACT
+SET [8] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@升级任务9]
+#IF
+Check [9] 0
+CHECKLEVELEX > 79
+#ACT
+SET [9] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务10]
+#IF
+Check [10] 0
+CHECKLEVELEX > 89
+#ACT
+SET [10] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务11]
+#IF
+Check [11] 0
+CHECKLEVELEX > 99
+#ACT
+SET [11] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@升级任务12]
+#IF
+Check [12] 0
+CHECKLEVELEX > 109
+#ACT
+SET [12] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+
+[@升级任务13]
+#IF
+Check [13] 0
+CHECKLEVELEX > 119
+#ACT
+SET [13] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+
+[@升级任务14]
+#IF
+Check [14] 0
+CHECKRENEWLEVEL = 11
+#ACT
+SET [14] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @等级成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+}
+
+
+
+[@会员成就任务]
+{
+#IF
+Check [41] 1
+#ACT
+mov S120 <【完成会员一级】>
+#ELSEACT
+mov S120 <【成为会员一级】/@会员任务1>
+
+#IF
+Check [42] 1
+#ACT
+mov S121 <【完成会员二级】>
+#ELSEACT
+mov S121 <【成为会员二级】/@会员任务2>
+
+#IF
+Check [43] 1
+#ACT
+mov S122 <【完成会员三级】>
+#ELSEACT
+mov S122 <【成为会员三级】/@会员任务3>
+
+#IF
+Check [44] 1
+#ACT
+mov S123 <【完成会员四级】>
+#ELSEACT
+mov S123 <【成为会员四级】/@会员任务4>
+
+#IF
+Check [45] 1
+#ACT
+mov S124 <【完成会员五级】>
+#ELSEACT
+mov S124 <【成为会员五级】/@会员任务5>
+
+#IF
+#SAY
+<$Str(S120)>　　　<$Str(S121)>\
+<$Str(S122)>　　　<$Str(S123)>\
+<$Str(S124)>\
+成就奖励为：<1-5点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@会员任务1]
+#OR
+EQUAL T5 会员一级
+EQUAL T5 会员二级
+EQUAL T5 会员三级
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+SET [41] 1
+INC U25 1
+SENDMSG 5 恭喜您成功获得1点成就点！当前成就点数：<$Str(U25)>
+goto @会员成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@会员任务2]
+#OR
+EQUAL T5 会员二级
+EQUAL T5 会员三级
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+SET [42] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @会员成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@会员任务3]
+#OR
+EQUAL T5 会员三级
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+SET [43] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @会员成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@会员任务4]
+#OR
+EQUAL T5 会员四级
+EQUAL T5 会员五级
+#ACT
+SET [44] 1
+INC U25 4
+SENDMSG 5 恭喜您成功获得4点成就点！当前成就点数：<$Str(U25)>
+goto @会员成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@会员任务5]
+#IF
+EQUAL T5 会员五级
+#ACT
+SET [45] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @会员成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+}
+
+
+
+[@趣味成就任务]
+{
+<正在开发中...>\<例如：屠鸡者、死了又死、不败神话等等.>
+}
+
+
+
+
+
+[@元宝成就任务]
+{
+#IF
+Check [31] 1
+#ACT
+mov S120 <【完成100元宝】>
+#ELSEACT
+mov S120 <【拥有100元宝】/@元宝任务1>
+
+#IF
+Check [32] 1
+#ACT
+mov S121 <【完成200元宝】>
+#ELSEACT
+mov S121 <【拥有200元宝】/@元宝任务2>
+
+#IF
+Check [33] 1
+#ACT
+mov S122 <【完成300元宝】>
+#ELSEACT
+mov S122 <【拥有300元宝】/@元宝任务3>
+
+#IF
+Check [34] 1
+#ACT
+mov S123 <【完成500元宝】>
+#ELSEACT
+mov S123 <【拥有500元宝】/@元宝任务4>
+
+#IF
+Check [35] 1
+#ACT
+mov S124 <【完成800元宝】>
+#ELSEACT
+mov S124 <【拥有800元宝】/@元宝任务5>
+
+#IF
+Check [36] 1
+#ACT
+mov S125 <【完成1000元宝】>
+#ELSEACT
+mov S125 <【拥有1000元宝】/@元宝任务6>
+#IF
+#SAY
+<$Str(S120)>\
+<$Str(S121)>\
+<$Str(S122)>\
+<$Str(S123)>\
+<$Str(S124)>\
+<$Str(S125)>\
+成就奖励为：<1-6点成就点>--您当前的成就点为:<$Str(U25)>\
+
+
+
+
+[@元宝任务1]
+#IF
+CHECKGAMEGOLD > 99
+#ACT
+SET [31] 1
+INC U25 1
+SENDMSG 5 恭喜您成功获得1点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@元宝任务2]
+#IF
+CHECKGAMEGOLD > 199
+#ACT
+SET [32] 1
+INC U25 2
+SENDMSG 5 恭喜您成功获得2点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@元宝任务3]
+#IF
+CHECKGAMEGOLD > 299
+#ACT
+SET [33] 1
+INC U25 3
+SENDMSG 5 恭喜您成功获得3点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@元宝任务4]
+#IF
+CHECKGAMEGOLD > 499
+#ACT
+SET [34] 1
+INC U25 4
+SENDMSG 5 恭喜您成功获得4点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+
+[@元宝任务5]
+#IF
+CHECKGAMEGOLD > 799
+#ACT
+SET [35] 1
+INC U25 5
+SENDMSG 5 恭喜您成功获得5点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+
+[@元宝任务6]
+#IF
+CHECKGAMEGOLD > 999
+#ACT
+SET [36] 1
+INC U25 6
+SENDMSG 5 恭喜您成功获得6点成就点！当前成就点数：<$Str(U25)>
+goto @元宝成就
+break
+#ELSEACT
+MESSAGEBOX 获取失败，可能您未满足条件！
+break
+}
+
+
+
+
+

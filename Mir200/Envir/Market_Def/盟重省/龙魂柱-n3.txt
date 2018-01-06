@@ -1,0 +1,295 @@
+[@main]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+=====我是龙魂柱.我的眼睛不见了.找到请还给我=========\
+您当前的积分是:<$STR(U4)>\
+
+您要做的是:<【修炼龙魂体魄】/@修炼>\
+<【兑换积分】/@兑换> <【兑换物品】/@兑换物品> <【关闭】/@exit>\
+
+
+[@兑换]
+#IF
+#ACT
+mov p2 0
+goto @收珠
+
+[@收珠]
+#IF
+checkitem 龍睛珠 10
+#act
+take 龍睛珠 10
+inc p2 100
+INC U4 100
+goto @收珠
+
+#IF
+checkitem 龍睛珠 1
+#act
+take 龍睛珠 1
+inc p2 10
+INC U4 10
+goto @收珠
+
+#IF
+#act
+goto @碧水
+
+[@碧水]
+#IF
+checkitem 碧水龍睛珠 10
+#act
+take 碧水龍睛珠 10
+inc p2 300
+INC U4 300
+goto @碧水
+
+#IF
+checkitem 碧水龍睛珠 1
+#act
+take 碧水龍睛珠 1
+inc p2 30
+INC U4 30
+goto @碧水
+
+#IF
+#act
+goto @结束
+
+[@结束]
+#IF
+LARGE G130 0
+LARGE p2 200
+#ACT
+GMExecute Mob 青龙 1
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』在龙魂柱上回收了<$STR(P2)>点积分！召唤了魔物『青龙』
+goto @main
+break
+
+#IF
+LARGE p2 0
+#ACT
+SendNewLineMsg 0 251 0 15 100 10 1 玩家『<$USERNAME>』在碧水龙魂柱上回收了<$STR(P2)>点积分！
+goto @main
+break
+
+#IF
+EQUAL p2 0
+#SAY
+没龍睛，不要瞎鸡巴点！
+
+
+[@兑换物品]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+=====我是龙魂柱.我的眼睛不见了.找到请还给我=========\
+您当前的积分是:<$STR(U4)>\
+您可以选择兑换以下物品.\
+10分<兑换/@书页><书页> 20分<兑换/@重铸><重铸石> 30分<兑换/@图纸><高级图纸> 80分<兑换/@宝石><随机宝石>\
+120分<兑换/@军鼓><1级军鼓>  600分<兑换/@称号>称号:<最有耐心的玩家>(不佩戴也加属性)\
+1200分<兑换/@坐骑>坐骑:<黑鬃马>  400分<兑换/@加星>加星石一份 500分<兑换/@袋子>宝石袋一份\
+
+
+
+
+
+
+
+[@袋子]
+#IF
+LARGE U4 499
+#ACT
+DEC U4 500
+give 随机宝石袋 1
+sendmsg 7 [提示]：兑换随机宝石袋成功,消耗500点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+[@加星]
+#IF
+LARGE U4 399
+#ACT
+DEC U4 400
+give 随机加星石 1
+sendmsg 7 [提示]：兑换随机加星石成功,消耗10点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+
+[@书页]
+#IF
+LARGE U4 9
+#ACT
+DEC U4 10
+give 书页 1
+sendmsg 7 [提示]：兑换书页成功,消耗10点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@重铸]
+#IF
+LARGE U4 19
+#ACT
+DEC U4 20
+give 重铸石 1
+sendmsg 7 [提示]：兑换重铸石成功,消耗20点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+[@图纸]
+#IF
+LARGE U4 29
+#ACT
+DEC U4 30
+give 鉴定图纸[高级] 1
+sendmsg 7 [提示]：兑换鉴定图纸[高级]成功,消耗30点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@宝石]
+#IF
+LARGE U4 79
+#ACT
+DEC U4 80
+goto @抽取宝珠
+sendmsg 7 [提示]：兑换随机宝珠成功,消耗80点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@抽取宝珠]
+#IF
+#ACT
+GetRandomText ../QuestDiary/宝图/宝石列表.txt S18
+give <$Str(S18)> 1
+break
+
+[@军鼓]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+=====我是龙魂柱.我的眼睛不见了.找到请还给我=========\
+<一级军鼓(战)/@战>	<一级军鼓(法)/@法>	<一级军鼓(道)/@道>
+
+
+
+[@战]
+#IF
+LARGE U4 119
+#ACT
+DEC U4 120
+give 一级军鼓(战)
+sendmsg 7 [提示]：兑换一级军鼓(战)成功,消耗120点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+[@法]
+#IF
+LARGE U4 119
+#ACT
+DEC U4 120
+give 一级军鼓(法)
+sendmsg 7 [提示]：兑换一级军鼓(法)成功,消耗120点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@道]
+#IF
+LARGE U4 119
+#ACT
+DEC U4 120
+give 一级军鼓(道)
+sendmsg 7 [提示]：兑换一级军鼓(道)成功,消耗120点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+[@称号]
+#IF
+CHECKFENGHAO 最有耐心的玩家
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+LARGE U4 599
+#ACT
+DEC U4 600
+GIVEFENGHAO 最有耐心的玩家
+sendmsg 7 [提示]：兑换成功，你获得了“最有耐心的玩家”称号！
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@坐骑]
+#IF
+LARGE U4 1199
+#ACT
+DEC U4 1200
+give 黑鬃马
+sendmsg 7 [提示]：兑换成功，你获得了“黑鬃马”！
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜:勇士『<$USERNAME>』使用1200点龙魂积分,兑换了坐骑“黑棕马”！
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+[@装备]
+#IF
+LARGE U4 499
+#ACT
+DEC U4 500
+goto @抽取装备
+sendmsg 7 [提示]：兑换随机装备成功,消耗500点龙魂积分.当前剩余:<$STR(U4)>.
+break
+#ELSEACT
+MESSAGEBOX 你没有足够的龙魂积分！
+BREAK
+
+
+[@抽取装备]
+#IF
+#ACT
+GetRandomText ../QuestDiary/宝图/装备列表.txt S18
+give <$Str(S18)> 1
+break
+
+
+[@修炼]
+#CALL [商人\龙魂体.txt] @龙魂
+
+
+
+
+
+
+
+

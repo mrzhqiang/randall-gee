@@ -1,0 +1,52 @@
+[@main]
+<$USERNAME>您好,欢迎来到<$SERVERNAME>,很高兴为您服务\
+您当前持有:<$GAMEGOLD>元宝\
+①本系统支持网上银行、手机充值卡、各类游戏点卡。\
+②请在充值5分钟后在本NPC处领取\
+③当前充值比例为1:5\
+\
+<领取/@领取>┆<充值/@充值>┆<退出/@exit>\
+[@领取]
+#CALL [\充值元宝\元宝\元宝.txt] @领取元宝
+#CALL [\充值元宝\积分\积分.txt] @领取积分
+
+[@充值]
+#IF
+#SAY
+<充值通道1/@充值通道1>┆<充值通道2/@充值通道2>┆<充值通道3/@充值通道3>
+\
+<充值通道4/@充值通道4>┆<充值通道5/@充值通道5>┆<充值通道6/@充值通道6>
+\
+<退出/@exit>
+
+[@充值通道1]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?id=52812
+
+[@充值通道2]
+#IF
+#ACT
+OpenWebSite  http://pay2.wofupay.net/app/acquire/req?id=52812
+
+[@充值通道3]
+#IF
+#ACT
+OpenWebSite  http://pay3.wofupay.net/app/acquire/req?id=52812
+
+[@充值通道4]
+#IF
+#ACT
+OpenWebSite  http://pay4.wofupay.net/app/acquire/req?id=52812
+
+[@充值通道5]
+#IF
+#ACT
+OpenWebSite  http://pay5.wofupay.net/app/acquire/req?id=52812
+
+[@充值通道6]
+#IF
+#ACT
+OpenWebSite  http://pay6.wofupay.net/app/acquire/req?id=52812
+
+

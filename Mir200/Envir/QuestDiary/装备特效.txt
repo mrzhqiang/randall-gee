@@ -1,0 +1,23 @@
+[@装备特效]
+{
+#ACT
+GOTO @特效检测
+
+[@特效检测]
+#ACT
+GetAllCustomItemValue 8 N$吸血值 N$吸血百分比
+GetAllCustomItemValue 9 N$吸魔值 N$吸魔百分比
+GetAllCustomItemValue 10 N$伤害值 N$伤害百分比
+GetAllCustomItemValue 13 N$免伤值 N$免伤百分比
+goto @特效实现
+
+[@特效实现]
+#act
+HumanHP + <$STR(N$吸血值)> 300
+HumanMP + <$STR(N$吸魔值)> 300
+M.HumanHP - <$STR(N$伤害值)> 300
+SetHeroSuckDamage = <$STR(N$免伤值)> 100 100
+
+
+
+}

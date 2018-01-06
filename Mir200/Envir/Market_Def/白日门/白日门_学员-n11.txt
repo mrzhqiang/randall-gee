@@ -1,0 +1,11 @@
+[@main]
+#IF
+random 2
+#SAY
+什么呀。别妨碍我修行！
+#ACT
+break
+
+#IF
+#SAY
+走开走开！

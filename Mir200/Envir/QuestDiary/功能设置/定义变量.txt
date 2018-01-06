@@ -1,0 +1,55 @@
+[@定义变量]
+{
+#IF
+#ACT
+VAR String HUMAN TGM
+VAR String HUMAN TGR
+LOADVAR HUMAN TGM ..\QuestDiary\推广.txt
+LOADVAR HUMAN TGR ..\QuestDiary\推广.txt
+VAR Integer HUMAN 押镖次数
+LOADVAR HUMAN 押镖次数 ..\QuestDiary\标记数据\押镖次数.txt
+VAR Integer HUMAN 押镖上限
+LOADVAR HUMAN 押镖上限 ..\QuestDiary\标记数据\押镖次数.txt
+VAR Integer HUMAN 镖车刷新次数
+LOADVAR HUMAN 镖车刷新次数 ..\QuestDiary\标记数据\押镖次数.txt
+VAR String HUMAN 镖车等级
+LOADVAR HUMAN 镖车等级 ..\QuestDiary\标记数据\押镖次数.txt
+VAR Integer HUMAN 抓捕次数
+LOADVAR HUMAN 抓捕次数 ..\QuestDiary\标记数据\抓捕次数.txt
+VAR INTEGER HUMAN 副本次数
+LOADVAR HUMAN  副本次数 ..\QuestDiary\标记数据\副本次数.txt
+VAR INTEGER HUMAN 剑系点
+LOADVAR HUMAN  剑系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 气系点
+LOADVAR HUMAN  气系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 毒系点
+LOADVAR HUMAN  毒系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 冰系点
+LOADVAR HUMAN  冰系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 火系点
+LOADVAR HUMAN  火系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 电系点
+LOADVAR HUMAN  电系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 咒系点
+LOADVAR HUMAN  咒系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 辅系点
+LOADVAR HUMAN  辅系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 唤系点
+LOADVAR HUMAN  唤系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR INTEGER HUMAN 忍系点
+LOADVAR HUMAN  忍系点 ..\QuestDiary\标记数据\人物加点.txt
+VAR Integer HUMAN QHP
+LoadVar HUMAN QHP ..\QuestDiary\标记数据\变量数据.txt
+VAR Integer HUMAN 回收元宝
+LoadVar HUMAN 回收元宝 ..\QuestDiary\回收数据\变量数据.txt
+VAR Integer HUMAN BOSS伤害
+LoadVar HUMAN BOSS伤害 ..\QuestDiary\BOSS计算\伤害记录.txt
+VAR Integer HUMAN 充值额度
+LoadVar HUMAN 充值额度 ..\QuestDiary\充值积分\充值额度Save.txt
+VAR Integer HUMAN 元宝充值
+LoadVar HUMAN 元宝充值 ..\QuestDiary\充值积分\元宝充值Save.txt
+
+
+
+
+}

@@ -1,0 +1,323 @@
+[@main]
+#if
+EQUAL A5 战场开始
+#SAY
+这里是洪荒战场。在这里可以进行PK。\
+目前战场处于<激情战场杀龟得元宝>活动中.......\
+
+
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+
+#IF
+EQUAL A76 <$USERNAME>
+#SAY
+恭喜，您是今天的武林天下第一！！\
+目前战场处于<天下第一比武大会>活动中.......\
+
+
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+#IF
+EQUAL A72 开启
+EQUAL A76 虚位以待
+#SAY
+这里是洪荒战场。在这里可以进行PK。\
+目前战场处于<天下第一比武大会>活动中.......\
+
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+#IF
+EQUAL A72 关闭
+EQUAL A76 虚位以待
+#SAY
+这里是洪荒战场。在这里可以进行PK。\
+目前战场处于<天下第一比武大会>活动中.......\
+
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+#IF
+EQUAL A72 已经结束
+EQUAL A76 虚位以待
+#SAY
+这里是洪荒战场。在这里可以进行PK。\
+目前战场处于<天下第一比武大会>活动中.......\
+
+<我是天下第一/@给予>\
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+#IF
+#SAY
+这里是洪荒战场。在这里可以进行PK。\
+目前战场处于沉寂状态..欢迎参观.....\
+
+
+您可以选择返回盟重\
+<回盟重/@返回>\ \
+当前时间为：<$DATETIME>\ \
+#ACT
+break
+
+
+
+
+[@给予]
+#if
+EQUAL A72 关闭
+EQUAL A76 虚位以待
+#SAY
+对不起，目前暂时无法领取称号，请等待活动结束！\
+#ACT
+break
+
+#if
+CHECKMAPHUMANCOUNT Nlts102 > 5
+#act
+messagebox 目前地图还有大于5人，请清出对方再来领取!\
+break
+
+
+#if
+CHECKMAPHUMANCOUNT Nlts102 = 5
+#act
+messagebox 目前地图还有5人，请清出对方再来领取!\
+break
+
+
+
+#if
+CHECKMAPHUMANCOUNT Nlts102 = 4
+#act
+messagebox 目前地图还有4人，请清出对方再来领取!\
+break
+
+
+#if
+CHECKMAPHUMANCOUNT Nlts102 = 3
+#act
+messagebox 目前地图还有3人，请清出对方再来领取!\
+break
+
+
+#if
+CHECKMAPHUMANCOUNT Nlts102 = 2
+#act
+messagebox 目前地图还有2人，请清出对方再来领取!\
+break
+
+#if
+CheckMapHumanCount Nlts102 = 1
+#act
+goto @txdy
+break
+
+
+[@txdy]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓□□□□□□□□□□□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........1秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查11
+break
+
+[@检查11]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓□□□□□□□□□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........2秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查22
+break
+
+[@检查22]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓□□□□□□□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........3秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查33
+break
+
+[@检查33]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓□□□□□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........4秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查44
+break
+
+
+[@检查44]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓□□□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........5秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查55
+break
+
+[@检查55]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓▓▓□□□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........6秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查66
+break
+
+[@检查66]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓▓▓▓▓□□□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........7秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查77
+break
+
+
+[@检查77]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓□□□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........8秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查88
+break
+
+
+[@检查88]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓□□/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........9秒/SCOLOR=250>　\
+#act
+DelayCall 300 @检查99
+break
+
+[@检查99]
+#if
+CHECKMAPHUMANCOUNT Nlts102 < 2
+#say
+　\
+　\
+　　   ┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┓　\
+　　   ┊<▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓/SCOLOR=254>┊　\
+　　   ┗┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┛　\
+　\
+　　　　　<系统正在倒计10秒领取奖励.........10秒/SCOLOR=250>　\
+#act
+DelayCall 300 @OK99
+break
+
+[@OK99]
+#if
+EQUAL A76 <$USERNAME>
+#ACT
+messagebox 您已经获得了今天的【威震八方】称号了呀？为什么还要点？
+break
+
+#if
+EQUAL A72 已经结束
+CHECKMAPHUMANCOUNT Nlts102 < 2
+EQUAL A76 虚位以待
+LARGE <$HOUR> 20
+LARGE <$MINUTE> 19
+#ACT
+MOV A76 <$USERNAME>
+RECYCFENGHAO 威震八方
+GiveFengHao 威震八方
+GAMEGOLD + 50
+MOV A16 可以领取
+SENDMSG  1  恭喜今天的擂主（%s）杀出重围，以横扫千军的气势获得超拉风的【威震八方】称号！奖励元宝50！
+SENDMSG  1  恭喜今天的擂主（%s）杀出重围，以横扫千军的气势获得超拉风的【威震八方】称号！奖励元宝50！
+SENDMSG  1  恭喜今天的擂主（%s）杀出重围，以横扫千军的气势获得超拉风的【威震八方】称号！奖励元宝50！
+SENDMSG  1  恭喜今天的擂主（%s）杀出重围，以横扫千军的气势获得超拉风的【威震八方】称号！奖励元宝50！
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>获得今日的武林第一！||大家可以找战场NPC进行膜拜！
+Gmexecute 开始提问 @战场结束
+break
+#elseact
+messagebox 对不起，可能是今天已经有人捷足先登了。\或者在场还有其他人。\或者活动未结束
+break
+
+
+
+[@返回]
+#ACT
+mapmove n3 330 333
+close

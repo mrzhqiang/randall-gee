@@ -1,0 +1,1155 @@
+[@暗黑检测384]
+{
+#IF
+#ACT
+MOV N$怪物血量 <$ATTACKMONSTER_HP>
+
+#OR
+CheckContainsText <$G_WEAPON> 凶猛的
+CheckContainsText <$G_DRESS> 凶猛的
+CheckContainsText <$G_RIGHTHAND> 凶猛的
+CheckContainsText <$G_HELMET> 凶猛的
+CheckContainsText <$G_NECKLACE> 凶猛的
+CheckContainsText <$G_RING_L> 凶猛的
+CheckContainsText <$G_RING_R> 凶猛的
+CheckContainsText <$G_ARMRING_L> 凶猛的
+CheckContainsText <$G_ARMRING_R> 凶猛的
+CheckContainsText <$G_BELT> 凶猛的
+CheckContainsText <$G_BOOTS> 凶猛的
+CheckContainsText <$G_CHARM> 凶猛的
+CheckContainsText <$G_HAT> 凶猛的
+CheckContainsText <$G_SHIELD> 凶猛的
+CheckContainsText <$G_DRUM> 凶猛的
+#ACT
+GOTO @凶猛的
+
+#OR
+CheckContainsText <$G_WEAPON> 野蛮的
+CheckContainsText <$G_DRESS> 野蛮的
+CheckContainsText <$G_RIGHTHAND> 野蛮的
+CheckContainsText <$G_HELMET> 野蛮的
+CheckContainsText <$G_NECKLACE> 野蛮的
+CheckContainsText <$G_RING_L> 野蛮的
+CheckContainsText <$G_RING_R> 野蛮的
+CheckContainsText <$G_ARMRING_L> 野蛮的
+CheckContainsText <$G_ARMRING_R> 野蛮的
+CheckContainsText <$G_BELT> 野蛮的
+CheckContainsText <$G_BOOTS> 野蛮的
+CheckContainsText <$G_CHARM> 野蛮的
+CheckContainsText <$G_HAT> 野蛮的
+CheckContainsText <$G_SHIELD> 野蛮的
+CheckContainsText <$G_DRUM> 野蛮的
+#ACT
+goto @野蛮的
+
+#OR
+CheckContainsText <$G_WEAPON> 冰寒的
+CheckContainsText <$G_DRESS> 冰寒的
+CheckContainsText <$G_RIGHTHAND> 冰寒的
+CheckContainsText <$G_HELMET> 冰寒的
+CheckContainsText <$G_NECKLACE> 冰寒的
+CheckContainsText <$G_RING_L> 冰寒的
+CheckContainsText <$G_RING_R> 冰寒的
+CheckContainsText <$G_ARMRING_L> 冰寒的
+CheckContainsText <$G_ARMRING_R> 冰寒的
+CheckContainsText <$G_BELT> 冰寒的
+CheckContainsText <$G_BOOTS> 冰寒的
+CheckContainsText <$G_CHARM> 冰寒的
+CheckContainsText <$G_HAT> 冰寒的
+CheckContainsText <$G_SHIELD> 冰寒的
+CheckContainsText <$G_DRUM> 冰寒的
+#ACT
+GOTO @冰寒的
+
+#or
+CheckContainsText <$G_WEAPON> 瘫痪的
+CheckContainsText <$G_DRESS> 瘫痪的
+CheckContainsText <$G_RIGHTHAND> 瘫痪的
+CheckContainsText <$G_HELMET> 瘫痪的
+CheckContainsText <$G_NECKLACE> 瘫痪的
+CheckContainsText <$G_RING_L> 瘫痪的
+CheckContainsText <$G_RING_R> 瘫痪的
+CheckContainsText <$G_ARMRING_L> 瘫痪的
+CheckContainsText <$G_ARMRING_R> 瘫痪的
+CheckContainsText <$G_BELT> 瘫痪的
+CheckContainsText <$G_BOOTS> 瘫痪的
+CheckContainsText <$G_CHARM> 瘫痪的
+CheckContainsText <$G_HAT> 瘫痪的
+CheckContainsText <$G_SHIELD> 瘫痪的
+CheckContainsText <$G_DRUM> 瘫痪的
+#act
+GOTO @瘫痪的
+
+#or
+CheckContainsText <$G_WEAPON> 禁锢的
+CheckContainsText <$G_DRESS> 禁锢的
+CheckContainsText <$G_RIGHTHAND> 禁锢的
+CheckContainsText <$G_HELMET> 禁锢的
+CheckContainsText <$G_NECKLACE> 禁锢的
+CheckContainsText <$G_RING_L> 禁锢的
+CheckContainsText <$G_RING_R> 禁锢的
+CheckContainsText <$G_ARMRING_L> 禁锢的
+CheckContainsText <$G_ARMRING_R> 禁锢的
+CheckContainsText <$G_BELT> 禁锢的
+CheckContainsText <$G_BOOTS> 禁锢的
+CheckContainsText <$G_CHARM> 禁锢的
+CheckContainsText <$G_HAT> 禁锢的
+CheckContainsText <$G_SHIELD> 禁锢的
+CheckContainsText <$G_DRUM> 禁锢的
+#act
+GOTO @禁锢的
+
+#OR
+CheckContainsText <$G_DRUM> 上古灵符的
+CheckContainsText <$G_WEAPON> 上古灵符的
+CheckContainsText <$G_DRESS> 上古灵符的
+CheckContainsText <$G_RIGHTHAND> 上古灵符的
+CheckContainsText <$G_HELMET> 上古灵符的
+CheckContainsText <$G_NECKLACE> 上古灵符的
+CheckContainsText <$G_RING_L> 上古灵符的
+CheckContainsText <$G_RING_R> 上古灵符的
+CheckContainsText <$G_ARMRING_L> 上古灵符的
+CheckContainsText <$G_ARMRING_R> 上古灵符的
+CheckContainsText <$G_BELT> 上古灵符的
+CheckContainsText <$G_BOOTS> 上古灵符的
+CheckContainsText <$G_CHARM> 上古灵符的
+CheckContainsText <$G_HAT> 上古灵符的
+CheckContainsText <$G_SHIELD> 上古灵符的
+#ACT
+goto @上古灵符
+
+
+#OR
+CheckContainsText <$G_DRUM> 情撼九天的
+CheckContainsText <$G_WEAPON> 情撼九天的
+CheckContainsText <$G_DRESS> 情撼九天的
+CheckContainsText <$G_RIGHTHAND> 情撼九天的
+CheckContainsText <$G_HELMET> 情撼九天的
+CheckContainsText <$G_NECKLACE> 情撼九天的
+CheckContainsText <$G_RING_L> 情撼九天的
+CheckContainsText <$G_RING_R> 情撼九天的
+CheckContainsText <$G_ARMRING_L> 情撼九天的
+CheckContainsText <$G_ARMRING_R> 情撼九天的
+CheckContainsText <$G_BELT> 情撼九天的
+CheckContainsText <$G_BOOTS> 情撼九天的
+CheckContainsText <$G_CHARM> 情撼九天的
+CheckContainsText <$G_HAT> 情撼九天的
+CheckContainsText <$G_SHIELD> 情撼九天的
+#act
+GOTO @情撼九天的
+
+
+#or
+CheckContainsText <$G_WEAPON> 恶毒的
+CheckContainsText <$G_DRESS> 恶毒的
+CheckContainsText <$G_RIGHTHAND> 恶毒的
+CheckContainsText <$G_HELMET> 恶毒的
+CheckContainsText <$G_NECKLACE> 恶毒的
+CheckContainsText <$G_RING_L> 恶毒的
+CheckContainsText <$G_RING_R> 恶毒的
+CheckContainsText <$G_ARMRING_L> 恶毒的
+CheckContainsText <$G_ARMRING_R> 恶毒的
+CheckContainsText <$G_BELT> 恶毒的
+CheckContainsText <$G_BOOTS> 恶毒的
+CheckContainsText <$G_CHARM> 恶毒的
+CheckContainsText <$G_HAT> 恶毒的
+CheckContainsText <$G_SHIELD> 恶毒的
+CheckContainsText <$G_DRUM> 恶毒的
+#act
+GOTO @恶毒的
+
+#OR
+CheckContainsText <$G_WEAPON> 残忍的
+CheckContainsText <$G_DRESS> 残忍的
+CheckContainsText <$G_RIGHTHAND> 残忍的
+CheckContainsText <$G_HELMET> 残忍的
+CheckContainsText <$G_NECKLACE> 残忍的
+CheckContainsText <$G_RING_L> 残忍的
+CheckContainsText <$G_RING_R> 残忍的
+CheckContainsText <$G_ARMRING_L> 残忍的
+CheckContainsText <$G_ARMRING_R> 残忍的
+CheckContainsText <$G_BELT> 残忍的
+CheckContainsText <$G_BOOTS> 残忍的
+CheckContainsText <$G_CHARM> 残忍的
+CheckContainsText <$G_HAT> 残忍的
+CheckContainsText <$G_SHIELD> 残忍的
+CheckContainsText <$G_DRUM> 残忍的
+#act
+GOTO @残忍的
+
+#OR
+CheckContainsText <$G_WEAPON> 致命的
+CheckContainsText <$G_DRESS> 致命的
+CheckContainsText <$G_RIGHTHAND> 致命的
+CheckContainsText <$G_HELMET> 致命的
+CheckContainsText <$G_NECKLACE> 致命的
+CheckContainsText <$G_RING_L> 致命的
+CheckContainsText <$G_RING_R> 致命的
+CheckContainsText <$G_ARMRING_L> 致命的
+CheckContainsText <$G_ARMRING_R> 致命的
+CheckContainsText <$G_BELT> 致命的
+CheckContainsText <$G_BOOTS> 致命的
+CheckContainsText <$G_CHARM> 致命的
+CheckContainsText <$G_HAT> 致命的
+CheckContainsText <$G_SHIELD> 致命的
+CheckContainsText <$G_DRUM> 致命的
+#act
+GOTO @致命的
+
+#OR
+CheckContainsText <$G_WEAPON> 被诅咒的
+CheckContainsText <$G_DRESS> 被诅咒的
+CheckContainsText <$G_RIGHTHAND> 被诅咒的
+CheckContainsText <$G_HELMET> 被诅咒的
+CheckContainsText <$G_NECKLACE> 被诅咒的
+CheckContainsText <$G_RING_L> 被诅咒的
+CheckContainsText <$G_RING_R> 被诅咒的
+CheckContainsText <$G_ARMRING_L> 被诅咒的
+CheckContainsText <$G_ARMRING_R> 被诅咒的
+CheckContainsText <$G_BELT> 被诅咒的
+CheckContainsText <$G_BOOTS> 被诅咒的
+CheckContainsText <$G_CHARM> 被诅咒的
+CheckContainsText <$G_HAT> 被诅咒的
+CheckContainsText <$G_SHIELD> 被诅咒的
+CheckContainsText <$G_DRUM> 被诅咒的
+#ACT
+HumanHP - 10
+M.HumanHP - 30 300
+PLAYEFFECT 30 600 9 1 80 0 0 0 0
+break
+
+
+#OR
+CheckContainsText <$G_WEAPON> 帝王的
+CheckContainsText <$G_DRESS> 帝王的
+CheckContainsText <$G_RIGHTHAND> 帝王的
+CheckContainsText <$G_HELMET> 帝王的
+CheckContainsText <$G_NECKLACE> 帝王的
+CheckContainsText <$G_RING_L> 帝王的
+CheckContainsText <$G_RING_R> 帝王的
+CheckContainsText <$G_ARMRING_L> 帝王的
+CheckContainsText <$G_ARMRING_R> 帝王的
+CheckContainsText <$G_BELT> 帝王的
+CheckContainsText <$G_BOOTS> 帝王的
+CheckContainsText <$G_CHARM> 帝王的
+CheckContainsText <$G_HAT> 帝王的
+CheckContainsText <$G_SHIELD> 帝王的
+CheckContainsText <$G_DRUM> 帝王的
+#act
+GOTO @帝王的
+
+#OR
+CheckContainsText <$G_WEAPON> 破坏者的
+CheckContainsText <$G_DRESS> 破坏者的
+CheckContainsText <$G_RIGHTHAND> 破坏者的
+CheckContainsText <$G_HELMET> 破坏者的
+CheckContainsText <$G_NECKLACE> 破坏者的
+CheckContainsText <$G_RING_L> 破坏者的
+CheckContainsText <$G_RING_R> 破坏者的
+CheckContainsText <$G_ARMRING_L> 破坏者的
+CheckContainsText <$G_ARMRING_R> 破坏者的
+CheckContainsText <$G_BELT> 破坏者的
+CheckContainsText <$G_BOOTS> 破坏者的
+CheckContainsText <$G_CHARM> 破坏者的
+CheckContainsText <$G_HAT> 破坏者的
+CheckContainsText <$G_SHIELD> 破坏者的
+CheckContainsText <$G_DRUM> 破坏者的
+#act
+GOTO @破坏者的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 嗜血的
+CheckContainsText <$G_DRESS> 嗜血的
+CheckContainsText <$G_RIGHTHAND> 嗜血的
+CheckContainsText <$G_HELMET> 嗜血的
+CheckContainsText <$G_NECKLACE> 嗜血的
+CheckContainsText <$G_RING_L> 嗜血的
+CheckContainsText <$G_RING_R> 嗜血的
+CheckContainsText <$G_ARMRING_L> 嗜血的
+CheckContainsText <$G_ARMRING_R> 嗜血的
+CheckContainsText <$G_BELT> 嗜血的
+CheckContainsText <$G_BOOTS> 嗜血的
+CheckContainsText <$G_CHARM> 嗜血的
+CheckContainsText <$G_HAT> 嗜血的
+CheckContainsText <$G_SHIELD> 嗜血的
+CheckContainsText <$G_DRUM> 嗜血的
+#act
+GOTO @嗜血的
+
+#OR
+NOT EQUAL N$杀戮 0
+#ACT
+M.HumanHP - <$STR(N$杀戮)> 300
+MOV N$杀戮 0
+
+
+#OR
+CheckContainsText <$G_WEAPON> 石化的
+CheckContainsText <$G_DRESS> 石化的
+CheckContainsText <$G_RIGHTHAND> 石化的
+CheckContainsText <$G_HELMET> 石化的
+CheckContainsText <$G_NECKLACE> 石化的
+CheckContainsText <$G_RING_L> 石化的
+CheckContainsText <$G_RING_R> 石化的
+CheckContainsText <$G_ARMRING_L> 石化的
+CheckContainsText <$G_ARMRING_R> 石化的
+CheckContainsText <$G_BELT> 石化的
+CheckContainsText <$G_BOOTS> 石化的
+CheckContainsText <$G_CHARM> 石化的
+CheckContainsText <$G_HAT> 石化的
+CheckContainsText <$G_SHIELD> 石化的
+CheckContainsText <$G_DRUM> 石化的
+#act
+GOTO @石化的
+
+#OR
+CheckContainsText <$G_WEAPON> 霸道的
+CheckContainsText <$G_DRESS> 霸道的
+CheckContainsText <$G_RIGHTHAND> 霸道的
+CheckContainsText <$G_HELMET> 霸道的
+CheckContainsText <$G_NECKLACE> 霸道的
+CheckContainsText <$G_RING_L> 霸道的
+CheckContainsText <$G_RING_R> 霸道的
+CheckContainsText <$G_ARMRING_L> 霸道的
+CheckContainsText <$G_ARMRING_R> 霸道的
+CheckContainsText <$G_BELT> 霸道的
+CheckContainsText <$G_BOOTS> 霸道的
+CheckContainsText <$G_CHARM> 霸道的
+CheckContainsText <$G_HAT> 霸道的
+CheckContainsText <$G_SHIELD> 霸道的
+CheckContainsText <$G_DRUM> 霸道的
+#act
+GOTO @霸道的
+
+
+#OR
+CheckContainsText <$G_DRUM> 天道的
+CheckContainsText <$G_WEAPON> 天道的
+CheckContainsText <$G_DRESS> 天道的
+CheckContainsText <$G_RIGHTHAND> 天道的
+CheckContainsText <$G_HELMET> 天道的
+CheckContainsText <$G_NECKLACE> 天道的
+CheckContainsText <$G_RING_L> 天道的
+CheckContainsText <$G_RING_R> 天道的
+CheckContainsText <$G_ARMRING_L> 天道的
+CheckContainsText <$G_ARMRING_R> 天道的
+CheckContainsText <$G_BELT> 天道的
+CheckContainsText <$G_BOOTS> 天道的
+CheckContainsText <$G_CHARM> 天道的
+CheckContainsText <$G_HAT> 天道的
+CheckContainsText <$G_SHIELD> 天道的
+#act
+GOTO @天道的
+
+#OR
+CheckContainsText <$G_WEAPON> 夺魂的
+CheckContainsText <$G_DRESS> 夺魂的
+CheckContainsText <$G_RIGHTHAND> 夺魂的
+CheckContainsText <$G_HELMET> 夺魂的
+CheckContainsText <$G_NECKLACE> 夺魂的
+CheckContainsText <$G_RING_L> 夺魂的
+CheckContainsText <$G_RING_R> 夺魂的
+CheckContainsText <$G_ARMRING_L> 夺魂的
+CheckContainsText <$G_ARMRING_R> 夺魂的
+CheckContainsText <$G_BELT> 夺魂的
+CheckContainsText <$G_BOOTS> 夺魂的
+CheckContainsText <$G_CHARM> 夺魂的
+CheckContainsText <$G_HAT> 夺魂的
+CheckContainsText <$G_SHIELD> 夺魂的
+CheckContainsText <$G_DRUM> 夺魂的
+#act
+GOTO @夺魂的
+#OR
+CheckContainsText <$G_DRUM> 压制的
+CheckContainsText <$G_WEAPON> 压制的
+CheckContainsText <$G_DRESS> 压制的
+CheckContainsText <$G_RIGHTHAND> 压制的
+CheckContainsText <$G_HELMET> 压制的
+CheckContainsText <$G_NECKLACE> 压制的
+CheckContainsText <$G_RING_L> 压制的
+CheckContainsText <$G_RING_R> 压制的
+CheckContainsText <$G_ARMRING_L> 压制的
+CheckContainsText <$G_ARMRING_R> 压制的
+CheckContainsText <$G_BELT> 压制的
+CheckContainsText <$G_BOOTS> 压制的
+CheckContainsText <$G_CHARM> 压制的
+CheckContainsText <$G_HAT> 压制的
+CheckContainsText <$G_SHIELD> 压制的
+#act
+GOTO @压制的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 双倍伤害的
+CheckContainsText <$G_DRESS> 双倍伤害的
+CheckContainsText <$G_RIGHTHAND> 双倍伤害的
+CheckContainsText <$G_HELMET> 双倍伤害的
+CheckContainsText <$G_NECKLACE> 双倍伤害的
+CheckContainsText <$G_RING_L> 双倍伤害的
+CheckContainsText <$G_RING_R> 双倍伤害的
+CheckContainsText <$G_ARMRING_L> 双倍伤害的
+CheckContainsText <$G_ARMRING_R> 双倍伤害的
+CheckContainsText <$G_BELT> 双倍伤害的
+CheckContainsText <$G_BOOTS> 双倍伤害的
+CheckContainsText <$G_CHARM> 双倍伤害的
+CheckContainsText <$G_HAT> 双倍伤害的
+CheckContainsText <$G_SHIELD> 双倍伤害的
+CheckContainsText <$G_DRUM> 双倍伤害的
+#act
+GOTO @双倍伤害的
+
+
+#OR
+CheckContainsText <$G_DRUM> 智慧的
+CheckContainsText <$G_WEAPON> 智慧的
+CheckContainsText <$G_DRESS> 智慧的
+CheckContainsText <$G_RIGHTHAND> 智慧的
+CheckContainsText <$G_HELMET> 智慧的
+CheckContainsText <$G_NECKLACE> 智慧的
+CheckContainsText <$G_RING_L> 智慧的
+CheckContainsText <$G_RING_R> 智慧的
+CheckContainsText <$G_ARMRING_L> 智慧的
+CheckContainsText <$G_ARMRING_R> 智慧的
+CheckContainsText <$G_BELT> 智慧的
+CheckContainsText <$G_BOOTS> 智慧的
+CheckContainsText <$G_CHARM> 智慧的
+CheckContainsText <$G_HAT> 智慧的
+CheckContainsText <$G_SHIELD> 智慧的
+#act
+GOTO @智慧的
+
+
+
+#OR
+CheckContainsText <$G_WEAPON> 力量的
+CheckContainsText <$G_DRESS> 力量的
+CheckContainsText <$G_RIGHTHAND> 力量的
+CheckContainsText <$G_HELMET> 力量的
+CheckContainsText <$G_NECKLACE> 力量的
+CheckContainsText <$G_RING_L> 力量的
+CheckContainsText <$G_RING_R> 力量的
+CheckContainsText <$G_ARMRING_L> 力量的
+CheckContainsText <$G_ARMRING_R> 力量的
+CheckContainsText <$G_BELT> 力量的
+CheckContainsText <$G_BOOTS> 力量的
+CheckContainsText <$G_CHARM> 力量的
+CheckContainsText <$G_HAT> 力量的
+CheckContainsText <$G_SHIELD> 力量的
+CheckContainsText <$G_DRUM> 力量的
+#act
+GOTO @力量的
+
+#OR
+CheckContainsText <$G_DRUM> 幸运的
+CheckContainsText <$G_WEAPON> 幸运的
+CheckContainsText <$G_DRESS> 幸运的
+CheckContainsText <$G_RIGHTHAND> 幸运的
+CheckContainsText <$G_HELMET> 幸运的
+CheckContainsText <$G_NECKLACE> 幸运的
+CheckContainsText <$G_RING_L> 幸运的
+CheckContainsText <$G_RING_R> 幸运的
+CheckContainsText <$G_ARMRING_L> 幸运的
+CheckContainsText <$G_ARMRING_R> 幸运的
+CheckContainsText <$G_BELT> 幸运的
+CheckContainsText <$G_BOOTS> 幸运的
+CheckContainsText <$G_CHARM> 幸运的
+CheckContainsText <$G_HAT> 幸运的
+CheckContainsText <$G_SHIELD> 幸运的
+#act
+GOTO @幸运的
+
+#OR
+CheckContainsText <$G_WEAPON> 贤者的
+CheckContainsText <$G_DRESS> 贤者的
+CheckContainsText <$G_RIGHTHAND> 贤者的
+CheckContainsText <$G_HELMET> 贤者的
+CheckContainsText <$G_NECKLACE> 贤者的
+CheckContainsText <$G_RING_L> 贤者的
+CheckContainsText <$G_RING_R> 贤者的
+CheckContainsText <$G_ARMRING_L> 贤者的
+CheckContainsText <$G_ARMRING_R> 贤者的
+CheckContainsText <$G_BELT> 贤者的
+CheckContainsText <$G_BOOTS> 贤者的
+CheckContainsText <$G_CHARM> 贤者的
+CheckContainsText <$G_HAT> 贤者的
+CheckContainsText <$G_SHIELD> 贤者的
+CheckContainsText <$G_DRUM> 贤者的
+#act
+GOTO @贤者的
+
+#OR
+CheckContainsText <$G_DRUM> 混乱的
+CheckContainsText <$G_WEAPON> 混乱的
+CheckContainsText <$G_DRESS> 混乱的
+CheckContainsText <$G_RIGHTHAND> 混乱的
+CheckContainsText <$G_HELMET> 混乱的
+CheckContainsText <$G_NECKLACE> 混乱的
+CheckContainsText <$G_RING_L> 混乱的
+CheckContainsText <$G_RING_R> 混乱的
+CheckContainsText <$G_ARMRING_L> 混乱的
+CheckContainsText <$G_ARMRING_R> 混乱的
+CheckContainsText <$G_BELT> 混乱的
+CheckContainsText <$G_BOOTS> 混乱的
+CheckContainsText <$G_CHARM> 混乱的
+CheckContainsText <$G_HAT> 混乱的
+CheckContainsText <$G_SHIELD> 混乱的
+#ACT
+GOTO @混乱的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 惩戒的
+CheckContainsText <$G_DRESS> 惩戒的
+CheckContainsText <$G_RIGHTHAND> 惩戒的
+CheckContainsText <$G_HELMET> 惩戒的
+CheckContainsText <$G_NECKLACE> 惩戒的
+CheckContainsText <$G_RING_L> 惩戒的
+CheckContainsText <$G_RING_R> 惩戒的
+CheckContainsText <$G_ARMRING_L> 惩戒的
+CheckContainsText <$G_ARMRING_R> 惩戒的
+CheckContainsText <$G_BELT> 惩戒的
+CheckContainsText <$G_BOOTS> 惩戒的
+CheckContainsText <$G_CHARM> 惩戒的
+CheckContainsText <$G_HAT> 惩戒的
+CheckContainsText <$G_SHIELD> 惩戒的
+CheckContainsText <$G_DRUM> 惩戒的
+#act
+GOTO @惩戒的
+
+
+
+#OR
+CheckContainsText <$G_DRUM> 神罚的
+CheckContainsText <$G_WEAPON> 神罚的
+CheckContainsText <$G_DRESS> 神罚的
+CheckContainsText <$G_RIGHTHAND> 神罚的
+CheckContainsText <$G_HELMET> 神罚的
+CheckContainsText <$G_NECKLACE> 神罚的
+CheckContainsText <$G_RING_L> 神罚的
+CheckContainsText <$G_RING_R> 神罚的
+CheckContainsText <$G_ARMRING_L> 神罚的
+CheckContainsText <$G_ARMRING_R> 神罚的
+CheckContainsText <$G_BELT> 神罚的
+CheckContainsText <$G_BOOTS> 神罚的
+CheckContainsText <$G_CHARM> 神罚的
+CheckContainsText <$G_HAT> 神罚的
+CheckContainsText <$G_SHIELD> 神罚的
+#act
+GOTO @神罚的
+
+
+
+
+#OR
+CheckContainsText <$G_WEAPON> 失控的
+CheckContainsText <$G_DRESS> 失控的
+CheckContainsText <$G_RIGHTHAND> 失控的
+CheckContainsText <$G_HELMET> 失控的
+CheckContainsText <$G_NECKLACE> 失控的
+CheckContainsText <$G_RING_L> 失控的
+CheckContainsText <$G_RING_R> 失控的
+CheckContainsText <$G_ARMRING_L> 失控的
+CheckContainsText <$G_ARMRING_R> 失控的
+CheckContainsText <$G_BELT> 失控的
+CheckContainsText <$G_BOOTS> 失控的
+CheckContainsText <$G_CHARM> 失控的
+CheckContainsText <$G_HAT> 失控的
+CheckContainsText <$G_SHIELD> 失控的
+CheckContainsText <$G_DRUM> 失控的
+#act
+GOTO @失控的
+
+
+
+#OR
+CheckContainsText <$G_WEAPON> 神力涌现的
+CheckContainsText <$G_DRESS> 神力涌现的
+CheckContainsText <$G_RIGHTHAND> 神力涌现的
+CheckContainsText <$G_HELMET> 神力涌现的
+CheckContainsText <$G_NECKLACE> 神力涌现的
+CheckContainsText <$G_RING_L> 神力涌现的
+CheckContainsText <$G_RING_R> 神力涌现的
+CheckContainsText <$G_ARMRING_L> 神力涌现的
+CheckContainsText <$G_ARMRING_R> 神力涌现的
+CheckContainsText <$G_BELT> 神力涌现的
+CheckContainsText <$G_BOOTS> 神力涌现的
+CheckContainsText <$G_CHARM> 神力涌现的
+CheckContainsText <$G_HAT> 神力涌现的
+CheckContainsText <$G_SHIELD> 神力涌现的
+CheckContainsText <$G_DRUM> 神力涌现的
+#act
+GOTO @神力涌现的
+
+#OR
+CheckContainsText <$G_DRUM> 吸血鬼的
+CheckContainsText <$G_WEAPON> 吸血鬼的
+CheckContainsText <$G_DRESS> 吸血鬼的
+CheckContainsText <$G_RIGHTHAND> 吸血鬼的
+CheckContainsText <$G_HELMET> 吸血鬼的
+CheckContainsText <$G_NECKLACE> 吸血鬼的
+CheckContainsText <$G_RING_L> 吸血鬼的
+CheckContainsText <$G_RING_R> 吸血鬼的
+CheckContainsText <$G_ARMRING_L> 吸血鬼的
+CheckContainsText <$G_ARMRING_R> 吸血鬼的
+CheckContainsText <$G_BELT> 吸血鬼的
+CheckContainsText <$G_BOOTS> 吸血鬼的
+CheckContainsText <$G_CHARM> 吸血鬼的
+CheckContainsText <$G_HAT> 吸血鬼的
+CheckContainsText <$G_SHIELD> 吸血鬼的
+#ACT
+GOTOLABEL 3 @邪恶
+
+
+#OR
+CheckContainsText <$G_WEAPON> 统治的
+CheckContainsText <$G_DRESS> 统治的
+CheckContainsText <$G_RIGHTHAND> 统治的
+CheckContainsText <$G_HELMET> 统治的
+CheckContainsText <$G_NECKLACE> 统治的
+CheckContainsText <$G_RING_L> 统治的
+CheckContainsText <$G_RING_R> 统治的
+CheckContainsText <$G_ARMRING_L> 统治的
+CheckContainsText <$G_ARMRING_R> 统治的
+CheckContainsText <$G_BELT> 统治的
+CheckContainsText <$G_BOOTS> 统治的
+CheckContainsText <$G_CHARM> 统治的
+CheckContainsText <$G_HAT> 统治的
+CheckContainsText <$G_SHIELD> 统治的
+CheckContainsText <$G_DRUM> 统治的
+#act
+GOTO @统治的
+
+#OR
+CheckContainsText <$G_DRUM> 善恶有报的
+CheckContainsText <$G_WEAPON> 善恶有报的
+CheckContainsText <$G_DRESS> 善恶有报的
+CheckContainsText <$G_RIGHTHAND> 善恶有报的
+CheckContainsText <$G_HELMET> 善恶有报的
+CheckContainsText <$G_NECKLACE> 善恶有报的
+CheckContainsText <$G_RING_L> 善恶有报的
+CheckContainsText <$G_RING_R> 善恶有报的
+CheckContainsText <$G_ARMRING_L> 善恶有报的
+CheckContainsText <$G_ARMRING_R> 善恶有报的
+CheckContainsText <$G_BELT> 善恶有报的
+CheckContainsText <$G_BOOTS> 善恶有报的
+CheckContainsText <$G_CHARM> 善恶有报的
+CheckContainsText <$G_HAT> 善恶有报的
+CheckContainsText <$G_SHIELD> 善恶有报的
+#ACT
+goto @善恶有报
+
+
+#OR
+CheckContainsText <$G_DRUM> 龙魂之力的
+CheckContainsText <$G_WEAPON> 龙魂之力的
+CheckContainsText <$G_DRESS> 龙魂之力的
+CheckContainsText <$G_RIGHTHAND> 龙魂之力的
+CheckContainsText <$G_HELMET> 龙魂之力的
+CheckContainsText <$G_NECKLACE> 龙魂之力的
+CheckContainsText <$G_RING_L> 龙魂之力的
+CheckContainsText <$G_RING_R> 龙魂之力的
+CheckContainsText <$G_ARMRING_L> 龙魂之力的
+CheckContainsText <$G_ARMRING_R> 龙魂之力的
+CheckContainsText <$G_BELT> 龙魂之力的
+CheckContainsText <$G_BOOTS> 龙魂之力的
+CheckContainsText <$G_CHARM> 龙魂之力的
+CheckContainsText <$G_HAT> 龙魂之力的
+CheckContainsText <$G_SHIELD> 龙魂之力的
+#act
+GOTO @龙魂之力的
+
+
+
+#OR
+CheckContainsText <$G_DRUM> 壁垒击破的
+CheckContainsText <$G_WEAPON> 壁垒击破的
+CheckContainsText <$G_DRESS> 壁垒击破的
+CheckContainsText <$G_RIGHTHAND> 壁垒击破的
+CheckContainsText <$G_HELMET> 壁垒击破的
+CheckContainsText <$G_NECKLACE> 壁垒击破的
+CheckContainsText <$G_RING_L> 壁垒击破的
+CheckContainsText <$G_RING_R> 壁垒击破的
+CheckContainsText <$G_ARMRING_L> 壁垒击破的
+CheckContainsText <$G_ARMRING_R> 壁垒击破的
+CheckContainsText <$G_BELT> 壁垒击破的
+CheckContainsText <$G_BOOTS> 壁垒击破的
+CheckContainsText <$G_CHARM> 壁垒击破的
+CheckContainsText <$G_HAT> 壁垒击破的
+CheckContainsText <$G_SHIELD> 壁垒击破的
+#act
+GOTO @壁垒击破的
+
+
+#OR
+CheckContainsText <$G_DRUM> 灵力充沛的
+CheckContainsText <$G_WEAPON> 灵力充沛的
+CheckContainsText <$G_DRESS> 灵力充沛的
+CheckContainsText <$G_RIGHTHAND> 灵力充沛的
+CheckContainsText <$G_HELMET> 灵力充沛的
+CheckContainsText <$G_NECKLACE> 灵力充沛的
+CheckContainsText <$G_RING_L> 灵力充沛的
+CheckContainsText <$G_RING_R> 灵力充沛的
+CheckContainsText <$G_ARMRING_L> 灵力充沛的
+CheckContainsText <$G_ARMRING_R> 灵力充沛的
+CheckContainsText <$G_BELT> 灵力充沛的
+CheckContainsText <$G_BOOTS> 灵力充沛的
+CheckContainsText <$G_CHARM> 灵力充沛的
+CheckContainsText <$G_HAT> 灵力充沛的
+CheckContainsText <$G_SHIELD> 灵力充沛的
+#act
+GOTO @灵力充沛的
+
+#OR
+CheckContainsText <$G_DRUM> 怒火中烧的
+CheckContainsText <$G_WEAPON> 怒火中烧的
+CheckContainsText <$G_DRESS> 怒火中烧的
+CheckContainsText <$G_RIGHTHAND> 怒火中烧的
+CheckContainsText <$G_HELMET> 怒火中烧的
+CheckContainsText <$G_NECKLACE> 怒火中烧的
+CheckContainsText <$G_RING_L> 怒火中烧的
+CheckContainsText <$G_RING_R> 怒火中烧的
+CheckContainsText <$G_ARMRING_L> 怒火中烧的
+CheckContainsText <$G_ARMRING_R> 怒火中烧的
+CheckContainsText <$G_BELT> 怒火中烧的
+CheckContainsText <$G_BOOTS> 怒火中烧的
+CheckContainsText <$G_CHARM> 怒火中烧的
+CheckContainsText <$G_HAT> 怒火中烧的
+CheckContainsText <$G_SHIELD> 怒火中烧的
+#act
+GOTO @怒火中烧的
+break
+
+
+
+
+[@龙魂之力的]
+#if
+SMALL <$ELEMENT1> 31
+random 150
+#ACT
+SetNewItemValueEx 16 1 + 30 5
+SendCenterMsg 250 0 龙魂之力！攻击伤害增加至<$ELEMENT1>，持续5秒 0 3
+break
+
+
+[@壁垒击破的]
+#if
+SMALL <$ELEMENT4> 99
+random 210
+#ACT
+SetNewItemValueEx 16 4 + 100 5
+SendCenterMsg 250 0 壁垒击破！无视防御增加至<$ELEMENT4>，持续8秒 0 3
+break
+
+[@灵力充沛的]
+#if
+LARGE <$MP> 19
+#ACT
+HumanMP - 10
+M.HumanHP - 30 300
+PLAYEFFECT 30 600 9 1 80 0 0 0 0
+break
+
+[@怒火中烧的]
+#if
+SMALL <$ELEMENT> 99
+random 210
+#ACT
+SetNewItemValueEx 16 0 + 100 5
+SendCenterMsg 250 0 怒火中烧！暴击几率增加至<$ELEMENT>，持续8秒 0 3
+break
+
+
+[@禁锢的]
+#if
+random 210
+#ACT
+M.CHANGESTATE 8 3 1
+SendCenterMsg 250 0 禁锢发动！敌人被禁锢3秒！ 0 3
+break
+
+
+[@贤者的]
+#if
+random 99
+#ACT
+ChangeHumAbility 19 + 1 2
+PLAYEFFECT 23 1030 8 1 100 0 0 0 0
+break
+
+
+[@惩戒的]
+#if
+random 150
+#ACT
+M.AddhpPer - 1
+SendCenterMsg 250 0 惩戒触发！怪物减少1%血量 0 3
+break
+
+
+[@神罚的]
+#if
+random 300
+#ACT
+M.HumanHP - 500
+SendCenterMsg 250 0 神罚触发！怪物减少500血量 0 3
+break
+
+
+[@失控的]
+#if
+random 90
+#ACT
+mov N1 <$PKPOWER>
+MUL N1 100
+DIV N1 40
+M.humanHP - <$str(N1)> 330
+SendCenterMsg 250 0 失控触发！造成250%伤害:<$str(N1)> 0 3
+break
+
+
+[@神力涌现的]
+#if
+random 30
+#ACT
+MOV N$涌现加生命 <$MAXHP>
+MOV N$涌现加魔法 <$MAXMP>
+Div N$涌现加生命 5
+Div N$涌现加魔法 5
+ChangeHumAbility 11 = 0
+ChangeHumAbility 12 = 0
+ChangeHumAbility 11 + <$STR(N$涌现加生命)> 10
+ChangeHumAbility 12 + <$STR(N$涌现加魔法)> 10
+SendCenterMsg 250 0 神力涌现！HP增加：<$STR(N$涌现加生命)>，MP增加：<$STR(N$涌现加魔法)> 0 3
+break
+
+
+[@统治的]
+#if
+random 210
+NOT CHECKSLAVENAME 刀卫
+#ACT
+RECALLMOB 刀卫 1 30 0
+PLAYEFFECT 23 330 17 1 80 0 0 0 0
+SendCenterMsg 250 0 帝王之力召唤出刀卫战士！ 0 3
+break
+
+
+[@帝王的]
+#if
+random 210
+CHECKSLAVECOUNT < 3
+#ACT
+RECALLMOB 虎卫 1 30 0
+PLAYEFFECT 23 330 17 1 80 0 0 0 0
+SendCenterMsg 250 0 帝王之力召唤出虎卫战士！ 0 3
+break
+
+#IF
+random 210
+CHECKSLAVECOUNT < 3
+#ACT
+RECALLMOB 鹰卫 1 30 0
+PLAYEFFECT 23 330 17 1 80 0 0 0 0
+SendCenterMsg 250 0 帝王之力召唤出鹰卫战士！ 0 3
+break
+
+
+[@破坏者的]
+#if
+random 210
+#ACT
+M.ChangeHumAbility 1 = 0 10
+M.ChangeHumAbility 2 = 0 10
+SendCenterMsg 250 0 破坏了目标的护甲！ 0 3
+break
+
+
+[@嗜血的]
+#if
+random 90
+#ACT
+M.HumanHP - 20 300
+HumanHP + 20
+PLAYEFFECT 23 2320 3 1 200 0 0 0 0
+SendCenterMsg 250 0 您的军鼓吸取了目标生命值！ 0 3
+break
+
+
+[@恶毒的]
+#if
+random 30
+#ACT
+M.ChangeState 4 10
+M.MAKEPOSION 0 10 60
+SendCenterMsg 250 0 目标中毒了！ 0 3
+break
+
+
+[@致命的]
+#if
+random 60
+SMALL N$怪物血量 <$MAXHP> 
+#ACT
+M.HumanHP - <$ATTACKMONSTER_HP> 300
+PLAYEFFECT 23 3040 20 1 60 0 0 0 0
+SendCenterMsg 250 0 致命一击！击中了目标的要害。 0 3
+break
+
+
+[@残忍的]
+#if
+random 69
+LARGE N$怪物血量 <$MAXHP> 
+#ACT
+M.AddhpPer - 1
+SendCenterMsg 250 0 残忍一击！击中了目标的要害。 0 3
+break
+
+
+[@情撼九天的]
+#if
+checkmarry
+#ACT
+MOV N$情缘 <$MAXHP>
+DIV N$情缘 100
+M.HumanHP - <$STR(N$情缘)> 300
+SendCenterMsg 250 0 真挚一击！伤害：<$STR(N$情缘)> 0 3
+break
+
+
+[@夺魂的]
+#if
+random 210
+#ACT
+M.HumanHP - <$MAXMC> 300
+PLAYEFFECT 23 1930 10 1 100 0 0 0 0
+SendCenterMsg 250 0 夺魂一击！伤害:<$MAXMC> 0 3
+break
+
+
+[@压制的]
+#if
+random 210
+#ACT
+M.HumanHP - <$LEVEL> 300
+PLAYEFFECT 23 1930 10 1 100 0 0 0 0
+SendCenterMsg 250 0 压制目标！伤害:<$LEVEL> 0 3
+break
+
+
+[@双倍伤害的]
+#if
+random 210
+#ACT
+M.HumanHP - <$PKPOWER> 300
+PLAYEFFECT 23 3060 14 1 100 0 0 0 0
+SendCenterMsg 250 0 双倍输出！伤害:<$PKPOWER> 0 3
+break
+
+
+[@智慧的]
+#if
+random 90
+#ACT
+MOV N$智慧 <$MAXMP>
+DIV N$智慧 10
+M.HumanHP - <$STR(N$智慧)> 300
+PLAYEFFECT 23 1120 6 1 100 0 0 0 0
+SendCenterMsg 250 0 法魄一击！伤害：<$STR(N$智慧)> 0 3
+break
+
+
+[@力量的]
+#if
+random 90
+#ACT
+MOV N$力量 <$MAXHP>
+DIV N$力量 12
+M.HumanHP - <$STR(N$力量)> 300
+PLAYEFFECT 23 1100 8 1 100 0 0 0 0
+SendCenterMsg 250 0 血魄一击！伤害：<$STR(N$力量)> 0 3
+break
+
+
+[@幸运的]
+#if
+random 210
+#ACT
+ChangeHumAbility 21 + 9 10
+PLAYEFFECT 23 310 20 1 100 0 0 0 0
+SendCenterMsg 250 0 幸运提升！ 0 3
+break
+
+
+[@上古灵符]
+#IF
+random 360
+#ACT
+M.ChangeState 2 3
+SendCenterMsg 250 0 冰冻灵符！冰冻怪物3秒！ 0 3
+break
+
+#IF
+random 360
+#ACT
+M.ChangeState 1 3
+SendCenterMsg 250 0 石化灵符！石化怪物3秒！ 0 3
+break
+
+
+#IF
+random 360
+#ACT
+M.ChangeState 6 3
+SendCenterMsg 250 0 定身灵符！定身怪物3秒！ 0 3
+break
+
+#IF
+random 360
+#ACT
+M.MAKEPOSION 0 10 60
+SendCenterMsg 250 0 上古毒符！怪物持续掉60点血，时间10秒！ 0 3
+break
+
+
+#IF
+random 360
+#ACT
+M.ChangeState 3 3
+SendCenterMsg 250 0 缓速灵符！怪物行动缓慢，持续3秒！ 0 3
+break
+
+#IF
+random 360
+#ACT
+M.ChangeState 8 3 1
+SendCenterMsg 250 0 监禁灵符！怪物行动监禁，持续3秒！ 0 3
+break
+
+
+
+[@善恶有报]
+#IF
+random 100
+#ACT
+goto @善恶有报的
+break
+
+
+[@善恶有报的]
+#IF
+random 3
+#ACT
+M.HumanHP - 300 300
+SendCenterMsg 250 0 恶报！怪物气血降低300点 0 3
+break
+#ELSEACT
+M.HumanHP + 200 300
+SendCenterMsg 250 0 善报！怪物气血恢复200点 0 3
+break
+
+
+[@野蛮的]
+#IF
+random 39
+#ACT
+M.HumanHP - 80 300
+SendCenterMsg 250 0 野蛮一击！ 0 3
+break
+
+
+[@凶猛的]
+#IF
+SMALL N$凶猛计量 9
+#ACT
+INC N$凶猛伤害 5
+INC N$凶猛计量 1
+M.HumanHP - <$STR(N$凶猛的伤害)> 300
+break
+#ELSEACT
+MOV N$凶猛伤害 0
+MOV N$凶猛计量 0
+break
+
+
+[@冰寒的]
+#if
+random 210
+#ACT
+M.ChangeState 2 3
+SendCenterMsg 250 0 冰寒的一击！敌人被冰冻3秒！ 0 3
+break
+
+
+[@邪恶]
+#if
+random 210
+#ACT
+CHANGESTATE 10 10 100 10
+PLAYEFFECT 23 2320 3 1 200 0 0 0 0
+break
+
+
+[@石化的]
+#if
+random 210
+#ACT
+M.ChangeState 1 3
+SendCenterMsg 250 0 目标被石化，无法进行攻击！ 0 3
+break
+
+
+[@霸道的]
+#if
+random 210
+#ACT
+M.HumanHP - <$MAXDC> 300
+PLAYEFFECT 23 1930 10 1 100 0 0 0 0
+SendCenterMsg 250 0 霸道一击！伤害:<$MAXDC> 0 3
+break
+
+
+[@天道的]
+#if
+random 210
+#ACT
+M.HumanHP - <$MAXSC> 300
+PLAYEFFECT 23 1930 10 1 100 0 0 0 0
+SendCenterMsg 250 0 天道一击！伤害:<$MAXSC> 0 3
+break
+
+
+[@瘫痪的]
+#if
+random 210
+#ACT
+M.CHANGESTATE 1 2
+SendCenterMsg 250 0 瘫痪发动！敌人被瘫痪2秒！ 0 3
+break
+
+
+[@混乱的]
+#if
+random 150
+#ACT
+SendCenterMsg 250 0 混乱触发！持续5秒 0 3
+break
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+H.GMExecute Backstep 8
+break
+
+
+}

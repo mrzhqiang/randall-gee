@@ -1,0 +1,60 @@
+(@buy @sell)
+%100
++0
++42
+[@main]
+恭喜你进入第四十关，想要从我这里过去的话，\
+就要清除一定数量的怪物才行!\ \
+<下一关/@下一关>  <购买药品/@buy> <领取奖励并且回土城/@回城>\
+
+[@下一关]
+#IF
+CheckMapHumanCount E241 = 0
+CheckMapMonCount E240 = 0 1
+#ACT
+CLEARMAPMON E241
+MongenEx E241 19 20 万年树妖 3 2
+MongenEx E241 19 20 堕落明王 3 2
+mapmove E241
+SENDDELAYMSG 闯关时间剩余%s秒 180 249 1 @闯关失败
+close
+#ELSEACT
+messagebox 清除地图内的怪物后才能继续闯关！\或者下一关正在被挑战，请稍后！
+
+[@闯关失败]
+#IF
+#ACT
+mapmove n3 330 333
+messagebox 时间已到，本次闯关失败！
+break
+
+
+[@回城]
+#IF
+CheckMapMonCount E240 = 0 1
+#ACT
+mapmove n3 330 333
+CHANGEEXP + 3200000
+GAMEGLORY + 50
+GetRandomText ../QuestDiary/物品/三龙.txt S19
+Give <$Str(S19)> 1
+GAMEGOLD + 12
+messagebox 您放弃了天关，根据层数，\给您320万经验+50点荣誉+12元宝！
+#ELSEACT
+messagebox 清除地图内的怪物后才能回土！
+
+
+[goods]
+金创药(小量)          100       3
+魔法药(小量)          100       3
+金创药(中量)          100       3
+魔法药(中量)          100       3
+强效金创药            500       3
+强效魔法药            500       3
+金创药(小)包          100       3
+魔法药(小)包          100       3
+金创药(中)包          300       3
+魔法药(中)包          300       3
+超级金创药            600       3
+超级魔法药            600       3
+太阳水   	      500	3

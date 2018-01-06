@@ -1,0 +1,141 @@
+(@@InPutString @@InPutInteger )
+[@main]
+#IF
+CHECKLEVELEX < 40
+#ACT
+MessageBox 对不起，40级以下玩家不允许炒股！
+break
+
+#IF
+EQUAL G9 0
+#ACT
+goto @main1
+break
+#ELSEACT
+goto @main2
+break
+
+[@main1]
+#ACT
+MOV U16 <$STR(G21)>
+MUL U16 <$STR(U15)>
+#SAY
+<股市有风险，入市需谨慎！><刷新/@main>\
+-----------------------------------------------------\
+\股票名：<追忆传奇>
+\最终成交价：<$STR(G21)>
+\现价：	<已停盘>
+\持有股数：<$STR(U15)>
+\总价值：<$STR(U16)>
+\-----------------------------------------------------\
+　　　　　　　　　　　　　　　　<没什么事/@exit>\
+
+[@main2]
+#ACT
+MOV U22 <$STR(G21)>
+MUL U22 <$STR(U23)>
+DEC U22 <$STR(U19)>
+MOV U16 <$STR(G21)>
+MUL U16 <$STR(U15)>
+#SAY
+<多次买入会导致覆盖数据，无法正确计算盈亏！请谨慎购买><刷新/@main>\
+-----------------------------------------------------\
+\股票名：<追忆传奇>　今日开盘价：<$STR(G20)>
+\<现价：/SCOLOR=70><$STR(G21)>　<最近涨跌：/SCOLOR=70><$STR(A52)><$STR(G22)>
+\<当时买入价：/SCOLOR=168><$STR(U17)>　<当时总金额：/SCOLOR=168><$STR(U19)>　<当时股数：/SCOLOR=168><$STR(U23)>
+\<目前持有股数：/SCOLOR=70><$STR(U15)>
+\<总价值：/SCOLOR=70><$STR(U16)>　<盈利与亏损：><$STR(U22)>
+\-----------------------------------------------------\
+<我要持有/@@InPutInteger92>	<我要抛售/@@InPutInteger93>	<没什么事/@exit> <每次购买抛售可输入2-3万之间.>\
+
+
+[@InPutInteger92]
+#IF
+SMALL <$STR(G21)> 0
+#ACT
+messagebox 对不起，目前股票已经跌停了。无法购买！
+break
+
+#IF
+LARGE U15 29999
+#ACT
+messagebox 对不起，您持有的股权超过30000了已经！
+break
+
+#IF
+LARGE N92 1
+SMALL N92 10001
+#act
+MOV P99 <$STR(N92)>
+MUL P99 <$STR(G21)>
+GOTO @允许买入
+break
+#elseact
+messagebox 请输入1-1万的数字！
+
+
+[@允许买入]
+#IF
+LARGE U15 29999
+#ACT
+messagebox 对不起，您持有的股权超过30000了已经！
+break
+
+#IF
+CheckGold <$STR(P99)>
+#ACT
+take 金币 <$STR(P99)>
+inc U15 <$STR(N92)>
+MOV U16 <$STR(G21)>
+MOV U17 <$STR(G21)>
+MUL U16 <$STR(U15)>
+MOV U19 <$STR(P99)>
+MOV U23 <$STR(N92)>
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>购买了<$STR(N92)>股股票!花费<$STR(P99)>金币！||目前拥有资产：<$STR(U16)>
+goto @main
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多金币购买！购买<$STR(N92)>股需要<$STR(P99)>金币！
+
+
+
+[@InPutInteger93]
+#IF
+SMALL <$STR(G21)> 0
+#ACT
+messagebox 对不起，目前股票已经跌停了。无法抛售！
+break
+
+#IF
+LARGE N93 1
+#act
+MOV P98 <$STR(N93)>
+MUL P98 <$STR(G21)>
+GOTO @允许卖入
+break
+#elseact
+messagebox 请输入大于1的数字！
+
+
+[@允许卖入]
+#IF
+LARGE U15 <$STR(N93)>
+#ACT
+GIVE 金币 <$STR(P98)>
+DEC U15 <$STR(N93)>
+MOV U16 <$STR(G21)>
+MUL U16 <$STR(U15)>
+MOV U17
+MOV U19
+MOV U23
+SendNewLineMsg 0 250 0 15 100 10 1 玩家<$USERNAME>抛售了<$STR(N93)>股股票!获得<$STR(P98)>金币！||目前拥有资产：<$STR(U16)>
+goto @main
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多股权！
+
+
+
+
+
+
+
+

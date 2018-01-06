@@ -1,0 +1,196 @@
+[@团队触发]
+{
+#OR
+CheckContainsText <$G_WEAPON> 四海升平的
+CheckContainsText <$G_DRESS> 四海升平的
+CheckContainsText <$G_RIGHTHAND> 四海升平的
+CheckContainsText <$G_HELMET> 四海升平的
+CheckContainsText <$G_NECKLACE> 四海升平的
+CheckContainsText <$G_RING_L> 四海升平的
+CheckContainsText <$G_RING_R> 四海升平的
+CheckContainsText <$G_ARMRING_L> 四海升平的
+CheckContainsText <$G_ARMRING_R> 四海升平的
+CheckContainsText <$G_BELT> 四海升平的
+CheckContainsText <$G_BOOTS> 四海升平的
+CheckContainsText <$G_CHARM> 四海升平的
+CheckContainsText <$G_HAT> 四海升平的
+CheckContainsText <$G_SHIELD> 四海升平的
+CheckContainsText <$G_DRUM> 四海升平的
+#ACT
+goto @四海升平的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 固若金汤的
+CheckContainsText <$G_DRESS> 固若金汤的
+CheckContainsText <$G_RIGHTHAND> 固若金汤的
+CheckContainsText <$G_HELMET> 固若金汤的
+CheckContainsText <$G_NECKLACE> 固若金汤的
+CheckContainsText <$G_RING_L> 固若金汤的
+CheckContainsText <$G_RING_R> 固若金汤的
+CheckContainsText <$G_ARMRING_L> 固若金汤的
+CheckContainsText <$G_ARMRING_R> 固若金汤的
+CheckContainsText <$G_BELT> 固若金汤的
+CheckContainsText <$G_BOOTS> 固若金汤的
+CheckContainsText <$G_CHARM> 固若金汤的
+CheckContainsText <$G_HAT> 固若金汤的
+CheckContainsText <$G_SHIELD> 固若金汤的
+CheckContainsText <$G_DRUM> 固若金汤的
+#ACT
+goto @固若金汤的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 蛮荒之力的
+CheckContainsText <$G_DRESS> 蛮荒之力的
+CheckContainsText <$G_RIGHTHAND> 蛮荒之力的
+CheckContainsText <$G_HELMET> 蛮荒之力的
+CheckContainsText <$G_NECKLACE> 蛮荒之力的
+CheckContainsText <$G_RING_L> 蛮荒之力的
+CheckContainsText <$G_RING_R> 蛮荒之力的
+CheckContainsText <$G_ARMRING_L> 蛮荒之力的
+CheckContainsText <$G_ARMRING_R> 蛮荒之力的
+CheckContainsText <$G_BELT> 蛮荒之力的
+CheckContainsText <$G_BOOTS> 蛮荒之力的
+CheckContainsText <$G_CHARM> 蛮荒之力的
+CheckContainsText <$G_HAT> 蛮荒之力的
+CheckContainsText <$G_SHIELD> 蛮荒之力的
+CheckContainsText <$G_DRUM> 蛮荒之力的
+#ACT
+goto @蛮荒之力的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 慈航普度的
+CheckContainsText <$G_DRESS> 慈航普度的
+CheckContainsText <$G_RIGHTHAND> 慈航普度的
+CheckContainsText <$G_HELMET> 慈航普度的
+CheckContainsText <$G_NECKLACE> 慈航普度的
+CheckContainsText <$G_RING_L> 慈航普度的
+CheckContainsText <$G_RING_R> 慈航普度的
+CheckContainsText <$G_ARMRING_L> 慈航普度的
+CheckContainsText <$G_ARMRING_R> 慈航普度的
+CheckContainsText <$G_BELT> 慈航普度的
+CheckContainsText <$G_BOOTS> 慈航普度的
+CheckContainsText <$G_CHARM> 慈航普度的
+CheckContainsText <$G_HAT> 慈航普度的
+CheckContainsText <$G_SHIELD> 慈航普度的
+CheckContainsText <$G_DRUM> 慈航普度的
+#ACT
+goto @慈航普度的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 身似菩提的
+CheckContainsText <$G_DRESS> 身似菩提的
+CheckContainsText <$G_RIGHTHAND> 身似菩提的
+CheckContainsText <$G_HELMET> 身似菩提的
+CheckContainsText <$G_NECKLACE> 身似菩提的
+CheckContainsText <$G_RING_L> 身似菩提的
+CheckContainsText <$G_RING_R> 身似菩提的
+CheckContainsText <$G_ARMRING_L> 身似菩提的
+CheckContainsText <$G_ARMRING_R> 身似菩提的
+CheckContainsText <$G_BELT> 身似菩提的
+CheckContainsText <$G_BOOTS> 身似菩提的
+CheckContainsText <$G_CHARM> 身似菩提的
+CheckContainsText <$G_HAT> 身似菩提的
+CheckContainsText <$G_SHIELD> 身似菩提的
+CheckContainsText <$G_DRUM> 身似菩提的
+#ACT
+goto @身似菩提的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 行云流水的
+CheckContainsText <$G_DRESS> 行云流水的
+CheckContainsText <$G_RIGHTHAND> 行云流水的
+CheckContainsText <$G_HELMET> 行云流水的
+CheckContainsText <$G_NECKLACE> 行云流水的
+CheckContainsText <$G_RING_L> 行云流水的
+CheckContainsText <$G_RING_R> 行云流水的
+CheckContainsText <$G_ARMRING_L> 行云流水的
+CheckContainsText <$G_ARMRING_R> 行云流水的
+CheckContainsText <$G_BELT> 行云流水的
+CheckContainsText <$G_BOOTS> 行云流水的
+CheckContainsText <$G_CHARM> 行云流水的
+CheckContainsText <$G_HAT> 行云流水的
+CheckContainsText <$G_SHIELD> 行云流水的
+CheckContainsText <$G_DRUM> 行云流水的
+#ACT
+goto @行云流水的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 狩猎的
+CheckContainsText <$G_DRESS> 狩猎的
+CheckContainsText <$G_RIGHTHAND> 狩猎的
+CheckContainsText <$G_HELMET> 狩猎的
+CheckContainsText <$G_NECKLACE> 狩猎的
+CheckContainsText <$G_RING_L> 狩猎的
+CheckContainsText <$G_RING_R> 狩猎的
+CheckContainsText <$G_ARMRING_L> 狩猎的
+CheckContainsText <$G_ARMRING_R> 狩猎的
+CheckContainsText <$G_BELT> 狩猎的
+CheckContainsText <$G_BOOTS> 狩猎的
+CheckContainsText <$G_CHARM> 狩猎的
+CheckContainsText <$G_HAT> 狩猎的
+CheckContainsText <$G_SHIELD> 狩猎的
+CheckContainsText <$G_DRUM> 狩猎的
+#ACT
+CHANGEEXP + 50
+break
+
+
+
+[@慈航普度的]
+#IF
+random 40
+#ACT
+AddhpPer + 30
+AddMpPer + 30
+PLAYEFFECT 23 110 40 1 100 0 0 0 0
+break
+
+[@行云流水的]
+#IF
+random 30
+#ACT
+CHANGESPEED 1 300 10
+PLAYEFFECT 23 160 25 1 100 0 0 0 0
+break
+
+[@四海升平的]
+#IF
+random 20
+#ACT
+AddhpPer + 3
+AddMpPer + 3
+PLAYEFFECT 23 1040 24 1 60 0 0 0 0
+break
+
+[@固若金汤的]
+#IF
+random 30
+#ACT
+ChangeHumAbility 2 + 10 10
+ChangeHumAbility 4 + 10 10
+PLAYEFFECT 23 1240 8 1 60 0 0 0 0
+break
+
+[@蛮荒之力的]
+#IF
+random 30
+#ACT
+POWERRATE 120 10
+PLAYEFFECT 23 2980 20 1 90 0 0 0 0
+break
+
+[@身似菩提的]
+#IF
+random 30
+#ACT
+SetSuckDamage + 100 1000 100
+PLAYEFFECT 23 3020 20 1 90 0 0 0 0
+break
+
+}

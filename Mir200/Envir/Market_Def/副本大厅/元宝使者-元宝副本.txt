@@ -1,0 +1,110 @@
+[@main]
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\标记数据\副本次数.txt [<$USERNAME>]
+#ACT
+MOV U27 20
+MOV U41 30
+MOV U40 3
+CALCVAR HUMAN 副本次数 = 3
+SAVEVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+LOADVAR HUMAN 副本次数 ..\QuestDiary\标记数据\副本次数.txt
+
+
+#IF
+#SAY
+你要刷什么怪物？请自己小心.召唤老龟消耗<38荣誉>,十二生肖消耗<5元宝>\
+您今天还可以刷 {<$STR(U41)>/FCOLOR=249} 次，您所剩荣誉：<$GAMEGLORY>\ \ 
+<我要开始刷元宝怪/@刷>\  \
+<我要开始刷十二生肖/@刷十二>\  \
+<我要回家不杀了！/@3>\ \
+<好的，我去击杀吧！/@exit>\
+
+
+[@3]
+#IF
+#ACT
+mapmove n3 330 330
+break
+
+
+[@刷]
+#IF
+CheckMapMonCount <$FBMAP> > 0 1
+#ACT
+messagebox 您已经刷怪了，请您先清理一下再来刷！
+break
+
+#IF
+CHECKGAMEGLORY > 37
+LARGE U41 0
+random 200
+#ACT
+GetRandomText ../QuestDiary/宝图/世界BOSS.txt S18
+GAMEGLORY - 38
+MobEctypeMon SELF 16 31 <$Str(S18)> 1 5
+DEC U41 1
+SendCenterMsg 0 251 天降奇缘:玩家『<$USERNAME>』在元宝副本召唤了一只《<$Str(S18)>》,是福是祸就看他的造化了！ 1 6 0
+goto @main
+break
+
+
+#IF
+CHECKGAMEGLORY > 37
+LARGE U41 0
+random 80
+#ACT
+GAMEGLORY - 38
+MobEctypeMon SELF 16 31 青龙 1 5
+DEC U41 1
+SendCenterMsg 0 251 天降奇缘:玩家『<$USERNAME>』在元宝副本召唤了一只《青龙》,是福是祸就看他的造化了！ 1 6 0
+goto @main
+break
+
+
+#IF
+CHECKGAMEGLORY > 37
+LARGE U41 0
+#ACT
+GAMEGLORY - 38
+MobEctypeMon SELF 16 31 战场老龟 1 5
+DEC U41 1
+goto @main
+break
+#ELSEACT
+messagebox 您荣誉不足38，或者次数不够！
+break
+
+[@刷十二]
+您今天还可以刷 <$STR(U41)> 次\
+您要刷的十二生肖是:\
+请注意,每次召唤生肖怪物需要<5元宝>!\
+\<ItemShow:817:1:0:0:1/@子鼠>  <ItemShow:818:1:0:0:1/@子鼠>  <ItemShow:819:1:0:0:1/@子鼠>  <ItemShow:820:1:0:0:1/@子鼠>  <ItemShow:821:1:0:0:1/@子鼠>  <ItemShow:822:1:0:0:1/@子鼠>  <ItemShow:823:1:0:0:1/@子鼠>\ \ \
+<ItemShow:824:1:0:0:1/@子鼠>  <ItemShow:825:1:0:0:1/@子鼠>  <ItemShow:826:1:0:0:1/@子鼠>  <ItemShow:827:1:0:0:1/@子鼠>  <ItemShow:828:1:0:0:1/@子鼠>\ \ \
+　\
+　　　　　　　　　　　　　　　　　　　　<关闭/@exit>
+
+
+
+[@子鼠]
+#IF
+CheckMapMonCount <$FBMAP> > 30 1
+#ACT
+messagebox 您已经刷了30个怪了，请您先清理一下再来刷！
+break
+
+#IF
+CHECKGAMEGOLD > 4
+LARGE U41 0
+#ACT
+GAMEGOLD - 5
+MobEctypeMon SELF 16 31 ≈生肖使者≈ 5 5
+DEC U41 1
+goto @刷十二
+break
+#ELSEACT
+messagebox 您元宝不足5，或者召唤次数不够！
+break
+
+
+
+

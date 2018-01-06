@@ -1,0 +1,189 @@
+[@main]
+#IF
+NOT CHECKGAMEGOLD > 99
+#SAY
+土豪.你元宝不够100.无法进入！
+#ACT
+break
+
+#IF
+CHECKRENEWLEVEL = 11
+#ACT
+OPENBOOKS 0
+#ELSESAY
+请您先11转，才能进入！
+
+
+
+[@HeroMap]
+#IF
+checkitem 传奇之冠 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇之冠 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇项链 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇项链 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇之戒 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇之戒 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇护腕 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇护腕 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇腰带 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇腰带 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇之靴 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇之靴 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇勋章 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇勋章 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇神杖 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇神杖 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇神扇 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇神扇 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+#IF
+checkitem 传奇神剑 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇神剑 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+#IF
+checkitem 传奇神甲(男) 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇神甲(男) 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+#IF
+checkitem 传奇神甲(女) 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇神甲(女) 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+#IF
+checkitem 传奇面巾 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇面巾 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+#IF
+checkitem 传奇印 1
+CHECKGAMEGOLD > 99
+#act
+GAMEGOLD - 99
+take 传奇印 1
+MAPMOVE nHERO1 215 206
+Give 回城卷 1
+TimeRecall 30
+messagebox 您进入了卧龙山庄。您有30分钟的时间打装备\<超过后自动返回土城>
+break
+
+
+#IF
+#act
+messagebox 您没有任意一件<传奇装备>，无法进去卧龙山庄。
+break
+
+

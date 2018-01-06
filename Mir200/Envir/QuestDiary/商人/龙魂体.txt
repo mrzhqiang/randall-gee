@@ -1,0 +1,2022 @@
+[@龙魂]
+{
+#ACT
+OPENMERCHANTBIGDLG 9 3280 0 4 0 0 1 260 8 0
+
+#IF
+EQUAL U14 0
+#SAY
+\ \ \        <Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<暂无>\ \
+　　您可以修炼的龙魂为:<LV.1-禄存>\ \
+
+　　<提升需要:荣誉50.金币5万./FCOLOR=249> \ \
+
+　　<提升效果:HP + 5/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 5
+mov p7 0
+mov p8 0
+mov p9 50
+mov p10 50000
+mov s1 LV.1-禄存
+break
+
+
+#IF
+EQUAL U14 1
+#SAY
+\ \ \        <Img:1251:0>\ \ \
+　　您当前的龙魂体魄为:<LV.1-禄存>\ \
+　　您可以修炼的龙魂为:<LV.2-天刑>\ \
+　　<提升需要:荣誉60.金币6万./FCOLOR=249>\ \
+
+　　<提升效果:MP + 5/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 5
+mov p8 0
+mov p9 60
+mov p10 60000
+mov s1 LV.2-天刑
+break
+
+
+#IF
+EQUAL U14 2
+#SAY
+\ \ \        <Img:1252:0>\ \ \
+　　您当前的龙魂体魄为:<LV.2-天刑>\ \
+　　您可以修炼的龙魂为:<LV.3-天姚>\ \
+　　<提升需要:荣誉80.金币8万./FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 1
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 80
+mov p10 80000
+mov s1 LV.3-天姚
+break
+
+#IF
+EQUAL U14 3
+#SAY
+\ \ \        <Img:1253:0>\ \ \
+　　您当前的龙魂体魄为:<LV.3-天姚>\ \
+　　您可以修炼的龙魂为:<LV.4-天魁>\ \
+　　<提升需要:荣誉80.金币8万./FCOLOR=249>\ \
+
+　　<提升效果:魔法 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 1
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 80
+mov p10 80000
+mov s1 LV.4-天魁
+break
+
+#IF
+EQUAL U14 4
+#SAY
+\ \ \        <Img:1254:0>\ \ \
+　　您当前的龙魂体魄为:<LV.4-天魁>\ \
+　　您可以修炼的龙魂为:<LV.5-天喜>\ \
+　　<提升需要:荣誉80.金币8万./FCOLOR=249>\ \
+
+　　<提升效果:道术 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 1
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 80
+mov p10 80000
+mov s1 LV.5-天喜
+break
+
+#IF
+EQUAL U14 5
+#SAY
+\ \ \        <Img:1255:0>\ \ \
+　　您当前的龙魂体魄为:<LV.5-天喜>\ \
+　　您可以修炼的龙魂为:<LV.6-天马>\ \
+　　<提升需要:荣誉100.金币10万./FCOLOR=249>\ \
+
+　　<提升效果:防御 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 1
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 80
+mov p10 80000
+mov s1 LV.6-天马
+break
+
+#IF
+EQUAL U14 6
+#SAY
+\ \ \        <Img:1256:0>\ \ \
+　　您当前的龙魂体魄为:<LV.6-天马>\ \
+　　您可以修炼的龙魂为:<LV.7-红鸾>\ \
+　　<提升需要:荣誉120.金币12万./FCOLOR=249>\ \
+
+　　<提升效果:魔御 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 120
+mov p10 120000
+mov s1 LV.7-红鸾
+break
+
+#IF
+EQUAL U14 7
+#SAY
+\ \ \        <Img:1257:0>\ \ \
+　　您当前的龙魂体魄为:<LV.7-红鸾>\ \
+　　您可以修炼的龙魂为:<LV.8-文曲>\ \
+　　<提升需要:荣誉150.金币15万./FCOLOR=249>\ \
+
+　　<提升效果:HP + 10/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 10
+mov p7 0
+mov p8 0
+mov p9 120
+mov p10 120000
+mov s1 LV.8-红鸾
+break
+
+#IF
+EQUAL U14 8
+#SAY
+\ \ \        <Img:1258:0>\ \ \
+　　您当前的龙魂体魄为:<LV.8-文曲>\ \
+　　您可以修炼的龙魂为:<LV.9-天同>\ \
+　　<提升需要:荣誉180.金币18万./FCOLOR=249>\ \
+
+　　<提升效果:MP + 10/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 10
+mov p8 0
+mov p9 180
+mov p10 180000
+mov s1 LV.9-天同
+break
+
+#IF
+EQUAL U14 9
+#SAY
+\ \ \        <Img:1259:0>\ \ \
+　　您当前的龙魂体魄为:<LV.9-天同>\ \
+　　您可以修炼的龙魂为:<LV.10-左辅>\ \
+　　<提升需要:荣誉200.金币20万./FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 1
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 200
+mov p10 200000
+mov s1 LV.10-左辅
+break
+
+
+#IF
+EQUAL U14 10
+#SAY
+\ \ \        <Img:1251:0><Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<LV.10-左辅>\ \
+　　您可以修炼的龙魂为:<LV.11-天禄>\ \
+　　<提升需要:荣誉220.金币22万./FCOLOR=249>\ \
+
+　　<提升效果:魔法 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 1
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 220
+mov p10 220000
+mov s1 LV.11-天禄
+break
+
+#IF
+EQUAL U14 11
+#SAY
+\ \ \        <Img:1251:0><Img:1251:0>\ \ \
+　　您当前的龙魂体魄为:<LV.11-天禄>\ \
+　　您可以修炼的龙魂为:<LV.12-陀罗>\ \
+　　<提升需要:荣誉250.金币25万./FCOLOR=249>\ \
+
+　　<提升效果:道术 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 1
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 250
+mov p10 250000
+mov s1 LV.12-陀罗
+break
+
+
+
+#IF
+EQUAL U14 12
+#SAY
+\ \ \        <Img:1251:0><Img:1252:0>\ \ \
+　　您当前的龙魂体魄为:<LV.12-陀罗>\ \
+　　您可以修炼的龙魂为:<LV.13-武曲>\ \
+　　<提升需要:荣誉280.金币28万./FCOLOR=249>\ \
+
+　　<提升效果:防御 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 1
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 280
+mov p10 280000
+mov s1 LV.13-陀罗
+break
+
+
+#IF
+EQUAL U14 13
+#SAY
+\ \ \        <Img:1251:0><Img:1253:0>\ \ \
+　　您当前的龙魂体魄为:<LV.13-陀罗>\ \
+　　您可以修炼的龙魂为:<LV.14-武曲>\ \
+　　<提升需要:荣誉280.金币28万./FCOLOR=249>\ \
+
+　　<提升效果:魔御 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 280
+mov p10 280000
+mov s1 LV.14-武曲
+break
+
+#IF
+EQUAL U14 14
+#SAY
+\ \ \        <Img:1251:0><Img:1254:0>\ \ \
+　　您当前的龙魂体魄为:<LV.14-武曲>\ \
+　　您可以修炼的龙魂为:<LV.15-贪狼>\ \
+　　<提升需要:荣誉300.金币30万./FCOLOR=249>\ \
+
+　　<提升效果:魔御 + 1.防御 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 1
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 280
+mov p10 280000
+mov s1 LV.15-贪狼
+break
+
+#IF
+EQUAL U14 15
+#SAY
+\ \ \        <Img:1251:0><Img:1255:0>\ \ \
+　　您当前的龙魂体魄为:<LV.15-贪狼>\ \
+　　您可以修炼的龙魂为:<LV.16-文昌>\ \
+　　<提升需要:荣誉300.金币30万./FCOLOR=249>\ \
+
+　　<提升效果:准确 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 1
+mov p9 280
+mov p10 280000
+mov s1 LV.16-文昌
+break
+
+#IF
+EQUAL U14 16
+#SAY
+\ \ \        <Img:1251:0><Img:1256:0>\ \ \
+　　您当前的龙魂体魄为:<LV.16-文昌>\ \
+　　您可以修炼的龙魂为:<LV.17-擎羊>\ \
+　　<提升需要:荣誉330.金币33万./FCOLOR=249>\ \
+
+　　<提升效果:HP + 15/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 15
+mov p7 0
+mov p8 0
+mov p9 330
+mov p10 330000
+mov s1 LV.17-擎羊
+break
+
+
+#IF
+EQUAL U14 17
+#SAY
+\ \ \        <Img:1251:0><Img:1257:0>\ \ \
+　　您当前的龙魂体魄为:<LV.17-擎羊>\ \
+　　您可以修炼的龙魂为:<LV.18-太阳>\ \
+　　<提升需要:荣誉350.金币35万./FCOLOR=249>\ \
+
+　　<提升效果:MP + 10/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 10
+mov p8 0
+mov p9 330
+mov p10 330000
+mov s1 LV.18-太阳
+break
+
+
+#IF
+EQUAL U14 18
+#SAY
+\ \ \        <Img:1251:0><Img:1258:0>\ \ \
+　　您当前的龙魂体魄为:<LV.18-太阳>\ \
+　　您可以修炼的龙魂为:<LV.19-廉贞>\ \
+　　<提升需要:荣誉370.金币37万./FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 1
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 370
+mov p10 370000
+mov s1 LV.19-廉贞
+break
+
+#IF
+EQUAL U14 19
+#SAY
+\ \ \        <Img:1251:0><Img:1259:0>\ \ \
+　　您当前的龙魂体魄为:<LV.19-廉贞>\ \
+　　您可以修炼的龙魂为:<LV.20-巨门>\ \
+　　<提升需要:荣誉400.金币40万./FCOLOR=249>\ \
+
+　　<提升效果:魔法 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 1
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 400
+mov p10 400000
+mov s1 LV.20-巨门
+break
+
+#IF
+EQUAL U14 20
+#SAY
+\ \ \        <Img:1252:0><Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<LV.20-巨门>\ \
+　　您可以修炼的龙魂为:<LV.21-天府>\ \
+　　<提升需要:荣誉430.金币43万./FCOLOR=249>\ \
+
+　　<提升效果:道术 + 1/FCOLOR=250>\ \ \
+　　　　　　　　<修为提升/@提升>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 1
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 430
+mov p10 430000
+mov s1 LV.21-天府
+break
+
+#IF
+EQUAL U14 21
+#SAY
+\ \ \        <Img:1252:0><Img:1251:0>\ \ \
+　　您当前的龙魂体魄为:<LV.21-天府>\ \
+　　您可以修炼的龙魂为:<LV.22-璇玑>\
+　　<提升需要:荣誉500.金币50万./FCOLOR=249>\
+　　　　　　 <龙魂积分100点/FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 1./FCOLOR=250>\
+　　　　　　 <魔法 + 1./FCOLOR=250>\
+　　　　　　 <道术 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 1
+mov p2 1
+mov p3 1
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 500
+mov p10 500000
+mov p11 100
+mov s1 LV.22-璇玑
+break
+
+#IF
+EQUAL U14 22
+#SAY
+\ \ \        <Img:1252:0><Img:1252:0>\ \ \
+　　您当前的龙魂体魄为:<LV.22-璇玑>\ \
+　　您可以修炼的龙魂为:<LV.23-天玑>\
+　　<提升需要:荣誉520.金币52万./FCOLOR=249>\
+　　　　　　 <龙魂积分120点/FCOLOR=249>\ \ \
+
+　　<提升效果:防御 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 1
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 520
+mov p10 520000
+mov p11 120
+mov s1 LV.22-天玑
+break
+
+#IF
+EQUAL U14 23
+#SAY
+\ \ \        <Img:1252:0><Img:1253:0>\ \ \
+　　您当前的龙魂体魄为:<LV.23-天玑>\ \
+　　您可以修炼的龙魂为:<LV.24-地劫>\
+　　<提升需要:荣誉560.金币56万./FCOLOR=249>\
+　　　　　　 <龙魂积分160点/FCOLOR=249>\ \ \
+
+　　<提升效果:魔御 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 560
+mov p10 560000
+mov p11 160
+mov s1 LV.24-地劫
+break
+
+#IF
+EQUAL U14 24
+#SAY
+\ \ \        <Img:1252:0><Img:1254:0>\ \ \
+　　您当前的龙魂体魄为:<LV.24-地劫>\ \
+　　您可以修炼的龙魂为:<LV.25-七杀>\
+　　<提升需要:荣誉590.金币59万./FCOLOR=249>\
+　　　　　　 <龙魂积分190点/FCOLOR=249>\ \ \
+
+　　<提升效果:防御 + 1./FCOLOR=250>\
+　　　　　　 <魔御 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 1
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 590
+mov p10 590000
+mov p11 190
+mov s1 LV.25-七杀
+break
+
+#IF
+EQUAL U14 25
+#SAY
+\ \ \        <Img:1252:0><Img:1255:0>\ \ \
+　　您当前的龙魂体魄为:<LV.25-七杀>\ \
+　　您可以修炼的龙魂为:<LV.26-天梁>\
+　　<提升需要:荣誉610.金币61万./FCOLOR=249>\
+　　　　　　 <龙魂积分220点/FCOLOR=249>\ \ \
+
+　　<提升效果:HP + 10./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 10
+mov p7 0
+mov p8 0
+mov p9 610
+mov p10 610000
+mov p11 220
+mov s1 LV.26-天梁
+break
+
+#IF
+EQUAL U14 26
+#SAY
+\ \ \        <Img:1252:0><Img:1256:0>\ \ \
+　　您当前的龙魂体魄为:<LV.26-天梁>\ \
+　　您可以修炼的龙魂为:<LV.27-破军>\
+　　<提升需要:荣誉650.金币65万./FCOLOR=249>\
+　　　　　　 <龙魂积分280点/FCOLOR=249>\ \ \
+
+　　<提升效果:MP + 10./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 10
+mov p8 0
+mov p9 650
+mov p10 650000
+mov p11 280
+mov s1 LV.27-破军
+break
+
+#IF
+EQUAL U14 27
+#SAY
+\ \ \        <Img:1252:0><Img:1257:0>\ \ \
+　　您当前的龙魂体魄为:<LV.27-破军>\ \
+　　您可以修炼的龙魂为:<LV.28-火星>\ 
+　　<提升需要:荣誉680.金币68万./FCOLOR=249>\
+　　　　　　 <龙魂积分320点/FCOLOR=249>\ \ \
+
+　　<提升效果:攻击 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 1
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 680
+mov p10 680000
+mov p11 320
+mov s1 LV.28-火星
+break
+
+#IF
+EQUAL U14 28
+#SAY
+\ \ \        <Img:1252:0><Img:1258:0>\ \ \
+　　您当前的龙魂体魄为:<LV.28-火星>\ \
+　　您可以修炼的龙魂为:<LV.29-紫微>\ 
+　　<提升需要:荣誉720.金币72万./FCOLOR=249>\
+　　　　　　 <龙魂积分350点/FCOLOR=249>\ \ \
+
+　　<提升效果:魔法 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 1
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 720
+mov p10 720000
+mov p11 350
+mov s1 LV.29-紫微
+break
+
+
+#IF
+EQUAL U14 29
+#SAY
+\ \ \        <Img:1252:0><Img:1259:0>\ \ \
+　　您当前的龙魂体魄为:<LV.29-紫微>\ \
+　　您可以修炼的龙魂为:<LV.30-天相>\
+　　<提升需要:荣誉820.金币82万./FCOLOR=249>\
+　　　　　　 <龙魂积分390点/FCOLOR=249>\ \ \
+
+　　<提升效果:道术 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 1
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 820
+mov p10 820000
+mov p11 380
+mov s1 LV.30-天相
+break
+
+#IF
+EQUAL U14 30
+#SAY
+\ \ \        <Img:1253:0><Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<LV.30-天相>\ \
+　　您目前已经修炼完毕第一阶段的修为.\ \
+
+　　需要完成<生死劫>获得称号：<出神入化>后\
+　　才可继续修炼<第二阶段/FCOLOR=250>的修为.\ \
+　　<提升效果:道术 + 2./FCOLOR=250>\
+　　　　　　 <攻击 + 2./FCOLOR=250>\
+　　　　　　 <魔法 + 2./FCOLOR=250>\
+　　　　　　　　<获取龙魂体魄第二阶段资格/@获取>\
+
+#ACT
+break
+
+#IF
+EQUAL U14 31
+#SAY
+\ \ \        <Img:1253:0><Img:1251:0>\ \ \
+　　您当前的龙魂体魄为:<LV.31-初心>\ \
+　　您可以修炼的龙魂为:<LV.32-聚魂>\
+　　<提升需要:荣誉1200.金币100万./FCOLOR=249>\
+　　　　　　 <龙魂积分420点/FCOLOR=249>\ \ 
+
+　　<提升效果:道术 + 2./FCOLOR=250>\
+　　　　　　 <攻击 + 2./FCOLOR=250>\
+　　　　　　 <魔法 + 2./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 2
+mov p2 2
+mov p3 2
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 1200
+mov p10 1000000
+mov p11 420
+mov s1 LV.32-聚魂
+break
+
+#IF
+EQUAL U14 32
+#SAY
+\ \ \        <Img:1253:0><Img:1252:0>\ \ \
+　　您当前的龙魂体魄为:<LV.32-聚魂>\ \
+　　您可以修炼的龙魂为:<LV.33-炼魂>\
+　　<提升需要:荣誉1500.金币150万./FCOLOR=249>\
+　　　　　　 <龙魂积分500点/FCOLOR=249>\ \ 
+
+　　<提升效果:防御 + 2./FCOLOR=250>\
+　　　　　　 <魔御 + 2./FCOLOR=250>\
+　　　　　　 <H  P + 20./FCOLOR=250>\
+　　　　　　 <M  P + 20./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 2
+mov p5 2
+mov p6 20
+mov p7 20
+mov p8 0
+mov p9 1500
+mov p10 1500000
+mov p11 500
+mov s1 LV.33-炼魂
+break
+
+
+#IF
+EQUAL U14 33
+#SAY
+\ \ \        <Img:1253:0><Img:1253:0>\ \ \
+　　您当前的龙魂体魄为:<LV.33-炼魂>\ \
+　　您可以修炼的龙魂为:<LV.34-凝魂>\
+　　<提升需要:荣誉1900.金币190万./FCOLOR=249>\
+　　　　　　 <龙魂积分590点/FCOLOR=249>\ \ 
+
+　　<提升效果:全属性 + 1./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 1
+mov p2 1
+mov p3 1
+mov p4 1
+mov p5 1
+mov p6 1
+mov p7 1
+mov p8 1
+mov p9 1900
+mov p10 1900000
+mov p11 590
+mov s1 LV.34-凝魂
+break
+
+#IF
+EQUAL U14 34
+#SAY
+\ \ \        <Img:1253:0><Img:1254:0>\ \ \
+　　您当前的龙魂体魄为:<LV.34-凝魂>\ \
+　　您可以修炼的龙魂为:<LV.35-定魂>\
+　　<提升需要:荣誉2200.金币220万./FCOLOR=249>\
+　　　　　　 <龙魂积分630点/FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 3
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 2200
+mov p10 2200000
+mov p11 630
+mov s1 LV.35-定魂
+break
+
+#IF
+EQUAL U14 35
+#SAY
+\ \ \        <Img:1253:0><Img:1255:0>\ \ \
+　　您当前的龙魂体魄为:<LV.35-定魂>\ \
+　　您可以修炼的龙魂为:<LV.36-惊觉>\
+　　<提升需要:荣誉2800.金币280万./FCOLOR=249>\
+　　　　　　 <龙魂积分670点/FCOLOR=249>\ \
+
+　　<提升效果:魔法 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 3
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 2800
+mov p10 2800000
+mov p11 670
+mov s1 LV.36-惊觉
+break
+
+
+#IF
+EQUAL U14 36
+#SAY
+\ \ \        <Img:1253:0><Img:1256:0>\ \ \
+　　您当前的龙魂体魄为:<LV.36-惊觉>\ \
+　　您可以修炼的龙魂为:<LV.37-结丹>\
+　　<提升需要:荣誉3200.金币320万./FCOLOR=249>\
+　　　　　　 <龙魂积分710点/FCOLOR=249>\ \
+
+　　<提升效果:道术 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升2>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 3
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 3200
+mov p10 3200000
+mov p11 710
+mov s1 LV.37-结丹
+break
+
+#IF
+EQUAL U14 37
+#SAY
+\ \ \        <Img:1253:0><Img:1257:0>\ \ \
+　　您当前的龙魂体魄为:<LV.37-结丹>\ \
+　　您可以修炼的龙魂为:<LV.38-元婴>\
+　　<提升需要:荣誉3800.金币380万./FCOLOR=249>\
+　　　　　　 <龙魂积分750点.金刚石10点/FCOLOR=249>\ \
+
+　　<提升效果:攻击 + 2./FCOLOR=250>\
+　　　　　　 <魔法 + 2./FCOLOR=250>\
+　　　　　　 <道术 + 2./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升3>\
+
+#act
+mov p1 2
+mov p2 2
+mov p3 2
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 3200
+mov p10 3200000
+mov p11 710
+mov p12 10
+mov s1 LV.38-元婴
+break
+
+
+#IF
+EQUAL U14 38
+#SAY
+\ \ \        <Img:1253:0><Img:1258:0>\ \ \
+　　您当前的龙魂体魄为:<LV.38-元婴>\ \
+　　您可以修炼的龙魂为:<LV.39-分神>\
+　　<提升需要:荣誉4200.金币420万./FCOLOR=249>\
+　　　　　　 <龙魂积分790点.金刚石15点/FCOLOR=249>\ \
+
+　　<提升效果:防御 + 4./FCOLOR=250>\
+　　　　　　 <魔御 + 4./FCOLOR=250>\
+　　　　　　 <H  P + 50./FCOLOR=250>\
+　　　　　　 <M  P + 30./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升3>\
+
+#act
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 4
+mov p5 4
+mov p6 50
+mov p7 30
+mov p8 0
+mov p9 4200
+mov p10 4200000
+mov p11 790
+mov p12 15
+mov s1 LV.39-分神
+break
+
+
+#IF
+EQUAL U14 39
+#SAY
+\ \ \        <Img:1253:0><Img:1259:0>\ \ \
+　　您当前的龙魂体魄为:<LV.39-分神>\ \
+　　您可以修炼的龙魂为:<LV.40-渡劫>\ 
+　　<提升需要:荣誉5000.金币500万./FCOLOR=249>\
+　　　　　　 <龙魂积分800点.金刚石20点/FCOLOR=249>\ \ 
+
+　　<提升效果:攻击 + 5./FCOLOR=250>\
+　　　　　　 <魔法 + 5./FCOLOR=250>\
+　　　　　　 <道术 + 5./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升3>\
+
+#act
+mov p1 5
+mov p2 5
+mov p3 5
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p9 5000
+mov p10 5000000
+mov p11 800
+mov p12 20
+mov s1 LV.40-渡劫
+break
+
+
+#IF
+EQUAL U14 40
+#SAY
+\ \ \        <Img:1254:0><Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<LV.40-渡劫>\ \
+　　您可以修炼的龙魂为:<LV.41-元婴结成>\ \
+
+　　您现在可以开始学习技能<通用·护体神盾>了！\ \
+　　<学习护体神盾/@护体神盾>\
+
+　　学习后，即可<继续修炼龙魂体>\
+#ACT
+break
+
+#IF
+EQUAL U14 41
+#SAY
+\ \ \        <Img:1254:0><Img:1251:0>\ \ \
+　　您当前的龙魂体魄为:<LV.41-元婴结成>\ \
+　　您可以修炼的龙魂为:<LV.42-元婴凝魂>\
+　　<提升需要:荣誉5800.金币580万./FCOLOR=249>\
+　　　　　　 <龙魂积分880点.金刚石28点/FCOLOR=249>\ \ 
+
+　　<提升效果:魔法下限 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 0
+mov p14 3
+mov p15 0
+mov p16 0
+mov p17 0
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 5800
+mov p10 5800000
+mov p11 880
+mov p12 28
+mov s1 LV.42-元婴凝魂
+break
+
+#IF
+EQUAL U14 42
+#SAY
+\ \ \        <Img:1254:0><Img:1252:0>\ \ \
+　　您当前的龙魂体魄为:<LV.42-元婴凝魂>\ \
+　　您可以修炼的龙魂为:<LV.43-元婴定胎>\
+　　<提升需要:荣誉6100.金币610万./FCOLOR=249>\
+　　　　　　 <龙魂积分900点.金刚石32点/FCOLOR=249>\ \ 
+
+　　<提升效果:道术下限 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 0
+mov p14 0
+mov p15 3
+mov p16 0
+mov p17 0
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 6100
+mov p10 6100000
+mov p11 900
+mov p12 32
+mov s1 LV.43-元婴定胎
+break
+
+#IF
+EQUAL U14 43
+#SAY
+\ \ \        <Img:1254:0><Img:1253:0>\ \ \
+　　您当前的龙魂体魄为:<LV.43-元婴定胎>\ \
+　　您可以修炼的龙魂为:<LV.44-元婴成型>\
+　　<提升需要:荣誉6600.金币660万./FCOLOR=249>\
+　　　　　　 <龙魂积分960点.金刚石39点/FCOLOR=249>\ \ 
+
+　　<提升效果:防御下限 + 3./FCOLOR=250>\
+　　　　　　 <魔御下限 + 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 0
+mov p14 0
+mov p15 0
+mov p16 3
+mov p17 3
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 6600
+mov p10 6600000
+mov p11 960
+mov p12 39
+mov s1 LV.44-元婴成型
+break
+
+#IF
+EQUAL U14 44
+#SAY
+\ \ \        <Img:1254:0><Img:1254:0>\ \ \
+　　您当前的龙魂体魄为:<LV.44-元婴成型>\ \
+　　您可以修炼的龙魂为:<LV.45-玄仙>\
+　　<提升需要:荣誉7200.金币720万./FCOLOR=249>\
+　　　　　　 <龙魂积分1000点.金刚石50点/FCOLOR=249>\ \ 
+
+　　<提升效果:攻击 + 3 - 5./FCOLOR=250>\
+　　　　　　 <魔法 + 3 - 5./FCOLOR=250>\
+　　　　　　 <道术 + 3 - 5./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 5
+mov p2 5
+mov p3 5
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 3
+mov p14 3
+mov p15 3
+mov p16 0
+mov p17 0
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 7200
+mov p10 7200000
+mov p11 1000
+mov p12 50
+mov s1 LV.45-玄仙
+break
+
+#IF
+EQUAL U14 45
+#SAY
+\ \ \        <Img:1254:0><Img:1255:0>\ \ \
+　　您当前的龙魂体魄为:<LV.45-玄仙>\ \
+　　您可以修炼的龙魂为:<LV.46-玄仙大乘>\
+　　<提升需要:荣誉8000.金币800万./FCOLOR=249>\
+　　　　　　 <龙魂积分1200点.金刚石70点/FCOLOR=249>\ \ 
+
+　　<提升效果:防御 + 3 - 3./FCOLOR=250>\
+　　　　　　 <魔御 + 3 - 3./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 3
+mov p5 3
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 0
+mov p14 0
+mov p15 0
+mov p16 3
+mov p17 3
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 8000
+mov p10 8000000
+mov p11 1200
+mov p12 70
+mov s1 LV.46-玄仙大乘
+break
+
+
+#IF
+EQUAL U14 46
+#SAY
+\ \ \        <Img:1254:0><Img:1256:0>\ \ \
+　　您当前的龙魂体魄为:<LV.46-玄仙大乘>\ \
+　　您可以修炼的龙魂为:<LV.47-金仙>\ 
+　　<提升需要:荣誉8400.金币850万./FCOLOR=249>\
+　　　　　　 <龙魂积分1300点.金刚石80点/FCOLOR=249>\ \ 
+
+　　<提升效果:HP + 30./FCOLOR=250>\
+　　　　　　 <MP + 30./FCOLOR=250>\ \
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 30
+mov p7 30
+mov p8 0
+mov p13 0
+mov p14 0
+mov p15 0
+mov p16 0
+mov p17 0
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 8400
+mov p10 8500000
+mov p11 1300
+mov p12 80
+mov s1 LV.47-金仙
+break
+
+#IF
+EQUAL U14 47
+#SAY
+\ \ \        <Img:1254:0><Img:1257:0>\ \ \
+　　您当前的龙魂体魄为:<LV.47-金仙>\ \
+　　您可以修炼的龙魂为:<LV.48-金仙大乘>\ 
+　　<提升需要:荣誉8888.金币888万./FCOLOR=249>\
+　　　　　　 <龙魂积分1388点.金刚石88点/FCOLOR=249>\ \ 
+
+　　<提升效果:幸运 + 1./FCOLOR=250>\
+　　<提升效果:敏捷 + 3./FCOLOR=250>\
+　　<提升效果:准确 + 1./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 0
+mov p2 0
+mov p3 0
+mov p4 0
+mov p5 0
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 0
+mov p14 0
+mov p15 0
+mov p16 0
+mov p17 0
+mov p18 1
+mov p19 3
+mov p20 1
+mov p9 8888
+mov p10 8880000
+mov p11 1388
+mov p12 88
+mov s1 LV.48-金仙大乘
+break
+
+
+#IF
+EQUAL U14 48
+#SAY
+\ \ \        <Img:1254:0><Img:1258:0>\ \ \
+　　您当前的龙魂体魄为:<LV.48-金仙大乘>\ \
+　　您可以修炼的龙魂为:<LV.49-圣元>\ 
+　　<提升需要:荣誉9100.金币900万./FCOLOR=249>\
+　　　　　　 <龙魂积分1460点.金刚石100点/FCOLOR=249>\ \ 
+
+　　<提升效果:防御 + 1 - 1./FCOLOR=250>\
+　　　　　　 <魔御 + 1 - 1./FCOLOR=250>\
+　　　　　　 <攻击 + 2 - 2./FCOLOR=250>\
+　　　　　　 <魔法 + 2 - 2./FCOLOR=250>\
+　　　　　　 <道术 + 2 - 2./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 2
+mov p2 2
+mov p3 2
+mov p4 1
+mov p5 1
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 2
+mov p14 2
+mov p15 2
+mov p16 1
+mov p17 1
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 9100
+mov p10 9000000
+mov p11 1460
+mov p12 100
+mov s1 LV.49-圣元
+break
+
+
+#IF
+EQUAL U14 49
+#SAY
+\ \ \        <Img:1254:0><Img:1259:0>\ \ \
+　　您当前的龙魂体魄为:<LV.48-圣元>\ \
+　　您可以修炼的龙魂为:<LV.50-金身>\ 
+　　<提升需要:荣誉10000.金币1000万./FCOLOR=249>\
+　　　　　　 <龙魂积分2000点.金刚石180点/FCOLOR=249>\ \ 
+
+　　<提升效果:防御 + 3 - 3./FCOLOR=250>\
+　　　　　　 <魔御 + 3 - 3./FCOLOR=250>\
+　　　　　　 <攻击 + 5 - 5./FCOLOR=250>\
+　　　　　　 <魔法 + 5 - 5./FCOLOR=250>\
+　　　　　　 <道术 + 5 - 5./FCOLOR=250>\
+　　　　　　　　<修为提升/@提升4>\
+#ACT
+mov p1 5
+mov p2 5
+mov p3 5
+mov p4 3
+mov p5 3
+mov p6 0
+mov p7 0
+mov p8 0
+mov p13 5
+mov p14 5
+mov p15 5
+mov p16 3
+mov p17 3
+mov p18 0
+mov p19 0
+mov p20 0
+mov p9 10000
+mov p10 10000000
+mov p11 2000
+mov p12 180
+mov s1 LV.50-金身
+break
+
+
+#IF
+Check [15] 0
+EQUAL U14 50
+#SAY
+\ \ \        <Img:1255:0><Img:1250:0>\ \ \
+　　您当前的龙魂体魄为:<LV.MAX-金身>\ \
+　　您可以修炼的龙魂为:<已满>\ \
+
+　　铸造金身需要：800元宝\
+　　<锻造金身./@铸造金身>\ \
+#ACT
+break
+
+
+#IF
+Check [80] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S131 <ImgEx:9:3140:3140:3140:-2:5|249#已获得>
+#ELSEACT
+mov S131 <ImgEx:9:3142:3140:3141:-2:5|249#异界龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#防御　+　3^253#魔御　+　3^253#萃取需要消耗300元宝/@一号龙>
+
+#IF
+Check [81] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S132 <ImgEx:9:3143:3143:3143:126:-29|249#已获得>
+#ELSEACT
+mov S132 <ImgEx:9:3145:3143:3144:126:-29|249#逆转龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#攻击　+　3^253#魔法　+　3^253#道术　+　3^253#萃取需要消耗800金刚石/@二号龙>
+
+
+#IF
+Check [82] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S133 <ImgEx:9:3146:3146:3146:243:-19|249#已获得>
+#ELSEACT
+mov S133 <ImgEx:9:3148:3146:3147:243:-19|249#爆击龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#爆击　+　3%^253#萃取需要消耗8000荣誉/@三号龙>
+
+#IF
+Check [83] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S134 <ImgEx:9:3149:3149:3149:340:-67|249#已获得>
+#ELSEACT
+mov S134 <ImgEx:9:3151:3149:3150:340:-67|249#破甲龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#破甲　+　3%^253#萃取需要消耗350灵符/@四号龙>
+
+#IF
+Check [84] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S135 <ImgEx:9:3152:3152:3152:473:-59|249#已获得>
+#ELSEACT
+mov S135 <ImgEx:9:3154:3152:3153:473:-59|249#龙体龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#HP　+　3%^253#萃取需要消耗30元宝+200灵符/@五号龙>
+
+#IF
+Check [85] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S136 <ImgEx:9:3155:3155:3155:-11:55|249#已获得>
+#ELSEACT
+mov S136 <ImgEx:9:3157:3155:3156:-11:55|249#聚神龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#MP　+　8%^253#萃取需要消耗30元宝+500灵符/@六号龙>
+
+#IF
+Check [86] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S137 <ImgEx:9:3158:3158:3158:140:35|249#已获得>
+#ELSEACT
+mov S137 <ImgEx:9:3160:3158:3159:140:35|249#财运龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#财帛　+　2%^253#萃取需要消耗3个金盒/@七号龙>
+
+#IF
+Check [87] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S138 <ImgEx:9:3161:3161:3161:301:20|249#已获得>
+#ELSEACT
+mov S138 <ImgEx:9:3163:3161:3162:301:20|249#反伤龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#反震　+　2%^253#萃取需要消耗100元宝+3000荣誉/@八号龙>
+
+#IF
+Check [88] 1
+Check [15] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#ACT
+mov S139 <ImgEx:9:3164:3164:3164:455:0|249#已获得>
+#ELSEACT
+mov S139 <ImgEx:9:3166:3164:3165:455:0|249#堕落龙魂：^250#萃取龙魂加持给金身^250#本龙魂萃取后可获得：^253#全属性　+　5^253#萃取需要消耗1200元宝/@九号龙>
+
+#IF
+Check [80] 1
+Check [81] 1
+Check [82] 1
+Check [83] 1
+Check [84] 1
+Check [85] 1
+Check [86] 1
+Check [87] 1
+Check [88] 1
+CheckContainsText <$FASHIONBOOTS> 金身
+#SAY
+ \ \
+<金身九段已经锻造完毕，恭喜您完成了全部的龙魂体魄！>\
+<重新学习护体神盾/@护体神盾2>\
+#ACT
+OPENMERCHANTBIGDLG 9 3135 0 4 0 0 1 598 4 0
+break
+
+
+#IF
+Check [15] 1
+EQUAL U14 50
+CheckContainsText <$FASHIONBOOTS> 金身
+#SAY
+<金身已经锻造完成，接下来，您可以使用宝石进行点金，金身总共可以点金9次，对应9个龙魂>\
+<$STR(S131)>\
+<$STR(S132)>\
+<$STR(S133)>\
+<$STR(S134)>\
+<$STR(S135)>\
+<$STR(S136)>\
+<$STR(S137)>\
+<$STR(S138)>\
+<$STR(S139)>\
+#ACT
+OPENMERCHANTBIGDLG 9 3136 0 4 0 0 1 598 4 0
+break
+
+
+#IF
+NOT CheckContainsText <$FASHIONBOOTS> 金身
+#SAY
+　　您可能没有佩戴金身，打造完毕后，请佩戴金身后再点击。
+#ACT
+OPENMERCHANTBIGDLG 9 3136 0 4 0 0 1 598 4 0
+break
+
+
+
+[@一号龙]
+#IF
+Check [80] 0
+CHECKGAMEGOLD > 299
+#act
+CHANGEITEMADDVALUE 28 0 + 3
+CHANGEITEMADDVALUE 28 1 + 3
+GAMEGOLD - 300
+set [80] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有300元宝。或者已经锻造一个了。
+break
+
+
+
+[@龙赋值]
+#IF
+EQUAL U24 1
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV1
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV1】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 2
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV2
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV2】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 3
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV3
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV3】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 4
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV4
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV4】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 5
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV5
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV5】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 6
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV6
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV6】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 7
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV7
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV7】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 8
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LV8
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LV8】。
+goto @龙魂
+break
+
+#IF
+EQUAL U24 9
+#ACT
+ChangeItemName 28 <$FASHIONBOOTS>.LVMAX
+SendNewLineMsg 0 251 0 15 100 3 1 恭喜【%s】历经艰辛，终于萃取出了【龙魂.LVMAX】。
+goto @龙魂
+break
+
+
+[@二号龙]
+#IF
+Check [81] 0
+CHECKGAMEDIAMOND > 800
+#act
+CHANGEITEMADDVALUE 28 2 + 3
+CHANGEITEMADDVALUE 28 3 + 3
+CHANGEITEMADDVALUE 28 4 + 3
+GAMEDIAMOND - 800
+set [81] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有800金刚石。或者已经锻造了。
+break
+
+
+[@三号龙]
+#IF
+Check [82] 0
+CHECKGAMEGLORY > 7999
+#act
+SetNewItemValue 28 0 + 3
+GAMEGLORY - 8000
+set [82] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有8000荣誉。或者已经锻造一个了。
+break
+
+[@四号龙]
+#IF
+Check [83] 0
+CHECKGAMEGIRD > 349
+#act
+SetNewItemValue 28 4 + 3
+GAMEGIRD - 350
+set [83] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有350灵符。或者已经锻造一个了。
+break
+
+[@五号龙]
+#IF
+Check [84] 0
+CHECKGAMEGOLD > 29
+CHECKGAMEGIRD > 199
+#act
+SetNewItemValue 28 7 + 3
+GAMEGOLD - 30
+GAMEGIRD - 200
+set [84] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有30元宝+200灵符。或者已经锻造一个了。
+break
+
+
+[@六号龙]
+#IF
+Check [85] 0
+CHECKGAMEGOLD > 29
+CHECKGAMEGIRD > 499
+#act
+SetNewItemValue 28 8 + 8
+GAMEGOLD - 30
+GAMEGIRD - 500
+set [85] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有30元宝+500灵符。或者已经锻造一个了。
+break
+
+
+[@七号龙]
+#IF
+Check [86] 0
+CheckItem 金盒 3
+#act
+SetNewItemValue 28 11 + 2
+take 金盒 3
+set [86] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有3个金盒。或者已经锻造一个了。
+break
+
+
+[@八号龙]
+#IF
+Check [87] 0
+CHECKGAMEGOLD > 99
+CHECKGAMEGLORY > 2999
+#act
+SetNewItemValue 28 5 + 2
+GAMEGOLD - 100
+GAMEGLORY - 3000
+set [87] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有100元宝+3000荣誉。或者已经锻造一个了。
+break
+
+
+[@九号龙]
+#IF
+Check [88] 0
+CHECKGAMEGOLD > 1199
+#act
+CHANGEITEMADDVALUE 28 0 + 5
+CHANGEITEMADDVALUE 28 1 + 5
+CHANGEITEMADDVALUE 28 2 + 5
+CHANGEITEMADDVALUE 28 3 + 5
+CHANGEITEMADDVALUE 28 4 + 5
+GAMEGOLD - 1200
+set [88] 1
+INC U24 1
+goto @龙赋值
+break
+#ELSEACT
+MessageBox 锻造失败，您没有500元宝。或者已经锻造一个了。
+break
+
+
+
+
+[@铸造金身]
+#IF
+Check [15] 0
+CHECKGAMEGOLD > 799
+#act
+GAMEGOLD - 800
+give 金身
+set [15] 1
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】耗费大量元宝，终于萃取出【金身】。
+goto @龙魂
+break
+#ELSEACT
+MessageBox 锻造失败，您没有800元宝。或者已经锻造一个了。
+break
+
+
+
+[@护体神盾2]
+#OR
+CHECKSKILL 通用·护体神盾 = 0
+CHECKSKILL 通用·护体神盾 > 0
+#ACT
+MessageBox 　　您已经学习了《通用·护体神盾》了呀！
+break
+
+#IF
+CHECKGAMEGLORY > 4999
+CheckGold 8888888
+LARGE U4 999
+CHECKGAMEDIAMOND > 99
+#ACT
+GAMEGLORY - 5000
+take 金币 8888888
+GAMEDIAMOND - 100
+DEC U4 1000
+ADDSKILL 通用·护体神盾
+SendNewLineMsg 0 251 0 15 100 10 1 玩家【%s】历经重重劫难，终于习得技能【护体神盾】..
+SENDMSG 7  学习成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 学习需要5000点荣誉、888万金币、100点金刚石、1000点龙魂积分。
+break
+
+
+
+[@护体神盾]
+#OR
+CHECKSKILL 通用·护体神盾 = 0
+CHECKSKILL 通用·护体神盾 > 0
+#ACT
+MessageBox 　　您已经学习了《通用·护体神盾》了呀！
+break
+
+#IF
+EQUAL U14 40
+CHECKGAMEGLORY > 4999
+CheckGold 8888888
+LARGE U4 999
+CHECKGAMEDIAMOND > 99
+#ACT
+GAMEGLORY - 5000
+take 金币 8888888
+GAMEDIAMOND - 100
+DEC U4 1000
+INC U14 1
+ADDSKILL 通用·护体神盾
+SendNewLineMsg 0 251 0 15 100 10 1 玩家【%s】历经重重劫难，终于习得技能【护体神盾】..
+SENDMSG 7  学习成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 学习需要5000点荣誉、888万金币、100点金刚石、1000点龙魂积分。
+break
+
+
+
+
+
+
+
+
+
+
+
+[@获取]
+#IF
+CHECKFENGHAO 出神入化
+checkitem 金砖 1
+#act
+INC U14 1
+take 金砖
+ChangeHumAbility 6 + 3
+ChangeHumAbility 8 + 3
+ChangeHumAbility 10 + 3
+ChangeHumAbility 2 + 3
+ChangeHumAbility 4 + 3
+ChangeHumAbility 11 + 3
+ChangeHumAbility 12 + 3
+ChangeHumAbility 19 + 3
+ChangeHumAbility 5 + 3
+ChangeHumAbility 7 + 3
+ChangeHumAbility 9 + 3
+ChangeHumAbility 1 + 3
+ChangeHumAbility 3 + 3
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】将龙魂体魄提升至了【龙魂体第二阶段】.获得全属性点　+　3点.
+SENDMSG 7  属性提升成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 境界提升失败，您未获得出神入化称号，您并未拥有金砖一块。
+break
+
+
+
+[@提升]
+#IF
+CHECKGAMEGLORY > <$STR(p9)>
+CheckGold <$STR(p10)>
+#ACT
+GAMEGLORY - <$STR(p9)>
+take 金币 <$STR(p10)>
+INC U14 1
+ChangeHumAbility 6 + <$STR(p1)>
+ChangeHumAbility 8 + <$STR(p2)>
+ChangeHumAbility 10 + <$STR(p3)>
+ChangeHumAbility 2 + <$STR(p4)>
+ChangeHumAbility 4 + <$STR(p5)>
+ChangeHumAbility 11 + <$STR(p6)>
+ChangeHumAbility 12 + <$STR(p7)>
+ChangeHumAbility 19 + <$STR(p8)>
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】将龙魂体魄提升至了【<$STR(s1)>】.. 
+SENDMSG 7  属性提升成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 境界提升失败，未达到条件。
+break
+
+[@提升2]
+#IF
+CHECKGAMEGLORY > <$STR(p9)>
+CheckGold <$STR(p10)>
+LARGE U4 <$STR(p11)>
+#ACT
+GAMEGLORY - <$STR(p9)>
+take 金币 <$STR(p10)>
+DEC U4 <$STR(p11)>
+INC U14 1
+ChangeHumAbility 6 + <$STR(p1)>
+ChangeHumAbility 8 + <$STR(p2)>
+ChangeHumAbility 10 + <$STR(p3)>
+ChangeHumAbility 2 + <$STR(p4)>
+ChangeHumAbility 4 + <$STR(p5)>
+ChangeHumAbility 11 + <$STR(p6)>
+ChangeHumAbility 12 + <$STR(p7)>
+ChangeHumAbility 19 + <$STR(p8)>
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】将龙魂体魄提升至了【<$STR(s1)>】..
+SENDMSG 7  属性提升成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 境界提升失败，未达到条件。
+break
+
+
+[@提升3]
+#IF
+CHECKGAMEGLORY > <$STR(p9)>
+CheckGold <$STR(p10)>
+LARGE U4 <$STR(p11)>
+CHECKGAMEDIAMOND > <$STR(p12)>
+#ACT
+GAMEGLORY - <$STR(p9)>
+take 金币 <$STR(p10)>
+GAMEDIAMOND - <$STR(p12)>
+DEC U4 <$STR(p11)>
+INC U14 1
+ChangeHumAbility 6 + <$STR(p1)>
+ChangeHumAbility 8 + <$STR(p2)>
+ChangeHumAbility 10 + <$STR(p3)>
+ChangeHumAbility 2 + <$STR(p4)>
+ChangeHumAbility 4 + <$STR(p5)>
+ChangeHumAbility 11 + <$STR(p6)>
+ChangeHumAbility 12 + <$STR(p7)>
+ChangeHumAbility 19 + <$STR(p8)>
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】将龙魂体魄提升至了【<$STR(s1)>】..
+SENDMSG 7  属性提升成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 境界提升失败，未达到条件。
+break
+
+[@提升4]
+#IF
+CHECKGAMEGLORY > <$STR(p9)>
+CheckGold <$STR(p10)>
+LARGE U4 <$STR(p11)>
+CHECKGAMEDIAMOND > <$STR(p12)>
+#ACT
+GAMEGLORY - <$STR(p9)>
+take 金币 <$STR(p10)>
+GAMEDIAMOND - <$STR(p12)>
+DEC U4 <$STR(p11)>
+INC U14 1
+ChangeHumAbility 6 + <$STR(p1)>
+ChangeHumAbility 8 + <$STR(p2)>
+ChangeHumAbility 10 + <$STR(p3)>
+ChangeHumAbility 2 + <$STR(p4)>
+ChangeHumAbility 4 + <$STR(p5)>
+ChangeHumAbility 11 + <$STR(p6)>
+ChangeHumAbility 12 + <$STR(p7)>
+ChangeHumAbility 19 + <$STR(p8)>
+ChangeHumAbility 5 + <$STR(p13)>
+ChangeHumAbility 7 + <$STR(p14)>
+ChangeHumAbility 9 + <$STR(p15)>
+ChangeHumAbility 1 + <$STR(p16)>
+ChangeHumAbility 3 + <$STR(p17)>
+ChangeHumAbility 21 + <$STR(p18)>
+ChangeHumAbility 20 + <$STR(p19)>
+ChangeHumAbility 19 + <$STR(p20)>
+SendNewLineMsg 0 251 0 15 100 10 1 恭喜【%s】将龙魂体魄提升至了【<$STR(s1)>】..
+SENDMSG 7  属性提升成功.
+goto @龙魂
+break
+#ELSEACT
+MessageBox 境界提升失败，未达到条件。
+break
+}

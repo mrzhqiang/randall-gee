@@ -1,0 +1,269 @@
+[@main]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<安/AUTOCOLOR=155,168,253,115,125>║║<安/AUTOCOLOR=155,168,253,115,125>║║<传/AUTOCOLOR=155,168,253,115,125>║║<奇/AUTOCOLOR=155,168,253,115,125>║║<恭/AUTOCOLOR=155,168,253,115,125>║║<祝/AUTOCOLOR=155,168,253,115,125>║║<中/AUTOCOLOR=155,168,253,115,125>║║<秋/AUTOCOLOR=155,168,253,115,125>║║<团/AUTOCOLOR=155,168,253,115,125>║║<圆/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━追忆传奇恭祝新春快乐━━━━━━━━━━━/SCOLOR=249>\
+<领取/@领取礼物><鸡年礼物:30万×等级经验+88元宝+188荣誉值/SCOLOR=70>\
+<回收/@回收>礼炮>>>>>>>><兑换/@兑换><鸡年限定时装,称号/SCOLOR=70>\
+<ItemShow:1165:1:0:0:1>　<ItemShow:1166:1:0:0:1>　<ItemShow:1167:1:0:0:1>　<ItemShow:1171:1:0:0:1>\ \ \
+<━━━━━━━追忆传奇恭祝新春快乐━━━━━━━━━━━/SCOLOR=249>\
+<当前鸡年积分:/SCOLOR=70><$str(u55)>                         <离 开/@EXIT>\
+
+[@兑换]
+<99点积分/SCOLOR=250><兑换/@经验><:200万经验/SCOLOR=70>　　<199点积分/SCOLOR=250><兑换/@声望><:20声望/SCOLOR=70>\
+<199点积分/SCOLOR=250><兑换/@元宝><:5元宝/SCOLOR=70>　　 　<299点积分/SCOLOR=250><兑换/@药><:10个大药:福满金桃/SCOLOR=70>\
+<1999点积分/SCOLOR=250><+闻鸡起舞5个/SCOLOR=249><兑换/@称号><:鸡年大吉吧/SCOLOR=70>\
+<2999点积分/SCOLOR=250><+闻鸡起舞10个/SCOLOR=249><兑换/@时装><:金鸡报晓/SCOLOR=70>\
+<2999点积分/SCOLOR=250><+闻鸡起舞10个/SCOLOR=249><兑换/@时装2><:鸡年纳福/SCOLOR=70>\
+<9999点积分/SCOLOR=250><兑换/@经验2><:2亿经验/SCOLOR=70>\
+<ItemShow:1165:1:0:0:1>　<ItemShow:1166:1:0:0:1>　<ItemShow:1167:1:0:0:1>　<ItemShow:1171:1:0:0:1>\ \ \
+注：时装特效无效，称号无需佩戴　　<当前鸡年积分:/SCOLOR=70><$str(u55)>　　<离 开/@EXIT>\
+
+
+
+[@经验2]
+#IF
+LARGE u55 9998
+#ACT
+dec u55 9999
+CHANGEEXP + 200000000
+goto @兑换
+SendMsg 6 兑换成功，获得2亿经验
+break
+#ELSEACT
+SendMsg 6 积分不足，不可兑换
+break
+
+
+
+[@时装2]
+#IF
+LARGE u55 2998
+checkitem 闻鸡起舞 10
+#ACT
+DEC U55 2999
+Give 鸡年纳福
+take 闻鸡起舞 10
+goto @兑换
+SendMsg 6 兑换成功，获得鸡年纳福
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』兑换了:[鸡年纳福]，真是犀利！
+break
+#ELSEACT
+SendMsg 6 积分或闻鸡起舞不足，不可兑换
+break
+
+
+[@时装]
+#IF
+LARGE u55 2998
+checkitem 闻鸡起舞 10
+#ACT
+DEC U55 2999
+Give 金鸡报晓
+take 闻鸡起舞 10
+goto @兑换
+SendMsg 6 兑换成功，获得金鸡报晓
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』兑换了:[金鸡报晓]，真是犀利！
+break
+#ELSEACT
+SendMsg 6 积分或闻鸡起舞不足，不可兑换
+break
+
+
+
+[@称号]
+#IF
+CHECKFENGHAO 鸡年大吉吧
+#ACT
+MESSAGEBOX 对不起,你已经拥有鸡年大吉吧称号了!
+break
+
+#IF
+LARGE u55 1998
+checkitem 闻鸡起舞 5
+#ACT
+DEC U55 1999
+GiveFengHao 鸡年大吉吧
+take 闻鸡起舞 5
+goto @兑换
+SendMsg 6 兑换成功，获得鸡年大吉吧
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』兑换了:[鸡年大吉吧称号]，真是犀利！
+break
+#ELSEACT
+SendMsg 6 积分或闻鸡起舞不足，不可兑换
+break
+
+
+[@药]
+#IF
+LARGE u55 298
+#ACT
+dec u55 299
+give 福满金桃 10
+goto @兑换
+SendMsg 6 兑换成功，获得10个福满金桃
+break
+#ELSEACT
+SendMsg 6 积分不足，不可兑换
+break
+
+
+[@经验]
+#IF
+LARGE u55 98
+#ACT
+dec u55 99
+CHANGEEXP + 2000000
+goto @兑换
+SendMsg 6 兑换成功，获得200万经验
+break
+#ELSEACT
+SendMsg 6 积分不足，不可兑换
+break
+
+
+
+[@声望]
+#IF
+LARGE u55 198
+#ACT
+dec u55 199
+CREDITPOINT + 20
+goto @兑换
+SendMsg 6 兑换成功，获得20声望
+break
+#ELSEACT
+SendMsg 6 积分不足，不可兑换
+break
+
+
+[@元宝]
+#IF
+LARGE u55 198
+#ACT
+dec u55 199
+GAMEGOLD + 5
+goto @兑换
+SendMsg 6 兑换成功，获得5元宝
+break
+#ELSEACT
+SendMsg 6 积分不足，不可兑换
+break
+
+
+
+
+[@领取礼物]
+#IF
+CheckTextList ..\QuestDiary\节日礼物领取名单2.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您的<名字>已经领取过礼物了，请在下次节日时再来领取。\
+#ELSEACT
+GOTO @检测机器
+
+[@检测机器]
+#IF
+CheckTextList ..\QuestDiary\节日礼物领取名单.txt <$MACHINEID>
+#ACT
+MESSAGEBOX 您的<机器码>已经领取过礼物了，请在下次节日时再来领取。\
+#ELSEACT
+GOTO @检测等级
+
+[@检测等级]
+#IF
+CHECKLEVELEX < 65
+#ACT
+MESSAGEBOX 您的等级还不够65，无法领取节日礼物。
+BREAK
+
+#IF
+CHECKLEVELEX > 64
+#ACT
+GAMEGOLD + 88
+MOV N7 0
+Mul N7 300000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+GAMEGLORY + 188
+AddTextList ..\QuestDiary\节日礼物领取名单.txt <$MACHINEID> 
+AddTextList ..\QuestDiary\节日礼物领取名单2.txt <$USERNAME>
+MESSAGEBOX 已经成功领取了[<$Str(N7)>经验]+100元宝+188荣誉
+SendNewLineMsg 0 251 0 15 100 10 1 『<$USERNAME>』领取鸡年祝福获得了:[<$Str(N7)>经验]+100元宝+188荣誉！
+CLOSE
+BREAK
+
+[@回收]
+#IF
+checkitem 礼炮 20
+#ACT
+take 礼炮 20
+inc u55 20
+goto @回收
+break
+
+#IF
+checkitem 礼炮 10
+#ACT
+take 礼炮 10
+inc u55 10
+goto @回收
+break
+
+#IF
+checkitem 礼炮 5
+#ACT
+take 礼炮 5
+inc u55 5
+goto @回收
+break
+
+#IF
+checkitem 礼炮 1
+#ACT
+take 礼炮 1
+inc u55 1
+goto @回收
+break
+
+#IF
+checkitem 一串礼炮 20
+#ACT
+take 一串礼炮 20
+inc u55 200
+goto @回收
+break
+
+#IF
+checkitem 一串礼炮 10
+#ACT
+take 一串礼炮 10
+inc u55 100
+goto @回收
+break
+
+#IF
+checkitem 一串礼炮 5
+#ACT
+take 一串礼炮 5
+inc u55 50
+goto @回收
+break
+
+#IF
+checkitem 一串礼炮 1
+#ACT
+take 一串礼炮 1
+inc u55 10
+goto @回收
+break
+
+#IF
+#ACT
+goto @main
+messagebox 回收完毕.当前鸡年积分<$str(u55)>.
+break
+
+
+
+
+
+

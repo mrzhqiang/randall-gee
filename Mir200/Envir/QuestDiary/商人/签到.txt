@@ -1,0 +1,278 @@
+[@签到开始]
+{
+#IF
+CheckTextList ..\QuestDiary\标记数据\签到机器码.txt <$MACHINEID>
+#SAY
+你今日的机器码已经签到过了，签到总次数为<$GAMEPOINT>次。\
+---------------------------------------------------------\
+活动名称：每日签到[打卡机系统]\
+每日奖励：每日签到可获得签到总天数X20万经验奖励\
+累计奖励：累计签到次数达到奖励所需签到次数奖励额外经验\
+温馨提示：每日只能签到一次，每日0点过后可重新签到\
+奖励相关：<领取奖励/@签到的奖励>    <查看奖励/@查看签到奖励>\
+今日签到：<今日签到>    <关闭对话/@exit>\
+#ACT
+break
+
+#IF
+CheckTextList ..\QuestDiary\标记数据\签到名单.txt <$USERNAME>
+#ACT
+#SAY
+你今日已经签到过了，签到总次数为<$GAMEPOINT>次。\
+---------------------------------------------------------\
+活动名称：每日签到[打卡机系统]\
+每日奖励：每日签到可获得签到总天数X20万经验奖励\
+累计奖励：累计签到次数达到奖励所需签到次数奖励额外经验\
+温馨提示：每日只能签到一次，每日0点过后可重新签到\
+奖励相关：<领取奖励/@签到的奖励>    <查看奖励/@查看签到奖励>\
+今日签到：<今日签到>    <关闭对话/@exit>\
+#ELSESAY
+　             <◎◎/SCOLOR=254><追忆传奇签到系统/SCOLOR=249><◎◎/SCOLOR=254>\
+---------------------------------------------------------\
+活动名称：每日签到[打卡机系统]\
+每日奖励：每日签到可获得签到总天数X20万经验奖励\
+累计奖励：累计签到次数达到奖励所需签到次数奖励额外经验\
+温馨提示：每日只能签到一次，每日0点过后可重新签到\
+奖励相关：<领取奖励/@签到的奖励>         <查看奖励/@查看签到奖励>\
+今日签到：<今日签到/@今日的签到>         <关闭对话/@exit>\
+
+[@查看签到奖励]
+#say
+　            <◎◎/SCOLOR=254><追忆传奇签到奖励/SCOLOR=249><◎◎/SCOLOR=254>\
+---------------------------------------------------------\
+签到天数      签到天数奖励       签到天数    签到天数奖励\
+　  1          50万经验            10        1元宝\
+　  2          90万经验            15        5元宝\
+　  3          200万经验           20        8元宝\
+　  4          800万经验           25        10元宝\
+　  5          1000万经验          30        30元宝+2000万经验\
+                             <领奖/@签到的奖励>  <返回/@签到开始>
+
+[@签到的奖励]
+#IF
+check [601] 1
+#ACT
+MOV A120 已领
+#elseact
+MOV A120 <领奖/@领奖1>
+
+#IF
+check [602] 1
+#ACT
+MOV A121 已领
+#elseact
+MOV A121 <领奖/@领奖2>
+
+#IF
+check [603] 1
+#ACT
+MOV A123 已领
+#elseact
+MOV A123 <领奖/@领奖3>
+
+#IF
+check [604] 1
+#ACT
+MOV A124 已领
+#elseact
+MOV A124 <领奖/@领奖4>
+#IF
+check [605] 1
+#ACT
+MOV A125 已领
+#elseact
+MOV A125 <领奖/@领奖5>
+#IF
+check [606] 1
+#ACT
+MOV A126 已领
+#elseact
+MOV A126 <领奖/@领奖10>
+#IF
+check [607] 1
+#ACT
+MOV A127 已领
+#elseact
+MOV A127 <领奖/@领奖15>
+#IF
+check [608] 1
+#ACT
+MOV A128 已领
+#elseact
+MOV A128 <领奖/@领奖20>
+#IF
+check [609] 1
+#ACT
+MOV A129 已领
+#elseact
+MOV A129 <领奖/@领奖25>
+
+
+#IF
+#say
+┌─────┬───┬───┬───┬───┬───┐  你\
+│ <签到次数/SCOLOR=253> │  1   │  2   │  3   │  4   │  5   │  签\
+├─────┼───┼───┼───┼───┼───┤  到\
+│ <领取奖励/SCOLOR=254> │ <$STR(A120)> │ <$STR(A121)> │ <$STR(A123)> │ <$STR(A124)> │ <$STR(A125)> │  次\
+├─────┼───┼───┼───┼───┼───┤  数\
+│ <签到次数/SCOLOR=253> │  10  │  15  │  20  │  25  │  30  │  为\
+├─────┼───┼───┼───┼───┼───┤  <$GAMEPOINT>\
+│ <领取奖励/SCOLOR=254> │ <$STR(A126)> │ <$STR(A127)> │ <$STR(A128)> │ <$STR(A129)> │ <领奖/@领奖30> │  次\
+└─────┴───┴───┴───┴───┴───┘ <返回/@签到开始>\
+
+[@领奖1]
+#if
+checkGAMEPOINT > 0
+#act
+set [601] 1
+ChangeExp + 500000
+goto @签到的奖励
+messagebox 恭喜你领取签到1天奖励：50万经验。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖2]
+#if
+checkGAMEPOINT > 1
+#act
+set [602] 1
+ChangeExp + 900000
+goto @签到的奖励
+messagebox 恭喜你领取签到2天奖励：90万经验。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖3]
+#if
+checkGAMEPOINT > 2
+#act
+set [603] 1
+ChangeExp + 2000000
+goto @签到的奖励
+messagebox 恭喜你领取签到3天奖励：200万经验。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖4]
+#if
+checkGAMEPOINT > 3
+#act
+set [604] 1
+ChangeExp + 8000000
+goto @签到的奖励
+messagebox 恭喜你领取签到4天奖励：800万经验。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖5]
+#if
+checkGAMEPOINT > 4
+#act
+set [605] 1
+ChangeExp + 10000000
+goto @签到的奖励
+messagebox 恭喜你领取签到5天奖励：1000万经验。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖10]
+#if
+checkGAMEPOINT > 9
+#act
+set [606] 1
+gamegold + 1
+goto @签到的奖励
+messagebox 恭喜你领取签到10天奖励：1元宝。
+#elseact
+messagebox 是不是签到天数不够?
+[@领奖15]
+#if
+checkGAMEPOINT > 14
+#act
+set [607] 1
+gamegold + 5
+goto @签到的奖励
+messagebox 恭喜你领取签到15天奖励：5元宝。
+#elseact
+messagebox 是不是签到天数不够?
+[@领奖20]
+#if
+checkGAMEPOINT > 19
+#act
+set [608] 1
+gamegold + 8
+goto @签到的奖励
+messagebox 恭喜你领取签到20天奖励：8元宝。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖25]
+#if
+checkGAMEPOINT > 24
+#act
+set [609] 1
+gamegold + 10
+goto @签到的奖励
+messagebox 恭喜你领取签到25天奖励：10元宝。
+#elseact
+messagebox 是不是签到天数不够?
+
+[@领奖30]
+#if
+check [610] 1
+#act
+messagebox 你已经领取过签到30天的奖励!请问您要重置领奖吗？ @确定9999 @取消
+break
+
+#if
+checkGAMEPOINT > 29
+#act
+gamegold + 30
+ChangeExp + 20000000
+GAMEPOINT = 0
+set [610] 1
+goto @签到的奖励
+messagebox 你签到次数达到30次，额外奖励30元宝+2000万经验!
+#elseact
+messagebox 是不是签到天数不够?
+
+[@确定9999]
+#if
+check [610] 1
+checkitem 金砖 2
+#act
+take 金砖 2
+set [601] 0
+set [602] 0
+set [603] 0
+set [604] 0
+set [605] 0
+set [606] 0
+set [607] 0
+set [608] 0
+set [609] 0
+set [610] 0
+goto @签到的奖励
+messagebox 您的签到奖励已经被重置，您可以重新开始领奖了！
+break
+#elseact
+messagebox 对不起您没有2块金砖，或者您未达到30天签到。
+
+
+
+[@今日的签到]
+#if
+checklevelex > 10
+#act
+GAMEPOINT + 1
+MOV N0 <$GAMEPOINT>
+MUL N0 <$STR(N0)> 200000
+ChangeExp + <$Str(N0)>
+AddTextList ..\QuestDiary\标记数据\签到名单.txt <$USERNAME>
+AddTextList ..\QuestDiary\标记数据\签到机器码.txt <$MACHINEID>
+messagebox 成功签到，今天是你第<$GAMEPOINT>次签到。\签到奖励为<$STR(N0)>经验，您收好咯!
+goto @签到开始
+#elseact
+messagebox 需要等级达到10级才能签到。
+
+}

@@ -1,0 +1,29 @@
+[@main]
+恭喜你进入第十九关，想要从我这里过去的话，\
+就要清除一定数量的怪物才行!\ \
+<下一关/@下一关> 
+
+[@下一关]
+#IF
+CheckMapHumanCount E216 = 0
+CheckMapMonCount E215 = 0 1
+#ACT
+CLEARMAPMON E216
+MongenEx E216 19 20 暗之双头血魔 3 1
+MongenEx E216 19 20 暗之双头金刚 3 1
+MongenEx E216 19 20 暗之黄泉教主 3 1
+MongenEx E216 19 20 暗之沃玛教主 3 1
+MongenEx E216 19 20 暗之骷髅精灵 3 1
+MongenEx E216 19 20 赤月恶魔 3 1
+mapmove E216
+SENDDELAYMSG 闯关时间剩余%s秒 180 249 1 @闯关失败
+close
+#ELSEACT
+messagebox 清除地图内的怪物后才能继续闯关！\或者下一关正在被挑战，请稍后！
+
+[@闯关失败]
+#IF
+#ACT
+mapmove n3 330 333
+messagebox 时间已到，本次闯关失败！
+break

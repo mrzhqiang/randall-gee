@@ -1,0 +1,7 @@
+[@main]
+#if
+#ACT
+give 金币 60000
+GAMEGIRD + 1
+SendMsg 6 击杀成功，获得1灵符+6万金币，当前灵符数量<$GAMEGIRD>
+break

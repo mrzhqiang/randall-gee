@@ -1,0 +1,25 @@
+[@main]
+#IF
+random 160
+#ACT
+GAMEGOLD + 10
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，天降横财，获得10元宝！！
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，天降横财，获得10元宝！！
+break
+
+#IF
+random 15
+#ACT
+GAMEGOLD + 5
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，事件触发，获得5元宝！！
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，事件触发，获得5元宝！！
+break
+
+
+#IF
+#ACT
+GAMEGOLD + 2
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，事件触发，获得2元宝！！
+SENDMSG 0 恭喜<$USERNAME>击杀战场老龟成功，事件触发，获得2元宝！！
+break
+

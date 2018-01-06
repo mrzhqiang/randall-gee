@@ -1,0 +1,2225 @@
+(@@inputstring)
+[@main]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>　　　　　　　　　　　　　　<移动到“图标”即可查看该系天赋属性。/SCOLOR=250>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>　　　　　　　　　　　　　　<点击“＋”号即可对天赋加点，点击“－”号即可对天赋减点！>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>　　　　　　　　　　　　　　<点击派系名字，即可获得该派系包含的技能，以及技能简短说明！/SCOLOR=70>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>　　　　　　　　　　　　　　<由于加点系统复杂，服务器提供3次免费洗点，您当前还可以/SCOLOR=253><免费洗点/@免费洗点>{<$STR(U48)>/FCOLOR=250}<次！/SCOLOR=253>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>　　　　　　　　　　　　　　\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>　　　　　　　　　　　　　　<在二次转职后变身成“无上尊者”职业后，可学习全派系技能。/SCOLOR=151>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \  <按ESC关闭对话框><ImgEx:9:3770:3770:3771:0:0/@精修>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+
+
+
+[@免费洗点]
+#IF
+LARGE U48 0
+#ACT
+MESSAGEBOX 您确定需要洗点吗？\洗点后，所有技能全部重置，技能点恢复初始。   @确定23212 @取消
+break
+#ELSEACT
+messagebox 对不起，您剩余洗点次数不足！
+BREAK
+
+[@确定23212]
+#IF
+LARGE U48 0
+CHECKLEVELEX < 40
+CHECKRENEWLEVEL = 11
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+DEC U48 1
+CLEARSKILL
+MOV U18 120
+MOV N44 120
+DEC N44	39
+INC U18 <$STR(N44)>
+INC U18 <$LEVEL>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+goto @加点系统
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+LARGE U48 0
+CHECKLEVELEX > 39
+CHECKRENEWLEVEL = 11
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+DEC U48 1
+CLEARSKILL
+MOV U18 120
+MOV N44 120
+DEC N44	39
+INC U18 <$STR(N44)>
+INC U18 <$LEVEL>
+MOV N44 <$LEVEL>
+DEC N44	39
+INC U18 <$STR(N44)>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+goto @加点系统
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+LARGE U48 0
+CHECKLEVELEX < 40
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+DEC U48 1
+CLEARSKILL
+MOV U18 <$LEVEL>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+goto @加点系统
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+LARGE U48 0
+CHECKLEVELEX > 39
+CHECKVAR HUMAN 冰系点 = 0
+CHECKVAR HUMAN 剑系点 = 0
+CHECKVAR HUMAN 忍系点 = 0
+CHECKVAR HUMAN 辅系点 = 0
+CHECKVAR HUMAN 唤系点 = 0
+CHECKVAR HUMAN 咒系点 = 0
+CHECKVAR HUMAN 气系点 = 0
+CHECKVAR HUMAN 火系点 = 0
+CHECKVAR HUMAN 电系点 = 0
+#ACT
+DEC U48 1
+CLEARSKILL
+MOV U18 <$LEVEL>
+MOV N44 <$LEVEL>
+DEC N44	39
+INC U18 <$STR(N44)>
+ADDSKILL 召唤宠物
+ADDSKILL 任务界面
+goto @加点系统
+SENDMSG 7 技能全清,技能点还原!
+break
+
+#IF
+#ACT
+goto @加点系统
+SENDMSG 7 对不起，您加过其他天赋点数！无法洗点！
+BREAK
+
+
+
+
+
+
+
+[@觉醒圣者无敌]
+#OR
+CHECKSKILL 圣者·无敌 = 0
+CHECKSKILL 圣者·无敌 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender man
+CheckJob Warrior
+#ACT
+DEC U18 1
+ADDSKILL 圣者·无敌
+take 书页 100
+MESSAGEBOX  你成功学习了技能，圣者·无敌！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\需要60级男战士方可学习！
+BREAK
+
+[@觉醒无坚不摧]
+#OR
+CHECKSKILL 剑姬·无坚不摧 = 0
+CHECKSKILL 剑姬·无坚不摧 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender woman
+CheckJob Warrior
+#ACT
+DEC U18 1
+ADDSKILL 剑姬·无坚不摧
+take 书页 100
+MESSAGEBOX  你成功学习了技能，剑姬·无坚不摧！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\需要60级女战士方可学习！
+BREAK
+
+
+[@冰封]
+#OR
+CHECKSKILL 寒冰·冰封千里 = 0
+CHECKSKILL 寒冰·冰封千里 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender woman
+CheckJob Wizard
+#ACT
+DEC U18 1
+ADDSKILL 寒冰·冰封千里
+take 书页 100
+MESSAGEBOX  你成功学习了技能，寒冰·冰封千里！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\需要60级女法师方可学习！
+BREAK
+
+
+[@雷霆]
+#OR
+CHECKSKILL 阴阳·雷霆法阵 = 0
+CHECKSKILL 阴阳·雷霆法阵 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender man
+CheckJob Taoist
+#ACT
+DEC U18 1
+ADDSKILL 阴阳·雷霆法阵
+take 书页 100
+MESSAGEBOX  你成功学习了技能，阴阳·雷霆法阵！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\需要60级男道士方可学习！
+BREAK
+
+
+
+[@尸气]
+#OR
+CHECKSKILL 魅姬·尸气鼓荡 = 0
+CHECKSKILL 魅姬·尸气鼓荡 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender woman
+CheckJob Taoist
+#ACT
+DEC U18 1
+ADDSKILL 魅姬·尸气鼓荡
+take 书页 100
+MESSAGEBOX  你成功学习了技能，魅姬·尸气鼓荡！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\并且需要60级女道士方可学习！
+BREAK
+
+
+[@焚天]
+#OR
+CHECKSKILL 烈焰·焚天继海 = 0
+CHECKSKILL 烈焰·焚天继海 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+LARGE U18 0
+CHECKLEVELEX > 59
+checkitem 书页 100
+gender man
+CheckJob Wizard
+#ACT
+DEC U18 1
+ADDSKILL 烈焰·焚天继海
+take 书页 100
+MESSAGEBOX  你成功学习了技能，烈焰·焚天继海！
+break
+#ELSEACT
+messagebox 对不起，您需要书页100张，技能点1点\需要60级男魔法师方可学习！
+BREAK
+
+
+[@剑系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 剑系点 + 1
+SAVEVAR HUMAN 剑系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 6 + 1
+ChangeHumAbilityEX 19 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@气系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 气系点 + 1
+SAVEVAR HUMAN 气系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 2 + 1
+ChangeHumAbilityEX 12 + 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@毒系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 毒系点 + 1
+SAVEVAR HUMAN 毒系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 10 + 1
+ChangeHumAbilityEX 4 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+
+[@冰系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 冰系点 + 1
+SAVEVAR HUMAN 冰系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 8 + 1
+ChangeHumAbilityEX 11 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+
+[@火系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 火系点 + 1
+SAVEVAR HUMAN 火系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 8 + 1
+ChangeHumAbilityEX 2 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@电系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 电系点 + 1
+SAVEVAR HUMAN 电系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 4 + 1
+ChangeHumAbilityEX 12 + 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@咒系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 咒系点 + 1
+SAVEVAR HUMAN 咒系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 10 + 1
+ChangeHumAbilityEX 12 + 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@辅系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 辅系点 + 1
+SAVEVAR HUMAN 辅系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 11 + 3
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+[@唤系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 唤系点 + 1
+SAVEVAR HUMAN 唤系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 2 + 1
+ChangeHumAbilityEX 4 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的技能点！
+break
+
+
+[@忍系加点]
+#IF
+LARGE U18 0
+#ACT
+DEC U18 1
+CALCVAR HUMAN 忍系点 + 1
+SAVEVAR HUMAN 忍系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 11 + 1
+ChangeHumAbilityEX 2 + 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！
+break
+
+
+
+[@剑系减点]
+#IF
+CHECKVAR HUMAN 剑系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 剑系点 - 1
+SAVEVAR HUMAN 剑系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 6 - 1
+ChangeHumAbilityEX 19 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@气系减点]
+#IF
+CHECKVAR HUMAN 气系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 气系点 - 1
+SAVEVAR HUMAN 气系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 2 - 1
+ChangeHumAbilityEX 12 - 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@毒系减点]
+#IF
+CHECKVAR HUMAN 毒系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 毒系点 - 1
+SAVEVAR HUMAN 毒系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 10 - 1
+ChangeHumAbilityEX 4 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+
+[@冰系减点]
+#IF
+CHECKVAR HUMAN 冰系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 冰系点 - 1
+SAVEVAR HUMAN 冰系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 8 - 1
+ChangeHumAbilityEX 11 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+
+[@火系减点]
+#IF
+CHECKVAR HUMAN 火系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 火系点 - 1
+SAVEVAR HUMAN 火系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 8 - 1
+ChangeHumAbilityEX 2 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@电系减点]
+#IF
+CHECKVAR HUMAN 电系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 电系点 - 1
+SAVEVAR HUMAN 电系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 4 - 1
+ChangeHumAbilityEX 12 - 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@咒系减点]
+#IF
+CHECKVAR HUMAN 咒系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 咒系点 - 1
+SAVEVAR HUMAN 咒系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 10 - 1
+ChangeHumAbilityEX 12 - 2
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@辅系减点]
+#IF
+CHECKVAR HUMAN 辅系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 辅系点 - 1
+SAVEVAR HUMAN 辅系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 11 - 3
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+[@唤系减点]
+#IF
+CHECKVAR HUMAN 唤系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 唤系点 - 1
+SAVEVAR HUMAN 唤系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 2 - 1
+ChangeHumAbilityEX 4 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+
+[@忍系减点]
+#IF
+CHECKVAR HUMAN 忍系点 > 0
+Large U26 0
+#ACT
+DEC U26 1
+INC U18 1
+CALCVAR HUMAN 忍系点 - 1
+SAVEVAR HUMAN 忍系点 ..\QuestDiary\标记数据\人物加点.txt
+ChangeHumAbilityEX 11 - 1
+ChangeHumAbilityEX 2 - 1
+goto @加点系统
+#ELSEACT
+MESSAGEBOX 对不起，您没有足够的天赋点！\或者您的精力不足1点\减去天赋需要消耗1点精力！
+break
+
+
+
+
+[@忍术系]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                               <ImgEx:21:672:672:673:0:0><忍术·通灵术|将已经召唤的宝宝通灵到身边/@忍5>        <ImgEx:21:836:836:837:0:0><忍术·手里剑|消耗十枚手里剑攻击敌人，可能会中毒/@忍1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:170:170:171:0:0><忍术·范围引爆|消耗十张起爆符，使范围发生剧烈爆炸，会击退敌人/@忍2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:710:710:711:0:0><忍术·掌心雷|催动掌心，攻击一排敌人/@忍3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                        <ImgEx:21:796:796:797:0:0><忍术·影分身术|召唤一个影分身攻击敌人/@忍4>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+
+[@忍5]
+#OR
+CHECKSKILL 忍术·通灵术 = 0
+CHECKSKILL 忍术·通灵术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 忍术·通灵术
+mov P1 5
+mov P2 5
+goto @学习技能
+break
+
+
+[@忍1]
+#OR
+CHECKSKILL 忍术·手里剑 = 0
+CHECKSKILL 忍术·手里剑 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 忍术·手里剑
+mov P1 1
+mov P2 7
+goto @学习技能
+break
+
+[@忍2]
+#OR
+CHECKSKILL 忍术·范围引爆 = 0
+CHECKSKILL 忍术·范围引爆 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 忍术·范围引爆
+mov P1 10
+mov P2 9
+MOV S3 忍术·手里剑
+goto @学习技能2
+break
+
+[@忍3]
+#OR
+CHECKSKILL 忍术·掌心雷 = 0
+CHECKSKILL 忍术·掌心雷 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 忍术·掌心雷
+mov P1 20
+mov P2 9
+MOV S3 忍术·范围引爆
+goto @学习技能2
+break
+
+
+[@忍4]
+#OR
+CHECKSKILL 忍术·影分身术 = 0
+CHECKSKILL 忍术·影分身术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 忍术·影分身术
+mov P1 30
+mov P2 10
+MOV S3 忍术·掌心雷
+goto @学习技能2
+break
+
+
+
+
+
+
+
+
+
+
+
+
+[@火系]
+#OR
+Equal T42 无上尊者
+CheckJob Wizard
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                         <ImgEx:21:324:324:325:0:0><大火球|凝聚自身魔力发射一枚火轮攻击目标/@火1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                         <ImgEx:21:326:326:327:0:0><火墙|在地面上产生火焰，使踏入的敌人受到伤害/@火2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                         <ImgEx:21:336:336:337:0:0><灭天火|召唤天火，使单个目标受到伤害同时扣除其魔力值/@火5>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                         <ImgEx:21:320:320:321:0:0><爆裂火焰|产生高热的火焰，使法术区域内的敌人受到伤害/@火6>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                              <ImgEx:21:130:130:131:0:0><火龙气焰|召唤出可以熔化天日的火龙气焰，使法术区域内的敌人受到伤害/@火7>             <ImgEx:21:160:160:161:0:0><流星火雨|召唤一阵猛烈的火雨，使法术区域内的敌人受到致命伤害/@火8>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是法师！
+
+[@火1]
+#OR
+CHECKSKILL 大火球 = 0
+CHECKSKILL 大火球 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 大火球
+mov P1 1
+goto @学习技能
+break
+
+[@火2]
+#OR
+CHECKSKILL 火墙 = 0
+CHECKSKILL 火墙 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 火墙
+mov P1 10
+mov S3 大火球
+goto @学习技能2
+break
+
+
+
+[@火5]
+#OR
+CHECKSKILL 灭天火 = 0
+CHECKSKILL 灭天火 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 灭天火
+mov P1 30
+mov S3 火墙
+goto @学习技能2
+break
+
+[@火6]
+#OR
+CHECKSKILL 爆裂火焰 = 0
+CHECKSKILL 爆裂火焰 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 爆裂火焰
+mov P1 40
+mov S3 灭天火
+goto @学习技能2
+break
+
+
+[@火7]
+#OR
+CHECKSKILL 火龙气焰 = 0
+CHECKSKILL 火龙气焰 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 火龙气焰
+mov P1 50
+mov S3 爆裂火焰
+goto @学习技能2
+break
+
+[@火8]
+#OR
+CHECKSKILL 流星火雨 = 0
+CHECKSKILL 流星火雨 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 流星火雨
+mov P1 50
+mov S3 爆裂火焰
+goto @学习技能2
+break
+
+
+
+[@剑系]
+#OR
+Equal T42 无上尊者
+CheckJob Warrior
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                              <ImgEx:21:0:0:1:0:0><基本剑术|提高自身的攻击命中率/@剑1>       <ImgEx:21:0:0:1:0:0><精神力战法|提高自身的攻击精准度 由于与剑胆琴心冲突，请先将剑胆琴心修炼3级后才学鼓荡 需要学习了剑·剑胆琴心3级/@剑2>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                       <ImgEx:9:3691:3691:3691:0:0>                     <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                              <ImgEx:21:10:10:11:0:0><攻杀剑术|攻击时有机率造成大幅伤害/@剑3>        <ImgEx:21:26:26:27:0:0><刺杀剑术|隔位施展剑气，使敌人受到大幅伤害/@剑4>    <ImgEx:21:46:46:47:0:0><半月弯刀|使用剑气可同时攻击环绕自身周围的敌人/@剑5>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                               <ImgEx:9:3691:3691:3691:0:0>                       <ImgEx:9:3691:3691:3691:0:0>                     <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                              <ImgEx:21:308:308:309:0:0><野蛮冲撞|用肩膀把敌人撞开，如果撞到障碍物将会对自己造成伤害/@剑6>        <ImgEx:21:306:306:307:0:0><烈火剑法|召唤火精灵附在武器上，从而造成强力的额外伤害/@剑7>     <ImgEx:21:594:594:595:0:0><彻地钉|将剑气没入低下，从远处长出地刺攻击/@剑8>\
+
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                       <ImgEx:9:3691:3691:3691:0:0>                     <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                              <ImgEx:21:748:748:749:0:0><双龙斩|召唤火精灵附在武器上，从而对周围敌人造成额外伤害/@剑9>           <ImgEx:21:922:922:923:0:0><狮子吼|突然爆发剑气大声吼叫，使周围敌人陷入麻痹状态/@剑10>       <ImgEx:21:724:724:725:0:0><开天斩|剑气所向，开天辟地/@剑11>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                               <ImgEx:9:3691:3691:3691:0:0>                       <ImgEx:9:3691:3691:3691:0:0>                     <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                              <ImgEx:21:562:562:563:0:0><十步一杀|向目标突进，并造成3*3范围伤害/@剑12>         <ImgEx:21:684:684:685:0:0><旋风斩|以剑气旋转，攻击周围敌人/@剑13>       <ImgEx:21:888:888:889:0:0><神武守护|以剑气护身，保护自己/@剑14>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是战士！
+
+
+
+[@剑1]
+#OR
+CHECKSKILL 基本剑术 = 0
+CHECKSKILL 基本剑术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 基本剑术
+mov P1 1
+goto @学习技能
+break
+
+[@剑2]
+#OR
+CHECKSKILL 精神力战法 = 0
+CHECKSKILL 精神力战法 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+
+#IF
+CHECKSKILL 基本剑术 > 2
+#ACT
+MOV P2 7
+MOV S2 精神力战法
+mov P1 1
+goto @学习技能
+break
+#ELSEACT
+messagebox 对不起，学习精神力战法需要先将基本剑术到3级。
+
+
+[@剑3]
+#OR
+CHECKSKILL 攻杀剑术 = 0
+CHECKSKILL 攻杀剑术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 攻杀剑术
+mov P1 20
+mov S3 基本剑术
+goto @学习技能2
+break
+
+[@剑4]
+#OR
+CHECKSKILL 刺杀剑术 = 0
+CHECKSKILL 刺杀剑术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 刺杀剑术
+mov P1 20
+mov S3 精神力战法
+goto @学习技能2
+break
+
+[@剑5]
+#OR
+CHECKSKILL 半月弯刀 = 0
+CHECKSKILL 半月弯刀 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 半月弯刀
+mov P1 20
+goto @学习技能
+break
+
+[@剑6]
+#OR
+CHECKSKILL 野蛮冲撞 = 0
+CHECKSKILL 野蛮冲撞 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 野蛮冲撞
+mov P1 30
+mov S3 攻杀剑术
+goto @学习技能2
+break
+
+
+[@剑7]
+#OR
+CHECKSKILL 烈火剑法 = 0
+CHECKSKILL 烈火剑法 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 烈火剑法
+mov P1 30
+mov S3 刺杀剑术
+goto @学习技能2
+break
+
+[@剑8]
+#OR
+CHECKSKILL 彻地钉 = 0
+CHECKSKILL 彻地钉 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 彻地钉
+mov P1 30
+mov S3 半月弯刀
+goto @学习技能2
+break
+
+[@剑9]
+#OR
+CHECKSKILL 双龙斩 = 0
+CHECKSKILL 双龙斩 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 双龙斩
+mov P1 40
+mov S3 野蛮冲撞
+goto @学习技能2
+break
+
+[@剑10]
+#OR
+CHECKSKILL 狮子吼 = 0
+CHECKSKILL 狮子吼 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 狮子吼
+mov P1 40
+mov S3 烈火剑法
+goto @学习技能2
+break
+
+[@剑11]
+#OR
+CHECKSKILL 开天斩 = 0
+CHECKSKILL 开天斩 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 开天斩
+mov P1 40
+mov S3 彻地钉
+goto @学习技能2
+break
+
+[@剑12]
+#OR
+CHECKSKILL 十步一杀 = 0
+CHECKSKILL 十步一杀 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 十步一杀
+mov P1 50
+mov S3 双龙斩
+goto @学习技能2
+break
+
+[@剑13]
+#OR
+CHECKSKILL 旋风斩 = 0
+CHECKSKILL 旋风斩 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 11
+MOV S2 旋风斩
+mov P1 50
+mov S3 狮子吼
+goto @学习技能2
+break
+
+[@剑14]
+#OR
+CHECKSKILL 神武守护 = 0
+CHECKSKILL 神武守护 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 神武守护
+mov P1 50
+mov S3 开天斩
+goto @学习技能2
+break
+
+
+
+
+
+
+
+[@辅助系]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                         <ImgEx:21:4:4:5:0:0><治愈术|以以精神力修复自身创伤/@辅1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                              <ImgEx:21:22:22:23:0:0><幽灵盾|以精神力催动符咒，获得短暂的魔法防御/@辅2>               <ImgEx:21:24:24:25:0:0><神圣战甲术|以精神力催动符咒，获得短暂的物理防御/@辅3>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                              <ImgEx:21:52:52:53:0:0><心灵启示|以精神力察觉怪物，获得怪物残余血量/@辅4>              <ImgEx:21:372:372:373:0:0><群体治愈术|以精神力治疗范围的我方友人/@辅5>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                              <ImgEx:21:885:885:886:0:0><解毒术|以精神力解除中毒状态/@辅6>                <ImgEx:21:954:954:955:0:0><辅助·六道轮回|使得范围友军双防提升/@辅7>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                             <ImgEx:21:892:892:893:0:0><辅助·医疗阵|以精神力念动咒语，使得范围加血/@辅8>           <ImgEx:21:920:920:921:0:0><辅助·阴阳加持|以精神力调和阴阳，使得范围友军攻击、魔法、道术提升/@辅9>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是道士！
+
+[@辅1]
+#OR
+CHECKSKILL 治愈术 = 0
+CHECKSKILL 治愈术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 治愈术
+mov P1 1
+goto @学习技能
+break
+
+
+[@辅2]
+#OR
+CHECKSKILL 幽灵盾 = 0
+CHECKSKILL 幽灵盾 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 幽灵盾
+mov P1 20
+goto @学习技能
+break
+
+[@辅4]
+#OR
+CHECKSKILL 心灵启示 = 0
+CHECKSKILL 心灵启示 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 心灵启示
+mov P1 30
+MOV S3 幽灵盾
+goto @学习技能2
+break
+
+
+[@辅3]
+#OR
+CHECKSKILL 神圣战甲术 = 0
+CHECKSKILL 神圣战甲术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 神圣战甲术
+mov P1 20
+MOV S3 治愈术
+goto @学习技能2
+break
+
+[@辅5]
+#OR
+CHECKSKILL 群体治愈术 = 0
+CHECKSKILL 群体治愈术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 群体治愈术
+mov P1 30
+MOV S3 神圣战甲术
+goto @学习技能2
+break
+
+
+[@辅6]
+#OR
+CHECKSKILL 解毒术 = 0
+CHECKSKILL 解毒术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 4
+MOV S2 解毒术
+mov P1 40
+MOV S3 心灵启示
+goto @学习技能2
+break
+
+[@辅7]
+#OR
+CHECKSKILL 辅助·六道轮回 = 0
+CHECKSKILL 辅助·六道轮回 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 辅助·六道轮回
+mov P1 40
+MOV S3 群体治愈术
+goto @学习技能2
+break
+
+
+[@辅9]
+#OR
+CHECKSKILL 辅助·阴阳加持 = 0
+CHECKSKILL 辅助·阴阳加持 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 辅助·阴阳加持
+mov P1 50
+MOV S3 辅助·六道轮回
+goto @学习技能2
+break
+
+[@辅8]
+#OR
+CHECKSKILL 辅助·医疗阵 = 0
+CHECKSKILL 辅助·医疗阵 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 辅助·医疗阵
+mov P1 50
+MOV S3 解毒术
+goto @学习技能2
+break
+
+
+
+
+
+
+[@召唤系]
+#OR
+Equal T42 无上尊者
+CheckJob Taoist
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                        <ImgEx:21:512:512:513:0:0><灵魂火符|以精神力催动火符，攻击远处敌人/@唤1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:474:474:474:0:0><召唤骷髅|以精神力召唤一只初级骷髅帮助自身战斗/@唤2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:506:506:506:0:0><召唤神兽|以精神力召唤一只中级神兽帮助自身战斗/@唤3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                              <ImgEx:21:82:82:83:0:0><召唤月灵|以精神力召唤一只高级月灵帮助自身战斗/@唤4>             <ImgEx:21:530:530:131:0:0><召唤圣兽|以精神力召唤一直终极圣兽帮助自身战斗/@唤5>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:680:680:681:0:0><幽冥火符|以精神力催动火符，造成范围伤害/@唤6>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是道士！
+
+[@唤1]
+#OR
+CHECKSKILL 灵魂火符 = 0
+CHECKSKILL 灵魂火符 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 灵魂火符
+mov P1 1
+goto @学习技能
+break
+
+[@唤2]
+#OR
+CHECKSKILL 召唤骷髅 = 0
+CHECKSKILL 召唤骷髅 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 召唤骷髅
+mov P1 20
+mov S3 灵魂火符
+goto @学习技能2
+break
+
+[@唤3]
+#OR
+CHECKSKILL 召唤神兽 = 0
+CHECKSKILL 召唤神兽 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 召唤神兽
+mov P1 20
+mov S3 召唤骷髅
+goto @学习技能2
+break
+
+[@唤4]
+#OR
+CHECKSKILL 召唤月灵 = 0
+CHECKSKILL 召唤月灵 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 召唤月灵
+mov P1 30
+mov S3 召唤神兽
+goto @学习技能2
+break
+[@唤5]
+#OR
+CHECKSKILL 召唤圣兽 = 0
+CHECKSKILL 召唤圣兽 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 召唤圣兽
+mov P1 30
+mov S3 召唤神兽
+goto @学习技能2
+break
+
+[@唤6]
+#OR
+CHECKSKILL 幽冥火符 = 0
+CHECKSKILL 幽冥火符 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 幽冥火符
+mov P1 50
+mov S3 召唤圣兽
+goto @学习技能2
+break
+
+
+[@咒系]
+#OR
+Equal T42 无上尊者
+CheckJob Taoist
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                         <ImgEx:21:314:314:315:0:0><噬血术|以精神力念动咒语，吸取敌方气血/@咒1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                              <ImgEx:21:32:32:33:0:0><隐身术|以精神力念动咒语，隐没自己身形，攻击后无效/@咒2>               <ImgEx:21:794:794:795:0:0><禁锢术|以精神力禁锢目标，使得目标无法动弹/@咒3>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                              <ImgEx:21:34:34:34:0:0><集体隐身术|以精神力念动咒语，使得范围友方隐没身形，攻击后失效/@咒4>            <ImgEx:21:132:132:133:0:0><裂神符|以精神力催动符咒，使得符咒自动追杀附近敌人/@咒5>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                              <ImgEx:21:952:952:953:0:0><咒·潜入|以精神力念动咒语，使得自己一直保持隐身状态/@咒6>              <ImgEx:21:94:94:95:0:0><飓风破|以精神力念动咒语，造成一股致命气旋绞杀敌方/@咒7>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                               <ImgEx:9:3691:3691:3691:0:0>                         <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                             <ImgEx:21:70:70:71:0:0><无极真气|以精神力念动咒语，短时间内使得精神力暴涨/@咒8>              <ImgEx:21:586:586:587:0:0><死亡之眼|以精神力召唤死亡之眼，使得范围敌人陷入麻痹、中毒等负面状态/@咒9>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是道士！
+
+[@咒1]
+#OR
+CHECKSKILL 噬血术 = 0
+CHECKSKILL 噬血术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 噬血术
+mov P1 1
+goto @学习技能
+break
+
+
+[@咒2]
+#OR
+CHECKSKILL 隐身术 = 0
+CHECKSKILL 隐身术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 隐身术
+mov P1 20
+goto @学习技能
+break
+
+[@咒3]
+#OR
+CHECKSKILL 禁锢术 = 0
+CHECKSKILL 禁锢术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 禁锢术
+mov P1 20
+MOV S3 噬血术
+goto @学习技能2
+break
+
+[@咒4]
+#OR
+CHECKSKILL 集体隐身术 = 0
+CHECKSKILL 集体隐身术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 集体隐身术
+mov P1 30
+MOV S3 隐身术
+goto @学习技能2
+break
+
+[@咒5]
+#OR
+CHECKSKILL 裂神符 = 0
+CHECKSKILL 裂神符 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 裂神符
+mov P1 30
+MOV S3 禁锢术
+goto @学习技能2
+break
+
+
+[@咒6]
+#OR
+CHECKSKILL 咒·潜入 = 0
+CHECKSKILL 咒·潜入 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 咒·潜入
+mov P1 40
+MOV S3 集体隐身术
+goto @学习技能2
+break
+
+[@咒7]
+#OR
+CHECKSKILL 飓风破 = 0
+CHECKSKILL 飓风破 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 飓风破
+mov P1 40
+MOV S3 裂神符
+goto @学习技能2
+break
+
+
+[@咒8]
+#OR
+CHECKSKILL 无极真气 = 0
+CHECKSKILL 无极真气 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 无极真气
+mov P1 50
+MOV S3 咒·潜入
+goto @学习技能2
+break
+
+[@咒9]
+#OR
+CHECKSKILL 死亡之眼 = 0
+CHECKSKILL 死亡之眼 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 5
+MOV S2 死亡之眼
+mov P1 50
+MOV S3 飓风破
+goto @学习技能2
+break
+
+
+
+
+
+[@毒系]
+#OR
+Equal T42 无上尊者
+CheckJob Taoist
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                        <ImgEx:21:8:8:9:0:0><施毒术|以精神力催动毒物，使敌人持续掉血，或者防御削弱/@毒1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:80:80:81:0:0><诅咒术|以精神力催动毒物，使敌人魔、攻、道削弱/@毒2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:92:92:92:0:0><群体施毒术|以精神力催动毒物，使范围性敌人持续掉血，或者防御削弱/@毒3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                        <ImgEx:21:126:126:127:0:0><毒·十香软筋散|以精神力催动毒物，使范围性敌人持续掉血，或者防御削弱/@毒4>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:656:656:657:0:0><万法归一|以精神力催动精气形成一层结界保护自己/@毒5>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是道士！
+[@毒1]
+#OR
+CHECKSKILL 施毒术 = 0
+CHECKSKILL 施毒术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 施毒术
+mov P1 1
+goto @学习技能
+break
+
+[@毒2]
+#OR
+CHECKSKILL 诅咒术 = 0
+CHECKSKILL 诅咒术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 诅咒术
+mov P1 20
+MOV S3 施毒术
+goto @学习技能2
+break
+
+[@毒3]
+#OR
+CHECKSKILL 群体施毒术 = 0
+CHECKSKILL 群体施毒术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 7
+MOV S2 群体施毒术
+mov P1 30
+MOV S3 诅咒术
+goto @学习技能2
+break
+
+
+[@毒4]
+#OR
+CHECKSKILL 毒·十香软筋散 = 0
+CHECKSKILL 毒·十香软筋散 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 毒·十香软筋散
+mov P1 40
+MOV S3 群体施毒术
+goto @学习技能2
+break
+
+[@毒5]
+#OR
+CHECKSKILL 万法归一 = 0
+CHECKSKILL 万法归一 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 万法归一
+mov P1 60
+MOV S3 毒·十香软筋散
+goto @学习技能2
+break
+
+
+[@电系]
+#OR
+Equal T42 无上尊者
+CheckJob Wizard
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                        <ImgEx:21:456:456:457:0:0><雷电术|使用魔力催动电气，召唤一道雷电攻击敌人/@电1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:12:12:13:0:0><诱惑之光|使用魔力催动电气，召唤一道雷电使敌人麻痹，弱小的怪物可能会被收服/@电2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:392:392:393:0:0><疾光电影|使用魔力催动电气，产生激光链攻击敌人/@电3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                        <ImgEx:21:394:394:395:0:0><地狱雷光|使用魔力催动电气，使自身范围产生雷场，造成范围伤害/@电4>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:124:124:125:0:0><五雷轰|使用魔力催动电气，召唤猛烈的雷电攻击范围敌人/@电5>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是法师！
+
+
+[@电1]
+#OR
+CHECKSKILL 雷电术 = 0
+CHECKSKILL 雷电术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 6
+MOV S2 雷电术
+mov P1 1
+goto @学习技能
+break
+
+[@电2]
+#OR
+CHECKSKILL 诱惑之光 = 0
+CHECKSKILL 诱惑之光 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 诱惑之光
+mov P1 20
+MOV S3 雷电术
+goto @学习技能2
+break
+
+[@电3]
+#OR
+CHECKSKILL 疾光电影 = 0
+CHECKSKILL 疾光电影 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 疾光电影
+mov P1 30
+MOV S3 诱惑之光
+goto @学习技能2
+break
+
+[@电4]
+#OR
+CHECKSKILL 地狱雷光 = 0
+CHECKSKILL 地狱雷光 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 8
+MOV S2 地狱雷光
+mov P1 40
+MOV S3 疾光电影
+goto @学习技能2
+break
+
+[@电5]
+#OR
+CHECKSKILL 五雷轰 = 0
+CHECKSKILL 五雷轰 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 12
+MOV S2 五雷轰
+mov P1 50
+MOV S3 地狱雷光
+goto @学习技能2
+break
+
+
+
+
+
+[@气系]
+#OR
+Equal T42 无上尊者
+CheckJob Wizard
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                        <ImgEx:21:84:84:85:0:0><瞬息移动|使用魔力，扰乱空间（效果=地牢逃脱卷)/@气1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:72:72:73:0:0><气功波|以精神力推开敌人/@气2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:104:104:105:0:0><魔法盾|使用魔力，形成一个蛋壳保护自身，免受伤害/@气3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                        <ImgEx:21:60:60:61:0:0><圣言术|使用魔力，直接咒杀不死系亡灵/@气4>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:652:652:653:0:0><乾坤大挪移|使用魔力，直接传送到地点/@气5>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是法师！
+
+
+[@气1]
+#OR
+CHECKSKILL 瞬息移动 = 0
+CHECKSKILL 瞬息移动 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 瞬息移动
+mov P1 1
+goto @学习技能
+break
+
+
+[@气2]
+#OR
+CHECKSKILL 气功波 = 0
+CHECKSKILL 气功波 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 气功波
+mov P1 20
+MOV S3 瞬息移动
+goto @学习技能2
+break
+
+
+[@气3]
+#OR
+CHECKSKILL 魔法盾 = 0
+CHECKSKILL 魔法盾 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 11
+MOV S2 魔法盾
+mov P1 30
+MOV S3 气功波
+goto @学习技能2
+break
+
+[@气4]
+#OR
+CHECKSKILL 圣言术 = 0
+CHECKSKILL 圣言术 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 6
+MOV S2 圣言术
+mov P1 40
+MOV S3 魔法盾
+goto @学习技能2
+break
+
+[@气5]
+#OR
+CHECKSKILL 乾坤大挪移 = 0
+CHECKSKILL 乾坤大挪移 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV P2 9
+MOV S2 乾坤大挪移
+mov P1 40
+MOV S3 圣言术
+goto @学习技能2
+break
+
+
+
+[@冰系]
+#OR
+Equal T42 无上尊者
+CheckJob Wizard
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+MOV S1
+MOV P2
+MOV S2
+mov P1
+MOV S3
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                                                        <ImgEx:21:396:396:397:0:0><寒冰掌|使用魔力，从掌心发出一枚可推动敌人的寒冰/@冰1>\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                                                        <ImgEx:21:398:398:399:0:0><冰咆哮|使用魔力，召唤强力的暴风雪，使法术区域内的敌人受到伤害/@冰2>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                                                        <ImgEx:21:582:582:583:0:0><冰霜群雨|使用魔力催动冰雪，造成范围伤害并麻痹/@冰3>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                                                          <ImgEx:9:3691:3691:3691:0:0>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                                                        <ImgEx:21:402:402:403:0:0><冰霜雪雨|使用魔力催动冰雪，召唤一阵猛烈的冰雨/@冰4>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#抱元：防御　+　1>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^250#体魄：HP　+　1^250#抱元：防御　+　1>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+#ELSEACT
+messagebox 对不起，您不是法师！
+[@冰1]
+#OR
+CHECKSKILL 寒冰掌 = 0
+CHECKSKILL 寒冰掌 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 寒冰掌
+mov P1 1
+mov P2 7
+goto @学习技能
+break
+
+[@冰2]
+#OR
+CHECKSKILL 冰咆哮 = 0
+CHECKSKILL 冰咆哮 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 冰咆哮
+mov P1 10
+mov P2 9
+MOV S3 寒冰掌
+goto @学习技能2
+break
+
+[@冰3]
+#OR
+CHECKSKILL 冰霜群雨 = 0
+CHECKSKILL 冰霜群雨 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 冰霜群雨
+mov P1 20
+mov P2 9
+MOV S3 冰咆哮
+goto @学习技能2
+break
+
+
+[@冰4]
+#OR
+CHECKSKILL 冰霜雪雨 = 0
+CHECKSKILL 冰霜雪雨 > 0
+#ACT
+MESSAGEBOX  对不起，您已经学习了该技能！
+break
+#ELSEACT
+MOV S2 冰霜雪雨
+mov P1 30
+mov P2 11
+MOV S3 冰霜群雨
+goto @学习技能2
+break
+
+
+
+[@学习技能]
+#IF
+LARGE U18 <$STR(p2)>
+checkitem 书页 <$STR(p1)>
+#ACT
+DEC U18 <$STR(p2)>
+ADDSKILL <$STR(s2)>
+take 书页 <$STR(p1)>
+MESSAGEBOX  你成功学习了技能，<$STR(s2)>！
+GOTO @加点系统
+break
+#ELSEACT
+messagebox 对不起，您需要书页<$STR(p1)>张，技能点大于<$STR(p2)>点！
+
+
+[@学习技能2]
+#IF
+LARGE U18 <$STR(p2)>
+checkitem 书页 <$STR(p1)>
+CHECKSKILL <$STR(s3)> > 0 1
+#ACT
+DEC U18 <$STR(p2)>
+ADDSKILL <$STR(s2)>
+take 书页 <$STR(p1)>
+MESSAGEBOX  你成功学习了技能，<$STR(s2)>！
+GOTO @加点系统
+break
+
+
+#IF
+LARGE U18 <$STR(p2)>
+checkitem 书页 <$STR(p1)>
+CHECKSKILL <$STR(s3)> > 0
+#ACT
+DEC U18 <$STR(p2)>
+ADDSKILL <$STR(s2)>
+take 书页 <$STR(p1)>
+MESSAGEBOX  你成功学习了技能，<$STR(s2)>！
+GOTO @加点系统
+break
+#ELSEACT
+messagebox 对不起，您需要书页<$STR(p1)>张，技能点大于<$STR(p2)>点！\且已经学习了<$STR(s3)>1级！
+break
+
+
+
+[@精修]
+#ACT
+OPENMERCHANTBIGDLG 9 3690 0 4 0 0 1 580 25 0
+break
+#SAY
+\  \
+\  <欢迎来到技能树系统，您可以使用技能点来加技能，也可以选择加天赋！><当前拥有技能点：/SCOLOR=250>{<$STR(U18)>/SCOLOR=250}\  \
+\ <ImgEx:9:3704:3704:3704:0:0|每次加点可获得被动： ^250#狂神：攻击　+　1^250#精准：准确　+　1>                               在这里您可以将您的技能精修到15重，每次精修1重需要\
+\　　　<剑系/@剑系>　　<ImgEx:18:843:844:845:0:0/@剑系加点><ImgEx:18:846:847:848:0:0/@剑系减点> 天赋：<$HUMAN(剑系点)>\  \
+\ <ImgEx:9:3702:3702:3702:0:0|每次加点可获得被动： ^250#抱元：防御　+　1^250#精魄：MP　+　2>                               <灵符100张、龙魂积分500点、元宝20元、金币88万、声望50点>\
+\　　　<气系/@气系>　　<ImgEx:18:843:844:845:0:0/@气系加点><ImgEx:18:846:847:848:0:0/@气系减点> 天赋：<$HUMAN(气系点)>\  \
+\ <ImgEx:9:3720:3720:3720:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#灵照：魔御　+　1>                               您确定需要精修技能吗？<请点此输入技能名称/@@inputstring97>\
+\　　　<毒系/@毒系>　　<ImgEx:18:843:844:845:0:0/@毒系加点><ImgEx:18:846:847:848:0:0/@毒系减点> 天赋：<$HUMAN(毒系点)>\  \
+\ <ImgEx:9:3722:3722:3722:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#体魄：HP　+　1>                               您当前拥有灵符：<$GAMEGIRD>\
+\　　　<元素·冰/@冰系><ImgEx:18:843:844:845:0:0/@冰系加点><ImgEx:18:846:847:848:0:0/@冰系减点> 天赋：<$HUMAN(冰系点)>\  \
+\ <ImgEx:9:3723:3723:3723:0:0|每次加点可获得被动： ^250#玄微：魔法　+　1^250#抱元：防御　+　1>                               您当前拥有龙魂积分：<$STR(U4)>\
+\　　　<元素·火/@火系><ImgEx:18:843:844:845:0:0/@火系加点><ImgEx:18:846:847:848:0:0/@火系减点> 天赋：<$HUMAN(火系点)>\  \
+\ <ImgEx:9:3701:3701:3701:0:0|每次加点可获得被动： ^250#灵照：魔御　+　1^250#精魄：MP　+　2>                               您当前拥有元宝：<$GAMEGOLD>\
+\　　　<元素·电/@电系><ImgEx:18:843:844:845:0:0/@电系加点><ImgEx:18:846:847:848:0:0/@电系减点> 天赋：<$HUMAN(电系点)>\  \
+\ <ImgEx:9:3714:3714:3714:0:0|每次加点可获得被动： ^250#天照：道术　+　1^250#精魄：MP　+　2>                               您当前拥有金币：<$GOLDCOUNT>\
+\　　　<咒系/@咒系>　　<ImgEx:18:843:844:845:0:0/@咒系加点><ImgEx:18:846:847:848:0:0/@咒系减点> 天赋：<$HUMAN(咒系点)>\  \
+\ <ImgEx:9:3725:3725:3725:0:0|每次加点可获得被动： ^250#体魄：HP　+　3>                               您当前拥有声望：<$CREDITPOINT>\
+\　　　<辅助系/@辅助系>　<ImgEx:18:843:844:845:0:0/@辅系加点><ImgEx:18:846:847:848:0:0/@辅系减点> 天赋：<$HUMAN(辅系点)>\  \
+\ <ImgEx:9:3954:3954:3954:0:0|每次加点可获得被动： ^灵照：魔御　+　3　抱元：防御　+　3>\
+\　　　<召唤系/@召唤系>　<ImgEx:18:843:844:845:0:0/@唤系加点><ImgEx:18:846:847:848:0:0/@唤系减点> 天赋：<$HUMAN(唤系点)>\  \
+\ <ImgEx:9:3710:3710:3710:0:0|每次加点可获得被动： ^体魄：HP　+　2　抱元：防御　+　2>\
+\　　　<忍术系/@忍术系>　<ImgEx:18:843:844:845:0:0/@忍系加点><ImgEx:18:846:847:848:0:0/@忍系减点> 天赋：<$HUMAN(忍系点)>\  \ <按ESC关闭对话框>                        <点击黄字即可学习技能，移动到黄字即可查看简要说明/SCOLOR=250>\  \
+\ <职业觉醒技能：>     <ImgEx:21:600:600:601:0:0|圣者·无敌^60级男战士可学习^长期修习体魄，使得自身双防大幅度暴涨/@觉醒圣者无敌>     <ImgEx:21:956:956:957:0:0|剑姬·无坚不摧^需要60级女战士方可学习^长期修习剑术，使得自身攻击力大幅度暴涨/@觉醒无坚不摧>     <ImgEx:21:946:946:947:0:0|烈焰·焚天继海^需要60级男法师可学习^在地面产生大范围火焰，使法术区域内的敌人受到致命伤害，并且有概率召唤火凤/@焚天>     <ImgEx:21:924:924:925:0:0|寒冰·冰封千里^需要60级女法师可学习^使魔力催动冰雪，造成一阵冰风带，对踏入的敌人造成伤害/@冰封>     <ImgEx:21:942:942:943:0:0|阴阳·雷霆法阵^需要60级男道士可学习^以精神力召唤雷霆法阵，对周围怪物进行群杀嘲讽,且会根据技能重数而变动/@雷霆>      <ImgEx:21:932:932:933:0:0|魅姬·尸气鼓荡^需要60级女道士可学习^以精神力催动毒物，使群体敌人虚弱状态，持续掉血、防御魔御削弱、攻击力大幅下降，并且可能会被麻痹/@尸气>\
+
+
+
+
+
+[@inputstring97]
+#IF
+CHECKTEXTLIST ..\QuestDiary\功能设置\不允许精修技能.txt <$STR(s97)>
+#ACT
+MESSAGEBOX  对不起，您输入的<$STR(s97)>技能不允许被精修！
+break
+
+#IF
+CHECKSKILL <$STR(s97)> > 14 1
+#act
+messagebox 对不起，您输入的技能重数已经超过14重了！
+break
+
+#IF
+CHECKSKILL <$STR(s97)> > 8 1
+CHECKGAMEGIRD > 99
+LARGE U4 499
+CHECKGAMEGOLD > 19
+CheckGold 888888
+CHECKCREDITPOINT > 49
+#act
+GAMEGIRD - 100
+DEC U4 500
+GAMEGOLD - 20
+take 金币 888888
+CREDITPOINT - 50
+SKILLLEVEL <$STR(s97)> + 1 1
+messagebox 恭喜，您的技能<$STR(s97)>已经提升1重。
+goto @精修
+break
+#elseact
+messagebox 对不起，您输入的技能可能并未超过9重！\或者您并未满足精修条件：\灵符100张、龙魂积分500点、元宝20元、金币88万、声望50点！

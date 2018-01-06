@@ -1,0 +1,19 @@
+[@main]
+#IF
+Check [127] 1
+Check [128] 0
+LARGE N10 8
+#ACT
+set [128] 1
+SENDMSG 6 提示：您已经击杀完成。回去找书店老板汇报把！
+MESSAGEBOX 您已经击杀完成，回去找书店老板汇报把！
+break
+
+#IF
+Check [127] 1
+Check [128] 0
+SMALL N10 10
+#ACT
+inc N10 1
+SENDMSG 6 提示：击杀僵尸数量 + 1.当前已击杀<$Str(N10)>
+break

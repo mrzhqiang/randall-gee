@@ -1,0 +1,32 @@
+[@血量设置]
+{
+#IF
+CheckJob Warrior
+#ACT
+MOV N$增加生命 <$MAXHP>
+Div N$增加生命 1
+ChangeHumAbility 11 = 0
+ChangeHumAbility 11 + <$STR(N$增加生命)>
+break
+
+
+#IF
+CheckJob Taoist
+#ACT
+MOV N$增加生命 <$MAXHP>
+Div N$增加生命 2
+ChangeHumAbility 11 = 0
+ChangeHumAbility 11 + <$STR(N$增加生命)> 
+break
+
+
+#IF
+CheckJob Wizard
+#ACT
+MOV N$增加生命 <$MAXHP>
+Div N$增加生命 3
+ChangeHumAbility 11 = 0
+ChangeHumAbility 11 + <$STR(N$增加生命)>
+break
+
+}

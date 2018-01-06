@@ -1,0 +1,388 @@
+[@金币开始大转盘]
+{
+#IF
+#ACT
+MOV M25 0
+MOV M26 0
+MOV M27 0
+MOV M28 0
+MOV M29 0
+MOV M30 0
+MOV M31 0
+MOV M32 0
+MOV M33 0
+MOV M35 0
+CLEARDELAYGOTO
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+[@测押注]
+#IF
+LARGE M35 0
+#ACT
+messagebox 你已经下过注了.难道不点开始游戏就要返回首页吗
+break
+#ELSEACT
+GOTO @MAIN
+break
+[@金币开始游戏]
+#IF
+equal M35 0
+#ACT
+messagebox 没有进行任何下注！！开始游戏失败！！
+break
+#IF
+RanDom 50
+#ACT
+goto @转加倍
+break
+#IF
+RanDom 8
+#ACT
+goto @经验高
+break
+#IF
+RanDom 3
+#ACT
+goto @转机会
+break
+#IF
+RanDom 5
+#ACT
+goto @经验中
+break
+#IF
+RanDom 3
+#ACT
+goto @转地雷
+break
+#IF
+#ACT
+goto @经验低
+break
+[@转机会]
+#CALL [\金币大转盘\机会.txt] @机会
+[@转地雷]
+#CALL [\金币大转盘\地雷.txt] @地雷
+[@转加倍]
+#CALL [\金币大转盘\加倍.txt] @加倍
+[@经验低]
+#IF
+RanDom 3
+#ACT
+#CALL [\金币大转盘\300W.txt] @300W
+break
+#IF
+RanDom 2
+#ACT
+#CALL [\金币大转盘\200W.txt] @200W
+break
+#IF
+#ACT
+#CALL [金币大转盘\100W.txt] @100W
+break
+[@经验中]
+#IF
+RanDom 3
+#ACT
+#CALL [\金币大转盘\600W.txt] @600W
+break
+#IF
+RanDom 2
+#ACT
+#CALL [\金币大转盘\500W.txt] @500W
+break
+#IF
+#ACT
+#CALL [\金币大转盘\400W.txt] @400W
+break
+[@经验高]
+#IF
+RanDom 3
+#ACT
+#CALL [\金币大转盘\800W.txt] @800W
+break
+#IF
+#ACT
+#CALL [\金币大转盘\700W.txt] @700W
+break
+
+[@100]
+#IF
+equal M26 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M26 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验100万]下了[<$STR(M26)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@200]
+#IF
+equal M27 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M27 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验200万]下了[<$STR(M27)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@300]
+#IF
+equal M28 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M28 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验300万]下了[<$STR(M28)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@400]
+#IF
+equal M29 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M29 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验400万]下了[<$STR(M29)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@500]
+#IF
+equal M30 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M30 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验500万]下了[<$STR(M30)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@600]
+#IF
+equal M31 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M31 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验600万]下了[<$STR(M31)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@700]
+#IF
+equal M32 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M32 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验700万]下了[<$STR(M32)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+[@800]
+#IF
+equal M33 10
+#ACT
+messagebox 此经验您已下满10注，请选择别的选项！！
+break
+#IF
+checkgold 20000
+#ACT
+MOV M35 1
+INC M33 1
+take 金币 20000
+SENDMSG 7 提示：您共计对了[经验800万]下了[<$STR(M33)>]注!
+#SAY
+<你拥有金币数>：<$GOLDCOUNT>   每注<20000/FCOLOR=254>金币\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+每点击一次即下注1个筹码  每个项目最多下10注                          <地  雷/FCOLOR=0>    <800W/FCOLOR=0>    <加  倍/FCOLOR=0>    <700W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+<经验800W/@800>　  <经验700W/@700>　  <经验600W/@600>　  <经验500W/@500>　　 　 　 　 　        <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　        <100W/FCOLOR=0> 　　<转到加倍.获得奖励双倍/FCOLOR=252>　　  <600W/FCOLOR=0> \
+<经验400W/@400>　  <经验300W/@300> 　 <经验200W/@200>　  <经验100W/@100> 　 　　 　 　 　       <┗━━┛ 　　　　　　　　　　       ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　 　　　　　　　       ┏━━┓/FCOLOR=254>\
+<赌博有风险  输赢靠运气>              <开始游戏/@金币开始游戏>     <返回首页/@测押注>　          <机  会/FCOLOR=0> 　 <转到机会.随机再转一次/FCOLOR=252>　   <机  会/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓　　　　　　　　　　        ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　       <200W/FCOLOR=0> 　　<转到地雷.押注全部消失/FCOLOR=252>　　  <500W/FCOLOR=0> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛　　　　　　　　　　        ┗━━┛/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓ ┏━━┓/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　       <地  雷/FCOLOR=0>    <300W/FCOLOR=0>    <加  倍/FCOLOR=0>    <400W/FCOLOR=0>    <地  雷/FCOLOR=0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      <┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛ ┗━━┛/FCOLOR=254>\
+#ELSEACT
+messagebox 你身上拥有的金币数量不够20000，所以无法下注!
+break
+}

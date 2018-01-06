@@ -1,0 +1,387 @@
+[@领取元宝]
+{
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\01.txt
+#ACT
+
+DelAccountList ..\QuestDiary\充值元宝\元宝\01.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\02.txt
+#ACT
+GAMEGOLD + 1
+DelAccountList ..\QuestDiary\充值元宝\元宝\02.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得1元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\03.txt
+#ACT
+GAMEGOLD + 1
+DelAccountList ..\QuestDiary\充值元宝\元宝\03.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得1元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\04.txt
+#ACT
+GAMEGOLD + 2
+DelAccountList ..\QuestDiary\充值元宝\元宝\04.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得2元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\05.txt
+#ACT
+GAMEGOLD + 2
+DelAccountList ..\QuestDiary\充值元宝\元宝\05.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得2元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\06.txt
+#ACT
+GAMEGOLD + 3
+DelAccountList ..\QuestDiary\充值元宝\元宝\06.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得3元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\07.txt
+#ACT
+GAMEGOLD + 3
+DelAccountList ..\QuestDiary\充值元宝\元宝\07.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得3元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\08.txt
+#ACT
+GAMEGOLD + 4
+DelAccountList ..\QuestDiary\充值元宝\元宝\08.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得4元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\09.txt
+#ACT
+GAMEGOLD + 4
+DelAccountList ..\QuestDiary\充值元宝\元宝\09.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得4元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\1.txt
+#ACT
+GAMEGOLD + 5
+DelAccountList ..\QuestDiary\充值元宝\元宝\1.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得5元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\2.txt
+#ACT
+GAMEGOLD + 10
+DelAccountList ..\QuestDiary\充值元宝\元宝\2.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得10元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\3.txt
+#ACT
+GAMEGOLD + 15
+DelAccountList ..\QuestDiary\充值元宝\元宝\3.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得15元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\4.txt
+#ACT
+GAMEGOLD + 20
+DelAccountList ..\QuestDiary\充值元宝\元宝\4.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得20元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\5.txt
+#ACT
+GAMEGOLD + 25
+DelAccountList ..\QuestDiary\充值元宝\元宝\5.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得25元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\6.txt
+#ACT
+GAMEGOLD + 30
+DelAccountList ..\QuestDiary\充值元宝\元宝\6.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得30元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\7.txt
+#ACT
+GAMEGOLD + 35
+DelAccountList ..\QuestDiary\充值元宝\元宝\7.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得35元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\8.txt
+#ACT
+GAMEGOLD + 40
+DelAccountList ..\QuestDiary\充值元宝\元宝\8.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得40元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\9.txt
+#ACT
+GAMEGOLD + 45
+DelAccountList ..\QuestDiary\充值元宝\元宝\9.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得45元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\10.txt
+#ACT
+GAMEGOLD + 50
+DelAccountList ..\QuestDiary\充值元宝\元宝\10.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得50元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\20.txt
+#ACT
+GAMEGOLD + 100
+DelAccountList ..\QuestDiary\充值元宝\元宝\20.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得100元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\30.txt
+#ACT
+GAMEGOLD + 150
+DelAccountList ..\QuestDiary\充值元宝\元宝\30.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得150元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\40.txt
+#ACT
+GAMEGOLD + 200
+DelAccountList ..\QuestDiary\充值元宝\元宝\40.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得200元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\50.txt
+#ACT
+GAMEGOLD + 250
+DelAccountList ..\QuestDiary\充值元宝\元宝\50.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得250元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\60.txt
+#ACT
+GAMEGOLD + 300
+DelAccountList ..\QuestDiary\充值元宝\元宝\60.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得300元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\70.txt
+#ACT
+GAMEGOLD + 350
+DelAccountList ..\QuestDiary\充值元宝\元宝\70.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得350元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\80.txt
+#ACT
+GAMEGOLD + 400
+DelAccountList ..\QuestDiary\充值元宝\元宝\80.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得400元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\90.txt
+#ACT
+GAMEGOLD + 450
+DelAccountList ..\QuestDiary\充值元宝\元宝\90.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得450元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\100.txt
+#ACT
+GAMEGOLD + 500
+DelAccountList ..\QuestDiary\充值元宝\元宝\100.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得500元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\200.txt
+#ACT
+GAMEGOLD + 1000
+DelAccountList ..\QuestDiary\充值元宝\元宝\200.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得1000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\300.txt
+#ACT
+GAMEGOLD + 1500
+DelAccountList ..\QuestDiary\充值元宝\元宝\300.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得1500元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\400.txt
+#ACT
+GAMEGOLD + 2000
+DelAccountList ..\QuestDiary\充值元宝\元宝\400.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得2000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\500.txt
+#ACT
+GAMEGOLD + 2500
+DelAccountList ..\QuestDiary\充值元宝\元宝\500.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得2500元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\600.txt
+#ACT
+GAMEGOLD + 3000
+DelAccountList ..\QuestDiary\充值元宝\元宝\600.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得3000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\700.txt
+#ACT
+GAMEGOLD + 3500
+DelAccountList ..\QuestDiary\充值元宝\元宝\700.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得3500元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\800.txt
+#ACT
+GAMEGOLD + 4000
+DelAccountList ..\QuestDiary\充值元宝\元宝\800.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得4000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\900.txt
+#ACT
+GAMEGOLD + 4500
+DelAccountList ..\QuestDiary\充值元宝\元宝\900.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得4500元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\1000.txt
+#ACT
+GAMEGOLD + 5000
+DelAccountList ..\QuestDiary\充值元宝\元宝\1000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得5000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\2000.txt
+#ACT
+GAMEGOLD + 10000
+DelAccountList ..\QuestDiary\充值元宝\元宝\2000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得10000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\3000.txt
+#ACT
+GAMEGOLD + 15000
+DelAccountList ..\QuestDiary\充值元宝\元宝\3000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得15000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\4000.txt
+#ACT
+GAMEGOLD + 20000
+DelAccountList ..\QuestDiary\充值元宝\元宝\4000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得20000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\5000.txt
+#ACT
+GAMEGOLD + 25000
+DelAccountList ..\QuestDiary\充值元宝\元宝\5000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得25000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\6000.txt
+#ACT
+GAMEGOLD + 30000
+DelAccountList ..\QuestDiary\充值元宝\元宝\6000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得30000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\7000.txt
+#ACT
+GAMEGOLD + 35000
+DelAccountList ..\QuestDiary\充值元宝\元宝\7000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得35000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\8000.txt
+#ACT
+GAMEGOLD + 40000
+DelAccountList ..\QuestDiary\充值元宝\元宝\8000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得40000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\9000.txt
+#ACT
+GAMEGOLD + 45000
+DelAccountList ..\QuestDiary\充值元宝\元宝\9000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得45000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\10000.txt
+#ACT
+GAMEGOLD + 50000
+DelAccountList ..\QuestDiary\充值元宝\元宝\10000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得50000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\20000.txt
+#ACT
+GAMEGOLD + 100000
+DelAccountList ..\QuestDiary\充值元宝\元宝\20000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得100000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\30000.txt
+#ACT
+GAMEGOLD + 150000
+DelAccountList ..\QuestDiary\充值元宝\元宝\30000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得150000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\40000.txt
+#ACT
+GAMEGOLD + 200000
+DelAccountList ..\QuestDiary\充值元宝\元宝\40000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得200000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\50000.txt
+#ACT
+GAMEGOLD + 250000
+DelAccountList ..\QuestDiary\充值元宝\元宝\50000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得250000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\60000.txt
+#ACT
+GAMEGOLD + 300000
+DelAccountList ..\QuestDiary\充值元宝\元宝\60000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得300000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\70000.txt
+#ACT
+GAMEGOLD + 350000
+DelAccountList ..\QuestDiary\充值元宝\元宝\70000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得350000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\80000.txt
+#ACT
+GAMEGOLD + 400000
+DelAccountList ..\QuestDiary\充值元宝\元宝\80000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得400000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\元宝\90000.txt
+#ACT
+GAMEGOLD + 450000
+DelAccountList ..\QuestDiary\充值元宝\元宝\90000.txt
+SENDMSG 1 ★[%s]:恭喜玩家<$USERNAME>通过在线充值获得450000元宝,如果您也想获得,请赶快充值吧!
+
+#IF
+#ACT
+#ELSESAY
+请查看自己的元宝数量!\
+没有充值请按提示进行充值!\
+<退出/@exit>
+}

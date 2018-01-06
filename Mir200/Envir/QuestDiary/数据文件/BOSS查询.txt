@@ -1,0 +1,336 @@
+[@查询BOSS]
+{
+#IF
+CheckMapSameMonCount nD024 沃玛教主 < 1 
+#ACT
+mov A100  <死亡/SCOLOR=249>
+#ELSEACT
+MOV A100  <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D515 祖玛教主 < 1 
+#ACT
+mov A101 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A101 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D10062 赤月恶魔 < 1 
+#ACT
+mov A102 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A102 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D606 触龙神 < 1 
+#ACT
+mov A103 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A103 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D10061 双头血魔 < 1
+#ACT
+mov A104 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A104 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D10061 双头金刚 < 1
+#ACT
+mov A105 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A105 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nD2013 虹魔教主 < 1 
+#ACT
+mov A106 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A106 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D2067 黄泉教主 < 1 
+#ACT
+mov A107 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A107 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nD2079 牛魔王 < 1 
+#ACT
+mov A108 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A108 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount NF002 重装使者 < 1 
+#ACT
+mov A109 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A109 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount NF002 地藏王 < 1 
+#ACT
+mov A110 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A110 <存活/SCOLOR=250>
+#IF
+CheckMapSameMonCount T232  暗之沃玛教主 < 1 
+#ACT
+mov A111 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A111 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount T218 暗之虹魔教主 < 1 
+#ACT
+mov A112 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A112 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount T339 暗之骷髅精灵 < 1 
+#ACT
+mov A113 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A113 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount T118 暗之双头血魔 < 1 
+#ACT
+mov A114 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A114 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount T315  暗之黄泉教主 < 1 
+#ACT
+mov A115 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A115 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount T219  暗之双头金刚 < 1 
+#ACT
+mov A116 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A116 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nD717 石墓尸王 < 1 
+#ACT
+mov A117 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A117 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount Q004 尸王 < 1
+#ACT
+mov A118 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A118 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount H106 暗之魔龙教主 < 1
+#ACT
+mov A119 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A119 <存活/SCOLOR=250>
+
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 39 578 0 0 0 0 1 605 0
+break
+#SAY
+\ \ \
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=249><野外BOSS信息中心/SCOLOR=250><┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=249>\ \ 
+　　　　　<地图：/SCOLOR=243><沃玛三层/SCOLOR=253> <怪物：/SCOLOR=243><沃玛教主/SCOLOR=253> [<$STR(A100)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><祖玛之家/SCOLOR=253> <怪物：/SCOLOR=243><祖玛教主/SCOLOR=253> [<$STR(A101)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><赤月魔穴/SCOLOR=253> <怪物：/SCOLOR=243><赤月恶魔/SCOLOR=253> [<$STR(A102)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><死亡棺材/SCOLOR=253> <怪物：/SCOLOR=243><触龙之神/SCOLOR=253> [<$STR(A103)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><恶魔祭坛/SCOLOR=253> <怪物：/SCOLOR=243><双头血魔/SCOLOR=253> [<$STR(A104)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><恶魔祭坛/SCOLOR=253> <怪物：/SCOLOR=243><双头金刚/SCOLOR=253> [<$STR(A105)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><封魔大殿/SCOLOR=253> <怪物：/SCOLOR=243><虹魔教主/SCOLOR=253> [<$STR(A106)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><骨魔五层/SCOLOR=253> <怪物：/SCOLOR=243><黄泉教主/SCOLOR=253> [<$STR(A107)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><牛魔大殿/SCOLOR=253> <怪物：/SCOLOR=243><牛魔之王/SCOLOR=253> [<$STR(A108)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><沙藏宝阁/SCOLOR=253> <怪物：/SCOLOR=243><重装使者/SCOLOR=253> [<$STR(A109)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><沙藏宝阁/SCOLOR=253> <怪物：/SCOLOR=243><地藏之王/SCOLOR=253> [<$STR(A110)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><钳虫巢穴/SCOLOR=253> <怪物：/SCOLOR=243><暗之沃玛/SCOLOR=253> [<$STR(A111)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><死亡神殿/SCOLOR=253> <怪物：/SCOLOR=243><暗之虹膜/SCOLOR=253> [<$STR(A112)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><地狱烈焰/SCOLOR=253> <怪物：/SCOLOR=243><暗之骷髅/SCOLOR=253> [<$STR(A113)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><深渊魔域/SCOLOR=253> <怪物：/SCOLOR=243><暗之血魔/SCOLOR=253> [<$STR(A114)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><堕落坟场/SCOLOR=253> <怪物：/SCOLOR=243><暗之黄泉/SCOLOR=253> [<$STR(A115)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><困惑殿堂/SCOLOR=253> <怪物：/SCOLOR=243><暗之金刚/SCOLOR=253> [<$STR(A116)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><猪洞七层/SCOLOR=253> <怪物：/SCOLOR=243><石墓尸王/SCOLOR=253> [<$STR(A117)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><尸王大殿/SCOLOR=253> <怪物：/SCOLOR=243><大批尸王/SCOLOR=253> [<$STR(A118)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><王者禁地/SCOLOR=253> <怪物：/SCOLOR=243><暗之魔龙/SCOLOR=253> [<$STR(A119)>]\ \
+　　　　　<浏览下一页/@下页>\
+
+
+[@下页]
+#IF
+CheckMapSameMonCount F003 万年树妖 < 1 
+#ACT
+mov A100  <死亡/SCOLOR=249>
+#ELSEACT
+MOV A100  <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount DM002 堕落明王 < 1 
+#ACT
+mov A101 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A101 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount F010 狐月天珠 < 1 
+#ACT
+mov A102 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A102 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount EM100 魔龙树妖 < 1 
+#ACT
+mov A103 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A103 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount H301 雷炎蛛王 < 1
+#ACT
+mov A104 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A104 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nfox03 狐月天珠 < 1
+#ACT
+mov A105 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A105 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D2083 火龙神 < 1 
+#ACT
+mov A106 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A106 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount hell206 雪域魔王 < 1 
+#ACT
+mov A107 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A107 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount hf005 深渊魔影巨人 < 1 
+#ACT
+mov A108 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A108 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount bsrlm 半兽人统帅 < 1 
+#ACT
+mov A109 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A109 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount bsrlm05 半兽人首领 < 1 
+#ACT
+mov A110 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A110 <存活/SCOLOR=250>
+#IF
+CheckMapSameMonCount wyzz01 瘟疫统帅 < 1 
+#ACT
+mov A111 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A111 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount D2067 黄泉教主[疯狂] < 1 
+#ACT
+mov A112 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A112 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nD2079 牛魔王[疯狂] < 1 
+#ACT
+mov A113 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A113 <存活/SCOLOR=250>
+#IF
+CheckMapSameMonCount DM002 堕落明王[疯狂] < 1 
+#ACT
+mov A114 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A114 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount 66 魔龙教主[疯狂] < 1 
+#ACT
+mov A115 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A115 <存活/SCOLOR=250>
+#IF
+CheckMapSameMonCount H301 雷炎蛛王[疯狂] < 1 
+#ACT
+mov A116 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A116 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount nfox03 狐月天珠[疯狂] < 1 
+#ACT
+mov A117 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A117 <存活/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount hell206 雪域魔王[疯狂] < 1 
+#ACT
+mov A118 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A118 <存活/SCOLOR=250>
+#IF
+CheckMapSameMonCount nch001 世界BOSS·米尔 < 1 
+#ACT
+mov A119 <死亡/SCOLOR=249>
+#ELSEACT
+MOV A119 <存活/SCOLOR=250>
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 39 578 0 0 0 0 1 605 0
+#SAY
+\ \ \
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=249><野外BOSS信息中心/SCOLOR=250><┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=249>\ \ 
+　　　　　<地图：/SCOLOR=243><情缘峡谷/SCOLOR=253> <怪物：/SCOLOR=243><万年树妖/SCOLOR=253> [<$STR(A100)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><堕落魔域/SCOLOR=253> <怪物：/SCOLOR=243><堕落明王/SCOLOR=253> [<$STR(A101)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><B0SS之家/SCOLOR=253> <怪物：/SCOLOR=243><狐月天珠/SCOLOR=253> [<$STR(A102)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><魔龙大殿/SCOLOR=253> <怪物：/SCOLOR=243><魔龙树妖/SCOLOR=253> [<$STR(A103)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><雷炎大殿/SCOLOR=253> <怪物：/SCOLOR=243><雷炎蛛王/SCOLOR=253> [<$STR(A104)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><狐月祭坛/SCOLOR=253> <怪物：/SCOLOR=243><狐月天珠/SCOLOR=253> [<$STR(A105)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><火龙神殿/SCOLOR=253> <怪物：/SCOLOR=243><火龙之神/SCOLOR=253> [<$STR(A106)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><雪域圣殿/SCOLOR=253> <怪物：/SCOLOR=243><雪域魔王/SCOLOR=253> [<$STR(A107)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><深渊魔域/SCOLOR=253> <怪物：/SCOLOR=243><魔影巨人/SCOLOR=253> [<$STR(A108)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><石原祭坛/SCOLOR=253> <怪物：/SCOLOR=243><半兽统帅/SCOLOR=253> [<$STR(A109)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　　　　<地图：/SCOLOR=243><半兽陵墓/SCOLOR=253> <怪物：/SCOLOR=243><兽人首领/SCOLOR=253> [<$STR(A110)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><瘟疫沼泽/SCOLOR=253> <怪物：/SCOLOR=243><瘟疫统帅/SCOLOR=253> [<$STR(A111)>]\
+　　　　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　<地图：/SCOLOR=243><骨魔五层/SCOLOR=253> <怪物：/SCOLOR=243><黄泉教主[疯狂]/SCOLOR=249> [<$STR(A112)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><牛魔大厅/SCOLOR=253> <怪物：/SCOLOR=243><牛魔之王[疯狂]/SCOLOR=249> [<$STR(A113)>]\
+　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　<地图：/SCOLOR=243><堕落魔域/SCOLOR=253> <怪物：/SCOLOR=243><堕落明王[疯狂]/SCOLOR=249> [<$STR(A114)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><魔龙血域/SCOLOR=253> <怪物：/SCOLOR=243><魔龙教主[疯狂]/SCOLOR=249> [<$STR(A115)>]\
+　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　<地图：/SCOLOR=243><雷炎大殿/SCOLOR=253> <怪物：/SCOLOR=243><雷炎蛛王[疯狂]/SCOLOR=249> [<$STR(A116)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><狐月祭坛/SCOLOR=253> <怪物：/SCOLOR=243><狐月天珠[疯狂]/SCOLOR=249> [<$STR(A117)>]\
+　　<┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┆    ┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈/SCOLOR=21>\
+　　<地图：/SCOLOR=243><雪域秘境/SCOLOR=253> <怪物：/SCOLOR=243><雪域魔王[疯狂]/SCOLOR=249> [<$STR(A118)>]<┆/SCOLOR=21>    <┆/SCOLOR=21><地图：/SCOLOR=243><迷失大陆/SCOLOR=253> <怪物：/SCOLOR=243><世界BOSS·米尔/SCOLOR=249> [<$STR(A119)>]\ \
+　　　　　<浏览上一页/@查询BOSS>                <返 回 主 页/@查询BOSS>\
+
+}

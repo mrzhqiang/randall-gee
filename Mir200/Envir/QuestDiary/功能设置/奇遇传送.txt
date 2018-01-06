@@ -1,0 +1,70 @@
+[@奇遇传送]
+{
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 nD2013 55 55 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:封魔殿，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{封魔殿|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 nD2079 52 51 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:牛魔寺庙大厅，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{牛魔寺庙大厅|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 D2008 40 40 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:霸者大厅，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{{%m|251:249:1}|251:249:1}成功，奇遇事件触发，打开了通往{霸者大厅|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 D2052 48 28 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:尸魔洞三层，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{尸魔洞三层|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 NR001 100 100 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:桃园之门，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{桃园之门|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+
+#IF
+random 3
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 66 208 58 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:魔龙血域，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{魔龙血域|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+
+#IF
+random 1
+#ACT
+AddMapGate 连接 <$MAP> <$X> <$Y> 0 D515 22 20 300 3
+GetMapGate 连接 <$MAP> <$STR(G110)> <$STR(G111)> <$STR(S10)> <$STR(G112)> <$STR(G113)>
+SENDMSG 6 传送门出现在当前地图:[<$STR(G110)>:<$STR(G111)>]处，可到达地图:祖玛教主之家，到达坐标[<$STR(G112)>:<$STR(G113)>]，持续时间300秒
+SENDMSG 0 恭喜{<$USERNAME>|251:249:1}挑战{%m|251:249:1}成功，奇遇事件触发，打开了通往{祖玛教主之家|251:249:1}的传送门，欢迎其他玩家前来传送!
+break
+
+
+}

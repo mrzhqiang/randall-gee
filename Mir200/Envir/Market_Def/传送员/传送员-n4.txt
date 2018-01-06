@@ -1,0 +1,3 @@
+(@UserLevelOrder @WarrorLevelOrder @WizardLevelOrder @TaoistLevelOrder @MasterCountOrder @HumGameGoldOrder)
+[@main]
+#CALL [商人\传送员.txt] @传送员

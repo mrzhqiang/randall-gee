@@ -1,0 +1,564 @@
+[@暗黑前缀]
+{
+#IF
+EQUAL N0 0
+#ACT
+ChangeItemName -1 有孔的<$STR(S0)>
+SETFLUTECOUNT -1 1
+SetCustomItemText -1 <Img:1466:33:0:0>自带一孔.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 1
+#ACT
+ChangeItemName -1 凶猛的<$STR(S0)>
+SetCustomItemText -1 <Img:1480:33:0:0>每次击中怪物后附加5点伤害.\最多可叠加9次.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 2
+#ACT
+ChangeItemName -1 野蛮的<$STR(S0)>
+SetCustomItemText -1 <Img:1464:33:0:0>攻击时,8%概率对怪物\造成80点额外伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 3
+#ACT
+ChangeItemName -1 血腥的<$STR(S0)>
+SetCustomItemText -1 <Img:1456:33:0:0>每次杀死怪物后\恢复2%生命值.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 4
+#ACT
+ChangeItemName -1 恶毒的<$STR(S0)>
+SetCustomItemText -1 <Img:1504:33:0:0>攻击时,10%几率使怪物中毒.\伤害60.持续10秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 5
+#ACT
+ChangeItemName -1 智慧的<$STR(S0)>
+SetCustomItemText -1 <Img:1447:33:0:0>攻击时,3%概率造成自身MP值的10%伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 6
+#ACT
+ChangeItemName -1 力量的<$STR(S0)>
+SetCustomItemText -1 <Img:1438:33:0:0>攻击时,3%概率造成自身HP值的8%伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 7
+random 5
+#ACT
+ChangeItemName -1 残忍的<$STR(S0)>
+SetCustomItemText -1 <Img:1407:33:0:0>攻击HP高于自己的怪时\4%追加怪物血量1%伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 8
+#ACT
+ChangeItemName -1 致命的<$STR(S0)>
+SetCustomItemText -1 <Img:1413:33:0:0>攻击HP值低于自己怪物时\5%的几率一击毙命.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 9
+#ACT
+ChangeItemName -1 被诅咒的<$STR(S0)>
+SetCustomItemText -1 <Img:1430:33:0:0>以消耗10点HP的代价\使目标损失30点生命值.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 10
+#ACT
+ChangeItemName -1 无坚不摧的<$STR(S0)>
+SetCustomItemText -1 <Img:1409:33:0:0>被攻击时概率提升10点魔攻道,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 11
+#ACT
+ChangeItemName -1 守卫者的<$STR(S0)>
+SetCustomItemText -1 <Img:1434:33:0:0>被攻击时概率提升10点双防,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 12
+#ACT
+ChangeItemName -1 幸运的<$STR(S0)>
+SetCustomItemText -1 <Img:1414:33:0:0>攻击时概率使幸运值增加9点持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 13
+#ACT
+ChangeItemName -1 帝王的<$STR(S0)>
+SetCustomItemText -1 <Img:1463:33:0:0>攻击时概率召唤出虎卫或鹰卫\宠物总数最多3个.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 14
+#ACT
+ChangeItemName -1 金光闪闪的<$STR(S0)>
+SetCustomItemText -1 <Img:1458:33:0:0>散发着财富的气息\击杀怪物时额外获得50金币.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 15
+#ACT
+ChangeItemName -1 破坏者的<$STR(S0)>
+SetCustomItemText -1 <Img:1444:33:0:0>攻击时3%概率粉碎目标护甲\使防御降为0持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 16
+#ACT
+ChangeItemName -1 探险的<$STR(S0)>
+SetCustomItemText -1 <Img:1475:33:0:0>击杀怪物可额外获得100点经验.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 17
+#ACT
+ChangeItemName -1 嗜血的<$STR(S0)>
+SetCustomItemText -1 <Img:1457:33:0:0>攻击或被攻击3%几率吸取目标\30点生命值.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 18
+#ACT
+ChangeItemName -1 狂暴的<$STR(S0)>
+SetCustomItemText -1 <Img:1453:33:0:0>被攻击时几率进入暴走状态\持续5秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 19
+#ACT
+ChangeItemName -1 贤者的<$STR(S0)>
+SetCustomItemText -1 <Img:1441:33:0:0>每次攻击\30%概率准确加1点，持续2秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 20
+#ACT
+ChangeItemName -1 幽灵的<$STR(S0)>
+SetCustomItemText -1 <Img:1499:33:0:0>被攻击时一定几率进入隐匿3秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 21
+#ACT
+ChangeItemName -1 吸血鬼的<$STR(S0)>
+SetCustomItemText -1 <Img:1421:33:0:0>攻击时几率使自己进入吸血状态,\持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 22
+#ACT
+ChangeItemName -1 杀戮成性的<$STR(S0)>
+SetCustomItemText -1 <Img:1427:33:0:0>每次击杀目标后\下一次攻击附带100点额外伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 23
+#ACT
+ChangeItemName -1 救赎的<$STR(S0)>
+SetCustomItemText -1 <Img:1477:33:0:0>死亡后有33%几率复活.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 24
+#ACT
+ChangeItemName -1 冰寒的<$STR(S0)>
+SetCustomItemText -1 <Img:1476:33:0:0>攻击时有概率触发冰寒打击\冰冻对方，持续3秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 25
+#ACT
+ChangeItemName -1 神佑的<$STR(S0)>
+SetCustomItemText -1 <Img:1501:33:0:0>被攻击时有概率触发神佑\获得当前血量的护盾.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 26
+#ACT
+ChangeItemName -1 石化的<$STR(S0)>
+SetCustomItemText -1 <Img:1429:33:0:0>攻击时有几率使目标石化\持续3秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 27
+#ACT
+ChangeItemName -1 恐怖的<$STR(S0)>
+SetCustomItemText -1 <Img:1419:33:0:0>怪物死亡后3%的概率操作尸体\持续60秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 28
+#ACT
+ChangeItemName -1 禁锢的<$STR(S0)>
+SetCustomItemText -1 <Img:1442:33:0:0>攻击时有概率禁锢目标\使其无法移动，持续3秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 29
+#ACT
+ChangeItemName -1 无敌的<$STR(S0)>
+SetCustomItemText -1 <Img:1436:33:0:0>被攻击时，有概率触发无敌\满血满魔，持续2秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 30
+#ACT
+ChangeItemName -1 双孔的<$STR(S0)>
+SETFLUTECOUNT -1 2
+SetCustomItemText -1 <Img:1492:33:0:0>天生自带俩孔.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 31
+#ACT
+ChangeItemName -1 三孔的<$STR(S0)>
+SETFLUTECOUNT -1 3
+SetCustomItemText -1 <Img:1493:33:0:0>天生自带三孔.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 32
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 爆击的<$STR(S0)>
+SetNewItemValue -1 0 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>爆击　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 33
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 破军的<$STR(S0)>
+SetNewItemValue -1 1 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>杀伤　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 34
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 反震的<$STR(S0)>
+SetNewItemValue -1 5 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>反震　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 35
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 破甲的<$STR(S0)>
+SetNewItemValue -1 5 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>破甲　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 36
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 吸收的<$STR(S0)>
+SetNewItemValue -1 2 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>吸收　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 37
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 魔抗的<$STR(S0)>
+SetNewItemValue -1 2 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>魔抗　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 38
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 生命的<$STR(S0)>
+SetNewItemValue -1 7 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>体魄　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 39
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 魔法的<$STR(S0)>
+SetNewItemValue -1 8 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>精魄　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 40
+#ACT
+MOVR P2 1 3
+MOVR P3 1 3
+ChangeItemName -1 招架的<$STR(S0)>
+SetNewItemValue -1 2 + <$STR(p2)>
+SetNewItemValue -1 3 + <$STR(p3)>
+SetCustomItemText -1 <Img:1445:33:0:0>吸收+<$STR(p2)>%　魔抗+<$STR(p3)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 41
+#ACT
+MOVR P2 1 3
+ChangeItemName -1 财帛的<$STR(S0)>
+SetNewItemValue -1 11 + <$STR(p2)>
+SetCustomItemText -1 <Img:1445:33:0:0>财帛　+　<$STR(p2)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 42
+#ACT
+MOVR P2 1 3
+MOVR P3 1 3
+MOVR P4 1 3
+ChangeItemName -1 蔑视一切的<$STR(S0)>
+SetNewItemValue -1 0 + <$STR(p2)>
+SetNewItemValue -1 1 + <$STR(p3)>
+SetNewItemValue -1 4 + <$STR(p4)>
+SetCustomItemText -1 <Img:1445:33:0:0>暴击+<$STR(p2)>%　杀伤+<$STR(p3)>%　破甲+<$STR(p4)>%\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 43
+#ACT
+ChangeItemName -1 瘫痪的<$STR(S0)>
+SetCustomItemText -1 <Img:1460:33:0:0>攻击时几率使敌人瘫痪,\被攻击后解除，持续2秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 44
+#ACT
+ChangeItemName -1 四海升平的<$STR(S0)>
+SetCustomItemText -1 <Img:1450:33:0:0>组队击杀怪物时\全队几率恢复3%HP,3%MP.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 45
+#ACT
+ChangeItemName -1 固若金汤的<$STR(S0)>
+SetCustomItemText -1 <Img:1505:33:0:0>组队击杀怪物时\全队几率双防+10点,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 46
+#ACT
+ChangeItemName -1 蛮荒之力的<$STR(S0)>
+SetCustomItemText -1 <Img:1480:33:0:0>组队击杀怪物时\全队几率伤害+20%,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 47
+#ACT
+ChangeItemName -1 身似菩提的<$STR(S0)>
+SetCustomItemText -1 <Img:1467:33:0:0>组队击杀怪物时\全队几率获得100点护盾点.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 48
+#ACT
+ChangeItemName -1 狩猎的<$STR(S0)>
+SetCustomItemText -1 <Img:1475:33:0:0>组队击杀怪物时\全队必定获得50点经验.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 49
+#ACT
+ChangeItemName -1 慈航普度的<$STR(S0)>
+SetCustomItemText -1 <Img:1483:33:0:0>组队击杀怪物时\全队几率恢复30%HP,30%MP.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 50
+#ACT
+ChangeItemName -1 行云流水的<$STR(S0)>
+SetCustomItemText -1 <Img:1485:33:0:0>组队击杀怪物时\全队几率速度提升,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 51
+#ACT
+ChangeItemName -1 神迹的<$STR(S0)>
+SetCustomItemText -1 <Img:1411:33:0:0>被攻击时,有概率提升HP恢复500%,持续5秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 52
+#ACT
+ChangeItemName -1 霸道的<$STR(S0)>
+SetCustomItemText -1 <Img:1405:33:0:0>攻击时2%概率追加攻击力上限伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 53
+#ACT
+ChangeItemName -1 夺魂的<$STR(S0)>
+SetCustomItemText -1 <Img:1479:33:0:0>施法时2%概率追加魔力上限伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 54
+#ACT
+ChangeItemName -1 天道的<$STR(S0)>
+SetCustomItemText -1 <Img:1469:33:0:0>施法时2%概率追加道术上限伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 55
+#ACT
+ChangeItemName -1 压制的<$STR(S0)>
+SetCustomItemText -1 <Img:1425:33:0:0>攻击时2%概率追加当前等级伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 56
+#ACT
+ChangeItemName -1 双倍伤害的<$STR(S0)>
+SetCustomItemText -1 <Img:1424:33:0:0>攻击时,2%概率再追加一次当前伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 57
+#ACT
+ChangeItemName -1 混乱的<$STR(S0)>
+SetCustomItemText -1 <Img:1481:33:0:0>攻击时,15%概率使敌人混乱,持续5秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 58
+random 5
+#ACT
+ChangeItemName -1 惩戒的<$STR(S0)>
+SetCustomItemText -1 <Img:1503:33:0:0>攻击时,有几率附加怪物当前血量1%伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 59
+random 5
+#ACT
+ChangeItemName -1 神罚的<$STR(S0)>
+SetCustomItemText -1 <Img:1455:33:0:0>攻击时,1%几率使怪物血量下降500点.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 60
+random 15
+#ACT
+ChangeItemName -1 失控的<$STR(S0)>
+SetCustomItemText -1 <Img:1448:33:0:0>攻击时,3%几率对怪物造成250%伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 61
+#ACT
+ChangeItemName -1 情撼九天的<$STR(S0)>
+SetCustomItemText -1 <Img:1487:33:0:0>结婚后,攻击时,100%附加自身1%血量伤害.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 62
+#ACT
+ChangeItemName -1 神力涌现的<$STR(S0)>
+SetCustomItemText -1 <Img:1501:33:0:0>攻击时,10%提升20%HP,MP上限,持续10秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 63
+#ACT
+ChangeItemName -1 统治的<$STR(S0)>
+SetCustomItemText -1 <Img:1502:33:0:0>攻击时,10%概率召唤出刀卫.\最多召唤1个.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 64
+#ACT
+ChangeItemName -1 善恶有报的<$STR(S0)>
+SetCustomItemText -1 <Img:1452:33:0:0>攻击时,10%概率造成300点伤害.\或治疗200点气血.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 65
+#ACT
+ChangeItemName -1 睚眦必报的<$STR(S0)>
+SetCustomItemText -1 <Img:1410:33:0:0>被攻击时,10%概率获得反弹100%伤害.\持续5秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 66
+#ACT
+ChangeItemName -1 龙魂之力的<$STR(S0)>
+SetCustomItemText -1 <Img:1468:33:0:0>攻击时,10%概率提升30%伤害.\持续5秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 67
+#ACT
+ChangeItemName -1 壁垒击破的<$STR(S0)>
+SetCustomItemText -1 <Img:1494:33:0:0>攻击时,3%概率获得100%无视防御.\持续8秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 68
+#ACT
+ChangeItemName -1 移花接木的<$STR(S0)>
+SetCustomItemText -1 <Img:1490:33:0:0>HP＜30%,MP＞70%时,\10%几率-25%MP,+20%HP.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 69
+#ACT
+ChangeItemName -1 灵力充沛的<$STR(S0)>
+SetCustomItemText -1 <Img:1433:33:0:0>攻击时,100%附加30伤害.\消耗10点魔法值.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 70
+#ACT
+ChangeItemName -1 怒火中烧的<$STR(S0)>
+SetCustomItemText -1 <Img:1474:33:0:0>攻击时,3%概率获得100%爆击几率.\持续8秒.\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+#IF
+EQUAL N0 71
+random 3
+#ACT
+ChangeItemName -1 上古灵符的<$STR(S0)>
+SetCustomItemText -1 <Img:1498:33:0:0>攻击时,5%概率\造成控制效果.持续3秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+#IF
+EQUAL N0 72
+#ACT
+ChangeItemName -1 暗影分身的<$STR(S0)>
+SetCustomItemText -1 <Img:1499:33:0:0>被攻击时,3%概率\召唤暗影分身协助.持续60秒\-
+SetCustomItemTextColor -1 <$STR(N5)>
+
+
+
+
+
+}

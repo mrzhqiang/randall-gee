@@ -1,0 +1,114 @@
+[@main]
+#IF
+CheckTextList ..\QuestDiary\标记数据\参拜名单.txt <$USERNAME>
+#SAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您已经完成了今日的参拜龙卫活动。请明日再来把!\
+#ACT
+break
+
+
+#IF
+#SAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+<开始参拜龙卫/@参拜>\
+<注：重新点选则会重新开始计算时间！>\
+#ACT
+break
+
+
+
+
+[@参拜]
+#IF
+EQUAL <$NECKLACE> 祈福项链
+#SAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您开始了对龙卫的参拜祈福.请耐心等待<5分钟>......\
+<注：四格以内有效！距离过远无法完成！>\
+#ACT
+SENDDELAYMSG 参拜时间剩余%s秒 300 249 0 @参拜完成
+break
+#ELSESAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您并没有佩戴<祈福项链>.无法进行参拜.....\
+
+[@参拜完成]
+#IF
+CheckTextList ..\QuestDiary\标记数据\参拜名单.txt <$USERNAME>
+#SAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您已经完成了今日的参拜龙卫活动。请明日再来把!\
+#ACT
+break
+
+#IF
+EQUAL <$NECKLACE> 祈福项链
+CheckInMapRange n0 364	230 4
+#SAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您完成了参拜！\
+<领取奖励/@领奖>......\
+#ELSESAY
+龙卫雕像庄重威严，仿佛感受到了当年的战火\ \ \
+
+
+您距离过远，或者您未佩戴祈福项链!本次参拜失败！.....\
+
+
+[@领奖]
+#IF
+random 5
+#ACT
+Mul N8 80000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+AddTextList ..\QuestDiary\标记数据\参拜名单.txt <$USERNAME>
+SENDMSG 0 【参拜龙卫】：玩家<$USERNAME>诚心诚意对着龙卫雕像祈福，龙卫大感愉悦，奖励最高<$Str(N8)>点的经验奖励！
+INC G83 1
+goto @main
+break
+
+#IF
+random 3
+#ACT
+Mul N8 50000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+AddTextList ..\QuestDiary\标记数据\参拜名单.txt <$USERNAME>
+SENDMSG 0 【参拜龙卫】：玩家<$USERNAME>诚心诚意对着龙卫雕像祈福，龙卫甚喜，奖励<$Str(N8)>点的经验奖励！
+INC G83 1
+goto @main
+break
+
+#IF
+#ACT
+Mul N8 30000 <$LEVEL>
+ChangeExp + <$Str(N8)>
+AddTextList ..\QuestDiary\标记数据\参拜名单.txt <$USERNAME>
+SENDMSG 0 【参拜龙卫】：玩家<$USERNAME>诚心诚意对着龙卫雕像祈福，龙卫不屑一顾，仅仅感悟到了<$Str(N8)>点经验！
+INC G83 1
+goto @main
+break
+
+
+
+
+
+
+
+
+
+
+
+

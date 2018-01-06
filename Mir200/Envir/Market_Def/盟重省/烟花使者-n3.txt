@@ -1,0 +1,342 @@
+(@@InPutString)
+[@main]
+#IF
+Equal U43 1
+Equal U42 7
+#ACT
+MOV U42 8
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<回收各种礼炮/SCOLOR=250>当留言<数量达到188层时/SCOLOR=250>\
+<土城将会出现一只BOSS，必爆金条，10点声望卷，进化碎片/SCOLOR=253>\
+<其他重数获得元宝、声望、书页不等。/SCOLOR=70> \
+<礼炮在各种BOSS身上掉落！/SCOLOR=250>\
+
+学习完毕，接下来去找<仓库保管/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<仓库保管/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<回收各种礼炮/SCOLOR=250>当留言<数量达到188层时/SCOLOR=250>\
+<土城将会出现一只BOSS，必爆金条，10点声望卷，进化碎片/SCOLOR=253>\
+<其他重数获得元宝、声望、书页不等。/SCOLOR=70> \
+<礼炮在各种BOSS身上掉落！/SCOLOR=250>\
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+我最喜欢美丽的<烟花>了。\
+如果你能送我<烟花礼包>，我会给你回馈哟！<查看礼花明细./@礼花表>\
+<只回收礼包哟！小礼花不回收！>\
+<您当前的礼花点数为:<$STR(U99)>>  <当前祝福重数：<$STR(G888)>>\
+<一键赠予礼花/@回收>　　　<查看留言板/@留言板>　　　<收集一套直接召唤BOSS/@BOSS>\
+
+[@礼花表]
+\<ItemShow:226:1:0:0:1> <ItemShow:227:1:0:0:1> <ItemShow:228:1:0:0:1> <ItemShow:229:1:0:0:1> <ItemShow:230:1:0:0:1> <ItemShow:231:1:0:0:1>\
+\ \
+\ \
+\<ItemShow:232:1:0:0:1> <ItemShow:209:1:0:0:1>\
+
+[@BOSS]
+#IF
+checkitem 一心一意包 1
+checkitem 庆典蛋糕 1
+checkitem 心心相印包 1
+checkitem 飞火流星包 1
+checkitem 浪漫星雨包 1
+checkitem 绮梦幻想包 1
+checkitem 长空火舞包 1
+checkitem 如雾似梦包 1
+#ACT
+take 一心一意包 1
+take 庆典蛋糕 1
+take 心心相印包 1
+take 飞火流星包 1
+take 浪漫星雨包 1
+take 绮梦幻想包 1
+take 长空火舞包 1
+take 如雾似梦包 1
+  MISSION n3 356 339
+  PARAM1 356
+  PARAM2 339
+  PARAM3 1
+  PARAM4 1
+  MOBPLACE 毛脸雷公嘴
+SENDMSG 0 玩家【<$USERNAME>】收集一套烟花，直接释放毛脸雷公嘴！获得了20元宝！
+SENDMSG 0 玩家【<$USERNAME>】收集一套烟花，直接释放毛脸雷公嘴！获得了20元宝！
+SENDMSG 0 玩家【<$USERNAME>】收集一套烟花，直接释放毛脸雷公嘴！获得了20元宝！
+GAMEGOLD + 20
+break
+#ELSEACT 
+Messagebox 对不起，需要一心一意包、庆典蛋糕、心心相印包、飞火流星包\浪漫星雨包、绮梦幻想包、长空火舞包、如雾似梦包\才能获得20元宝！
+break
+
+
+[@留言板]
+第一条：<$STR(A6)>\
+第二条：<$STR(A7)>\ 
+第三条：<$STR(A8)>\ 
+第四条：<$STR(A9)>\
+第五条：<$STR(A10)>\ 
+第六条：<$STR(A11)>\ 
+第七条：<$STR(A12)>\ 
+第八条：<$STR(A13)>\ 
+每发表一次留言需要3点礼花点<确定发表留言/@@InPutString20>，只显示10条留言。\ 
+
+
+
+
+[@InPutString20] 
+#IF 
+EQUAL S20 
+#ACT 
+Messagebox [失败]：请输入所要发表的文字。不能发空消息。
+GOTO @MAIN 
+BREAK 
+
+#IF 
+LARGE U99 2
+#ACT 
+DEC U99 3
+MOV S5 <
+INC S5 <$USERNAME>
+INC S5 /AUTOCOLOR= 
+GetRandomText ..\QuestDiary\功能设置\颜色.txt S29
+INC S5 <$STR(S29)> 
+INC S5 >说：< 
+INC S5 <$STR(S20)> 
+INC S5 /AUTOCOLOR= 
+GetRandomText ..\QuestDiary\功能设置\颜色.txt S29
+INC S5 <$STR(S29)> 
+INC S5 >
+SendNewLineMsg 0 249 0 15 100 10 1 [新春祝词]<$USERNAME>诚恳地对大家说道：||<$STR(S20)>
+MOV A13 <$STR(A12)> 
+MOV A12 <$STR(A11)> 
+MOV A11 <$STR(A10)>
+MOV A10 <$STR(A9)> 
+MOV A9 <$STR(A8)> 
+MOV A8 <$STR(A7)> 
+MOV A7 <$STR(A6)> 
+MOV A6 <$STR(S5)> 
+MOV S5 
+MOV S20 
+MOV S20 
+GOTO @抽奖
+BREAK
+#ELSEACT 
+Messagebox [失败]：发表留言需要3点礼花点。
+GOTO @MAIN 
+BREAK
+
+
+
+[@抽奖]
+#IF
+Equal G888 187
+#ACT
+  MISSION n3 356 339
+  PARAM1 356
+  PARAM2 339
+  PARAM3 1
+  PARAM4 1
+  MOBPLACE 毛脸雷公嘴
+mov G888 0
+CHANGEEXP + 20000
+SENDMSG 0 警告：祝福重数188重被【<$USERNAME>】释放，盟重出现毛脸雷公嘴！
+SENDMSG 0 警告：祝福重数188重被【<$USERNAME>】释放，盟重出现毛脸雷公嘴！
+SENDMSG 0 警告：祝福重数188重被【<$USERNAME>】释放，盟重出现毛脸雷公嘴！
+goto @main
+break
+
+#IF
+Equal G888 149
+#ACT
+inc G888 1
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得150层专属奖励[书页50张]
+give 书页 50
+CHANGEEXP + 20000
+goto @main
+break
+
+#IF
+Equal G888 99
+#ACT
+inc G888 1
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得100层专属奖励[声望35点]
+CREDITPOINT + 35
+goto @main
+break
+
+#IF
+Equal G888 49
+#ACT
+inc G888 1
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得50层专属奖励[声望20点]
+CREDITPOINT + 20
+goto @main
+break
+
+#IF
+RANDOM 888
+#ACT
+SENDMSG 1 [<$USERNAME>]发表祝福词时财神关照！！获得[10元宝]
+SENDMSG 1 [<$USERNAME>]发表祝福词时财神关照！！获得[10元宝]
+SENDMSG 1 [<$USERNAME>]发表祝福词时财神关照！！获得[10元宝]
+inc G888 1
+GAMEGOLD + 10
+goto @main
+break
+
+#IF
+RANDOM 4
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[888888金币]
+inc G888 1
+give 金币 888888
+goto @main
+break
+
+
+#IF
+RANDOM 15
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[3元宝]
+inc G888 1
+GAMEGOLD + 3
+goto @main
+break
+
+#IF
+RANDOM 4
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[10张书页]
+inc G888 1
+give 书页 10
+goto @main
+break
+
+#IF
+RANDOM 4
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[5点声望]
+inc G888 1
+CREDITPOINT + 5
+goto @main
+break
+
+#IF
+RANDOM 4
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[1元宝]
+inc G888 1
+GAMEGOLD + 1
+goto @main
+break
+
+#IF
+RANDOM 1
+#ACT
+SENDMSG 0 [<$USERNAME>]发表第<$STR(G888)>层祝福词时喜从天降！获得[888888经验]
+inc G888 1
+CHANGEEXP + 888888
+goto @main
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@回收]
+#if
+checkitem 一心一意包 1
+#act
+take 一心一意包 1
+INC U99 1
+goto @回收
+
+#if
+checkitem 心心相印包 1
+#act
+take 心心相印包 1
+INC U99 1
+goto @回收
+
+
+#if
+checkitem 飞火流星包 1
+#act
+take 飞火流星包 1
+INC U99 1
+goto @回收
+
+#if
+checkitem 庆典蛋糕 1
+#act
+take 庆典蛋糕 1
+INC U99 2
+goto @回收
+
+#if
+checkitem 浪漫星雨包 1
+#act
+take 浪漫星雨包 1
+INC U99 1
+goto @回收
+
+#if
+checkitem 如雾似梦包 1
+#act
+take 如雾似梦包 1
+INC U99 1
+goto @回收
+
+#if
+checkitem 绮梦幻想包 1
+#act
+take 绮梦幻想包 1
+INC U99 1
+goto @回收
+
+#if
+checkitem 长空火舞包 1
+#act
+take 长空火舞包 1
+INC U99 1
+goto @回收
+
+#IF
+#ACT
+goto @main

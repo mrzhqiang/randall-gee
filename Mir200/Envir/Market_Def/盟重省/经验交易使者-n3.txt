@@ -1,0 +1,87 @@
+(@@InPutString @@InPutInteger)
+[@main]
+#IF
+CheckLevelex > 40
+#SAY
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+您好，这里是经验交易使者，在这里您可以交易经验！\
+<出售经验/SCOLOR=250>兑换率是<2:1>,也就是<200点经验=100金币>，<收取手续费5%/SCOLOR=250>\
+<购买经验/SCOLOR=250>兑换率是<1:1>,也就是<100点经验=100金币>\
+让您的金币更有价值！目前<经验池|经验池上限为一千万>有经验：<$STR(G88)>\
+<我需要出卖经验/@@InPutString55>　　　<我需要购买经验/@@InPutString57>　　　<什么都不做/@EXIT>\
+#ELSEACT
+MESSAGEBOX 对不起，40级以下不允许参加！
+
+[@InPutString55]
+#IF
+CheckLevelex < 45
+#ACT
+MESSAGEBOX 　对不起，您等级不足45,卖经验会让你死得很惨.
+break
+
+#IF
+LARGE <$STR(G88)> 50000000
+#ACT
+MESSAGEBOX 目前经验池经验太多,超过了五千万.暂时不允许卖经验.
+break
+
+#IF
+CHECKEXP > <$STR(S55)>
+#ACT
+INC G88 <$STR(S55)>
+CHANGEEXP -  <$STR(S55)>
+DIV <$STR(S55)>	2
+MOV N55 0
+MOV N59	<$STR(S55)>
+MOV N55	<$STR(S55)>
+DIV N59	20
+DEC N55	<$STR(N59)>
+give 金币 <$STR(N55)>
+MUL <$STR(S55)>	2
+SendNewLineMsg 0 249 0 15 100 10 1 玩家<$USERNAME>上缴了<$STR(S55)>经验!扣除手续费<$STR(N59)>，获得<$STR(N55)>金币！||目前经验池剩余经验：<$STR(G88)>
+goto @main
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多经验值！
+
+[@InPutString57]
+#IF
+SMALL S57 1
+#act
+messagebox 请输入1以上的数字
+break
+
+#IF
+LARGE S57 50000000
+#act
+messagebox 您输入的数字应该小于经验池最高上限5千万。
+break
+
+#IF
+LARGE <$STR(G88)> <$STR(S57)>
+#ACT
+MOV N57 0
+MOV N57 <$STR(S57)>
+goto @允许购买
+#ELSEACT
+MESSAGEBOX 　对不起，经验池没这么多经验！
+
+[@允许购买]
+#IF
+CheckGold <$STR(N57)>
+#ACT
+take 金币 <$STR(N57)>
+CHANGEEXP + <$STR(S57)>
+DEC G88 <$STR(S57)>
+SendNewLineMsg 0 251 0 15 100 10 1 玩家<$USERNAME>购买了<$STR(N57)>点经验!花费<$STR(N57)>金币！||目前经验池剩余经验：<$STR(G88)>
+goto @main
+#ELSEACT
+MESSAGEBOX 　对不起，您没有这么多金币！
+
+
+
+
+
+

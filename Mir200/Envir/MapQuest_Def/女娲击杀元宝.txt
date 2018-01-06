@@ -1,0 +1,7 @@
+[@main]
+#if
+#ACT
+gamegold + 1
+GAMEGIRD + 1
+SendMsg 6 击杀成功，获得1灵符+1元宝，当前灵符数量<$GAMEGIRD>
+break

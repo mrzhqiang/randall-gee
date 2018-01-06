@@ -1,0 +1,111 @@
+[@main]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+checkitem 水 1
+Check [100] 0
+#SAY
+嗯嗯?是国王叫你来送水吗!真是辛苦你了!\
+你确定要给我水吗??\
+<给予/@给水>\
+<关闭/@exit>\
+#ACT
+break
+
+#IF
+check [132] 1
+check [133] 1
+check [135] 1
+check [139] 1
+check [140] 0
+#SAY
+哈哈，你还真行，这么块就找齐4人了。\
+不为难你了。赶紧回沃玛森林找<铁匠>吧，就说我们随后就到。\ \
+
+<嗯好的！/@exit>\
+#ACT
+set [140] 1
+CHANGEEXP + 80000
+give 金币 30000
+goto @main
+RefreshMissPage 主线任务
+break
+
+
+#IF
+check [130] 1
+check [131] 0
+#SAY
+对，就要这样. 我要好好教训这些不懂事的家伙，\
+请施主避开一会儿。\ \
+
+<对话/@求>\
+#ACT
+break
+
+
+
+#IF
+#SAY
+对，就要这样. 我要好好教训这些不懂事的家伙，\
+请施主避开一会儿。\ \
+<关闭/@exit>
+
+
+
+[@给水]
+#IF
+CheckTextList ..\QuestDiary\标记数据\巡游名单.txt <$USERNAME>
+checkitem 水 1
+Check [100] 0
+#ACT
+take 水 1
+Mul N7 4000 <$LEVEL>
+ChangeExp + <$Str(N7)>
+give 金币 3000
+set [100] 1
+MESSAGEBOX 感谢你帮我解渴,这点<$Str(N7)>经验你拿着,请去找下一位NPC把!
+#ELSEACT
+MESSAGEBOX 您的并没有水,或者您已经给我喝过了,请找下一位把!
+
+
+
+[@求]
+#IF
+check [130] 1
+check [131] 0
+#SAY
+嗯？沃玛寺庙？我知道那个地方。\
+那地方很<危险>，什么什么？要我去帮忙？ \
+不去不去！我可不想死。我现在有稳定的工作\
+又有那么多学徒！我才不去呢！\
+
+<覆巢之下，岂有完卵？/@继续>\
+<关闭/@exit>
+
+
+
+[@继续]
+#IF
+check [130] 1
+check [131] 0
+#SAY
+这个。好吧，如果你能找到<别的四个人>。我就去。\ \
+
+
+<那就这么说定了/@消息框弹出>\ \
+<关闭/@exit>
+#ACT
+set [131] 1
+
+break
+
+
+[@消息框弹出]
+#IF
+#ACT
+MESSAGEBOX 教头已同意一同前往，接下来对话武术学员！\
+goto @main
+break
+
+
+

@@ -1,0 +1,429 @@
+[@武器长]
+{
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 1
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/60000
+goto @允许进化1
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 2
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/100000
+goto @允许进化2
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 3
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/300000
+goto @允许进化3
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 4
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/600000
+goto @允许进化4
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 5
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/900000
+goto @允许进化5
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 6
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/1200000
+goto @允许进化6
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 7
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/2300000
+goto @允许进化7
+break
+
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 8
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/4800000
+goto @允许进化8
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 9
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/6800000
+goto @允许进化9
+break
+
+#if
+CheckItemNameColor 1 70
+CheckUpgradeCount 1 = 10
+#act
+inc u1 <$GetExp>
+SendCenterMsg 180 251 武器进化【<$WEAPON>】经验为:<$STR(u1)>/10800000
+goto @允许进化10
+break
+
+
+
+[@允许进化1]
+#if
+large u1 60000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <2段><炼气>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<2段><炼气>·<$WEAPON>..
+break
+[@允许进化2]
+#if
+large u1 100000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <3段><聚魂>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<3段><聚魂>·<$WEAPON>..
+break
+[@允许进化3]
+#if
+large u1 300000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <4段><炼魂>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<4段><炼魂>·<$WEAPON>..
+break
+
+[@允许进化4]
+#if
+large u1 600000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <5段><凝魂>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<5段><凝魂>·<$WEAPON>..
+break
+[@允许进化5]
+#if
+large u1 900000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <6段><定魂>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<6段><定魂>·<$WEAPON>..
+break
+[@允许进化6]
+#if
+large u1 1200000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <7段><初动>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<7段><初动>·<$WEAPON>..
+break
+[@允许进化7]
+#if
+large u1 2300000
+#act
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P5 2
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <8段><觉醒>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<8段><觉醒>·<$WEAPON>..
+break
+[@允许进化8]
+#if
+large u1 4800000
+#act
+Movr P1 3
+Movr P2 3
+Movr P3 3
+Movr P5 3
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <9段><惊天>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<9段><惊天>·<$WEAPON>..
+break
+[@允许进化9]
+#if
+large u1 6800000
+#act
+Movr P1 3
+Movr P2 3
+Movr P3 3
+Movr P5 3
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 + 1
+ChangeItemName 1 <10段><龙跃>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<10段><龙跃>·<$WEAPON>..
+break
+[@允许进化10]
+#if
+large u1 10800000
+#act
+Movr P1 4
+Movr P2 4
+Movr P3 4
+Movr P5 4
+CHANGEITEMADDVALUE 1 0 + <$STR(P1)>
+CHANGEITEMADDVALUE 1 1 + <$STR(P2)>
+CHANGEITEMADDVALUE 1 2 + <$STR(P3)>
+CHANGEITEMADDVALUE 1 5 + <$STR(P5)>
+Movr P1 2
+Movr P2 2
+Movr P3 2
+Movr P4 2
+Movr P5 2
+Movr P6 2
+Movr P7 2
+Movr P8 2
+SetNewItemValue 1 0 + <$STR(P1)>
+SetNewItemValue 1 1 + <$STR(P2)>
+SetNewItemValue 1 2 + <$STR(P3)>
+SetNewItemValue 1 3 + <$STR(P4)>
+SetNewItemValue 1 4 + <$STR(P5)>
+SetNewItemValue 1 5 + <$STR(P6)>
+SetNewItemValue 1 7 + <$STR(P7)>
+SetNewItemValue 1 8 + <$STR(P8)>
+ChangeItemUpgradeCount 1 = 200
+ChangeItemName 1 <十方俱灭>·<$WEAPON>
+mov u1 0
+SENDMSG 5 ：您的装备已经进化成<十方俱灭>·<$WEAPON>..
+SendCenterMsg 0 251 玩家『<$USERNAME>』用心良苦.细心栽培,最终将武器进化到了<十方俱灭>·<$WEAPON>..！ 1 30
+break
+
+}

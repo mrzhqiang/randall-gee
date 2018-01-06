@@ -1,0 +1,60 @@
+[@main]
+#if
+#SAY
+名称： <女娲副本/FCOLOR=254>    时间： <60分钟/FCOLOR=254>\
+难度： <★★★★★★★★★★★★★★★★/FCOLOR=254>\
+规则： <单人进入/FCOLOR=254> 等级： <60级以上/FCOLOR=254>\
+出产： <经验、灵符/FCOLOR=254>\
+条件： <每天三次、10万金币、50点声望/FCOLOR=254>\
+失败条件：<当地图怪物超过30只，则任务失败！/FCOLOR=249>\
+您今天可进入 <$STR(U40)> 次，您当前灵符数：<$GAMEGIRD>\
+<本地图是单人副本，请注意准备好一切所需物品/FCOLOR=254>\
+<开启守护副本/@开启守护>    <开启[困难模式]守护副本/@开启困难守护>        <结束对话/@exit>\
+
+[@开启守护]
+#IF
+EQUAL U30 2
+#ACT
+messagebox 您已经开启守护了！
+break
+
+#IF
+EQUAL U30 1
+#SAY
+开启守护模式成功！\ \
+请注意，不要残留过多怪物！\
+失败条件：<当地图怪物超过30只，则任务失败！/FCOLOR=249>\
+　　　　　　　　　　　　　　　<结束对话/@exit>\
+#ACT
+SetOnTimer 9 1
+MOV U30 2
+MOV U32 0
+MOV T13 已开启
+break
+#ELSEACT
+messagebox 您已经开启守护了！
+
+
+[@开启困难守护]
+#IF
+EQUAL U30 2
+#ACT
+messagebox 您已经开启守护了！
+break
+
+#IF
+EQUAL U30 1
+#SAY
+开启<[困难模式]>守护模式成功！\ \
+请注意，不要残留过多怪物！\
+每波<29个怪物>，请及时清理！\
+失败条件：<当地图怪物超过30只，则任务失败！/FCOLOR=249>\ \
+　　　　　　　　　　　　　　　<结束对话/@exit>\
+#ACT
+SetOnTimer 20 1
+MOV U30 2
+MOV U32 0
+MOV T13 已开启
+break
+#ELSEACT
+messagebox 您已经开启守护了！

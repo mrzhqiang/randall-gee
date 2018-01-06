@@ -1,0 +1,282 @@
+[@main]
+#IF
+EQUAL T15 已投资
+#ACT
+mov S407 <当前已经投资/FCOLOR=249>
+#ELSEACT
+mov S407 <点击此处进行投资{FCOLOR=249}/@touzi>
+
+#IF
+check [22] 1
+#ACT
+mov S400 <已领返还/FCOLOR=249>
+#ELSEACT
+mov S400 <立刻返还{FCOLOR=250}/@T1>
+
+#IF
+check [23] 1
+#ACT
+mov S401 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S401 <领取返利{FCOLOR=250}/@T2>
+#IF
+check [24] 1
+#ACT
+mov S402 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S402 <领取返利{FCOLOR=250}/@T3>
+#IF
+check [25] 1
+#ACT
+mov S403 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S403 <领取返利{FCOLOR=250}/@T4>
+#IF
+check [26] 1
+#ACT
+mov S404 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S404 <领取返利{FCOLOR=250}/@T5>
+#IF
+check [27] 1
+#ACT
+mov S405 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S405 <领取返利{FCOLOR=250}/@T6>
+#IF
+check [28] 1
+#ACT
+mov S406 <已领返利/FCOLOR=249>
+#ELSEACT
+mov S406 <领取返利{FCOLOR=250}/@T7>
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 28 763 0 0 0 0 1 363 53 1
+#SAY
+\　\
+\ \
+\ \
+\ 〖<追/AUTOCOLOR=155,168,253,115,125><忆/AUTOCOLOR=155,168,253,115,125><传/AUTOCOLOR=155,168,253,115,125><奇/AUTOCOLOR=155,168,253,115,125><预/AUTOCOLOR=155,168,253,115,125><约/AUTOCOLOR=155,168,253,115,125><投/AUTOCOLOR=155,168,253,115,125><资/AUTOCOLOR=155,168,253,115,125><系/AUTOCOLOR=155,168,253,115,125><统/AUTOCOLOR=155,168,253,115,125>〗\
+\ \
+　<玩家姓名:/SCOLOR=168><【/FCOLOR=148>< <$username>/SCOLOR=253> <】/FCOLOR=148>\ \
+　<玩家等级:/SCOLOR=168><【/FCOLOR=148>< <$LEVEL>/SCOLOR=253> <】/FCOLOR=148>\ \     
+　<元宝数量:/SCOLOR=168><【/FCOLOR=148>< <$GAMEGOLD>/SCOLOR=253> <】/FCOLOR=148> <投资500元宝后，可得500本金+990收益元宝/FCOLOR=253>\ \
+　<投资返利  ≥/SCOLOR=243> <投资/SCOLOR=103><500元宝/SCOLOR=250>     <【/FCOLOR=251><$STR(S400)><】/FCOLOR=251> <300元宝/SCOLOR=253>\ \
+\ \
+　<第一阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <50级/SCOLOR=250>   <【/FCOLOR=251><$STR(S401)><】/FCOLOR=251> <80元宝/SCOLOR=253>\ \
+\ \
+　<第二阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <65级/SCOLOR=250>   <【/FCOLOR=251><$STR(S402)><】/FCOLOR=251> <120元宝/SCOLOR=253>\ \
+\ \
+　<第三阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <75级/SCOLOR=250>   <【/FCOLOR=251><$STR(S403)><】/FCOLOR=251> <150元宝/SCOLOR=253>\ \
+\ \
+　<第四阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <85级/SCOLOR=250>   <【/FCOLOR=251><$STR(S404)><】/FCOLOR=251> <200元宝/SCOLOR=253>\ \
+\ \
+　<第五阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <95级/SCOLOR=250>  <【/FCOLOR=251><$STR(S405)><】/FCOLOR=251> <280元宝/SCOLOR=253>\ \
+\ \
+　<最终阶段  ≥/SCOLOR=243> <等级达到/SCOLOR=103> <105级/SCOLOR=250>  <【/FCOLOR=251><$STR(S406)><】/FCOLOR=251> <360元宝/SCOLOR=253>
+\ \
+　　<$STR(S407)>                          <算了/@exit>
+
+
+
+[@touzi]
+#if
+EQUAL T15 已投资
+#act
+MessageBox 你已经进行过投资了！
+#ELSEACT
+GOTO @touzi1
+
+[@touzi1]
+#if
+CHECKGAMEGOLD > 499
+#act
+GAMEGOLD - 500
+MOV T15 已投资
+GOTO @main
+MessageBox 投资已经成功。
+#ELSEACT
+MessageBox 你的资金元宝不足，无法进行投资！
+
+
+[@T1]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T1已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T1已领取名单]
+#if
+check [22] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 300
+set [22] 1
+MessageBox 立即返利领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得返利300元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+
+[@T2]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T2已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T2已领取名单]
+#IF
+CHECKLEVELEX < 50
+#ACT
+MessageBox 对不起，您的等级未达第一阶段50级！
+break
+
+#if
+check [23] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 80
+set [23] 1
+MessageBox 第一阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得第一阶段80元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+[@T3]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T3已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T3已领取名单]
+#IF
+CHECKLEVELEX < 65
+#ACT
+MessageBox 对不起，您的等级未达第二阶段65级！
+break
+
+#if
+check [24] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 120
+set [24] 1
+MessageBox 第二阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得第二阶段120元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+[@T4]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T4已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T4已领取名单]
+#IF
+CHECKLEVELEX < 75
+#ACT
+MessageBox 对不起，您的等级未达第三阶段75级！
+break
+
+#if
+check [25] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 150
+set [25] 1
+MessageBox 第三阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得第三阶段150元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+
+[@T5]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T5已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T5已领取名单]
+#IF
+CHECKLEVELEX < 85
+#ACT
+MessageBox 对不起，您的等级未达第四阶段85级！
+break
+
+#if
+check [26] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 200
+set [26] 1
+MessageBox 第四阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得第四阶段200元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+
+[@T6]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T6已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T6已领取名单]
+#IF
+CHECKLEVELEX < 95
+#ACT
+MessageBox 对不起，您的等级未达第五阶段95级！
+break
+
+#if
+check [27] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 280
+set [27] 1
+MessageBox 第五阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得第五阶段280元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+
+
+[@T7]
+#if
+EQUAL T15 已投资
+#act
+GOTO @T7已领取名单
+#ELSEACT
+MessageBox 你还未进行投资或你已经领取过了！
+
+[@T7已领取名单]
+#IF
+CHECKLEVELEX < 105
+#ACT
+MessageBox 对不起，您的等级未达最终阶段105级！
+break
+
+#if
+check [28] 1
+#act
+MessageBox 你已经领取过了。
+#ELSEACT
+GAMEGOLD + 360
+set [28] 1
+MessageBox 最终阶段领取成功。
+SendNewLineMsg 0 249 0 15 100 5 1 【预约投资】：玩家<$USERNAME>进行了预约投资!获得最终阶段360元宝！||目前拥有元宝：<$GAMEGOLD>
+goto @main
+

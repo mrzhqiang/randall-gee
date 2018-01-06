@@ -1,0 +1,113 @@
+[@main]
+#IF
+Equal U43 1
+Equal U42 5
+#ACT
+MOV U42 6
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：开启<洪荒之力/SCOLOR=250>只需<200元宝/SCOLOR=250>\
+<可以获得1.1倍的魔攻道，+100HP，+200MP/SCOLOR=253>\
+<拥有洪荒之力的玩家被玩家杀死之后，杀死他的玩家可以获得100元宝/SCOLOR=70> \
+<同时，拥有洪荒之力的玩家也会失去洪荒之力，被怪杀则不会失去/SCOLOR=250>\
+
+学习完毕，接下来去找<天关生死劫/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<天关生死劫/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：开启<洪荒之力/SCOLOR=250>只需<200元宝/SCOLOR=250>\
+<可以获得1.1倍的魔攻道，+100HP，+200MP/SCOLOR=253>\
+<拥有洪荒之力的玩家被玩家杀死之后，杀死他的玩家可以获得100元宝/SCOLOR=70> \
+<同时，拥有洪荒之力的玩家也会失去洪荒之力，被怪杀则不会失去/SCOLOR=250>\
+
+<谢谢您/@exit>\
+
+#ACT
+break
+#IF
+Equal U20 0
+#SAY
+\ \
+　　　　　在这里可以开启到<洪荒之力>\ \
+　　　洪荒之力效果：1.1倍魔攻道，+100HP，+200MP\
+　　　洪荒之力费用：200元宝开启\
+　　　洪荒之力说明：1.下线不消失，被人杀后消失\
+　　　　　　　　　　2.杀人者可获得100元宝\
+　　　　　　　　　　3.需要重新获取只需再次上线即可\
+　　<我要开启洪荒之力/@开启>           <算了，买不起/@EXIT>\
+#ELSESAY
+\ \
+　　　　　您已经开启了<洪荒之力>\ \ \ \ \ \ \
+       <OK！/@EXIT>\
+
+
+[@开启]
+#IF
+CHECKGAMEGOLD < 200
+#ACT
+MESSAGEBOX 对不起，元宝不足200！无法开启洪荒之力！
+break
+
+#IF
+Equal U20 1
+#ACT
+break
+MESSAGEBOX 对不起，您已经开启洪荒之力了！请不要再次开启！
+break
+
+#IF
+Equal U20 0
+CHECKGAMEGOLD > 199
+#ACT
+MOV U20 1
+GAMEGOLD - 200
+MOV N80 <$MAXDC>
+MOV N81 <$MAXMC>
+MOV N82 <$MAXSC>
+DIV N80 10
+DIV N81 10
+DIV N82 10
+ChangeHumAbility 6 + <$STR(N80)> 99999
+ChangeHumAbility 8 + <$STR(N81)> 99999
+ChangeHumAbility 9 + <$STR(N82)> 99999
+ChangeHumAbility 11 + 100 99999
+ChangeHumAbility 12 + 200 99999
+MESSAGEBOX 　　　　洪荒之力已经开启\　　攻击　+　<$STR(N80)>\　　魔法　+　<$STR(N81)>\　　道术　+　<$STR(N82)>\　　HP　+　100\　　MP　+　200\　　持续时间99999秒\　　效果消失，请重新上线获取！\
+break
+
+
+
+
+
+
+;SETICON 2 30 153 -2 -90 1 0 0 150
+;SETICON 3 30 154 -2 -90 15 1 0 150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

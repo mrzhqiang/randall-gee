@@ -1,0 +1,165 @@
+[@暗黑检测1]
+{
+#IF
+#ACT
+MOV N$怪物血量 <$ATTACKMONSTER_HP> 
+
+#OR
+CheckContainsText <$G_WEAPON> 血腥的
+CheckContainsText <$G_DRESS> 血腥的
+CheckContainsText <$G_RIGHTHAND> 血腥的
+CheckContainsText <$G_HELMET> 血腥的
+CheckContainsText <$G_NECKLACE> 血腥的
+CheckContainsText <$G_RING_L> 血腥的
+CheckContainsText <$G_RING_R> 血腥的
+CheckContainsText <$G_ARMRING_L> 血腥的
+CheckContainsText <$G_ARMRING_R> 血腥的
+CheckContainsText <$G_BELT> 血腥的
+CheckContainsText <$G_BOOTS> 血腥的
+CheckContainsText <$G_CHARM> 血腥的
+CheckContainsText <$G_HAT> 血腥的
+CheckContainsText <$G_SHIELD> 血腥的
+CheckContainsText <$G_DRUM> 血腥的
+#ACT
+AddhpPer + 2
+PLAYEFFECT 23 2320 3 1 200 0 0 0 0
+
+
+#OR
+CheckContainsText <$G_WEAPON> 恐怖的
+CheckContainsText <$G_DRESS> 恐怖的
+CheckContainsText <$G_RIGHTHAND> 恐怖的
+CheckContainsText <$G_HELMET> 恐怖的
+CheckContainsText <$G_NECKLACE> 恐怖的
+CheckContainsText <$G_RING_L> 恐怖的
+CheckContainsText <$G_RING_R> 恐怖的
+CheckContainsText <$G_ARMRING_L> 恐怖的
+CheckContainsText <$G_ARMRING_R> 恐怖的
+CheckContainsText <$G_BELT> 恐怖的
+CheckContainsText <$G_BOOTS> 恐怖的
+CheckContainsText <$G_CHARM> 恐怖的
+CheckContainsText <$G_HAT> 恐怖的
+CheckContainsText <$G_SHIELD> 恐怖的
+CheckContainsText <$G_DRUM> 恐怖的
+#ACT
+goto @恐怖的
+
+
+#OR
+CheckContainsText <$G_WEAPON> 金光闪闪的
+CheckContainsText <$G_DRESS> 金光闪闪的
+CheckContainsText <$G_RIGHTHAND> 金光闪闪的
+CheckContainsText <$G_HELMET> 金光闪闪的
+CheckContainsText <$G_NECKLACE> 金光闪闪的
+CheckContainsText <$G_RING_L> 金光闪闪的
+CheckContainsText <$G_RING_R> 金光闪闪的
+CheckContainsText <$G_ARMRING_L> 金光闪闪的
+CheckContainsText <$G_ARMRING_R> 金光闪闪的
+CheckContainsText <$G_BELT> 金光闪闪的
+CheckContainsText <$G_BOOTS> 金光闪闪的
+CheckContainsText <$G_CHARM> 金光闪闪的
+CheckContainsText <$G_HAT> 金光闪闪的
+CheckContainsText <$G_SHIELD> 金光闪闪的
+CheckContainsText <$G_DRUM> 金光闪闪的
+#ACT
+give 金币 50
+
+
+#OR
+CheckContainsText <$G_WEAPON> 探险的
+CheckContainsText <$G_DRESS> 探险的
+CheckContainsText <$G_RIGHTHAND> 探险的
+CheckContainsText <$G_HELMET> 探险的
+CheckContainsText <$G_NECKLACE> 探险的
+CheckContainsText <$G_RING_L> 探险的
+CheckContainsText <$G_RING_R> 探险的
+CheckContainsText <$G_ARMRING_L> 探险的
+CheckContainsText <$G_ARMRING_R> 探险的
+CheckContainsText <$G_BELT> 探险的
+CheckContainsText <$G_BOOTS> 探险的
+CheckContainsText <$G_CHARM> 探险的
+CheckContainsText <$G_HAT> 探险的
+CheckContainsText <$G_SHIELD> 探险的
+CheckContainsText <$G_DRUM> 探险的
+#ACT
+CHANGEEXP + 100
+
+
+#OR
+CheckContainsText <$G_DRUM> 杀戮成性的
+CheckContainsText <$G_WEAPON> 杀戮成性的
+CheckContainsText <$G_DRESS> 杀戮成性的
+CheckContainsText <$G_RIGHTHAND> 杀戮成性的
+CheckContainsText <$G_HELMET> 杀戮成性的
+CheckContainsText <$G_NECKLACE> 杀戮成性的
+CheckContainsText <$G_RING_L> 杀戮成性的
+CheckContainsText <$G_RING_R> 杀戮成性的
+CheckContainsText <$G_ARMRING_L> 杀戮成性的
+CheckContainsText <$G_ARMRING_R> 杀戮成性的
+CheckContainsText <$G_BELT> 杀戮成性的
+CheckContainsText <$G_BOOTS> 杀戮成性的
+CheckContainsText <$G_CHARM> 杀戮成性的
+CheckContainsText <$G_HAT> 杀戮成性的
+CheckContainsText <$G_SHIELD> 杀戮成性的
+#ACT
+MOV N$杀戮 100
+
+
+#IF
+#ACT
+MOV N$凶猛伤害 0
+MOV N$凶猛伤害1 0
+MOV N$凶猛伤害2 0
+MOV N$凶猛伤害3 0
+MOV N$凶猛伤害4 0
+MOV N$凶猛伤害5 0
+MOV N$凶猛伤害6 0
+MOV N$凶猛伤害7 0
+MOV N$凶猛伤害8 0
+MOV N$凶猛伤害9 0
+MOV N$凶猛伤害10 0
+MOV N$凶猛伤害11 0
+MOV N$凶猛伤害12 0
+MOV N$凶猛伤害13 0
+MOV N$凶猛伤害14 0
+MOV N$凶猛计量 0
+MOV N$凶猛计量1 0
+MOV N$凶猛计量2 0
+MOV N$凶猛计量3 0
+MOV N$凶猛计量4 0
+MOV N$凶猛计量5 0
+MOV N$凶猛计量6 0
+MOV N$凶猛计量7 0
+MOV N$凶猛计量8 0
+MOV N$凶猛计量9 0
+MOV N$凶猛计量10 0
+MOV N$凶猛计量11 0
+MOV N$凶猛计量12 0
+MOV N$凶猛计量13 0
+MOV N$凶猛计量14 0
+break
+
+
+[@恐怖的]
+#IF
+random 30
+SMALL N$怪物血量 <$MAXHP> 
+CHECKSLAVECOUNT < 3
+#ACT
+RECALLMOB <$KILLMONNAME> 1 1 1
+PLAYEFFECT 23 1710 20 1 70 0 0 0 0
+MOV S$恐怖亡灵 <$KILLMONNAME>
+SendCenterMsg 180 251 你的宠物将在%d后死亡..... 0 60 @杀死亡灵 0
+SendCenterMsg 250 0 恐怖的力量操纵了<$KILLMONNAME>的亡灵！ 0 3
+break
+
+
+[@杀死亡灵]
+#IF
+CHECKSLAVENAME <$STR(S$恐怖亡灵)>
+#ACT
+KILLCALLMOB <$STR(S$恐怖亡灵)>
+SENDMSG 7 宠物：<$STR(S$恐怖亡灵)>　摆脱了你的控制，前往极乐去了....
+break
+
+}

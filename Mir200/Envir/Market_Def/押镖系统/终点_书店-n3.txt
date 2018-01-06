@@ -1,0 +1,75 @@
+[@main]
+　\ \
+你终于来了啊，我等你好久了！\ \
+<镖车我带来了|镖车我带来了/@镖车我带来了>　
+
+\ 
+\ 
+<送我回土|返回安全区/@返回安全区>  \ 
+
+[@返回安全区]
+#ACT
+MAPMOVE n3 330 333
+
+
+[@镖车我带来了]
+#IF
+EQUAL S$镖车目的地 土城书店门口,405:324
+#ACT
+#ELSEACT
+MESSAGEBOX 目的地错误！\　\你看错地址了吧？
+break
+
+#IF
+CheckSlaveInRange <$STR(S$镖车几率)> 5
+#ACT
+SetOffTimer 10
+KILLCALLMOB <$STR(S$镖车几率)>
+GOTO @<$STR(S$镖车几率)>
+#ELSEACT
+MESSAGEBOX 你的镖车在哪？我怎么没看见呢！\　\　\（提示：镖车必须在你5步之内）
+break
+
+
+[@普通镖车]
+#ACT
+MOV S$奖励经验 20000
+MUL S$奖励经验 <$LEVEL>
+GOTO @镖车奖励
+
+[@高级镖车]
+#ACT
+MOV S$奖励经验 40000
+MUL S$奖励经验 <$LEVEL>
+GOTO @镖车奖励
+
+[@超级镖车]
+#ACT
+MOV S$奖励经验 80000
+MUL S$奖励经验 <$LEVEL>
+GOTO @镖车奖励
+
+[@无敌镖车]
+#ACT
+MOV S$奖励经验 120000
+MUL S$奖励经验 <$LEVEL>
+GOTO @镖车奖励
+
+
+
+
+
+
+[@镖车奖励]
+#ACT
+SET [191] 0
+GIVE 金币 400000
+CHANGEEXP + <$STR(S$奖励经验)>
+SENDMSG	0 [压镖]:<$USERNAME>成功将[<$STR(S$镖车几率)>]押送到[<$STR(S$镖车目的地)>]获得<$STR(S$奖励经验)>经验！
+MOV S$镖车几率 
+MOV S$奖励经验 
+MOV S$镖车目的地 
+CLEARDELAYGOTO 1
+Close
+
+

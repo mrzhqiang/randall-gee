@@ -1,0 +1,94 @@
+#AutoRun NPC RUNONDAY 7:00 @早上提示
+#AutoRun NPC RUNONDAY 12:00 @中午提示
+#AutoRun NPC RUNONDAY 18:00 @晚上提示
+#AutoRun NPC RUNONDAY 0:00 @凌晨提示
+#AutoRun NPC MIN 30 @皇榜
+#AutoRun NPC MIN 120 @刷新转盘
+#AutoRun NPC RUNONDAY 08:00 @下雪
+#AutoRun NPC RUNONDAY 09:00 @花瓣
+#AutoRun NPC RUNONDAY 10:00 @黄沙
+#AutoRun NPC RUNONDAY 11:00 @下雪
+#AutoRun NPC RUNONDAY 12:00 @花瓣
+#AutoRun NPC RUNONDAY 13:00 @黄沙
+#AutoRun NPC RUNONDAY 14:00 @下雪1
+#AutoRun NPC RUNONDAY 15:00 @花瓣1
+#AutoRun NPC RUNONDAY 16:00 @下雪
+#AutoRun NPC RUNONDAY 17:00 @花瓣
+#AutoRun NPC RUNONDAY 18:00 @黄沙
+#AutoRun NPC RUNONDAY 19:00 @下雪
+#AutoRun NPC RUNONDAY 20:00 @花瓣
+#AutoRun NPC RUNONDAY 21:00 @黄沙
+#AutoRun NPC RUNONDAY 22:00 @下雪1
+#AutoRun NPC RUNONDAY 23:00 @花瓣1
+#AutoRun NPC RUNONDAY 12:06 @沙巴克
+#AutoRun NPC RUNONDAY 13:00:00 @金猪
+#AutoRun NPC RUNONDAY 16:00:00 @金猪
+#AutoRun NPC RUNONDAY 21:00:00 @金猪
+#AutoRun NPC RUNONDAY 10:00:00 @卫士
+#AutoRun NPC RUNONDAY 12:00:00 @鸡
+#AutoRun NPC RUNONDAY 15:00:00 @卫士
+#AutoRun NPC RUNONDAY 15:01 @沙巴克
+#AutoRun NPC RUNONDAY 17:00:00 @鸡
+#AutoRun NPC RUNONDAY 18:00:00 @卫士
+#AutoRun NPC RUNONDAY 19:00:00 @鸡
+#AutoRun NPC RUNONWEEK 5:19:20 @问答开始
+#AutoRun NPC RUNONWEEK 5:19:30 @问答结束
+#AutoRun NPC RUNONWEEK 5:19:32 @问答结束统计
+#AutoRun NPC RUNONWEEK 1:19:20 @问答开始
+#AutoRun NPC RUNONWEEK 1:19:30 @问答结束
+#AutoRun NPC RUNONWEEK 1:19:32 @问答结束统计
+#AutoRun NPC RUNONDAY 19:31 @沙巴克
+#AutoRun NPC RUNONDAY 19:50 @战场
+#AutoRun NPC RUNONWEEK 7:20:15 @怪物攻城
+#AutoRun NPC RUNONWEEK 7:20:25 @怪物攻城开始
+#AutoRun NPC RUNONWEEK 7:20:30 @检测攻城
+#AutoRun NPC RUNONDAY 20:00 @战场开始
+#AutoRun NPC RUNONDAY 20:10 @战场第二波
+#AutoRun NPC RUNONDAY 20:20 @战场结束
+
+#AutoRun NPC RUNONDAY 19:30  @抢水
+#AutoRun NPC RUNONDAY 19:35  @抢水
+#AutoRun NPC RUNONDAY 19:40  @停止抢水
+#AutoRun NPC RUNONDAY 22:10  @抢水
+#AutoRun NPC RUNONDAY 22:15  @抢水
+#AutoRun NPC RUNONDAY 22:20  @停止抢水
+#AutoRun NPC RUNONDAY 20:30  @抢水
+#AutoRun NPC RUNONDAY 20:35  @抢水
+#AutoRun NPC RUNONDAY 20:40  @停止抢水
+
+#AutoRun NPC RUNONDAY 20:44  @全民奔跑提示
+#AutoRun NPC RUNONDAY 20:45  @全民奔跑
+#AutoRun NPC RUNONDAY 20:48  @全民奔跑结束
+#AutoRun NPC RUNONDAY 20:50 @天下喊喊
+#AutoRun NPC RUNONDAY 21:00 @天下喊喊2
+#AutoRun NPC RUNONDAY 21:10 @天下喊喊3
+#AutoRun NPC RUNONDAY 21:20 @天下关闭
+#AutoRun NPC RUNONDAY 21:18 @龙卫奖励提示
+#AutoRun NPC RUNONDAY 21:20 @龙卫奖励
+#AutoRun NPC RUNONDAY 22:30 @领奖提示
+#AutoRun NPC RUNONDAY 00:00:01 @清除数据
+#AutoRun NPC MIN 120 @七龙珠任务
+;#AutoRun NPC MIN 20 @报道
+#AutoRun NPC MIN 1 @种植
+
+#AutoRun NPC MIN 1 @种植1
+#AutoRun NPC MIN 1 @种植2
+#AutoRun NPC MIN 1 @种植3
+#AutoRun NPC MIN 1 @种植4
+#AutoRun NPC MIN 1 @种植5
+
+;#AutoRun NPC RUNONDAY 9:30 @开盘OK
+;#AutoRun NPC RUNONDAY 11:30 @停盘
+;#AutoRun NPC RUNONDAY 13:30 @开盘
+;#AutoRun NPC RUNONDAY 22:50 @停盘
+
+#AutoRun NPC RUNONDAY 22:01 @红包开启
+#AutoRun NPC RUNONDAY 22:59 @红包关闭
+
+
+
+#AutoRun NPC RUNONWEEK 1:00:01 @清除跑环
+
+
+
+

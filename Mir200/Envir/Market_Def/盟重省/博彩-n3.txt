@@ -1,0 +1,2741 @@
+(@@InPutString @@InPutInteger)
+100%
+[@main]
+<╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗/SCOLOR=253>\
+║<新/AUTOCOLOR=155,168,253,115,125>║║<年/AUTOCOLOR=155,168,253,115,125>║║<行/AUTOCOLOR=155,168,253,115,125>║║<大/AUTOCOLOR=155,168,253,115,125>║║<运/AUTOCOLOR=155,168,253,115,125>║║<财/AUTOCOLOR=155,168,253,115,125>║║<神/AUTOCOLOR=155,168,253,115,125>║║<来/AUTOCOLOR=155,168,253,115,125>║║<敲/AUTOCOLOR=155,168,253,115,125>║║<门/AUTOCOLOR=155,168,253,115,125>║\
+<╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝/SCOLOR=253>\
+<━━━━━━━新年行大运，财神来敲门━━━━━━━━━━━/SCOLOR=249>\
+这里是博彩服务。在这里可以博彩\
+---------------------------------------------------------\
+请选择你要游玩的项目：\
+<摇骰子/@pao2> <水果机/@水果机> <老虎机/@老虎机>\
+
+
+;<金币命运大转盘/@金币>\
+
+
+
+[@水果机]
+#ACT
+CLEARDELAYGOTO
+CLOSEMERCHANTBIGDLG
+close
+goto @水果机88
+
+
+[@水果机88]
+\ \
+<我这里有最流行的水果机,怎么样?要不要玩两把?/FCOLOR=69>\
+<首先你要选择下下注的倍数,倍数最高位1000倍./FCOLOR=69>\
+<选择倍数后就开始自动启动水果机了./FCOLOR=69>\
+<不选择倍数的话就是选择默认的倍数了./FCOLOR=69>\
+
+ <10倍押注/@10倍倍数>  <50倍押注/@50倍倍数>  <100倍押注/@100倍倍数>  <500倍押注/@500倍倍数>  <1000倍押注/@1000倍倍数>  <满注/@满注倍数>\
+
+<倍数说明:如选择10倍押注,每押1注需要10元宝.奖励同样./FCOLOR=249>\
+
+[@满注倍数]
+#ACT
+MOV N55 9999
+close
+GOTO @启动水果机
+
+[@10倍倍数]
+#ACT
+MOV N55 10
+close
+GOTO @启动水果机
+
+[@50倍倍数]
+#ACT
+MOV N55 50
+close
+GOTO @启动水果机
+
+[@100倍倍数]
+#ACT
+MOV N55 100
+close
+GOTO @启动水果机
+
+[@500倍倍数]
+#ACT
+MOV N55 500
+close
+GOTO @启动水果机
+
+[@1000倍倍数]
+#ACT
+MOV N55 1000
+close
+GOTO @启动水果机
+
+[@启动水果机]
+#act
+MOV S30 
+MOV S40 
+MOV S41 
+MOV S42 
+MOV S43 
+MOV S44 
+MOV S45 
+MOV S46 
+MOV S47 
+MOV S48 
+MOV S49 
+MOV S50 
+MOV S51 
+MOV S52 
+MOV S53 
+MOV S54 
+MOV S55 
+MOV S56 
+MOV S57 
+MOV S58
+MOV S59 
+MOV S60
+MOV S61 
+MOV S62 
+MOV S63 
+MOV S65 　
+MOV S70 
+MOV S71 
+MOV S72 
+MOV S73 
+MOV S74 
+MOV S75 
+MOV S76 
+MOV N30 0
+MOV N40 0
+MOV N50 0
+MOV N60 0
+MOV N61 0
+MOV N62 0
+MOV N63 0
+MOV N64 0
+MOV N65 0
+MOV N66 0
+MOV N67 0
+MOV N70 0
+MOV N72 0
+OPENMERCHANTBIGDLG 43 164 0 4 0 -20 0 0 0
+#SAY
+　                                                                            <Img:9:43:215:0/@关闭水果机>\ \ \ \ \ \ \
+　<Img:167:43:4:117>\ \ 
+　                                           <点击下方水果按钮选择押注/FCOLOR=249>\ \
+　                                                      \ \ \ \
+　                                      <总押注:/FCOLOR=250>\ \
+　                                      <共赢得:/FCOLOR=254>                       {包裹元宝:<$GAMEGOLD>个/FCOLOR=69}\ \ \ \ \
+　                                                                                                   <Img:165:43:7:38>\
+　             <Img:177:43:3:30/@水果机BAR>       <Img:176:43:0:30/@水果机双7>      <Img:175:43:4:30/@水果机双星>       <Img:174:43:2:30/@水果机西瓜>       <Img:173:43:0:30/@水果机铃铛>      <Img:172:43:4:30/@水果机木瓜>       <Img:171:43:2:30/@水果机橘子>       <Img:170:43:0:30/@水果机苹果>       <$STR(N55)> <倍/FCOLOR=253>\
+<Img:168:43:8:2>\
+<Img:169:43:8:7>\
+<Img:166:43:7:12>\
+　               <0          0          0          0           0          0          0          0/FCOLOR=69>\ \
+
+　 <倍数:/FCOLOR=250><10倍=每次押注10元宝,满注=每次押注9999元宝/FCOLOR=151>          <押注:/FCOLOR=254><每种最高只能押1000注.GOOD LUCK为通吃./FCOLOR=151>   \
+　 <大小:/FCOLOR=250><押赢后可猜大小点,1234为小，5678为大.0和9通吃.      /FCOLOR=151><注意:在水果机转动时,强行退出后,所有元宝数据将消失./FCOLOR=58>\
+
+
+[@水果机苹果]
+#IF
+small N60 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N60 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机橘子]
+#IF
+small N61 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N61 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机木瓜]
+#IF
+small N62 1000
+#ACT 
+INC N50 <$STR(N55)>
+INC N62 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机铃铛]
+#IF
+small N63 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N63 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机西瓜]
+#IF
+small N64 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N64 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机双星]
+#IF
+small N65 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N65 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机双7]
+#IF
+small N66 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N66 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@水果机BAR]
+#IF
+small N67 1000
+#ACT
+INC N50 <$STR(N55)>
+INC N67 <$STR(N55)>
+CLOSE
+GOTO @准备水果机
+#ELSEACT
+SENDMSG 5 〖水果机〗每种最高押注上限1000!
+
+[@准备水果机]
+#act
+MOV S70 <$STR(N67)>
+SetStringBlank <$STR(S70)> 11 1
+MOV S71 <$STR(N66)>
+SetStringBlank <$STR(S71)> 11 1
+MOV S72 <$STR(N65)>
+SetStringBlank <$STR(S72)> 11 1
+MOV S73 <$STR(N64)>
+SetStringBlank <$STR(S73)> 11 1
+MOV S74 <$STR(N63)>
+SetStringBlank <$STR(S74)> 12 1
+MOV S75 <$STR(N62)>
+SetStringBlank <$STR(S75)> 11 1
+MOV S76 <$STR(N61)>
+SetStringBlank <$STR(S76)> 11 1
+OPENMERCHANTBIGDLG 43 164 0 4 0 -20 0 0 0
+#SAY
+　                                                                            <Img:9:43:215:0/@关闭水果机><$STR(S65)>\
+　<$STR(S40)>\
+　<$STR(S41)>\
+　<$STR(S42)>\
+　<$STR(S43)>\
+　<$STR(S44)>\
+　<$STR(S45)>\
+　<$STR(S46)>\
+　<$STR(S47)>\
+　<$STR(S48)>\
+　<$STR(S49)>\
+　<$STR(S50)>\
+　<$STR(S51)>\
+　<$STR(S52)>\
+　<$STR(S53)>\
+　                                      {总押注: <$STR(N50)>/FCOLOR=250}\
+　<$STR(S54)>\
+　                                      {共赢得: <$STR(N40)>/FCOLOR=254}                       {包裹元宝:<$GAMEGOLD>个/FCOLOR=69}\
+　<$STR(S55)>\
+　<$STR(S56)>\
+　<$STR(S57)>\
+　<$STR(S58)>\
+　                                                                                                   <Img:165:43:7:38/@水果机开始>\
+　             <Img:177:43:3:30/@水果机BAR>       <Img:176:43:0:30/@水果机双7>      <Img:175:43:4:30/@水果机双星>       <Img:174:43:2:30/@水果机西瓜>       <Img:173:43:0:30/@水果机铃铛>      <Img:172:43:4:30/@水果机木瓜>       <Img:171:43:2:30/@水果机橘子>       <Img:170:43:0:30/@水果机苹果>       {<$STR(N55)> 倍/FCOLOR=251}\
+<Img:168:43:8:2/@水果机猜大>　<$STR(S59)>\
+<Img:169:43:8:7/@水果机猜小>　<$STR(S60)>\
+<Img:166:43:7:12/@水果机退币>　<$STR(S61)>\
+　              {<$STR(S70)><$STR(S71)><$STR(S72)><$STR(S73)><$STR(S74)><$STR(S75)><$STR(S76)><$STR(N60)>/FCOLOR=69}\
+　                                                                                                   <清除押注记录{FCOLOR=253}/@清除水果押注记录> \
+
+　 <倍数:/FCOLOR=250><10倍=每次押注10元宝,满注=每次押注9999元宝/FCOLOR=151>          <押注:/FCOLOR=254><每种最高只能押1000注.GOOD LUCK为通吃./FCOLOR=151> <$STR(S62)>\
+　 <大小:/FCOLOR=250><押赢后可猜大小点,1234为小，5678为大.0和9通吃.      /FCOLOR=151><注意:在水果机转动时,强行退出后,所有元宝数据将消失./FCOLOR=58> <$STR(S63)>\
+
+[@水果机退币]
+#ACT
+
+GAMEGOLD + <$STR(N40)>
+SENDMSG 6 〖水果机〗总赢得退回元宝　+<$STR(N40)>
+MOV N40 0
+MOV N50 0
+GOTO @启动水果机
+
+[@清除水果押注记录]
+#ACT
+GAMEGOLD + <$STR(N40)>
+SENDMSG 6 〖水果机〗总押注退回元宝　+<$STR(N40)>
+MOV N40 0
+MOV N50 0
+GOTO @启动水果机
+
+
+
+[@水果机猜大]
+#IF
+large N40 0
+#ACT
+MOV S65 
+PLAYSOUND Wav\shuoguo1.wav 3 0
+MOV S65 <PlayImg:43:178:10:43:-158:166>
+GOTO @准备水果机
+MOVR N72 1 3
+DELAYGOTO 1700 @水果机猜大-0
+#ELSEACT
+SENDMSG 5 〖水果机〗赢得后才可猜大小.
+
+[@水果机猜大-0]
+#IF
+EQUAL N72 2
+#ACT
+MOVR N30 183 187
+goto @水果机猜大-1
+#ELSEACT
+MOVR N30 178 182
+goto @水果机猜大-1
+
+[@水果机猜大-1]
+#IF
+EQUAL N30 183
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字为大【5】.赢得数值x2
+break
+
+#IF
+EQUAL N30 184
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字为大【6】.赢得数值x2
+break
+
+#IF
+EQUAL N30 185
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字为大【7】.赢得数值x2
+break
+
+#IF
+EQUAL N30 186
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字为大【8】.赢得数值x2
+break
+
+#IF
+EQUAL N30 187
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【9】通吃!
+break
+
+#IF
+EQUAL N30 178
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【0】通吃!
+MOV S65 
+break
+
+#IF
+EQUAL N30 179
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【1】小!
+MOV S65 
+break
+
+#IF
+EQUAL N30 180
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【2】小!
+break
+
+#IF
+EQUAL N30 181
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【3】小!
+break
+
+#IF
+EQUAL N30 182
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【4】小!
+
+[@水果机猜小]
+#IF
+large N40 0
+#ACT
+MOV S65 
+PLAYSOUND Wav\shuoguo1.wav 3 0
+MOV S65 <PlayImg:43:178:10:43:-158:166>
+GOTO @准备水果机
+MOVR N72 1 3
+DELAYGOTO 1700 @水果机猜小-0
+#ELSEACT
+SENDMSG 5 〖水果机〗赢得后才可猜大小.
+
+[@水果机猜小-0]
+#IF
+EQUAL N72 2
+#ACT
+MOVR N30 178 182
+goto @水果机猜小-1
+#ELSEACT
+MOVR N30 183 187
+goto @水果机猜小-1
+
+
+[@水果机猜小-1]
+#IF
+EQUAL N30 179
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字小【1】.赢得数值x2
+break
+
+#IF
+EQUAL N30 180
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字小【2】.赢得数值x2
+break
+
+#IF
+EQUAL N30 181
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字小【3】.赢得数值x2
+break
+
+#IF
+EQUAL N30 182
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MUL N40 2
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你猜对数字小【4】.赢得数值x2
+break
+
+#IF
+EQUAL N30 187
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【9】通吃!
+break
+
+#IF
+EQUAL N30 178
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为【0】通吃!
+break
+
+#IF
+EQUAL N30 183
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为大【5】!
+break
+
+#IF
+EQUAL N30 184
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为大【6】!
+break
+
+#IF
+EQUAL N30 185
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为大【7】!
+break
+
+#IF
+EQUAL N30 186
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+MOV S65 <Img:
+INC S65 <$STR(N30)>
+INC S65 :43:-158:166>
+MOV N40 0
+GOTO @准备水果机
+SENDMSG 5 〖水果机〗猜数字失败!当前为大【8】!
+
+[@水果机开始]
+#IF
+large N50 0
+#ACT
+MOV S20 <$X>
+SetOnTimer 13 1
+goto @水果机开始-1
+#ELSEACT
+SENDMSG 5 〖水果机〗请押注!
+SENDMSG 5 〖水果机〗请押注!
+GOTO @启动水果机
+
+[@水果机开始-1]
+#IF
+large N40 0
+#ACT
+GAMEGOLD + <$STR(N40)>
+SENDMSG 6 〖水果机〗赢得元宝转入包裹<$STR(N40)>个.
+MOV N40 0
+GOTO @水果机开始-2
+#ELSEACT
+GOTO @水果机开始-2
+
+[@水果机开始-2]
+#IF
+CheckContainsText <$STR(S30)> @水果
+#ACT
+GOTO @水果机开始-3
+#ELSEACT
+GOTO @水果机开始-4
+
+[@水果机开始-3]
+#IF
+CHECKGAMEGOLD > <$STR(N50)>
+#ACT
+GAMEGOLD - <$STR(N50)>
+MOVR N70 24 50
+PLAYSOUND Wav\shuoguo0.wav 1 0
+goto @水果转框
+DELAYGOTO 1200 @水果转88
+#ELSEACT
+SENDMSG 5 〖水果机〗身上元宝不够当前押注数.无法转动.
+SENDMSG 5 〖水果机〗身上元宝不够当前押注数.无法转动.
+GOTO @启动水果机
+
+[@水果转88]
+#ACT
+goto <$STR(S30)>
+
+[@水果机开始-4]
+#IF
+CHECKGAMEGOLD > <$STR(N50)>
+#ACT
+GAMEGOLD - <$STR(N50)>
+MOVR N70 24 60
+PLAYSOUND Wav\shuoguo0.wav 1 0
+goto @水果转框
+DELAYGOTO 1200 @水果转1 1
+#ELSEACT
+SENDMSG 5 〖水果机〗身上元宝不够当前押注数.无法转动.
+SENDMSG 5 〖水果机〗身上元宝不够当前押注数.无法转动.
+GOTO @启动水果机
+
+
+[@水果转框]
+#act
+OPENMERCHANTBIGDLG 43 164 0 4 0 -20 0 0 0
+#SAY
+　                                                                            <Img:9:43:215:0>\
+　<$STR(S40)>\
+　<$STR(S41)>\
+　<$STR(S42)>\
+　<$STR(S43)>\
+　<$STR(S44)>\
+　<$STR(S45)>\
+　<$STR(S46)>\
+　<$STR(S47)>\
+　<$STR(S48)>\
+　<$STR(S49)>\
+　<$STR(S50)>\
+　<$STR(S51)>\
+　<$STR(S52)>\
+　<$STR(S53)>\
+　                                      {总押注: <$STR(N50)>/FCOLOR=250}\
+　<$STR(S54)>\
+　                                      {共赢得: <$STR(N40)>/FCOLOR=254}                       {包裹元宝:<$GAMEGOLD>个/FCOLOR=69}\
+　<$STR(S55)>\
+　<$STR(S56)>\
+　<$STR(S57)>\
+　<$STR(S58)>\
+　                                                                                                   <Img:165:43:7:38>\
+　             <Img:177:43:3:30>       <Img:176:43:0:30>      <Img:175:43:4:30>       <Img:174:43:2:30>       <Img:173:43:0:30>      <Img:172:43:4:30>       <Img:171:43:2:30>       <Img:170:43:0:30>       {<$STR(N55)> 倍/FCOLOR=251}\
+<Img:168:43:8:2>　<$STR(S59)>\
+<Img:169:43:8:7>　<$STR(S60)>\
+<Img:166:43:7:12>　<$STR(S61)>\
+　              {<$STR(S70)><$STR(S71)><$STR(S72)><$STR(S73)><$STR(S74)><$STR(S75)><$STR(S76)><$STR(N60)>/FCOLOR=69}\
+　                                                                                                   <清除押注记录/FCOLOR=253> \
+
+　 <倍数:/FCOLOR=250><刚打开水果机可选倍数,1倍=每注1元宝,2倍=每注2元宝.../FCOLOR=151><押注:/FCOLOR=254><每种最高只能押200注.GOOD LUCK为通吃./FCOLOR=151> <$STR(S62)>\
+　 <大小:/FCOLOR=250><押赢后可猜大小点,1234为小，5678为大.0和9通吃.      /FCOLOR=151><注意:在水果机转动时,强行退出后,所有元宝数据将消失./FCOLOR=58> <$STR(S63)>\
+
+
+[@水果转1]
+#IF
+EQUAL N70 0
+#ACT
+MOV S63 
+MOV S40 <Img:167:43:4:214>
+MOV S30 @水果转1
+MOV N68 2
+goto @水果双星
+#ELSEACT
+MOV S63 
+MOV S40 <Img:167:43:4:214>
+DEC N70 1
+PLAYSOUND Wav\shuoguo1.wav 1 0
+DELAYGOTO 1 @水果转2 1
+goto @水果转框
+
+[@水果转2]
+#IF
+EQUAL N70 0
+#ACT
+MOV S40 
+MOV S41 <Img:167:43:4:128>
+MOV S30 @水果转2
+MOV N68 0
+goto @水果通吃
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S41 <Img:167:43:4:128>
+MOV S40 
+DEC N70 1
+DELAYGOTO 1 @水果转3 1
+goto @水果转框
+
+[@水果转3]
+#IF
+EQUAL N70 0
+#ACT
+MOV S41 
+MOV S42 <Img:167:43:4:43>
+MOV S30 @水果转3
+MOV N68 5
+goto @水果苹果
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S41 
+MOV S42 <Img:167:43:4:43>
+DEC N70 1
+DELAYGOTO 1 @水果转5 1
+goto @水果转框
+
+[@水果转5]
+#IF
+EQUAL N70 0
+#ACT
+MOV S42 
+MOV S43 <Img:167:43:4:-42>
+MOV S30 @水果转5
+MOV N68 2
+goto @水果铃铛
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S42 
+MOV S43 <Img:167:43:4:-42>
+DEC N70 1
+DELAYGOTO 1 @水果转6 1
+goto @水果转框
+
+[@水果转6]
+#IF
+EQUAL N70 0
+#ACT
+MOV S43 
+MOV S44 <Img:167:43:78:-59>
+MOV S30 @水果转6
+MOV N68 10
+MOV N71 1
+goto @水果橘子
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S43 
+MOV S44 <Img:167:43:78:-59>
+DEC N70 1
+DELAYGOTO 1 @水果转7 1
+goto @水果转框
+
+[@水果转7]
+#IF
+EQUAL N70 0
+#ACT
+MOV S44 
+MOV S45 <Img:167:43:152:-75>
+MOV S30 @水果转7
+MOV N68 20
+MOV N71 1
+goto @水果铃铛
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S44 
+MOV S45 <Img:167:43:152:-75>
+DEC N70 1
+DELAYGOTO 1 @水果转8 1
+goto @水果转框
+
+[@水果转8]
+#IF
+EQUAL N70 0
+#ACT
+MOV S45 
+MOV S46 <Img:167:43:226:-91>
+MOV S30 @水果转8
+MOV N68 25
+goto @水果25
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S45 
+MOV S46 <Img:167:43:226:-91>
+DEC N70 1
+DELAYGOTO 1 @水果转9 1
+goto @水果转框
+
+[@水果转9]
+#IF
+EQUAL N70 0
+#ACT
+MOV S46 
+MOV S47 <Img:167:43:302:-107>
+MOV S30 @水果转9
+MOV N68 100
+goto @水果100
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S46 
+MOV S47 <Img:167:43:302:-107>
+DEC N70 1
+DELAYGOTO 1 @水果转10 1
+goto @水果转框
+
+[@水果转10]
+#IF
+EQUAL N70 0
+#ACT
+MOV S47 
+MOV S48 <Img:167:43:376:-123>
+MOV S30 @水果转10
+MOV N68 50
+goto @水果50
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S47 
+MOV S48 <Img:167:43:376:-123>
+DEC N70 1
+DELAYGOTO 1 @水果转11 1
+goto @水果转框
+
+[@水果转11]
+#IF
+EQUAL N70 0
+#ACT
+MOV S48 
+MOV S49 <Img:167:43:450:-139>
+MOV S30 @水果转11
+MOV N68 5
+goto @水果苹果
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S48 
+MOV S49 <Img:167:43:450:-139>
+DEC N70 1
+DELAYGOTO 1 @水果转12 1
+goto @水果转框
+
+[@水果转12]
+#IF
+EQUAL N70 0
+#ACT
+MOV S49 
+MOV S50 <Img:167:43:524:-155>
+MOV S30 @水果转12
+MOV N68 15
+MOV N71 1
+goto @水果木瓜
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S49 
+MOV S50 <Img:167:43:524:-155>
+DEC N70 1
+DELAYGOTO 1 @水果转13 1
+goto @水果转框
+
+[@水果转13]
+#IF
+EQUAL N70 0
+#ACT
+MOV S50 
+MOV S51 <Img:167:43:598:-171>
+MOV S30 @水果转13
+MOV N68 20
+goto @水果西瓜
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S50 
+MOV S51 <Img:167:43:598:-171>
+DEC N70 1
+DELAYGOTO 1 @水果转14 1
+goto @水果转框
+
+[@水果转14]
+#IF
+EQUAL N70 0
+#ACT
+MOV S51 
+MOV S52 <Img:167:43:598:-117>
+MOV S30 @水果转14
+MOV N68 2
+goto @水果西瓜
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S51 
+MOV S52 <Img:167:43:598:-117>
+DEC N70 1
+DELAYGOTO 1 @水果转15 1
+goto @水果转框
+
+[@水果转15]
+#IF
+EQUAL N70 0
+#ACT
+MOV S52 
+MOV S53 <Img:167:43:598:-63>
+MOV S30 @水果转15
+MOV N68 0
+goto @水果通吃
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S52 
+MOV S53 <Img:167:43:598:-63>
+DEC N70 1
+DELAYGOTO 1 @水果转16 1
+goto @水果转框
+
+[@水果转16]
+#IF
+EQUAL N70 0
+#ACT
+MOV S53 
+MOV S54 <Img:167:43:598:-26>
+MOV S30 @水果转16
+MOV N68 5
+goto @水果苹果
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S53 
+MOV S54 <Img:167:43:598:-26>
+DEC N70 1
+DELAYGOTO 1 @水果转17 1
+goto @水果转框
+
+[@水果转17]
+#IF
+EQUAL N70 0
+#ACT
+MOV S54 
+MOV S55 <Img:167:43:598:11>
+MOV S30 @水果转17
+MOV N68 2
+goto @水果橘子
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S54 
+MOV S55 <Img:167:43:598:11>
+DEC N70 1
+DELAYGOTO 1 @水果转18 1
+goto @水果转框
+
+[@水果转18]
+#IF
+EQUAL N70 0
+#ACT
+MOV S55 
+MOV S56 <Img:167:43:525:-5>
+MOV S30 @水果转18
+MOV N68 10
+MOV N71 2
+goto @水果橘子
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S55 
+MOV S56 <Img:167:43:525:-5>
+DEC N70 1
+DELAYGOTO 1 @水果转19 1
+goto @水果转框
+
+[@水果转19]
+#IF
+EQUAL N70 0
+#ACT
+MOV S56 
+MOV S57 <Img:167:43:450:-21>
+MOV S30 @水果转19
+MOV N68 20
+MOV N71 2
+goto @水果铃铛
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S56 
+MOV S57 <Img:167:43:450:-21>
+DEC N70 1
+DELAYGOTO 1 @水果转20 1
+goto @水果转框
+
+[@水果转20]
+#IF
+EQUAL N70 0
+#ACT
+MOV S57 
+MOV S58 <Img:167:43:375:-37>
+MOV S30 @水果转20
+MOV N68 2
+goto @水果双7
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S57 
+MOV S58 <Img:167:43:375:-37>
+DEC N70 1
+DELAYGOTO 1 @水果转21 1
+goto @水果转框
+
+[@水果转21]
+#IF
+EQUAL N70 0
+#ACT
+MOV S58 
+MOV S59 <Img:167:43:243:-85>
+MOV S30 @水果转21
+MOV N68 40
+goto @水果双7
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S58 
+MOV S59 <Img:167:43:243:-85>
+DEC N70 1
+DELAYGOTO 1 @水果转22 1
+goto @水果转框
+
+[@水果转22]
+#IF
+EQUAL N70 0
+#ACT
+MOV S59 
+MOV S60 <Img:167:43:169:-101>
+MOV S30 @水果转22
+MOV N68 5
+goto @水果苹果
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S59 
+MOV S60 <Img:167:43:169:-101>
+DEC N70 1
+DELAYGOTO 1 @水果转23 1
+goto @水果转框
+
+[@水果转23]
+#IF
+EQUAL N70 0
+#ACT
+MOV S60 
+MOV S61 <Img:167:43:92:-117>
+MOV S30 @水果转23
+MOV N68 2
+goto @水果木瓜
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S60 
+MOV S61 <Img:167:43:92:-117>
+DEC N70 1
+DELAYGOTO 1 @水果转24 1
+goto @水果转框
+
+[@水果转24]
+#IF
+EQUAL N70 0
+#ACT
+MOV S61 
+MOV S62 <Img:167:43:-516:-165>
+MOV S30 @水果转24
+MOV N68 15
+MOV N71 2
+goto @水果木瓜
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S61 
+MOV S62 <Img:167:43:-516:-165>
+DEC N70 1
+DELAYGOTO 1 @水果转25 1
+goto @水果转框
+
+[@水果转25]
+#IF
+EQUAL N70 0
+#ACT
+MOV S62 
+MOV S63 <Img:167:43:-643:-181>
+MOV S30 @水果转25
+MOV N68 30
+goto @水果双星
+#ELSEACT
+PLAYSOUND Wav\shuoguo1.wav 1 0
+MOV S62 
+MOV S63 <Img:167:43:-643:-181>
+DEC N70 1
+DELAYGOTO 1 @水果转1 1
+goto @水果转框
+
+[@水果双星]
+#IF
+large N65 0
+#ACT
+goto @水果双星0
+#ELSEACT
+goto @水果双星给
+
+[@水果双星0]
+#IF
+EQUAL N68 30
+#ACT
+MOVR N72 1 6
+goto @水果双星-1
+#ELSEACT
+goto @水果双星给
+
+[@水果双星-1]
+#IF
+EQUAL N72 5
+#ACT
+goto @水果双星给
+#ELSEACT
+INC N70 1
+DELAYGOTO 1 @水果转1 1
+
+[@水果双星给]
+#IF
+large N65 0
+#ACT
+
+MUL N68 <$STR(N65)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【双星】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【双星】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果通吃]
+#ACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【通吃】!
+GOTO @准备水果机
+
+[@水果苹果]
+#IF
+large N60 0
+#ACT
+
+MUL N68 <$STR(N60)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【苹果】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【苹果】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果铃铛]
+#IF
+large N63 0
+#ACT
+goto @水果铃铛0
+#ELSEACT
+GOTO @水果铃铛给
+
+[@水果铃铛0]
+#IF
+EQUAL N71 1
+#ACT
+MOVR N72 1 6
+GOTO @水果铃铛1-1
+#ELSEACT
+GOTO @水果铃铛-1
+
+[@水果铃铛-1]
+#IF
+EQUAL N71 2
+#ACT
+MOVR N72 1 6
+GOTO @水果铃铛2-1
+#ELSEACT
+GOTO @水果铃铛给
+
+[@水果铃铛1-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果铃铛给
+#ELSEACT
+INC N70 3
+DELAYGOTO 1 @水果转8
+
+[@水果铃铛2-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果铃铛给
+#ELSEACT
+DELAYGOTO 1 @水果转20
+
+[@水果铃铛给]
+#IF
+large N63 0
+#ACT
+
+MUL N68 <$STR(N63)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【铃铛】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【铃铛】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果橘子]
+#IF
+large N61 0
+#ACT
+goto @水果橘子0
+#ELSEACT
+GOTO @水果橘子给
+
+[@水果橘子0]
+#IF
+EQUAL N71 1
+#ACT
+MOVR N72 1 6
+GOTO @水果橘子1-1
+#ELSEACT
+GOTO @水果橘子-1
+
+[@水果橘子-1]
+#IF
+EQUAL N71 2
+#ACT
+MOVR N72 1 6
+GOTO @水果橘子2-1
+#ELSEACT
+GOTO @水果橘子给
+
+[@水果橘子1-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果橘子给
+#ELSEACT
+INC N70 8
+DELAYGOTO 1 @水果转7
+
+[@水果橘子2-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果橘子给
+#ELSEACT
+INC N70 1
+DELAYGOTO 1 @水果转19
+
+[@水果橘子给]
+#IF
+large N61 0
+#ACT
+
+MUL N68 <$STR(N61)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【橘子】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【橘子】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果25]
+#IF
+large N67 0
+#ACT
+MOVR N72 1 6
+goto @水果250
+#ELSEACT
+goto @水果25给
+
+[@水果250]
+#IF
+EQUAL N72 5
+#ACT
+goto @水果25给
+#ELSEACT
+INC N70 6
+DELAYGOTO 1 @水果转9
+
+[@水果25给]
+#IF
+large N67 0
+#ACT
+
+MUL N68 <$STR(N67)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【BAR】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【BAR】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果100]
+#IF
+large N67 0
+#ACT
+MOVR N72 1 8
+goto @水果1000
+#ELSEACT
+goto @水果100给
+
+[@水果1000]
+#IF
+EQUAL N72 7
+#ACT
+goto @水果100给
+#ELSEACT
+MOVR N72 1 4
+goto @水果1000-1
+
+[@水果1000-1]
+#IF
+EQUAL N72 3
+#ACT
+INC N70 1
+DELAYGOTO 1 @水果转10
+#ELSEACT
+INC N70 5
+DELAYGOTO 1 @水果转10
+
+[@水果100给]
+#IF
+large N67 0
+#ACT
+
+MUL N68 <$STR(N67)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【BAR】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【BAR】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果50]
+#IF
+large N67 0
+#ACT
+MOVR N72 1 8
+GOTO @水果500
+#ELSEACT
+GOTO @水果50给
+
+[@水果500]
+#IF
+EQUAL N72 7
+#ACT
+GOTO @水果50给
+#ELSEACT
+MOVR N72 1 4
+GOTO @水果500-1
+
+[@水果500-1]
+#IF
+EQUAL N72 3
+#ACT
+DELAYGOTO 1 @水果转11
+#ELSEACT
+INC N70 4
+DELAYGOTO 1 @水果转11
+
+[@水果50给]
+#IF
+large N67 0
+#ACT
+
+MUL N68 <$STR(N67)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【BAR】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【BAR】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果西瓜]
+#IF
+large N64 0
+#ACT
+GOTO @水果西瓜0
+#ELSEACT
+GOTO @水果西瓜给
+
+[@水果西瓜0]
+#IF
+EQUAL N68 20
+#ACT
+MOVR N72 1 6
+GOTO @水果西瓜-1
+#ELSEACT
+GOTO @水果西瓜给
+
+[@水果西瓜-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果西瓜给
+#ELSEACT
+MOVR N72 1 4
+GOTO @水果西瓜-2
+
+[@水果西瓜-2]
+#IF
+EQUAL N72 3
+#ACT
+DELAYGOTO 1 @水果转14
+#ELSEACT
+INC N70 1
+DELAYGOTO 1 @水果转14
+
+[@水果西瓜给]
+#IF
+large N64 0
+#ACT
+
+MUL N68 <$STR(N64)>
+INC N40 <$STR(N68)>
+GOTO @准备水果机
+SENDMSG 7 〖水果机〗恭喜你中了【西瓜】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【西瓜】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果木瓜]
+#IF
+large N62 0
+#ACT
+GOTO @水果木瓜0
+#ELSEACT
+GOTO @水果木瓜给
+
+[@水果木瓜0]
+#IF
+EQUAL N71 1
+#ACT
+MOVR N72 1 6
+GOTO @水果木瓜1-1
+#ELSEACT
+GOTO @水果木瓜-1
+
+[@水果木瓜-1]
+#IF
+EQUAL N71 2
+#ACT
+MOVR N72 1 6
+GOTO @水果木瓜2-1
+#ELSEACT
+GOTO @水果木瓜给
+
+[@水果木瓜1-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果木瓜给
+#ELSEACT
+INC N70 1
+DELAYGOTO 1 @水果转13
+
+[@水果木瓜2-1]
+#IF
+EQUAL N72 5
+#ACT
+GOTO @水果木瓜给
+#ELSEACT
+INC N70 1
+DELAYGOTO 1 @水果转25
+
+[@水果木瓜给]
+#IF
+large N62 0
+#ACT
+
+MUL N68 <$STR(N62)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【木瓜】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【木瓜】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@水果双7]
+#IF
+large N66 0
+#ACT
+GOTO @水果双70
+#ELSEACT
+GOTO @水果双7给
+
+[@水果双70]
+#IF
+EQUAL N68 2
+#ACT
+GOTO @水果双7给
+#ELSEACT
+MOVR N72 1 8
+GOTO @水果双7-1
+
+[@水果双7-1]
+#IF
+EQUAL N72 7
+#ACT
+GOTO @水果双7给
+#ELSEACT
+MOVR N72 1 6
+GOTO @水果双7-2
+
+[@水果双7-2]
+#IF
+EQUAL N72 5
+#ACT
+INC N70 1
+DELAYGOTO 1 @水果转22
+#ELSEACT
+MOVR N72 1 6
+GOTO @水果双7-4
+
+[@水果双7-4]
+#IF
+EQUAL N72 5
+#ACT
+INC N70 4
+DELAYGOTO 1 @水果转22
+#ELSEACT
+INC N70 5
+DELAYGOTO 1 @水果转22
+
+
+[@水果双7给]
+#IF
+large N66 0
+#ACT
+
+MUL N68 <$STR(N66)>
+INC N40 <$STR(N68)>
+SENDMSG 7 〖水果机〗恭喜你中了【双7】.赢得了<$STR(N68)>元宝!
+GOTO @准备水果机
+#ELSEACT
+PLAYSOUND Wav\shuoguo2.wav 1 0
+SENDMSG 5 〖水果机〗当前是【双7】.很遗憾!没有押中.
+GOTO @准备水果机
+
+[@关闭水果机]
+#ACT
+GAMEGOLD + <$STR(N40)>
+CLOSEMERCHANTBIGDLG
+close
+
+[@老虎机]
+#ACT
+CLEARDELAYGOTO
+CLOSEMERCHANTBIGDLG
+close
+goto @老虎机88
+
+
+[@老虎机88]
+#ACT
+MOV N30 1
+MOV N31 10
+MOV N35 0
+MOV N21 0
+MOV N22 0
+MOV N23 0
+MOV N25 0
+MOV S21 <Img:200:43:3:35>
+MOV S22 <Img:200:43:0:19>
+MOV S23 <Img:200:43:3:3>
+MOV S25 
+MOV S26 
+MOV S27 
+#SAY
+\ \
+<777幸运老虎机玩法:/FCOLOR=250>\
+<首先你要选择倍数,然后点击开始按钮就启动啦!(默认倍数是1倍)./FCOLOR=69>\
+<如果是1倍的话,每次开动需要100元宝,2倍需要200元宝....../FCOLOR=69>\
+<点击倍数按钮自动加倍数,最高10倍.当10倍时,再次点击倍数就变成1倍./FCOLOR=69>\
+<关于获得奖励./FCOLOR=254>\
+<根据幸运机上方给的奖励倍数.奖励倍数 x 开始倍数 = 实际奖励/FCOLOR=69>\
+<注意:在开动时玩家如移动或强行关闭将造成当时数据丢失./FCOLOR=249>\
+<启动777幸运老虎机/@幸运老虎机>
+
+[@幸运老虎机]
+#ACT
+MOV S28 <$STR(N31)>
+SetStringBlank <$STR(S28)> 5 1
+MOV S29 <$STR(N30)>
+SetStringBlank <$STR(S29)> 3 1
+OPENMERCHANTBIGDLG 43 190 0 4 0 -60 0 0 0
+#SAY
+　                                                    <Img:1010:43:3:0/@关闭幸运机>\ \ \ \ \ \ \ \ \ \
+　     <PlayImg:43:194:4:5000:2:12>\ \
+
+
+　      <$STR(S21)>\
+　                     <$STR(S22)>\
+　                                   <$STR(S23)>\ \ \ \ \ \ \
+
+
+　     <Img:193:43:4:10> <Img:193:43:1:10><Img:193:43:4:10>\
+
+
+<Img:191:43:-14:51/@777倍数>\
+　                                                       <Img:192:43:1:30/@777开始0>\
+
+
+
+
+　            {<$STR(S28)>       <$STR(S29)>         <$STR(N35)>/FCOLOR=249}\ \
+
+　                          {<$GAMEGOLD>/FCOLOR=249}\
+
+[@777倍数]
+#IF
+NOT EQUAL N30 10
+#ACT
+INC N30 1
+MOV N31 10
+MUL N31 <$STR(N30)>
+GOTO @幸运老虎机
+#ELSEACT
+MOV N30 1
+MOV N31 10
+MUL N31 <$STR(N30)>
+GOTO @幸运老虎机
+
+[@777开始0]
+#IF
+CHECKGAMEGOLD > <$STR(N31)>
+#ACT
+GAMEGOLD - <$STR(N31)>
+MOV S21 <PlayImg:43:200:11:30:3:35>
+MOV S25 <Img:193:43:4:10/@777停止位置1>
+MOV S26 <Img:193:43:1:10/@777停止位置2>
+MOV S27 <Img:193:43:4:10/@777停止位置3>
+MOV N25 0
+SetOnTimer 13 1
+GOTO @777开始
+DELAYGOTO 200 @777开始1
+#ELSEACT
+SENDMSG 5 〖赌场〗身上元宝不够当前每次开启数目.无法开启.
+
+[@777开始1]
+#ACT
+MOV S22 <PlayImg:43:200:11:30:0:19>
+GOTO @777开始
+DELAYGOTO 200 @777开始2
+
+[@777开始2]
+#ACT
+MOV S23 <PlayImg:43:200:11:30:3:3>
+GOTO @777开始
+
+[@777开始]
+#IF
+large N25 2
+#ACT
+goto @777计算赢得888
+#ELSEACT
+GOTO @777开始-1
+
+[@777开始-1]
+#ACT
+MOV N35 0
+MOV S20 <$X>
+SetOnTimer 13 1
+OPENMERCHANTBIGDLG 43 190 0 4 0 -60 0 0 0
+#SAY
+　                                                    <Img:9:43:3:0/@关闭幸运机>\ \ \ \ \ \ \ \ \ \
+　     <PlayImg:43:194:4:5000:2:12>\ \
+
+
+　      <$STR(S21)>\
+　                     <$STR(S22)>\
+　                                   <$STR(S23)>\ \ \ \ \ \ \
+
+
+　     <$STR(S25)> <$STR(S26)><$STR(S27)>\
+
+
+<Img:191:43:-14:51>\
+　                                                       <Img:192:43:1:30>\
+
+
+
+
+　            {<$STR(S28)>       <$STR(S29)>         <$STR(N35)>/FCOLOR=249}\ \
+
+　                          {<$GAMEGOLD>/FCOLOR=249}\
+
+[@777停止位置1]
+#IF
+EQUAL N25 0
+#ACT
+INC N25 1
+MOVR N27 200 203
+MOV S21 <Img:
+INC S21 <$STR(N27)>
+INC S21 :43:3:35>
+MOV S25 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+goto @777停止位置1-1
+
+[@777停止位置1-1]
+#IF
+EQUAL N25 1
+#ACT
+goto @777停止位置1-2
+#ELSEACT
+goto @777停止位置1-3
+
+[@777停止位置1-2]
+#IF
+random 5
+#ACT
+INC N25 1
+MOVR N27 200 205
+MOV S21 <Img:
+INC S21 <$STR(N27)>
+INC S21 :43:3:35>
+MOV S25 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N27 200 203
+MOV S21 <Img:
+INC S21 <$STR(N27)>
+INC S21 :43:3:35>
+MOV S25 <Img:193:43:4:10>
+
+GOTO @777开始
+
+[@777停止位置1-3]
+#IF
+random 5
+#ACT
+INC N25 1
+MOVR N27 200 210
+MOV S21 <Img:
+INC S21 <$STR(N27)>
+INC S21 :43:3:35>
+MOV S25 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N27 200 204
+MOV S21 <Img:
+INC S21 <$STR(N27)>
+INC S21 :43:3:35>
+MOV S25 <Img:193:43:4:10>
+
+GOTO @777开始
+
+[@777停止位置2]
+#IF
+EQUAL N25 0
+#ACT
+INC N25 1
+MOVR N28 204 206
+MOV S22 <Img:
+INC S22 <$STR(N28)>
+INC S22 :43:0:19>
+MOV S26 <Img:193:43:1:10>
+
+GOTO @777开始
+#ELSEACT
+goto @777停止位置2-1
+
+[@777停止位置2-1]
+#IF
+EQUAL N25 1
+#ACT
+goto @777停止位置2-2
+#ELSEACT
+goto @777停止位置2-3
+
+[@777停止位置2-2]
+#IF
+random 4
+#ACT
+INC N25 1
+MOVR N28 203 207
+MOV S22 <Img:
+INC S22 <$STR(N28)>
+INC S22 :43:0:19>
+MOV S26 <Img:193:43:1:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N28 204 207
+MOV S22 <Img:
+INC S22 <$STR(N28)>
+INC S22 :43:0:19>
+MOV S26 <Img:193:43:1:10>
+
+GOTO @777开始
+
+[@777停止位置2-3]
+#IF
+random 7
+#ACT
+INC N25 1
+MOVR N28 200 210
+MOV S22 <Img:
+INC S22 <$STR(N28)>
+INC S22 :43:0:19>
+MOV S26 <Img:193:43:1:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N28 204 207
+MOV S22 <Img:
+INC S22 <$STR(N28)>
+INC S22 :43:0:19>
+MOV S26 <Img:193:43:1:10>
+
+GOTO @777开始
+
+
+[@777停止位置3]
+#IF
+EQUAL N25 0
+#ACT
+INC N25 1
+MOVR N29 208 210
+MOV S23 <Img:
+INC S23 <$STR(N29)>
+INC S23 :43:3:3>
+MOV S27 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+goto @777停止位置3-1
+
+[@777停止位置3-1]
+#IF
+EQUAL N25 1
+#ACT
+goto @777停止位置3-2
+#ELSEACT
+goto @777停止位置3-3
+
+[@777停止位置3-2]
+#IF
+random 5
+#ACT
+INC N25 1
+MOVR N29 207 210
+MOV S23 <Img:
+INC S23 <$STR(N29)>
+INC S23 :43:3:3>
+MOV S27 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N29 208 210
+MOV S23 <Img:
+INC S23 <$STR(N29)>
+INC S23 :43:3:3>
+MOV S27 <Img:193:43:4:10>
+
+GOTO @777开始
+
+[@777停止位置3-3]
+#IF
+random 5
+#ACT
+INC N25 1
+MOVR N29 200 210
+MOV S23 <Img:
+INC S23 <$STR(N29)>
+INC S23 :43:3:3>
+MOV S27 <Img:193:43:4:10>
+
+GOTO @777开始
+#ELSEACT
+INC N25 1
+MOVR N29 207 210
+MOV S23 <Img:
+INC S23 <$STR(N29)>
+INC S23 :43:3:3>
+MOV S27 <Img:193:43:4:10>
+
+GOTO @777开始
+
+
+;==============================================
+[@777计算赢得888]
+#IF
+EQUAL N27 201
+EQUAL N28 201
+#ACT
+MOV N26 2
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 201
+EQUAL N29 201
+#ACT
+MOV N26 2
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 201
+EQUAL N29 201
+#ACT
+MOV N26 2
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 201
+EQUAL N28 201
+EQUAL N29 201
+#ACT
+MOV N26 150
+GOTO @777计算赢得999
+
+
+#IF
+EQUAL N27 210
+EQUAL N28 210
+#ACT
+MOV N26 4
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 210
+EQUAL N29 210
+#ACT
+MOV N26 4
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 210
+EQUAL N29 210
+#ACT
+MOV N26 4
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 210
+EQUAL N28 210
+EQUAL N29 210
+#ACT
+MOV N26 200
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 205
+EQUAL N28 205
+#ACT
+MOV N26 6
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 205
+EQUAL N29 205
+#ACT
+MOV N26 6
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 205
+EQUAL N29 205
+#ACT
+MOV N26 6
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 205
+EQUAL N28 205
+EQUAL N29 205
+#ACT
+MOV N26 250
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 202
+EQUAL N28 202
+#ACT
+MOV N26 8
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 202
+EQUAL N29 202
+#ACT
+MOV N26 8
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 202
+EQUAL N29 202
+#ACT
+MOV N26 8
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 202
+EQUAL N28 202
+EQUAL N29 202
+#ACT
+MOV N26 300
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 206
+EQUAL N28 206
+#ACT
+MOV N26 10
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 206
+EQUAL N29 206
+#ACT
+MOV N26 10
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 206
+EQUAL N29 206
+#ACT
+MOV N26 10
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 206
+EQUAL N28 206
+EQUAL N29 206
+#ACT
+MOV N26 350
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 207
+EQUAL N28 207
+#ACT
+MOV N26 12
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 207
+EQUAL N29 207
+#ACT
+MOV N26 12
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 207
+EQUAL N29 207
+#ACT
+MOV N26 12
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 207
+EQUAL N28 207
+EQUAL N29 207
+#ACT
+MOV N26 400
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 204
+EQUAL N28 204
+#ACT
+MOV N26 15
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 204
+EQUAL N29 204
+#ACT
+MOV N26 15
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 204
+EQUAL N29 204
+#ACT
+MOV N26 15
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 204
+EQUAL N28 204
+EQUAL N29 204
+#ACT
+MOV N26 460
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 208
+EQUAL N28 208
+#ACT
+MOV N26 20
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 208
+EQUAL N29 208
+#ACT
+MOV N26 20
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 208
+EQUAL N29 208
+#ACT
+MOV N26 20
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 208
+EQUAL N28 208
+EQUAL N29 208
+#ACT
+MOV N26 555
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 209
+EQUAL N28 209
+#ACT
+MOV N26 40
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 209
+EQUAL N29 209
+#ACT
+MOV N26 40
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 209
+EQUAL N29 209
+#ACT
+MOV N26 40
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 209
+EQUAL N28 209
+EQUAL N29 209
+#ACT
+MOV N26 666
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 200
+EQUAL N28 200
+#ACT
+MOV N26 60
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 200
+EQUAL N29 200
+#ACT
+MOV N26 60
+GOTO @777计算赢得999
+
+#IF
+EQUAL N28 200
+EQUAL N29 200
+#ACT
+MOV N26 60
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 200
+EQUAL N28 200
+EQUAL N29 200
+#ACT
+MOV N26 888
+GOTO @777计算赢得999
+
+#IF
+EQUAL N27 203
+EQUAL N28 203
+EQUAL N29 203
+#ACT
+MOV N26 100
+GOTO @777计算赢得999
+
+#IF
+#ACT
+MOV N26 0
+MOV N25 0
+
+SetOffTimer 6
+GOTO @幸运老虎机
+
+[@777计算赢得999]
+#ACT
+
+MOV N35 <$STR(N31)>
+MUL N35 <$STR(N26)>
+GAMEGOLD + <$STR(N35)>
+SENDMSG 7 〖赌场〗恭喜你赢得了<$STR(N35)>个元宝！
+SENDMSG 0 〖赌场〗恭喜{<$USERNAME>|251:249:1}在老虎机赢得了{<$STR(N35)>|251:249:1}个元宝！
+SENDMSG 0 〖赌场〗恭喜{<$USERNAME>|251:249:1}在老虎机赢得了{<$STR(N35)>|251:249:1}个元宝！
+SENDMSG 0 〖赌场〗恭喜{<$USERNAME>|251:249:1}在老虎机赢得了{<$STR(N35)>|251:249:1}个元宝！
+MOV N26 0
+MOV N25 0
+SetOffTimer 6
+GOTO @幸运老虎机
+
+
+[@关闭幸运机]
+#ACT
+SetOffTimer 6
+CLEARDELAYGOTO
+CLOSEMERCHANTBIGDLG
+close
+
+
+[@金币]
+#CALL [金币大转盘\金币命运大转盘.txt] @金币开始大转盘
+
+
+[@pao2]
+╔════╗\
+║<元宝赌博>║\
+╠════╩══════════╦═════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║╔════╗　　　║\
+║┃●　●┃┃●　●┃┃●　●┃╠╣<开始游戏/@MAIN_2>║　╔═╩═╗\
+║┃　　　┃┃　●　┃┃●　●┃║╚════╝　║<说明书/@MAIN_HELP>║\
+║┃●　●┃┃●　●┃┃●　●┃║　╔════╗╚═╦═╝\
+║┗━━━┛┗━━━┛┗━━━┛║　║<返回前页/@HELP>╠══╝\
+╚═══════════════╝　╚════╝\ 
+
+[@MAIN_2]
+╔════╗\
+║<返回首页/@HELP>║\
+╠════╩══════════╦════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║╔══╗　╔══╩══╗\
+║┃●　●┃┃●　●┃┃●　●┃╠╣<下注/@@InPutInteger12>║　║一旦下注，║\
+║┃　　　┃┃　●　┃┃●　●┃║╚══╝　║除非分出输║\
+║┃●　●┃┃●　●┃┃●　●┃║　╔══╗║赢，不然无║\
+║┗━━━┛┗━━━┛┗━━━┛║　║<返回/@MAIN>╠╣法收回注金║\
+╚═══════════════╝　╚══╝╚═════╝\
+
+[@InPutInteger12]
+#IF
+Large N12 10
+#ACT
+MESSAGEBOX [提示]：你输入了<$STR(N12)>个元宝，玩的太大了，我只玩10以下的！
+MOV N12 0
+GOTO @MAIN_2
+BREAK
+
+#IF
+Small N12 1
+#ACT
+MESSAGEBOX [提示]：下注金额最少1个元宝。
+MOV N12 0
+GOTO @MAIN_2
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N12)>
+#SAY
+╔════╗\
+║<返回首页/@HELP>║\
+╠════╩══════════╦════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║╔══╗　╔══╩══╗\
+║┃●　●┃┃●　●┃┃●　●┃╠╣<开始/@MAIN_3>║　║一旦开始后║\
+║┃　　　┃┃　●　┃┃●　●┃║╚══╝　║除非分出输║\
+║┃●　●┃┃●　●┃┃●　●┃║　╔══╗║赢，不然无║\
+║┗━━━┛┗━━━┛┗━━━┛║　║<返回/@MAIN_2>╠╣法收回注金║\
+╚═══════════════╝　╚══╝╚═════╝\
+#ACT
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D6 0
+MOV D7 0
+MOV D8 0
+MOV D9 0
+BREAK
+#ELSEACT
+MESSAGEBOX [提示]：你身上没有<$STR(N12)>个元宝。
+MOV N12 0
+GOTO @MAIN_2
+BREAK
+
+[@MAIN_3]
+#IF
+CHECKGAMEGOLD > <$STR(N12)>
+LARGE N12 0
+#ACT
+GAMEGOLD - <$STR(N12)>
+SENDMSG 6 你支付了<$STR(N12)>元宝作为注金，当前还拥有<$GAMEGOLD>个元宝。
+MOVR D0 4
+INC D0 3
+MOVR D1 4
+INC D1 3
+MOVR D2 4
+INC D2 3
+MOV D9 <$STR(D0)>
+INC D9 <$STR(D1)>
+INC D9 <$STR(D2)>
+PLAYDICE 3 @MAIN_3_1
+#SAY
+\ \
+╔═══════════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║\
+║┃●　●┃┃●　●┃┃●　●┃║╔══════════╗\
+║┃　　　┃┃　●　┃┃●　●┃╠╣正在掷骰子请不要乱动║\
+║┃●　●┃┃●　●┃┃●　●┃║╚══════════╝\
+║┗━━━┛┗━━━┛┗━━━┛║\
+╚═══════════════╝本轮下注金额为：{<$STR(N12)>元宝/FCOLOR=58}\
+
+[@MAIN_3_1]
+#IF
+LARGE D0 0
+Equal D0 <$STR(D1)>
+Equal D0 <$STR(D2)>
+#ACT
+SENDMSG 7 庄家掷出了　<$STR(D0)>　豹子，直接获胜。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+LARGE D0 0
+Equal D0 <$STR(D1)>
+#ACT
+MOV D3 <$STR(D2)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D8 0
+MOV D9 0
+GOTO @MAIN_3_3
+BREAK
+
+#IF
+LARGE D0 0
+Equal D0 <$STR(D2)>
+#ACT
+MOV D3 <$STR(D1)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D8 0
+MOV D9 0
+GOTO @MAIN_3_3
+BREAK
+
+#IF
+LARGE D0 0
+Equal D1 <$STR(D2)>
+#ACT
+MOV D3 <$STR(D0)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D8 0
+MOV D9 0
+GOTO @MAIN_3_3
+BREAK
+
+#IF
+LARGE D0 0
+Equal D9 15
+#ACT
+SENDMSG 7 庄家掷出了四、五、六通杀，直接获胜。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+LARGE D0 0
+Equal D9 6
+#ACT
+MUL N12 2
+GAMEGOLD + <$STR(N12)>
+SENDMSG 7 庄家掷出了一、二、三通赔，你赢得了<$STR(N12)>个元宝。
+DEC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+#ELSEACT
+MOV D8 1
+GOTO @MAIN_3_2
+BREAK
+
+[@MAIN_3_2]
+#IF
+Equal D8 1
+#ACT
+SENDMSG 6 庄家刚才掷的骰子没有出点数，现在正在重新掷骰子！
+MOVR D0 4
+INC D0 3
+MOVR D1 4
+INC D1 3
+MOVR D2 4
+INC D2 3
+MOV D9 <$STR(D0)>
+INC D9 <$STR(D1)>
+INC D9 <$STR(D2)>
+PLAYDICE 3 @MAIN_3_1
+#SAY
+\ \
+╔═══════════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║\
+║┃●　●┃┃●　●┃┃●　●┃║╔══════════╗\
+║┃　　　┃┃　●　┃┃●　●┃╠╣正在掷骰子请不要乱动║\
+║┃●　●┃┃●　●┃┃●　●┃║╚══════════╝\
+║┗━━━┛┗━━━┛┗━━━┛║\
+╚═══════════════╝本轮下注金额为：{<$STR(N12)>元宝/FCOLOR=58}\
+#ELSEACT
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+[@MAIN_3_3]
+#IF
+Equal D3 1
+#ACT
+MUL N12 2
+GAMEGOLD + <$STR(N12)>
+SENDMSG 7 庄家掷出了幺屁眼，你赢得了<$STR(N12)>个元宝。
+DEC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+Equal D3 6
+#ACT
+SENDMSG 7 庄家掷出了大六，直接获胜。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+#ELSESAY
+╔════╗\
+║<返回首页/@HELP>║\
+╠════╩══════════╗　　　　　　　　╔══╗\
+║┏━━━┓┏━━━┓┏━━━┓║　　　　　　　　║<开始/@MAIN_3_4>║\
+║┃●　●┃┃●　●┃┃●　●┃║╔═══════╩╦═╝\
+║┃　　　┃┃　●　┃┃●　●┃╠╣庄家掷出了　{<$STR(D3)>/FCOLOR=58} 点║\
+║┃●　●┃┃●　●┃┃●　●┃║║现在轮到你来掷了║\
+║┗━━━┛┗━━━┛┗━━━┛║╚════════╝\
+╚═══════════════╝本轮下注金额为：{<$STR(N12)>元宝/FCOLOR=58}\
+
+[@MAIN_3_4]
+#IF
+Large D3 1
+#ACT
+MOVR D0 6
+INC D0 1
+MOVR D1 6
+INC D1 1
+MOVR D2 6
+INC D2 1
+MOV D9 <$STR(D0)>
+INC D9 <$STR(D1)>
+INC D9 <$STR(D2)>
+PLAYDICE 3 @MAIN_3_5
+#SAY
+\ \
+╔═══════════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║\
+║┃●　●┃┃●　●┃┃●　●┃║╔══════════╗\
+║┃　　　┃┃　●　┃┃●　●┃╠╣正在掷骰子请不要乱动║\
+║┃●　●┃┃●　●┃┃●　●┃║╚══════════╝\
+║┗━━━┛┗━━━┛┗━━━┛║\
+╚═══════════════╝本轮下注金额为：{<$STR(N12)>元宝/FCOLOR=58}\
+
+[@MAIN_3_5]
+#IF
+Large D3 0
+Equal D0 <$STR(D1)>
+Equal D0 <$STR(D2)>
+#ACT
+MUL N12 2
+GAMEGOLD + <$STR(N12)>
+SENDMSG 7 你掷出了　<$STR(D0)>　豹子，你赢得了<$STR(N12)>个元宝。
+DEC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+Large D0 0
+Equal D0 <$STR(D1)>
+#ACT
+MOV D9 <$STR(D2)>
+GOTO @MAIN_3_6
+BREAK
+
+#IF
+Large D0 0
+Equal D0 <$STR(D2)>
+#ACT
+MOV D9 <$STR(D1)>
+GOTO @MAIN_3_6
+BREAK
+
+#IF
+Large D0 0
+Equal D1 <$STR(D2)>
+#ACT
+MOV D9 <$STR(D0)>
+GOTO @MAIN_3_6
+BREAK
+
+#IF
+Equal D9 15
+#ACT
+MUL N12 2
+GAMEGOLD + <$STR(N12)>
+SENDMSG 7 你掷出了四、五、六，你赢得了<$STR(N12)>个元宝。
+DEC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+Equal D9 6
+#ACT
+SENDMSG 7 你掷出了一、二、三通赔，你输了本局。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+#ELSEACT
+MOV D8 2
+GOTO @MAIN_3_7
+BREAK
+
+[@MAIN_3_6]
+#IF
+Large D3 1
+Large D3 <$STR(D9)>
+#ACT
+SENDMSG 7 你掷出了<$STR(D9)>点，庄家是<$STR(D3)>点，你输了。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+Large D3 1
+Small D3 <$STR(D9)>
+#ACT
+MUL N12 2
+GAMEGOLD + <$STR(N12)>
+SENDMSG 7 你掷出了<$STR(D9)>点，庄家是<$STR(D3)>点，你赢得了<$STR(N12)>个元宝。
+DEC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+#IF
+Large D3 1
+Equal D3 <$STR(D9)>
+#ACT
+SENDMSG 7 你掷出了<$STR(D9)>点，庄家是<$STR(D3)>点，一样大算庄家赢。
+INC G11 <$STR(N12)>
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+#ELSEACT
+GOTO @MAIN
+BREAK
+
+[@MAIN_3_7]
+#IF
+Equal D8 2
+#ACT
+SENDMSG 6 你刚才掷的骰子没有出点数，现在正在重新掷骰子！
+MOVR D0 6
+INC D0 1
+MOVR D1 6
+INC D1 1
+MOVR D2 6
+INC D2 1
+MOV D9 <$STR(D0)>
+INC D9 <$STR(D1)>
+INC D9 <$STR(D2)>
+PLAYDICE 3 @MAIN_3_5
+#SAY
+\ \
+╔═══════════════╗\
+║┏━━━┓┏━━━┓┏━━━┓║\
+║┃●　●┃┃●　●┃┃●　●┃║╔══════════╗\
+║┃　　　┃┃　●　┃┃●　●┃╠╣正在掷骰子请不要乱动║\
+║┃●　●┃┃●　●┃┃●　●┃║╚══════════╝\
+║┗━━━┛┗━━━┛┗━━━┛║\
+╚═══════════════╝本轮下注金额为：{<$STR(N12)>元宝/FCOLOR=58}\
+#ELSEACT
+MOV D0 0
+MOV D1 0
+MOV D2 0
+MOV D3 0
+MOV D8 0
+MOV D9 0
+MOV N12 0
+GOTO @MAIN
+BREAK
+
+[@MAIN_HELP]
+首先你必须有元宝来下注，1注一个元宝，最多10注。然后由我开\
+始掷骰子，如果掷出直接赢的点数，那么我直接赢得你的注金。如\
+果掷出直接输的点数，那么你直接赢得注金。如果是其它点数，那\
+么就轮到你来掷骰子了，如果你掷的点数比我小，那么我赢，如果\
+比我大，你就赢。一样大的话算庄家赢。\
+<点击查看骰子点数大小示例表/@MAIN_HELP_1>\
+<我知道规则可以开始了/@MAIN_2>\
+<返回前页/@MAIN>\
+<关闭/@EXIT>\
+
+[@MAIN_HELP_1]
+╔┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╗\
+┊直接赢的点数为：<豹子>（三个骰子点数一样）　　　　　　　┊\
+┊　　　　　　　　<四五六通杀>（骰子中包含4、5、6三点）　 ┊\
+┊　　　　　　　　<大六>（两个点数相同，另外一个点数为六）┊\
+┊　　　　　　　　　　　　　　　　　　　　　　　　　　　┊\
+┊直接输的点数为：<一二三通赔>（骰子中包含1、2、3三点）　 ┊\
+┊　　　　　　　　<幺屁眼>（两个点数相同，另一个点数为一）┊\
+┊　　　　　　　　　　　　　　　　　　　　<下一页/@MAIN_HELP_2>　<返回/@MAIN_HELP>　┊\
+╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╝\
+
+[@MAIN_HELP_2]
+╔┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╗\
+┊其它点数按大小为：<五点>（两个点数相同，另一个点数为五）┊\
+┊　　　　　　　　　<四点>（两个点数相同，另一个点数为四）┊\
+┊　　　　　　　　　<三点>（两个点数相同，另一个点数为三）┊\
+┊　　　　　　　　　<二点>（两个点数相同，另一个点数为二）┊\
+┊　　　　　　　　　　　　　　　　　　　　　　　　　　　┊\
+┊如果掷出骰子的三个点数全不相同，那么重新掷，直到掷出点┊\
+┊数为止。　　　　　　　　　　　　　<前一页/@MAIN_HELP_1>　<返回/@MAIN_HELP>　<关闭/@EXIT>　┊\
+╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╝\

@@ -1,0 +1,58 @@
+[@main]
+#if
+EQUAL T38 寻找NPC
+EQUAL T36 魔龙岭仓库管理员
+#SAY
+姑娘我美不美？？\
+
+<跑环任务/@跑环寻找>   <退出/@exit>\
+
+#ACT
+break
+
+#IF
+EQUAL T2 开启仓库
+#ACT
+OpenStorageView 1
+
+#ELSESAY
+这里是私人仓库 总共支持300件物品\
+可视化管理,右键存入取出 方便快捷\
+现在开通仅需 40万 !\
+<缴纳开启/@特殊仓库>
+
+
+
+
+[@跑环寻找]
+#IF
+EQUAL T37 已完成
+#ACT
+messagebox 本环任务已完成，请点击完成任务！
+break
+
+#IF
+EQUAL T38 寻找NPC
+EQUAL T36 魔龙岭仓库管理员
+#ACT
+MOV T37 已完成
+messagebox 哈哈，被你找到了啊，赶紧交任务把！！
+break
+#ELSEACT
+messagebox 你是不是找错人了！！
+break
+
+
+
+
+
+[@特殊仓库]
+#IF
+checkgold 400000
+#ACT
+take 金币 400000
+MOV T2 开启仓库
+MESSAGEBOX 超级仓库已经开启,欢迎使用!旧仓库物品请去其他城市找仓库保管员!
+goto @main
+#ELSEACT
+MESSAGEBOX 您并没有40万!

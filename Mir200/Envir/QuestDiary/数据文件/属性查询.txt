@@ -1,0 +1,27 @@
+[@自身属性]
+{
+#ACT
+OPENMERCHANTBIGDLG 9 2183 0 0 50 50 1 210 5 0
+GetAllCustomItemValue 8 N$吸血值 N$吸血百分比
+GetAllCustomItemValue 9 N$吸魔值 N$吸魔百分比
+GetAllCustomItemValue 10 N$伤害值 N$伤害百分比
+GetAllCustomItemValue 11 N$额外经验 N$额外经验百分比
+GetAllCustomItemValue 12 N$额外金币 N$额外金币百分比
+GetAllCustomItemValue 13 N$免伤值 N$免伤百分比
+#SAY
+　　　\
+<暴击几率增加/FCOLOR=254> + <$ELEMENT>%		<吸血总值/FCOLOR=254> + <$STR(N$吸血值)>\
+<增加攻击伤害/FCOLOR=254> + <$ELEMENT1>%		<吸魔总值/FCOLOR=254> + <$STR(N$吸魔值)>\
+<物理伤害减少/FCOLOR=254> + <$ELEMENT2>%		<固定伤害/FCOLOR=254> + <$STR(N$伤害值)>\
+<魔法伤害减少/FCOLOR=254> + <$ELEMENT3>%		<额外经验/FCOLOR=254> + <$STR(N$额外经验)>\
+<忽视目标防御/FCOLOR=254> + <$ELEMENT4>%		<额外金币/FCOLOR=254> + <$STR(N$额外金币)>\
+<所有伤害反弹/FCOLOR=254> + <$ELEMENT5>%		<固定免伤/FCOLOR=254> + <$STR(N$免伤值)>\
+<增加杀人暴率/FCOLOR=254> + <$ELEMENT6>%		<防止全毒/FCOLOR=254> + <$UnPosionRate>%\
+<人物体力增加/FCOLOR=254> + <$ELEMENT7>%		<防止诱惑/FCOLOR=254> + <$UnTammingRate>%\
+<人物魔力增加/FCOLOR=254> + <$ELEMENT8>%		<防止火墙/FCOLOR=254> + <$UnFireCrossRate>%\
+<杀怪暴率增加/FCOLOR=254> + <$ELEMENT11>%		<防止冰冻/FCOLOR=254> + <$UnFrozenRate>%\
+<防爆几率增加/FCOLOR=254> + <$ELEMENT12>%		<防止蛛网/FCOLOR=254> + <$UnCobwebWindingRate>%\
+<防止麻痹几率/FCOLOR=254> + <$UnParalysisRate>%		<防止复活/FCOLOR=254> + <$UnRevivalRate>%\
+<防止护身几率/FCOLOR=254> + <$UnMagicShieldRate>%\
+　以上，感谢您的查询！　　　<退出/@exit>\
+}

@@ -1,0 +1,1010 @@
+(@ArmRemoveStone)
+[@MAIN]
+#IF
+Equal U43 1
+Equal U42 9
+#ACT
+MOV U42 10
+break
+#SAY
+哈哈，您是来学习的吗？\ \
+我这里可以：<合成宝石/SCOLOR=250>2颗任意宝石<即可重新生成一颗宝石/SCOLOR=250>\
+<垃圾的宝石也可以拿去回收荣誉/SCOLOR=253>\
+<回收装备获得的荣誉，也可以来兑换宝石/SCOLOR=70> \
+
+学习完毕，接下来去找<六扇门捕头/SCOLOR=249>吧！\
+<谢谢您/@exit>\
+
+
+#IF
+Equal U43 1
+#SAY
+你已经在我这里学习过了，快去找<六扇门捕头/SCOLOR=249>吧！18人中已完成人数：<$STR(U42)>\ \
+我这里可以：<合成宝石/SCOLOR=250>2颗任意宝石<即可重新生成一颗宝石/SCOLOR=250>\
+<垃圾的宝石也可以拿去回收荣誉/SCOLOR=253>\
+<回收装备获得的荣誉，也可以来兑换宝石/SCOLOR=70> \
+
+<谢谢您/@exit>\
+
+#ACT
+break
+
+#IF
+#SAY
+我是宝石商人，可以进行宝石合成，回收，购买\
+请选择您要执行的操作：\ \ \
+<宝石合成/@宝石合成>   <垃圾回收荣誉/@回收荣誉>   <荣誉兑换宝石袋|249#300荣誉+进化碎片3枚可兑换一次宝石/@荣誉换>\ \ \
+<离开/@exit>\
+
+
+
+;<装备打孔/@XLZB>   <卸除宝石/@ArmRemoveStone>  \
+
+
+
+[@荣誉换]
+#IF
+CHECKGAMEGLORY > 299
+CheckItem 进化碎片 3
+#ACT
+TAKE 进化碎片 3
+GAMEGLORY - 300
+give 随机宝石袋
+SENDMSG 6 兑换成功，获得：随机宝石袋！
+goto @main
+break
+#ELSEACT
+MESSAGEBOX 对不起！您没有300荣誉+进化碎片3枚！
+break
+
+
+
+
+
+
+
+
+
+[@宝石合成]
+#IF
+#ACT
+MOV S$可以获得
+#SAY
+你好！我能把你的宝石进行<合成/SCOLOR=249>哦\
+是不是很神奇？只要你把两颗宝石放入下面，即可合成\
+<合成需要1元宝+1块进化碎片>\
+<ITEMBOX:2:28:564:75:95:0:0:*:在这里放入主宝石>		<ITEMBOX:3:28:565:235:95:0:0:*:在这里放入副宝石>\ \ \ \
+当前主宝石：{<$BOXITEM[2].NAME>/FCOLOR=249}　  当前附属宝石：{<$BOXITEM[3].NAME>/FCOLOR=249}　  \
+可能获得：{<$STR(S$可以获得)>/FCOLOR=249}    \
+
+<取回宝石/@取回宝石>    <返回/@main>    <离开/@exit>\
+
+
+
+[@ItemOutBox3]
+#act
+SENDMSG 6 物品已放回背包！
+goto @宝石合成
+break
+
+[@ItemOutBox2]
+#act
+SENDMSG 6 物品已放回背包！
+goto @宝石合成
+break
+
+
+
+
+[@ItemIntoBox2]
+#if
+NOT Equal <$BOXITEM[2].STDMODE> 46
+#act
+ReturnBoxItem 2
+SENDMSG 6 您放入的物品并不是宝石！
+break
+
+#if
+#act
+goto @宝石合成
+break
+
+
+
+[@ItemIntoBox3]
+#if
+NOT Equal <$BOXITEM[3].STDMODE> 46
+#act
+ReturnBoxItem 3
+SENDMSG 6 您放入的物品并不是宝石！
+break
+
+#if
+CheckBoxItemCount 2
+#act
+MOV S$可以获得 <合成失败获得|250#防御，魔御，攻击，魔力，道术，暴击，伤害，破防，反弹，魔法，生命，魔抗，物抗其中一种>
+MOV S$成功获得 <合成成功获得|249#防御II，魔御II，攻击II，魔力II，道术II，暴击II，伤害II，破防II，反弹II，魔法II，生命II，魔抗II，物抗II其中一种>
+MOV S$爆发获得 <合成爆发获得|70#炽焰，财帛，防麻，神佑，尼龙，天诀，玲珑，防御III，魔御III其中一种>
+goto @宝石合成2
+break
+
+#IF
+#ACT
+ReturnBoxItem 3
+SENDMSG 6 对不起，请放入主宝石！
+break
+
+
+
+[@宝石合成2]
+#IF
+#ACT
+movr P99 1000
+#SAY
+你好！我能把你的宝石进行<合成/SCOLOR=249>哦\
+是不是很神奇？只要你把两颗宝石放入下面，即可合成\
+<合成需要1元宝+1块进化碎片>\
+<ITEMBOX:2:28:564:75:95:0:0:*:在这里放入主宝石>		<ITEMBOX:3:28:565:235:95:0:0:*:在这里放入副宝石>\ \ \ \
+当前主宝石：{<$BOXITEM[2].NAME>/FCOLOR=249}　  当前附属宝石：{<$BOXITEM[3].NAME>/FCOLOR=249}　  \
+可能获得(鼠标悬停)：<$STR(S$可以获得)>   <$STR(S$成功获得)>   <$STR(S$爆发获得)>\
+<合成宝石/@合成宝石>   <取回宝石/@取回宝石>   <离开/@exit>\
+
+
+
+[@取回宝石]
+#IF
+#ACT
+ReturnBoxItem 2
+ReturnBoxItem 3
+GOTO @宝石合成
+break
+
+
+
+
+
+
+[@合成宝石]
+#IF
+CHECKGAMEGOLD < 1
+#ACT
+messagebox 你元宝不够　1　颗！
+break
+
+#IF
+NOT CheckItem 进化碎片 1
+#ACT
+messagebox 你没有进化碎片！
+break
+
+#IF
+LARGE P99 890
+CheckItem 进化碎片 1
+CHECKGAMEGOLD > 0
+#ACT
+GAMEGOLD - 1
+TAKE 进化碎片
+DelBoxItem 2
+DelBoxItem 3
+goto @合成爆击
+
+#IF
+SMALL P99 890
+LARGE P99 400
+CheckItem 进化碎片 1
+CHECKGAMEGOLD > 0
+#ACT
+GAMEGOLD - 1
+TAKE 进化碎片
+DelBoxItem 2
+DelBoxItem 3
+goto @合成成功
+
+#IF
+SMALL P99 400
+CheckItem 进化碎片 1
+CHECKGAMEGOLD > 0
+#ACT
+GAMEGOLD - 1
+TAKE 进化碎片
+DelBoxItem 2
+DelBoxItem 3
+goto @合成失败
+
+
+[@合成失败]
+#IF
+random 15
+#ACT
+give 魔抗镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“魔抗镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 物抗镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“物抗镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 防御镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“防御镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 魔御镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“魔御镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 攻击镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“攻击镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 魔力镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“魔力镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 道术镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“道术镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 暴击镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“暴击镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 伤害镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“伤害镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 破防镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“破防镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 反弹镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“反弹镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 2
+#ACT
+give 魔力镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“魔力镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 1
+#ACT
+give 生命镶嵌石
+SENDMSG 7 合成失败，您获得了一颗“生命镶嵌石”
+goto @宝石合成
+break
+
+[@合成成功]
+#IF
+random 15
+#ACT
+give 魔抗镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“魔抗镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 物抗镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“物抗镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 防御镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“防御镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 魔御镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“魔御镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 攻击镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“攻击镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 魔力镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“魔力镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 道术镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“道术镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 暴击镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“暴击镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 伤害镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“伤害镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 破防镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“破防镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 反弹镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“反弹镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 2
+#ACT
+give 魔力镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“魔力镶嵌石II”
+goto @宝石合成
+break
+
+#IF
+random 1
+#ACT
+give 生命镶嵌石II
+SENDMSG 7 合成成功，您获得了一颗“生命镶嵌石II”
+goto @宝石合成
+break
+
+
+[@合成爆击]
+#IF
+random 15
+#ACT
+give 尼龙碧
+SENDMSG 7 合成爆击，您获得了一颗“尼龙碧”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 天诀碧玺
+SENDMSG 7 合成爆击，您获得了一颗“天诀碧玺”
+goto @宝石合成
+break
+
+
+#IF
+random 15
+#ACT
+give 七窍玲珑玉
+SENDMSG 7 合成爆击，您获得了一颗“七窍玲珑玉”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 炽焰金钻
+SENDMSG 7 合成爆击，您获得了一颗“炽焰金钻”
+goto @宝石合成
+break
+
+#IF
+random 15
+#ACT
+give 财帛镶嵌石
+SENDMSG 7 合成爆击，您获得了一颗“财帛镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 4
+#ACT
+give 防麻镶嵌石
+SENDMSG 7 合成爆击，您获得了一颗“防麻镶嵌石”
+goto @宝石合成
+break
+
+#IF
+random 5
+#ACT
+give 神佑镶嵌石
+SENDMSG 7 合成爆击，您获得了一颗“神佑镶嵌石”
+goto @宝石合成
+break
+
+
+#IF
+random 2
+#ACT
+give 防御镶嵌石III
+SENDMSG 7 合成爆击，您获得了一颗“防御镶嵌石III”
+goto @宝石合成
+break
+
+#IF
+random 1
+#ACT
+give 魔御镶嵌石III
+SENDMSG 7 合成爆击，您获得了一颗“魔御镶嵌石III”
+goto @宝石合成
+break
+
+
+
+
+
+
+
+[@回收荣誉]
+在这里，任意一颗宝石都可以兑换100荣誉\
+<注意！ 回收是一件回收,请把需要的宝石存仓库！！！>\
+<出现任何极品宝石被回收，本服不提供补偿！>\  \
+
+<确定回收/@回收>
+
+
+[@回收]
+#IF
+CheckItem 防御镶嵌石 1
+#ACT
+take 防御镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“防御镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 魔御镶嵌石 1
+#ACT
+take 魔御镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“魔御镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 攻击镶嵌石 1
+#ACT
+take 攻击镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“攻击镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 魔力镶嵌石 1
+#ACT
+take 魔力镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“魔力镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 道术镶嵌石 1
+#ACT
+take 道术镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“道术镶嵌石”
+goto @回收
+break
+
+
+#IF
+CheckItem 暴击镶嵌石 1
+#ACT
+take 暴击镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“暴击镶嵌石”
+goto @回收
+break
+
+
+#IF
+CheckItem 伤害镶嵌石 1
+#ACT
+take 伤害镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“伤害镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 破防镶嵌石 1
+#ACT
+take 破防镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“破防镶嵌石”
+goto @回收
+break
+
+
+#IF
+CheckItem 反弹镶嵌石 1
+#ACT
+take 反弹镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“反弹镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 魔法镶嵌石 1
+#ACT
+take 魔法镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“魔法镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 生命镶嵌石 1
+#ACT
+take 生命镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“生命镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 魔抗镶嵌石 1
+#ACT
+take 魔抗镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“魔抗镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 物抗镶嵌石 1
+#ACT
+take 物抗镶嵌石 1
+GAMEGLORY + 100
+SENDMSG 7 您回收了一颗“物抗镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 尼龙碧 1
+#ACT
+take 尼龙碧 1
+GAMEGLORY + 150
+SENDMSG 7 您回收了一颗“尼龙碧”
+goto @回收
+break
+
+
+#IF
+CheckItem 天诀碧玺 1
+#ACT
+take 天诀碧玺 1
+GAMEGLORY + 150
+SENDMSG 7 您回收了一颗“天诀碧玺”
+goto @回收
+break
+
+#IF
+CheckItem 七窍玲珑玉 1
+#ACT
+take 七窍玲珑玉 1
+GAMEGLORY + 150
+SENDMSG 7 您回收了一颗“七窍玲珑玉”
+goto @回收
+break
+
+#IF
+CheckItem 防御镶嵌石II 1
+#ACT
+take 防御镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“防御镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 魔御镶嵌石II 1
+#ACT
+take 魔御镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“魔御镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 攻击镶嵌石II 1
+#ACT
+take 攻击镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“攻击镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 魔力镶嵌石II 1
+#ACT
+take 魔力镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“魔力镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 道术镶嵌石II 1
+#ACT
+take 道术镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“道术镶嵌石II”
+goto @回收
+break
+
+
+#IF
+CheckItem 暴击镶嵌石II 1
+#ACT
+take 暴击镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“暴击镶嵌石II”
+goto @回收
+break
+
+
+#IF
+CheckItem 伤害镶嵌石II 1
+#ACT
+take 伤害镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“伤害镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 破防镶嵌石II 1
+#ACT
+take 破防镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“破防镶嵌石II”
+goto @回收
+break
+
+
+#IF
+CheckItem 反弹镶嵌石II 1
+#ACT
+take 反弹镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“反弹镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 魔法镶嵌石II 1
+#ACT
+take 魔法镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“魔法镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 生命镶嵌石II 1
+#ACT
+take 生命镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“生命镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 魔抗镶嵌石II 1
+#ACT
+take 魔抗镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“魔抗镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 物抗镶嵌石II 1
+#ACT
+take 物抗镶嵌石II 1
+GAMEGLORY + 200
+SENDMSG 7 您回收了一颗“物抗镶嵌石II”
+goto @回收
+break
+
+#IF
+CheckItem 炽焰金钻 1
+#ACT
+take 炽焰金钻 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“炽焰金钻”
+goto @回收
+break
+
+#IF
+CheckItem 财帛镶嵌石 1
+#ACT
+take 财帛镶嵌石 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“财帛镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 防麻镶嵌石 1
+#ACT
+take 防麻镶嵌石 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“防麻镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 神佑镶嵌石 1
+#ACT
+take 神佑镶嵌石 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“神佑镶嵌石”
+goto @回收
+break
+
+#IF
+CheckItem 防御镶嵌石III 1
+#ACT
+take 防御镶嵌石III 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“防御镶嵌石III”
+goto @回收
+break
+
+#IF
+CheckItem 魔御镶嵌石III 1
+#ACT
+take 防御镶嵌石III 1
+GAMEGLORY + 250
+SENDMSG 7 您回收了一颗“魔御镶嵌石III”
+goto @回收
+break
+
+#IF
+#SAY
+您没有可以回收的宝石！或者已经回收完毕！\ \ \
+<返回/@main>
+
+[@宝石袋]
+兑换宝石袋需要<500点荣誉>\
+<确定兑换/@宝石>\ <换不起，选择离开/@exit>\
+
+[@宝石]
+#IF
+CHECKGAMEGLORY > 499
+#ACT
+GAMEGLORY - 500
+give 随机宝石袋
+goto @宝石袋
+SENDMSG 6 你成功兑换了宝石袋！
+break
+#ELSEACT
+MESSAGEBOX 对不起！您没有足够的荣誉！
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@XLZB]
+#if
+#ACT
+OPENUPGRADEDLG 装备打孔
+
+
+
+[@UpgradeDlgItem]
+#if
+CheckItemNameColor -1 245
+#act
+RECLAIMITEM
+SENDMSG 6 该物品无法打孔。请不要再放入了！
+break
+
+
+#if
+CheckItemNameColor -1 241
+#act
+RECLAIMITEM
+SENDMSG 6 该物品无法打孔。请不要再放入了！
+break
+
+#if
+CheckItemNameColor -1 255
+#act
+RECLAIMITEM
+SENDMSG 6 该物品无法打孔。请不要再放入了！
+break
+
+#if
+CheckFluteCount -1 = 4
+CheckItemNameColor -1 253
+#act
+RECLAIMITEM
+SENDMSG 6 你的装备已经是4孔装备了。请不要再放入了！
+break
+
+#if
+CheckFluteCount -1 = 3
+CheckItemNameColor -1 253
+CHECKGAMEGOLD > 9
+#act
+goto @随机4
+break
+
+
+
+#if
+CheckFluteCount -1 = 3
+#act
+RECLAIMITEM
+SENDMSG 6 你的装备已经是3孔装备了。请不要再放入了！
+break
+
+#if
+CheckFluteCount -1 = 2
+CHECKGAMEGOLD > 7
+#act
+goto @随机3
+break
+
+#IF
+CheckFluteCount -1 = 1
+CHECKGAMEGOLD > 3
+#act
+goto @随机2
+break
+
+#if
+CHECKGAMEGOLD > 1
+CheckFluteCount -1 = 0
+#act
+GAMEGOLD - 2
+SETFLUTECOUNT -1  1
+RECLAIMITEM 
+SENDMSG 6 你的装备强化成功!.
+SendCenterMsg 180 249 恭喜<$USERNAME>的<$STR(S93)>成功获得一孔装备 1 5
+break
+
+#IF
+#ACT
+RECLAIMITEM
+MESSAGEBOX 对不起！您的装备已经3孔了，或者其他原因，本次操作失败！
+break
+
+[@随机3]
+#IF
+random 5
+#ACT
+GAMEGOLD - 8
+SETFLUTECOUNT  -1  3
+RECLAIMITEM 
+SENDMSG 6 你的装备强化成功!.
+SendCenterMsg 180 249 恭喜<$USERNAME>的<$STR(S93)>成功获得三孔装备 1 5
+#ELSEACT
+GAMEGOLD - 8
+RECLAIMITEM
+MESSAGEBOX 对不起！本次打孔失败了！
+break
+
+[@随机2]
+#IF
+random 2
+#ACT
+GAMEGOLD - 4
+SETFLUTECOUNT  -1  2
+RECLAIMITEM 
+SENDMSG 6 你的装备强化成功!.
+SendCenterMsg 180 249 恭喜<$USERNAME>的<$STR(S93)>成功获得二孔装备 1 5
+break
+#ELSEACT
+GAMEGOLD - 4
+RECLAIMITEM
+MESSAGEBOX 对不起！本次打孔失败了！
+break
+
+[@随机4]
+#IF
+random 10
+#ACT
+GAMEGOLD - 10
+SETFLUTECOUNT  -1  4
+RECLAIMITEM 
+SENDMSG 6 你的装备强化成功!.
+SendCenterMsg 180 249 恭喜<$USERNAME>的<$STR(S93)>成功打孔至四孔装备,顿时风云变色!! 1 5
+break
+#ELSEACT
+GAMEGOLD - 10
+RECLAIMITEM
+MESSAGEBOX 对不起！本次打孔失败了！
+break

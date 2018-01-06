@@ -1,0 +1,148 @@
+[@main]
+#if
+EQUAL A5 战场结束
+EQUAL A72 已经结束
+#SAY
+今天的武林天下第一是玩家<$STR(A76)>。\
+今天膜拜人数为：<$STR(G16)>\
+您可以选择：<膜拜/@膜拜领主>\
+<【膜拜需要2元宝，可获得500万经验】/SCOLOR=250>\
+天下第一<领取/@领主拿奖>膜拜奖励\
+<【每1位膜拜，可领取1元宝】/SCOLOR=250>\
+今日的奖励情况:<$STR(A16)>.\
+注意：<每天12点清空，请在12点前完成领奖与膜拜.领奖后不可膜拜>\
+#ACT
+break
+
+#if
+EQUAL A72 开启
+#SAY
+<天下第一比武大会>正在火热进行中呢！\
+您是不是也要去参加天下第一呢？？？\
+注意：<本战场不允许使用任何卷轴.药品>\
+<回土城需要请点击场中NPC.>\
+<进入战场/@进入>\
+#ACT
+break
+
+#if
+EQUAL A72 关闭
+#SAY
+<天下第一比武大会>已经关闭入场了！\
+已经无法进入战场了，请等待玩家战出结果！\
+
+注意：<本战场不允许使用任何卷轴.药品>\
+<回土城需要请点击场中NPC.>\
+#ACT
+break
+
+#if
+EQUAL A5 战场开始
+#SAY
+<激情战场杀龟得元宝>正在火热进行中！\
+您是不是要进入战场杀龟得元宝？\
+
+注意：<本战场不允许使用任何卷轴.药品>\
+<回土城需要请点击场中NPC.>\
+<进入战场/@进入>\
+#ACT
+break
+
+
+#if
+#SAY
+目前没有任何开启的活动。战场处于关闭状态。\
+
+注意：<本战场不允许使用任何卷轴.药品>\
+<回土城需要请点击场中NPC.>\
+
+#ACT
+break
+
+
+
+
+
+
+
+[@膜拜领主]
+#IF
+CheckTextList ..\QuestDiary\标记数据\膜拜.txt <$USERNAME>
+#ACT
+MESSAGEBOX 您今天已经膜拜过了！\
+break
+
+#IF
+EQUAL A16 不可领取
+#ACT
+MESSAGEBOX 目前还不可膜拜，请等待今日的武林盟主诞生！\
+break
+
+#IF
+EQUAL A16 已经领取
+#ACT
+MESSAGEBOX 今天的武林盟主已经领取元宝了，无法进行膜拜！\
+break
+
+#IF
+CHECKGAMEGOLD > 1
+#ACT
+GAMEGOLD - 2
+CHANGEEXP + 5000000
+INC G16 1
+ADDTextList ..\QuestDiary\标记数据\膜拜.txt <$USERNAME>
+SENDMSG  1  玩家（%s）对着武林盟主<$STR(A76)>进行膜拜，获得经验500万！当前膜拜人数：<$STR(G16)>
+SENDMSG  1  玩家（%s）对着武林盟主<$STR(A76)>进行膜拜，获得经验500万！当前膜拜人数：<$STR(G16)>
+SENDMSG  1  玩家（%s）对着武林盟主<$STR(A76)>进行膜拜，获得经验500万！当前膜拜人数：<$STR(G16)>
+SendNewLineMsg 0 249 0 15 100 10 1 玩家（%s）对着武林盟主<$STR(A76)>进行膜拜，获得经验500万！||当前膜拜人数：<$STR(G16)>
+GOTO @main
+break
+
+#IF
+#ACT
+MESSAGEBOX 对不起,你可能元宝不足！\
+break
+
+
+
+[@领主拿奖]
+#IF
+EQUAL A16 已经领取
+#ACT
+MESSAGEBOX 您今天已经领取奖励了！\
+break
+
+#IF
+EQUAL A16 不可领取
+#ACT
+MESSAGEBOX 目前还不可膜拜，请等待今日的武林盟主诞生！\
+break
+
+#IF
+EQUAL A76 <$USERNAME>
+EQUAL A16 可以领取
+#ACT
+GAMEGOLD + <$STR(G16)>
+MOV A16 已经领取
+SENDMSG  1  恭喜武林盟主玩家（%s）受到<$STR(G16)>人膜拜，领取元宝：<$STR(G16)>，羡煞旁人！
+SENDMSG  1  恭喜武林盟主玩家（%s）受到<$STR(G16)>人膜拜，领取元宝：<$STR(G16)>，羡煞旁人！
+SENDMSG  1  恭喜武林盟主玩家（%s）受到<$STR(G16)>人膜拜，领取元宝：<$STR(G16)>，羡煞旁人！
+GOTO @main
+break
+
+#IF
+#ACT
+MESSAGEBOX 对不起,你可能不是天下第一！\
+break
+
+
+
+
+
+
+
+
+[@进入]
+#ACT
+MAP Nlts102
+close

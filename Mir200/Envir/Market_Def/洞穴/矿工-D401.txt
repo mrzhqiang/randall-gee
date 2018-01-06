@@ -1,0 +1,19 @@
+[@main]
+#ACT
+messagebox 自动采集将收取<30%手续费>\当背包满了贩卖一次消耗<3点精力>\<精力>不足则自动关闭挖矿\您确定需要开启全自动采集卖矿吗？  @确定3223 @取消
+break
+
+[@确定3223]
+#IF
+CHECKLEVELEX < 15
+#ACT
+messagebox 对不起，需要15级才可以进行采集！
+break
+
+#IF
+CHECKMAPNAME D401
+#ACT
+SHOWPROGRESSBARDLG 7 @采集完成 正在采集,进度%d%... 1 @采集中断
+#ELSEACT
+messagebox 地图错误！已停止采集。
+break

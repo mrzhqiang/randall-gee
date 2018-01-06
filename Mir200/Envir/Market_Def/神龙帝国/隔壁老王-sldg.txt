@@ -1,0 +1,311 @@
+(@buy @sell  @s_repair )
+%110
++40
++1
++43
++15
++10
++11
++26
++0
++42
++30
++25
++3
++4
++19
++20
++21
++22
++23
++24
++26
++5
++6
+[@main]
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+□　　　　　　　　　　==>隔壁老王<==　　　　　　　　　　□\
+□　　　　　　　　　　　　　　　　　　　　　　　　　　　□\
+□　　　　我是万能的老王你可以在我这里<买/@buy>    　　　　　　□\
+□　　　　也可以<卖/@sell>东西.我也可以<一键收矿/@矿产回收>内行　　　　　　 □\
+□        <特殊修复/@s_repair>修复是给土豪准备的.<一键特修/@特需>　　 　　　　　　　□\
+□　　　　　　　　　　==><猛戳泡点{AUTOCOLOR=254,251,168,191,250,70,245,249,253}/@2><==　　　　　　　　　　□\
+□　　　　　　　　　　==><追忆传奇/AUTOCOLOR=254,251,168,191,250,70,245,249,253><==　　　　　　　　　　□\
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+
+
+[@buy]
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+□　　　　　　　　　　==>隔壁老王<==　　　　　　　　　　□\
+□　　　　　　　　　　　　　　　　　　　　　　　　　　　□\
+□　　　　请选择你要购买的物品.                   　　　□\
+□　　　　                                            　□\
+□　　　　                                            　□\
+□　　　　　　　　　　　　　　<返 回/@Main>　　　　　 　　　　　□\
+□　　　　　　　　　　==><追忆传奇/AUTOCOLOR=254,251,168,191,250,70,245,249,253><==　　　　　　　　　　□\
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+
+
+[@sell]
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+□　　　　　　　　　　==>隔壁老王<==　　　　　　　　　　□\
+□　　　　　　　　　　　　　　　　　　　　　　　　　　　□\
+□　　　　请放上你要卖掉的物品.                   　　　□\
+□　　　　                                            　□\
+□　　　　                                            　□\
+□　　　　　　　　　　　　　　<返 回/@Main>　　　　　 　　　　　□\
+□　　　　　　　　　　==><追忆传奇/AUTOCOLOR=254,251,168,191,250,70,245,249,253><==　　　　　　　　　　□\
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+
+
+[@s_repair]
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+□　　　　　　　　　　==>隔壁老王<==　　　　　　　　　　□\
+□　　　　　　　　　　　　　　　　　　　　　　　　　　　□\
+□　　　　请放上你要特修的物品.                   　　　□\
+□　　　　                                            　□\
+□　　　　                                            　□\
+□　　　　　　　　　　　　　　<返 回/@Main>　　　　　 　　　　　□\
+□　　　　　　　　　　==><追忆传奇/AUTOCOLOR=254,251,168,191,250,70,245,249,253><==　　　　　　　　　　□\
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+
+[~@repair]
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+□　　　　　　　　　　==>隔壁老王<==　　　　　　　　　　□\
+□　　　　　　　　　　　　　　　　　　　　　　　　　　　□\
+□　　　　绝对看不出是修过的!                     　　　□\
+□　　　　                                            　□\
+□　　　　                                            　□\
+□　　　　　　　　　　　　　　<返 回/@Main>　　　　　 　　　　　□\
+□　　　　　　　　　　==><追忆传奇/AUTOCOLOR=254,251,168,191,250,70,245,249,253><==　　　　　　　　　　□\
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\
+
+[@2]
+#ACT
+mapmove PP
+
+
+[@特需]
+#IF
+CHECKREPAIRALLGOLD <$STR(N99)>
+#ACT
+take 金币 <$STR(N99)> 
+RepairAll
+#SAY
+你的装备修好了.
+#ELSESAY
+你是不是没有钱啊.修理需要<$STR(N99)>金币
+
+[@矿产回收]
+#IF
+#ACT
+Mov P10 0
+Goto @回收铜矿
+Break
+
+[@回收铜矿]
+#IF
+CHECKITEM 铜矿 1
+#ELSEACT
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铜矿 25
+#ACT
+Inc P10 125
+Take 铜矿 25
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 10
+#ACT
+Inc P10 50
+Take 铜矿 10
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 5
+#ACT
+Inc P10 25
+Take 铜矿 5
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 3
+#ACT
+Inc P10 15
+Take 铜矿 3
+Goto @回收铜矿
+Break
+#IF
+CheckItem 铜矿 1
+#ACT
+Inc P10 5
+Take 铜矿 1
+Goto @回收铜矿
+Break
+
+[@回收铁矿]
+#IF
+CHECKITEM 铁矿 1
+#ELSEACT
+Goto @回收银矿
+Break
+#IF
+CheckItem 铁矿 25
+#ACT
+Inc P10 225
+Take 铁矿 25
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 10
+#ACT
+Inc P10 90
+Take 铁矿 10
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 5
+#ACT
+Inc P10 45
+Take 铁矿 5
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 3
+#ACT
+Inc P10 27
+Take 铁矿 3
+Goto @回收铁矿
+Break
+#IF
+CheckItem 铁矿 1
+#ACT
+Inc P10 9
+Take 铁矿 1
+Goto @回收铁矿
+Break
+
+[@回收银矿]
+#IF
+CHECKITEM 银矿 1
+#ELSEACT
+Goto @回收金矿
+Break
+#IF
+CheckItem 银矿 15
+#ACT
+Inc P10 150
+Take 银矿 15
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 7
+#ACT
+Inc P10 70
+Take 银矿 7
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 3
+#ACT
+Inc P10 30
+Take 银矿 3
+Goto @回收银矿
+Break
+#IF
+CheckItem 银矿 1
+#ACT
+Inc P10 10
+Take 银矿 1
+Goto @回收银矿
+Break
+
+[@回收金矿]
+#IF
+CHECKITEM 金矿 1
+#ELSEACT
+Goto @回收黑铁
+Break
+#IF
+CheckItem 金矿 10
+#ACT
+Inc P10 200
+Take 金矿 10
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 5
+#ACT
+Inc P10 100
+Take 金矿 5
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 3
+#ACT
+Inc P10 60
+Take 金矿 3
+Goto @回收金矿
+Break
+#IF
+CheckItem 金矿 1
+#ACT
+Inc P10 20
+Take 金矿 1
+Goto @回收金矿
+Break
+
+[@回收黑铁]
+#IF
+CHECKITEM 黑铁矿 1
+#ELSEACT
+Goto @给钱
+Break
+#IF
+CheckItem 黑铁矿 10
+#ACT
+Inc P10 200
+Take 黑铁矿 10
+Goto @回收黑铁
+Break
+#IF
+CheckItem 金矿 5
+#ACT
+Inc P10 100
+Take 黑铁矿 5
+Goto @回收黑铁
+Break
+#IF
+CheckItem 黑铁矿 3
+#ACT
+Inc P10 60
+Take 黑铁矿 3
+Goto @回收黑铁
+Break
+#IF
+CheckItem 黑铁矿 1
+#ACT
+Inc P10 20
+Take 黑铁矿 1
+Goto @回收黑铁
+Break
+
+[@给钱]
+#IF
+Large P10 0
+#ACT
+Mul P10 <$STR(P10)> 200
+Give 金币 <$STR(P10)>
+Break
+
+
+[goods]
+;商品		数量	时间
+灰色药粉(少量)	5	60
+黄色药粉(少量)	5	60
+灰色药粉(中量)	5	60
+黄色药粉(中量)	5	60
+灰色药粉(大量)	5	60
+黄色药粉(大量)	5	60

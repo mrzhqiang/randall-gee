@@ -1,0 +1,547 @@
+[@领取积分]
+{
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\01.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\01.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\02.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\02.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\03.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\03.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\04.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\04.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\05.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\05.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\06.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\06.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\07.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\07.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\08.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\08.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\09.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 0
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 0
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\09.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\1.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 1
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 1
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\1.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\2.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 2
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 2
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\2.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\3.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 3
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 3
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\3.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\4.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 4
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 4
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\4.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\5.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 5
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 5
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\5.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\6.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 6
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 6
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\6.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\7.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 7
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 7
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\7.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\8.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 8
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 8
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\8.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\9.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 9
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 9
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\9.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\10.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 10
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 10
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\10.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\20.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 20
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 20
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\20.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\30.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 30
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 30
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\30.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\40.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 40
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 40
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\40.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\50.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 50
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 50
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\50.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\60.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 60
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 60
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\60.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\70.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 70
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 70
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\70.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\80.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 80
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 80
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\80.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\90.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 90
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 90
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\90.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\100.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 100
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 100
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\100.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\200.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 200
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 200
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\200.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\300.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 300
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 300
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\300.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\400.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 400
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 400
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\400.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\500.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 500
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 500
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\500.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\600.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 600
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 600
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\600.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\700.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 700
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 700
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\700.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\800.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 800
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 800
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\800.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\900.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 900
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 900
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\900.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\1000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 1000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 1000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\1000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\2000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 2000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 2000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\2000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\3000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 3000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 3000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\3000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\4000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 4000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 4000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\4000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\5000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 5000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 5000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\5000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\6000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 6000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 6000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\6000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\7000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 7000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 7000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\7000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\8000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 8000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 8000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\8000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\9000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 9000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 9000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\9000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\10000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 10000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 10000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\10000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\20000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 20000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 20000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\20000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\30000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 30000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 30000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\30000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\40000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 40000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 40000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\40000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\50000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 50000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 50000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\50000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\60000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 60000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 60000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\60000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\70000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 70000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 70000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\70000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\80000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 80000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 80000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\80000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#IF
+CheckAccountList ..\QuestDiary\充值元宝\积分\90000.txt
+#ACT
+CALCVAR HUMAN 消费积分 + 90000
+SAVEVAR HUMAN 消费积分 ..\QuestDiary\充值积分\消费积分Save.txt
+CALCVAR HUMAN 元宝消费 + 90000
+SAVEVAR HUMAN 元宝消费 ..\QuestDiary\充值积分\元宝消费Save.txt
+DelAccountList ..\QuestDiary\充值元宝\积分\90000.txt
+SENDMSG 1 ★[%s]:玩家<$USERNAME>通过在线充值额外获得了。
+
+#ELSESAY
+请查看自己的数量!\
+没有充值请按提示进行充值!\
+<退出/@exit>
+}

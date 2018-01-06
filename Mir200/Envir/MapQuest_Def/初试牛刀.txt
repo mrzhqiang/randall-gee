@@ -1,0 +1,17 @@
+[@main]
+#IF
+EQUAL T10 领取第一
+LARGE N100 18
+#ACT
+MOV T10 领奖第一
+SENDMSG 6 提示：击杀跳跳蜂数量 + 1.当前已击杀<$Str(N100)>.
+MESSAGEBOX  你已经完成了击杀跳跳蜂，请点击任务领取奖励!
+break
+
+#IF
+EQUAL T10 领取第一
+SMALL N100 20
+#ACT
+inc N100 1
+SENDMSG 6 提示：击杀跳跳蜂数量 + 1.当前已击杀<$Str(N100)>.
+break

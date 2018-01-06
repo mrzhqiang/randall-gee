@@ -1,0 +1,28 @@
+[@main]
+恭喜你进入第十四关，想要从我这里过去的话，\
+就要清除一定数量的怪物才行!\ \
+<下一关/@下一关>  
+
+[@下一关]
+#IF
+CheckMapHumanCount E211 = 0
+CheckMapMonCount E210 = 0 1
+#ACT
+CLEARMAPMON E211
+MongenEx E211 19 20 地狱犬 3 5
+MongenEx E211 19 20 红蛇王 3 5
+MongenEx E211 19 20 虎蛇王 3 5
+MongenEx E211 19 20 蛤蟆王 3 5
+MongenEx E211 19 20 幻影蜘蛛 3 2
+mapmove E211
+SENDDELAYMSG 闯关时间剩余%s秒 180 249 1 @闯关失败
+close
+#ELSEACT
+messagebox 清除地图内的怪物后才能继续闯关！\或者下一关正在被挑战，请稍后！
+
+[@闯关失败]
+#IF
+#ACT
+mapmove n3 330 333
+messagebox 时间已到，本次闯关失败！
+break

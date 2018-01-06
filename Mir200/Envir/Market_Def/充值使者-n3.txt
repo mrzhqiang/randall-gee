@@ -1,0 +1,40 @@
+[@main]
+#IF
+#SAY
+<$USERNAME>你好，欢迎来到<$SERVERNAME>，很高兴为您服务\
+-----------------------注意充值事项------------------------\
+①本系统支持移动,联通短信,网银和盛大,骏网,征途,神州行充值卡\
+②点卡、网银、手机充值卡,请登录本服【官网】充值\
+③请在充值5分钟后在本NPC处领取元宝\④本服元宝比例:1元=10元宝\
+<领取元宝/@元宝> <土豪称号领取/@土豪> 当前拥有元宝【<$GAMEGOLD>】个 \
+<网银、各类点卡、支付宝等其他方式点击进入/@weburl>\\<关闭/@exit>\
+
+[@元宝]
+#CALL [\充值元宝\元宝\元宝.txt] @领取元宝
+#CALL [\充值元宝\积分\积分.txt] @领取积分
+
+[@weburl]
+#IF
+#ACT
+OpenWebSite  http://pay1.wofupay.net/app/acquire/req?gid=3183
+break
+
+
+
+[@土豪]
+#IF
+CHECKFENGHAO 壕我们去哪里呀
+#ACT
+sendmsg 7 [提示]：你已经拥有此称号了。
+break
+
+#IF
+CHECKGAMEGOLD > 99
+#ACT
+GIVEFENGHAO 壕我们去哪里呀
+sendmsg 7 [提示]：兑换成功，你获得了“壕我们去哪里呀”称号！
+SuperMoveMsg 0 251 0 20 100 5 恭喜:土豪玩家『<$USERNAME>』领取了称号||“壕我们去哪里呀”真是土豪一枚！
+break
+#ELSEACT
+MESSAGEBOX 你元宝未满100.当有100元宝以后再来找我吧.
+BREAK

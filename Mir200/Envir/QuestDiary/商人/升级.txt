@@ -1,0 +1,310 @@
+[@升级奖励]
+{
+#SAY
+　             <◎◎/SCOLOR=254><追忆传奇升级奖励系统/SCOLOR=249><◎◎/SCOLOR=254>\
+这里是升级奖励服务。在这里可以领取升级奖励\
+---------------------------------------------------------\
+活动名称：升级奖励系统\
+规则如下：等级达到50、55、60、65、70、75、80、85、90\
+温馨提示：所有等级奖励只可获得一次\
+<奖励查看与领取/@查看升级奖励>\
+<关闭对话/@exit>\
+
+
+
+
+[@查看升级奖励]
+#IF
+check [611] 1
+#ACT
+MOV A130 已领
+#elseact
+MOV A130 <领取/@领取30>
+
+#IF
+check [612] 1
+#ACT
+MOV A131 已领
+#elseact
+MOV A131 <领取/@领取35>
+
+#IF
+check [613] 1
+#ACT
+MOV A132 已领
+#elseact
+MOV A132 <领取/@领取40>
+
+#IF
+check [614] 1
+#ACT
+MOV A133 已领
+#elseact
+MOV A133 <领取/@领取45>
+#IF
+check [615] 1
+#ACT
+MOV A134 已领
+#elseact
+MOV A134 <领取/@领取50>
+#IF
+check [616] 1
+#ACT
+MOV A135 已领
+#elseact
+MOV A135 <领取/@领取55>
+#IF
+check [617] 1
+#ACT
+MOV A136 已领
+#elseact
+MOV A136 <领取/@领取60>
+#IF
+check [618] 1
+#ACT
+MOV A137 已领
+#elseact
+MOV A137 <领取/@领取65>
+#IF
+check [619] 1
+#ACT
+MOV A138 已领
+#elseact
+MOV A138 <领取/@领取70>
+#IF
+check [620] 1
+#ACT
+MOV A139 已领
+#elseact
+MOV A139 <领取/@领取75>
+#IF
+check [621] 1
+#ACT
+MOV A140 已领
+#elseact
+MOV A140 <领取/@领取80>
+
+
+#IF
+#say
+　             <◎◎/SCOLOR=254><追忆传奇升级奖励系统/SCOLOR=249><◎◎/SCOLOR=254>\
+---------------------------------------------------------\
+奖励等级         奖励内容                         \
+<$STR(A130)>50  20万金币+1元宝+6点荣誉\
+<$STR(A131)>55  50万金币+2元宝+30点荣誉\
+<$STR(A132)>60  金条+5元宝+80点荣誉+10张书页\
+<$STR(A133)>65  10颗碧水+8元宝+200点荣誉+20张书页\
+<$STR(A134)>70  宝石袋*3+10元宝+500点荣誉+50张书页\
+<$STR(A135)>75  龙魂积分1500点+12元宝+1500点荣誉+5点金刚石\
+<下一页/@查看升级奖励2>
+
+[@查看升级奖励2]
+#say
+　             <◎◎/SCOLOR=254><追忆传奇升级奖励系统/SCOLOR=249><◎◎/SCOLOR=254>\
+---------------------------------------------------------\
+奖励等级        剩余名额  奖励内容                         \
+<$STR(A136)>80  龙魂积分1800点+15元宝+2200点荣誉+20点金刚石\
+<$STR(A137)>85  加星石*20颗+20元宝+龙魂积分2000点+100点金刚石\
+<$STR(A138)>90  加星石*20颗+宝石袋*20袋+50元宝+500点金刚石\
+<$STR(A139)>95  100元宝+2500点金刚石\
+<$STR(A140)>100 5000点金刚石\
+<返回/@升级奖励>\
+
+
+[@领取30]
+#if
+checklevelex > 29
+check [611] 0
+#ACT
+GAMEGOLD + 1
+Give 金币 200000
+GAMEGLORY + 6
+set [611] 1
+GIVEFENGHAO 初学乍练
+messagebox 恭喜你领取升级30级奖励：20万金币+1元宝+6点荣誉。\获得称号：初学乍练
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取35]
+#if
+checklevelex > 34
+check [612] 0
+#ACT
+GAMEGOLD + 2
+Give 金币 500000
+GAMEGLORY + 30
+set [612] 1
+GIVEFENGHAO 略有小成
+messagebox 恭喜你领取升级35级奖励：50万金币+2元宝+30点荣誉\获得称号：略有小成
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取40]
+#if
+checklevelex > 39
+check [613] 0
+#ACT
+GAMEGOLD + 5
+give 金条 1
+Give 书页 10
+GAMEGLORY + 80
+set [613] 1
+GIVEFENGHAO 渐入佳境
+messagebox 恭喜你领取升级40级奖励：金条+5元宝+80点荣誉+10张书页\获得称号：渐入佳境
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取45]
+#if
+checklevelex > 44
+check [614] 0
+#ACT
+GAMEGOLD + 8
+give 十颗碧水龍睛珠
+Give 书页 20
+GAMEGLORY + 200
+set [614] 1
+GIVEFENGHAO 驾轻就熟
+messagebox 恭喜你领取升级45级奖励：10颗碧水+8元宝+200点荣誉+20张书页\获得称号：驾轻就熟
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取50]
+#if
+checklevelex > 49
+check [615] 0
+#ACT
+GAMEGOLD + 10
+give 随机宝石袋 3
+Give 书页 50
+GAMEGLORY + 500
+set [615] 1
+GIVEFENGHAO 融会贯通
+messagebox 恭喜你领取升级50级奖励：宝石袋*3+10元宝+500点荣誉+50张书页\获得称号：融会贯通
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取55]
+#if
+checklevelex > 54
+check [616] 0
+#ACT
+GAMEGOLD + 12
+inc U4 1500
+GAMEDIAMOND + 5
+GAMEGLORY + 1500
+set [616] 1
+GIVEFENGHAO 炉火纯青
+messagebox 恭喜你领取升级55级奖励：龙魂积分1500点+12元宝+1500点荣誉+5点金刚石\获得称号：炉火纯青
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取60]
+#if
+checklevelex > 59
+check [617] 0
+#ACT
+GAMEGOLD + 15
+inc U4 1800
+GAMEDIAMOND + 20
+GAMEGLORY + 2200
+set [617] 1
+GIVEFENGHAO 已有大成
+messagebox 恭喜你领取升级60级奖励：龙魂积分1800点+15元宝+2200点荣誉+20点金刚石\获得称号：已有大成
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+
+[@领取65]
+#if
+checklevelex > 64
+check [618] 0
+CHECKBAGSIZE 21
+#ACT
+GAMEGOLD + 20
+inc U4 2000
+GAMEDIAMOND + 100
+give 随机加星石 20
+set [618] 1
+GIVEFENGHAO 登峰造极
+messagebox 恭喜你领取升级65级奖励：加星石*20颗+20元宝+龙魂积分2000点+100点金刚石\获得称号：登峰造极
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？或者您的背包没有21个空格！
+
+
+[@领取70]
+#if
+checklevelex > 69
+check [619] 0
+CHECKBAGSIZE 40
+#ACT
+GAMEGOLD + 50
+give 随机加星石 20
+give 随机宝石袋 20
+GAMEDIAMOND + 500
+set [619] 1
+GIVEFENGHAO 深不可测
+messagebox 恭喜你领取升级70级奖励：加星石*20颗+宝石袋*20袋+50元宝+500点金刚石\获得称号：深不可测
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？或者您的背包没有36个空格！
+
+
+
+[@领取75]
+#if
+checklevelex > 74
+check [620] 0
+#ACT
+GAMEGOLD + 100
+GAMEDIAMOND + 2500
+set [620] 1
+messagebox 恭喜你领取升级75级奖励：100元宝+2500点金刚石
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+[@领取80]
+#if
+checklevelex > 79
+check [621] 0
+#ACT
+GAMEDIAMOND + 5000
+set [621] 1
+messagebox 恭喜你领取升级80级奖励：5000点金刚石
+goto @查看升级奖励
+break
+#elseact
+messagebox 是不是等级不够？
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

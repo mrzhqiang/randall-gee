@@ -1,0 +1,206 @@
+(@@offlinemsg)
+[@main]
+#IF
+#SAY
+欢迎您来到玛法大陆,\
+这里是提供休息的地方,\
+您在这里可以享受泡点服务,\
+只要您在这里,即可开启<1分钟18万>经验的泡点,\
+离线泡点需要一万金币,可泡<4000分钟>,<1分钟8万经验>的泡点,\
+<开启免费泡点/@2>    <离线泡点/@@offlinemsg>  \
+<开启收费泡点/@3>  <回到土城/@1>  <关闭窗口/@exit>  \
+-------------------------------------------------\
+当前时间：<$DATETIME>\
+
+
+[@3]
+欢迎您来到玛法大陆,\
+这里是提供休息的地方,\
+您在这里可以享受泡点服务,\
+您可以选择------如下服务：【泡点均为按秒计费】\
+<我是穷人还是免费泡点吧>---【还是免费泡点吧】\
+<荣誉泡点/@荣誉泡>---【每1荣誉提供38888经验】\
+<金币泡点/@金币泡>---【每2万金币提供5万经验】\
+<灵符泡点/@灵符泡>---【每1灵符提供10万点经验】\
+<精力泡点/@精力泡>---【每1精力提供3万点经验】\
+-------------------------------------------------\
+当前时间：<$DATETIME>\
+
+
+
+
+[@精力泡]
+#IF
+CHECKMAPNAME PP
+LARGE U26 1
+#ACT
+MOV T1 空
+setofftimer 43
+setofftimer 42
+setofftimer 41
+setofftimer 3
+setofftimer 1
+SetOnTimer 46 1
+SendMsg 5 你已经成功开启,每1秒以1精力换取3万点经验!
+#ELSEACT
+MOV T1 可以获取
+SendMsg 5 您精力不足1!
+
+
+
+
+
+
+
+
+
+
+[@元宝泡]
+#IF
+CHECKMAPNAME PP
+CHECKGAMEGOLD > 1
+#ACT
+MOV T1 空
+setofftimer 42
+setofftimer 46
+setofftimer 41
+setofftimer 3
+setofftimer 1
+SetOnTimer 43 1
+SendMsg 5 你已经成功开启,每1秒以1元宝换取50万点经验!
+#ELSEACT
+MOV T1 可以获取
+SendMsg 5 您元宝不足1!
+
+
+[@灵符泡]
+#IF
+CHECKMAPNAME PP
+CHECKGAMEGIRD > 1
+#ACT
+MOV T1 空
+setofftimer 43
+setofftimer 46
+setofftimer 41
+setofftimer 3
+setofftimer 1
+SetOnTimer 42 1
+SendMsg 5 你已经成功开启,每1秒以1灵符换取13万点经验!
+#ELSEACT
+MOV T1 可以获取
+SendMsg 5 您灵符不足!
+
+
+
+
+[@荣誉泡]
+#IF
+CHECKMAPNAME PP
+CHECKGAMEGLORY > 1
+#ACT
+MOV T1 空
+setofftimer 43
+setofftimer 46
+setofftimer 42
+setofftimer 3
+setofftimer 1
+SetOnTimer 41 1
+SendMsg 5 你已经成功开启,每1秒以1荣誉换取38888点经验!
+#ELSEACT
+MOV T1 可以获取
+SendMsg 5 您荣誉不足1！
+
+
+
+
+[@金币泡]
+#IF
+CHECKMAPNAME PP
+CheckGold 20000
+#ACT
+MOV T1 空
+setofftimer 43
+setofftimer 46
+setofftimer 41
+setofftimer 3
+setofftimer 42
+SetOnTimer 1 1
+SendMsg 5 你已经成功开启,每1秒以20000金币换取50000经验的奖励!
+#ELSEACT
+MOV T1 可以获取
+SendMsg 5 您金币不足!
+
+
+
+[@2]
+#IF
+#ACT
+MOV T1 空
+setofftimer 43
+setofftimer 46
+setofftimer 41
+setofftimer 42
+setofftimer 1
+SetOnTimer 3 60
+SendMsg 5 你已经成功开启,每分钟即可获得18万经验的奖励!
+break
+
+[@1]
+#IF
+#ACT
+MOV T1 可以获取
+mapmove n3 330 330
+
+
+[@@offlinemsg]
+#IF
+CheckItem 聚灵珠(小) 1
+#ACT
+MESSAGEBOX 您携带了聚灵珠，无法开启离线!
+break
+
+#IF
+CheckItem 聚灵珠(大) 1
+#act
+MESSAGEBOX 您携带了聚灵珠，无法开启离线!
+break
+
+#IF
+CheckItem 超大聚灵珠 1
+#act
+MESSAGEBOX 您携带了聚灵珠，无法开启离线!
+break
+
+#IF
+NOT CheckGold 10000
+#act
+MESSAGEBOX 您没有1万金币无法离线泡点!
+#ELSEACT
+MOV T1 空
+take 金币 10000
+goto @离线
+
+
+
+[@离线]
+#if
+ISDUPMODE
+#say
+请找一个空位置，不能与别人站在一起。\ \
+<返回/@main>
+#act
+break
+
+#if
+INSAFEZONE
+#elseact
+break
+#elsesay
+请在安全区找一个位置站好，不能会被人杀的。\ \
+<返回/@main>
+
+#IF
+checklevelex > 0
+#act
+OFFLINEPLAY 60 80000 4000
+

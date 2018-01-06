@@ -1,0 +1,1064 @@
+[@炼化]
+{
+#IF
+EQUAL T9 超级炼化
+#ACT
+MOV S$炼化 拾取任何品质全部炼化
+
+#IF
+EQUAL T9 特殊自动
+#ACT
+MOV S$炼化 拾取劣质、精致物品自动炼化
+
+#IF
+EQUAL T9 开启自动
+#ACT
+MOV S$炼化 放入炼化框，立刻炼化
+
+#IF
+EQUAL T9 关闭自动
+#ACT
+MOV S$炼化 已关闭炼化
+
+#IF
+#ACT
+MOV S$当前品级
+MOV S$当前颜色
+MOV S$可以获得
+MOV S$进阶品级
+MOV S$进阶颜色
+MOV S$进阶所需
+OPENMERCHANTBIGDLG 9 2550 0 1 0 0 1 250 17 1
+#SAY
+\ \ \ \ \ \　　<炼化：>指的是将装备进行炼化成珠子\　　<精纯：>指的是将装备进行精纯。提升品级\ \ \ 
+　　你好！我能把你的装备进行<炼化/SCOLOR=249>哦,\
+　　<@自动精炼>可开启自动炼化,放入即炼化。\
+　　<炼化成的珠子可用于精纯装备/FCOLOR=250>\
+　　<注意：精纯只提升品级，不重置特效！/FCOLOR=250>\
+　　<ITEMBOX:1:9:3798:120:40:0:0:*:在这里放入装备>\
+　　当前装备：<$BOXITEM[1].NAME>\
+　　品级:{<$STR(S$当前品级)>/FCOLOR=<$STR(S$当前颜色)>}\
+　　炼化获得：<$STR(S$可以获得)>\
+　　进阶品级:{<$STR(S$进阶品级)>/FCOLOR=<$STR(S$进阶颜色)>}\
+　　当前炼化模式:{<$STR(S$炼化)>/FCOLOR=250}\
+　　　　　　　　<切换炼化模式/@切换炼化>\
+　　<离开/@exit>\
+
+
+[@切换炼化]
+#IF
+EQUAL T9 超级炼化
+#ACT
+MOV T9 特殊自动
+SENDMSG 7 【提示】:[炼化模式:　拾取劣质、精致物品自动炼化成珠！]  249 255
+goto @炼化
+BREAK
+
+#IF
+EQUAL T9 特殊自动
+#ACT
+MOV T9 开启自动
+messagebox \您当前的状态是<放入炼化框即可炼化装备/FCOLOR=250>\<请注意不要放入贵重物品！>\<如放入贵重物品被炼化，概不赔偿！/FCOLOR=70>
+SENDMSG 7 【提示】:[炼化模式:　放入炼化框，立刻炼化！]  249 255
+goto @炼化
+BREAK
+
+#IF
+EQUAL T9 开启自动
+#ACT
+MOV T9 关闭自动
+SENDMSG 7 【提示】:[炼化模式:　已关闭自动炼化！]  249 255
+goto @炼化
+BREAK
+
+#IF
+EQUAL T9 关闭自动
+#ACT
+MOV T9 超级炼化
+SENDMSG 7 【提示】:[炼化模式:　拾取任何品质全部炼化！]  249 255
+goto @炼化
+BREAK
+
+
+
+
+
+[@ItemOutBox1]
+#act
+MOV S$当前品级
+MOV S$当前颜色
+MOV S$可以获得
+MOV S$进阶品级
+MOV S$进阶颜色
+MOV S$进阶所需
+goto @炼化
+break
+
+[@ItemIntoBox1]
+
+
+
+#if
+Equal <$BOXITEM[1].COLOR> 10
+#act
+ReturnBoxItem 1
+SENDMSG 6 请不要给我破烂！
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 255
+#act
+ReturnBoxItem 1
+SENDMSG 6 该物品不可以被拆解或进化！
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 245
+#act
+ReturnBoxItem 1
+SENDMSG 6 该物品为贵重物品，不可以被拆解或进化！
+break
+
+#if
+CheckContainsText <$BOXITEM[1].NAME> 宝珠
+#act
+ReturnBoxItem 1
+SENDMSG 6 请不要放入宝珠！
+break
+
+
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 70
+#act
+DelBoxItem 1 1
+give 成长型宝珠
+SENDMSG 6 炼化成功，恭喜您获得成长型宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 241
+#act
+DelBoxItem 1 1
+give 传说宝珠
+SENDMSG 6 炼化成功，恭喜您获得传说宝珠！
+GOTO @炼化
+break
+
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 249
+#act
+DelBoxItem 1 1
+give 史诗宝珠
+SENDMSG 6 炼化成功，恭喜您获得史诗宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 253
+#act
+DelBoxItem 1 1
+give 完美宝珠
+SENDMSG 6 炼化成功，恭喜您获得完美宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 151
+#act
+DelBoxItem 1 1
+give 卓越宝珠
+SENDMSG 6 炼化成功，恭喜您获得卓越宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 168
+#act
+DelBoxItem 1 1
+give 稀有宝珠
+SENDMSG 6 炼化成功，恭喜您获得稀有宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 250
+#act
+DelBoxItem 1 1
+give 精致宝珠
+SENDMSG 6 炼化成功，恭喜您获得精致宝珠！
+GOTO @炼化
+break
+
+#if
+EQUAL T9 开启自动
+Equal <$BOXITEM[1].COLOR> 246
+#act
+DelBoxItem 1 1
+give 劣质宝珠
+SENDMSG 6 炼化成功，恭喜您获得劣质宝珠！
+GOTO @炼化
+break
+
+
+#if
+Equal <$BOXITEM[1].COLOR> 70
+#act
+MOV S$当前品级 成长型武器
+MOV S$当前颜色 70
+MOV S$可以获得 成长型宝珠
+MOV S$进阶品级 无法进阶
+MOV S$进阶颜色 70
+MOV S$进阶所需 无法进阶
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 5
+#act
+MOV S$当前品级 传说级
+MOV S$当前颜色 241
+MOV S$可以获得 传说宝珠
+MOV S$进阶品级 成长型武器
+MOV S$进阶颜色 70
+MOV S$进阶所需 成长型宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 6
+#act
+MOV S$当前品级 传说级
+MOV S$当前颜色 241
+MOV S$可以获得 传说宝珠
+MOV S$进阶品级 成长型武器
+MOV S$进阶颜色 70
+MOV S$进阶所需 成长型宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 241
+#act
+MOV S$当前品级 传说级
+MOV S$当前颜色 241
+MOV S$可以获得 传说宝珠
+MOV S$进阶品级 无法进阶
+MOV S$进阶颜色 241
+MOV S$进阶所需 无法进阶
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 249
+#act
+MOV S$当前品级 史诗级
+MOV S$当前颜色 249
+MOV S$可以获得 史诗宝珠
+MOV S$进阶品级 传说级
+MOV S$进阶颜色 241
+MOV S$进阶所需 传说宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 253
+#act
+MOV S$当前品级 完美级
+MOV S$当前颜色 253
+MOV S$可以获得 完美宝珠
+MOV S$进阶品级 史诗级
+MOV S$进阶颜色 249
+MOV S$进阶所需 史诗宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 151
+#act
+MOV S$当前品级 卓越级
+MOV S$当前颜色 151
+MOV S$可以获得 卓越宝珠
+MOV S$进阶品级 完美级
+MOV S$进阶颜色 253
+MOV S$进阶所需 完美宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 168
+#act
+MOV S$当前品级 稀有级
+MOV S$当前颜色 168
+MOV S$可以获得 稀有宝珠
+MOV S$进阶品级 卓越级
+MOV S$进阶颜色 151
+MOV S$进阶所需 卓越宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 250
+#act
+MOV S$当前品级 精致级
+MOV S$当前颜色 250
+MOV S$可以获得 精致宝珠
+MOV S$进阶品级 稀有级
+MOV S$进阶颜色 168
+MOV S$进阶所需 稀有宝珠
+goto @显示
+break
+
+#if
+Equal <$BOXITEM[1].COLOR> 246
+#act
+MOV S$当前品级 劣质级
+MOV S$当前颜色 246
+MOV S$可以获得 劣质宝珠
+MOV S$进阶品级 精致级
+MOV S$进阶颜色 250
+MOV S$进阶所需 精致宝珠
+goto @显示
+break
+
+#if
+#act
+ReturnBoxItem 1
+SENDMSG 6 放入的物品无法识别！
+GOTO @炼化
+break
+
+
+[@显示]
+#SAY
+\ \ \ \ \ \　　<炼化：>指的是将装备进行炼化成珠子\　　<精纯：>指的是将装备进行精纯。提升品级\ \ \ 
+　　你好！我能把你的装备进行<炼化/SCOLOR=249>哦,\
+　　<@自动精炼>可开启自动炼化,放入即炼化。\
+　　<炼化成的珠子可用于精纯装备/FCOLOR=250>\
+　　<注意：精纯只提升品级，不重置特效！/FCOLOR=250>\
+　　<注意：精纯手续费20元宝！/FCOLOR=253>\
+　　<ITEMBOX:1:9:3799:120:40:0:0:*:在这里放入装备>\
+　　当前装备：<$BOXITEM[1].NAME>\
+　　品级:{<$STR(S$当前品级)>/FCOLOR=<$STR(S$当前颜色)>}\
+　　炼化获得：{<$STR(S$可以获得)>/FCOLOR=<$STR(S$当前颜色)>}　　<炼化成当前珠子|249#炼化成珠子/@拆分>\
+　　进阶品级:{<$STR(S$进阶品级)>/FCOLOR=<$STR(S$进阶颜色)>}\
+　　进阶所需：{<$STR(S$进阶所需)>/FCOLOR=<$STR(S$进阶颜色)>}　　<精纯到下一品级|249#精纯到下一品级/@精纯>\
+　　<取回物品/@取回>　<离开/@exit>\
+
+
+[@取回]
+#IF
+#ACT
+ReturnBoxItem 1
+GOTO @炼化
+break
+
+
+[@拆分]
+#IF
+#ACT
+DelBoxItem 1 1
+give <$STR(S$可以获得)>
+SENDMSG 6 炼化成功，恭喜您获得<$STR(S$可以获得)>。！
+GOTO @炼化
+break
+
+[@精纯]
+#if
+Equal S$进阶品级 无法进阶
+#act
+ReturnBoxItem 1
+SENDMSG 6 该物品无法精纯，已经返回背包！
+GOTO @炼化
+break
+
+#if
+checkgamegold < 20
+#act
+ReturnBoxItem 1
+SENDMSG 6 元宝不足20个，已经返回背包！
+GOTO @炼化
+break
+
+#if
+NOT CheckItem <$STR(S$进阶所需)> 10
+#act
+SENDMSG 6 精纯物品:<$STR(S$进阶所需)>不足10个，已经返回背包！
+ReturnBoxItem 1
+GOTO @炼化
+break
+
+
+#OR
+EQUAL <$BOXITEM[1].STDMODE> 5
+EQUAL <$BOXITEM[1].STDMODE> 6
+EQUAL <$BOXITEM[1].STDMODE> 19
+EQUAL <$BOXITEM[1].STDMODE> 20
+EQUAL <$BOXITEM[1].STDMODE> 21
+EQUAL <$BOXITEM[1].STDMODE> 24
+EQUAL <$BOXITEM[1].STDMODE> 22
+EQUAL <$BOXITEM[1].STDMODE> 23
+EQUAL <$BOXITEM[1].STDMODE> 53
+#ACT
+MOV N$防御 3
+goto @进阶洗练
+#ELSEACT
+MOV N$防御 1
+goto @进阶洗练
+
+
+
+[@进阶洗练]
+#if
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 5
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SetUpgradeItem 1
+CHANGEITEMADDVALUE boxitem1 0 = 0
+CHANGEITEMADDVALUE boxitem1 1 = 0
+CHANGEITEMADDVALUE boxitem1 2 = 0
+CHANGEITEMADDVALUE boxitem1 3 = 0
+CHANGEITEMADDVALUE boxitem1 4 = 0
+CHANGEITEMADDVALUE boxitem1 5 = 0
+CHANGEITEMADDVALUE boxitem1 6 = 0
+SetNewItemValue boxitem1 0 = 0
+SetNewItemValue boxitem1 1 = 0
+SetNewItemValue boxitem1 2 = 0
+SetNewItemValue boxitem1 3 = 0
+SetNewItemValue boxitem1 4 = 0
+SetNewItemValue boxitem1 5 = 0
+SetNewItemValue boxitem1 6 = 0
+SetNewItemValue boxitem1 7 = 0
+SetNewItemValue boxitem1 8 = 0
+SetNewItemValue boxitem1 9 = 0
+SetNewItemValue boxitem1 10 = 0
+SetNewItemValue boxitem1 11 = 0
+SetNewItemValue boxitem1 12 = 0
+SetNewItemValue boxitem1 13 = 0
+SetNewItemValue boxitem1 14 = 0
+SetNewItemValue boxitem1 15 = 0
+SetNewItemValue boxitem1 16 = 0
+SetNewItemValue boxitem1 17 = 0
+SetNewItemValue boxitem1 18 = 0
+SetNewItemValue boxitem1 19 = 0
+SetNewItemValue boxitem1 20 = 0
+ChangeItemNameColor boxitem1 70
+ChangeItemUpgradeCount boxitem1 = 1
+SetCustomItemProgressbar boxitem1 0 0 0
+SetCustomItemProgressbar boxitem1 1 0 0
+SetCustomItemText boxitem1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor boxitem1 70
+SetCustomItemValue boxitem1 0 = 0
+SetCustomItemValue boxitem1 1 = 0
+SetCustomItemValue boxitem1 2 = 0
+SetCustomItemValue boxitem1 3 = 0
+SetCustomItemValue boxitem1 4 = 0
+SetCustomItemValue boxitem1 5 = 0
+SetCustomItemValue boxitem1 6 = 0
+CloseItemFlute boxitem1 3
+ChangeItemName boxitem1 <1段><聚气>·<$BOXITEM[1].NAME>
+UpdateItem boxitem1
+ReturnBoxItem 1
+SENDMSG 6 精纯物品成功，已进阶成<1段><聚气>·<$BOXITEM[1].NAME>，已经返回背包！
+SendCenterMsg 180 251 【精纯】：玩家[<$USERNAME>]将装备精纯到了最终阶段[<1段><聚气>·<$BOXITEM[1].NAME>！羡煞旁人！ 1 5
+GOTO @MAIN
+BREAK
+
+#if
+CHECKTEXTLIST ..\Market_Def\追忆传奇\不改特效.txt <$PICKDROPITEMNAME>
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 6
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SetUpgradeItem 1
+CHANGEITEMADDVALUE boxitem1 0 = 0
+CHANGEITEMADDVALUE boxitem1 1 = 0
+CHANGEITEMADDVALUE boxitem1 2 = 0
+CHANGEITEMADDVALUE boxitem1 3 = 0
+CHANGEITEMADDVALUE boxitem1 4 = 0
+CHANGEITEMADDVALUE boxitem1 5 = 0
+CHANGEITEMADDVALUE boxitem1 6 = 0
+SetNewItemValue boxitem1 0 = 0
+SetNewItemValue boxitem1 1 = 0
+SetNewItemValue boxitem1 2 = 0
+SetNewItemValue boxitem1 3 = 0
+SetNewItemValue boxitem1 4 = 0
+SetNewItemValue boxitem1 5 = 0
+SetNewItemValue boxitem1 6 = 0
+SetNewItemValue boxitem1 7 = 0
+SetNewItemValue boxitem1 8 = 0
+SetNewItemValue boxitem1 11 = 0
+SetNewItemValue boxitem1 12 = 0
+SetNewItemValue boxitem1 13 = 0
+SetNewItemValue boxitem1 14 = 0
+SetNewItemValue boxitem1 15 = 0
+SetNewItemValue boxitem1 16 = 0
+SetNewItemValue boxitem1 17 = 0
+SetNewItemValue boxitem1 18 = 0
+SetNewItemValue boxitem1 19 = 0
+SetNewItemValue boxitem1 20 = 0
+ChangeItemNameColor boxitem1 70
+SetCustomItemProgressbar boxitem1 0 0 0
+SetCustomItemProgressbar boxitem1 1 0 0
+SetCustomItemText boxitem1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor boxitem1 70
+SetCustomItemValue boxitem1 0 = 0
+SetCustomItemValue boxitem1 1 = 0
+SetCustomItemValue boxitem1 2 = 0
+SetCustomItemValue boxitem1 3 = 0
+SetCustomItemValue boxitem1 4 = 0
+SetCustomItemValue boxitem1 5 = 0
+SetCustomItemValue boxitem1 6 = 0
+ChangeItemUpgradeCount boxitem1 = 1
+CloseItemFlute boxitem1 3
+ChangeItemName boxitem1 <1段><聚气>·<$BOXITEM[1].NAME>
+UpdateItem boxitem1
+ReturnBoxItem 1
+SENDMSG 6 精纯物品成功，已进阶成<1段><聚气>·<$BOXITEM[1].NAME>，已经返回背包！
+SendCenterMsg 180 251 【精纯】：玩家[<$USERNAME>]将装备精纯到了最终阶段[<1段><聚气>·<$BOXITEM[1].NAME>！羡煞旁人！ 1 5
+GOTO @MAIN
+BREAK
+
+
+
+
+#if
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 5
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SetUpgradeItem 1
+CHANGEITEMADDVALUE boxitem1 0 = 0
+CHANGEITEMADDVALUE boxitem1 1 = 0
+CHANGEITEMADDVALUE boxitem1 2 = 0
+CHANGEITEMADDVALUE boxitem1 3 = 0
+CHANGEITEMADDVALUE boxitem1 4 = 0
+CHANGEITEMADDVALUE boxitem1 5 = 0
+CHANGEITEMADDVALUE boxitem1 6 = 0
+SetNewItemValue boxitem1 0 = 0
+SetNewItemValue boxitem1 1 = 0
+SetNewItemValue boxitem1 2 = 0
+SetNewItemValue boxitem1 3 = 0
+SetNewItemValue boxitem1 4 = 0
+SetNewItemValue boxitem1 5 = 0
+SetNewItemValue boxitem1 6 = 0
+SetNewItemValue boxitem1 7 = 0
+SetNewItemValue boxitem1 8 = 0
+SetNewItemValue boxitem1 9 = 0
+SetNewItemValue boxitem1 10 = 0
+SetNewItemValue boxitem1 11 = 0
+SetNewItemValue boxitem1 12 = 0
+SetNewItemValue boxitem1 13 = 0
+SetNewItemValue boxitem1 14 = 0
+SetNewItemValue boxitem1 15 = 0
+SetNewItemValue boxitem1 16 = 0
+SetNewItemValue boxitem1 17 = 0
+SetNewItemValue boxitem1 18 = 0
+SetNewItemValue boxitem1 19 = 0
+SetNewItemValue boxitem1 20 = 0
+ChangeItemNameColor boxitem1 70
+ChangeItemUpgradeCount boxitem1 = 1
+SetCustomItemProgressbar boxitem1 0 0 0
+SetCustomItemProgressbar boxitem1 1 0 0
+SetCustomItemText boxitem1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor boxitem1 70
+SetCustomItemValue boxitem1 0 = 0
+SetCustomItemValue boxitem1 1 = 0
+SetCustomItemValue boxitem1 2 = 0
+SetCustomItemValue boxitem1 3 = 0
+SetCustomItemValue boxitem1 4 = 0
+SetCustomItemValue boxitem1 5 = 0
+SetCustomItemValue boxitem1 6 = 0
+SETITEMEFFECT boxitem1 43
+CloseItemFlute boxitem1 3
+ChangeItemName boxitem1 <1段><聚气>·<$BOXITEM[1].NAME>
+UpdateItem boxitem1
+ReturnBoxItem 1
+SENDMSG 6 精纯物品成功，已进阶成<1段><聚气>·<$BOXITEM[1].NAME>，已经返回背包！
+SendCenterMsg 180 251 【精纯】：玩家[<$USERNAME>]将装备精纯到了最终阶段[<1段><聚气>·<$BOXITEM[1].NAME>！羡煞旁人！ 1 5
+GOTO @MAIN
+BREAK
+
+#if
+Equal <$BOXITEM[1].COLOR> 241
+Equal <$BOXITEM[1].STDMODE> 6
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SetUpgradeItem 1
+CHANGEITEMADDVALUE boxitem1 0 = 0
+CHANGEITEMADDVALUE boxitem1 1 = 0
+CHANGEITEMADDVALUE boxitem1 2 = 0
+CHANGEITEMADDVALUE boxitem1 3 = 0
+CHANGEITEMADDVALUE boxitem1 4 = 0
+CHANGEITEMADDVALUE boxitem1 5 = 0
+CHANGEITEMADDVALUE boxitem1 6 = 0
+SetNewItemValue boxitem1 0 = 0
+SetNewItemValue boxitem1 1 = 0
+SetNewItemValue boxitem1 2 = 0
+SetNewItemValue boxitem1 3 = 0
+SetNewItemValue boxitem1 4 = 0
+SetNewItemValue boxitem1 5 = 0
+SetNewItemValue boxitem1 6 = 0
+SetNewItemValue boxitem1 7 = 0
+SetNewItemValue boxitem1 8 = 0
+SetNewItemValue boxitem1 11 = 0
+SetNewItemValue boxitem1 12 = 0
+SetNewItemValue boxitem1 13 = 0
+SetNewItemValue boxitem1 14 = 0
+SetNewItemValue boxitem1 15 = 0
+SetNewItemValue boxitem1 16 = 0
+SetNewItemValue boxitem1 17 = 0
+SetNewItemValue boxitem1 18 = 0
+SetNewItemValue boxitem1 19 = 0
+SetNewItemValue boxitem1 20 = 0
+ChangeItemNameColor boxitem1 70
+SetCustomItemProgressbar boxitem1 0 0 0
+SetCustomItemProgressbar boxitem1 1 0 0
+SetCustomItemText boxitem1 <Img:1409:33:0:0>可成长装备
+SetCustomItemTextColor boxitem1 70
+SetCustomItemValue boxitem1 0 = 0
+SetCustomItemValue boxitem1 1 = 0
+SetCustomItemValue boxitem1 2 = 0
+SetCustomItemValue boxitem1 3 = 0
+SetCustomItemValue boxitem1 4 = 0
+SetCustomItemValue boxitem1 5 = 0
+SetCustomItemValue boxitem1 6 = 0
+ChangeItemUpgradeCount boxitem1 = 1
+SETITEMEFFECT boxitem1 43
+CloseItemFlute boxitem1 3
+ChangeItemName boxitem1 <1段><聚气>·<$BOXITEM[1].NAME>
+UpdateItem boxitem1
+ReturnBoxItem 1
+SENDMSG 6 精纯物品成功，已进阶成<1段><聚气>·<$BOXITEM[1].NAME>，已经返回背包！
+SendCenterMsg 180 251 【精纯】：玩家[<$USERNAME>]将装备精纯到了最终阶段[<1段><聚气>·<$BOXITEM[1].NAME>！羡煞旁人！ 1 5
+GOTO @MAIN
+BREAK
+
+
+#IF
+Equal <$BOXITEM[1].COLOR> 246
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：精致
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 250
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 250
+SETITEMEFFECT boxitem1 37
+SetCustomItemTextColor boxitem1 250
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整 
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+
+#IF
+Equal <$BOXITEM[1].COLOR> 250
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：稀有
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 168
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 168
+SetCustomItemTextColor boxitem1 168
+SETITEMEFFECT boxitem1 38
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整 
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 2 2 3
+SetCustomItemAbil boxitem1 2 3 0
+SetCustomItemValue boxitem1 2 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+#IF
+Equal <$BOXITEM[1].COLOR> 168
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：卓越
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 151
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 151
+SetCustomItemTextColor boxitem1 151
+SETITEMEFFECT boxitem1 39
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 2 2 3
+SetCustomItemAbil boxitem1 2 3 0
+SetCustomItemValue boxitem1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 3 2 4
+SetCustomItemAbil boxitem1 3 3 0
+SetCustomItemValue boxitem1 3 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+#IF
+Equal <$BOXITEM[1].COLOR> 151
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：完美
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 253
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 253
+SetCustomItemTextColor boxitem1 253
+SETITEMEFFECT boxitem1 41
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 2 2 3
+SetCustomItemAbil boxitem1 2 3 0
+SetCustomItemValue boxitem1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 3 2 4
+SetCustomItemAbil boxitem1 3 3 0
+SetCustomItemValue boxitem1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 4 2 5
+SetCustomItemAbil boxitem1 4 3 0
+SetCustomItemValue boxitem1 4 = <$STR(N$属性点)>
+
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+
+#IF
+Equal <$BOXITEM[1].COLOR> 253
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：史诗
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 249
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 249
+SetCustomItemTextColor boxitem1 249
+SETITEMEFFECT boxitem1 40
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 2 2 3
+SetCustomItemAbil boxitem1 2 3 0
+SetCustomItemValue boxitem1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 3 2 4
+SetCustomItemAbil boxitem1 3 3 0
+SetCustomItemValue boxitem1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 4 2 5
+SetCustomItemAbil boxitem1 4 3 0
+SetCustomItemValue boxitem1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整
+SetCustomItemAbil boxitem1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 5 2 6
+SetCustomItemAbil boxitem1 5 3 0
+SetCustomItemValue boxitem1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+
+#IF
+Equal <$BOXITEM[1].COLOR> 249
+CheckItem <$STR(S$进阶所需)> 10
+checkgamegold > 19
+#act
+GAMEGOLD - 20
+take <$STR(S$进阶所需)> 10
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 0 1
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 1 品质：传说
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 2 241
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 3 3
+SETCUSTOMITEMPROGRESSBAR boxitem1 1 4 2
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 0 = 1000
+CHANGEITEMNAMECOLOR boxitem1 241
+SetCustomItemTextColor boxitem1 241
+SETITEMEFFECT -1 42
+SetCustomItemAbil boxitem1 0 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 0 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 0 2 1
+SetCustomItemAbil boxitem1 0 3 0
+SetCustomItemValue boxitem1 0  = <$STR(N$属性点)>
+MOV N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 1 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 1 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 1 2 2
+SetCustomItemAbil boxitem1 1 3 0
+SetCustomItemValue boxitem1 1 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 2 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 2 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 2 2 3
+SetCustomItemAbil boxitem1 2 3 0
+SetCustomItemValue boxitem1 2 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 3 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 3 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 3 2 4
+SetCustomItemAbil boxitem1 3 3 0
+SetCustomItemValue boxitem1 3 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+
+SetCustomItemAbil boxitem1 4 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 4 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 4 2 5
+SetCustomItemAbil boxitem1 4 3 0
+SetCustomItemValue boxitem1 4 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+
+SetCustomItemAbil boxitem1 5 0 250
+#CALL [\数据文件\属性调整.txt] @特殊属性调整传说
+SetCustomItemAbil boxitem1 5 1 <$STR(N$属性类型)>
+SetCustomItemAbil boxitem1 5 2 6
+SetCustomItemAbil boxitem1 5 3 0
+SetCustomItemValue boxitem1 5 = <$STR(N$属性点)>
+INC N$品质点 <$STR(N$属性点)>
+MUL N$品质点 100
+DEC N$品质点 100
+MOVR N$随机点 100
+INC N$品质点 <$STR(N$随机点)>
+SETCUSTOMITEMPROGRESSBARVALUE boxitem1 1 1 = <$STR(N$品质点)>
+SENDMSG 6 精纯已成功！消耗<$STR(S$进阶所需)>：10颗！
+UpdateItem boxitem1
+ReturnBoxItem 1
+GOTO @MAIN
+BREAK
+
+#if
+#act
+ReturnBoxItem 1
+SENDMSG 6 放入的物品无法识别！
+GOTO @main
+break
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

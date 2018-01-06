@@ -1,0 +1,200 @@
+[@MAIN]
+#IF
+EQUAL A63 <$USERNAME>
+#SAY
+请问你需要进行什么操作？\ \
+你申请时的信息\
+申请人物名称：<$STR(A63)>\
+申请人物等级：<$STR(G60)>\
+申请人物攻击：<$STR(G2)>\
+人物所属行会：<$STR(A67)>\
+<更换形像/@天下第一更换形像>\
+<关闭/@exit>\
+#ELSESAY
+<想为自己树立一尊雕像，从此天下扬名？现在机会来了！/FCOLOR=250>\
+<只要你有信心打败对手，申请成功后，还可以自由设定雕像的样子/FCOLOR=250>\
+<--------------------------------------------------/FCOLOR=151>\
+<天下第一男战士：/FCOLOR=70><$STR(A63)>  <所属行会：/FCOLOR=70><$STR(A67)>\
+<纷扰乱世群雄逐鹿，他在烽烟四起的<$SERVERNAME>中修炼成为/FCOLOR=70>\
+<天下第一，至今还没有人可以超越。他的等级目前为：/FCOLOR=70><$STR(G60)><级/FCOLOR=70>\
+<今天天下第一是：/FCOLOR=70><$STR(A63)>  <明天的天下第一会是谁？/FCOLOR=70>\
+<--------------------------------------------------/FCOLOR=151>\
+<我要申请天下第一战圣（男）/@天下第一我要申请>            <谁是天下第一/@谁是第一>\
+
+
+
+
+[@谁是第一]
+最强的勇士们\
+<--------------------------------------------------/FCOLOR=151>\
+天下第一男战士：  <$STR(A63)>\
+天下第一女战士：  <$STR(A64)>\
+天下第一男法师：  <$STR(A65)>\
+天下第一女法师：  <$STR(A66)>\
+天下第一男道士：  <$STR(A70)>\
+天下第一女道士：  <$STR(A71)>\
+-------------------<久仰大名/@exit>-----------------------\
+
+
+[@天下第一我要申请]
+#IF
+equal A64 <$USERNAME>
+#act
+MESSAGEBOX 你已经是天下第一法神(男)了，不能再申请！！
+Break
+
+#IF
+equal A65 <$USERNAME>
+#act
+MESSAGEBOX 你已经是天下第一道尊(男)了，不能再申请！！
+Break
+
+#IF
+equal A66 <$USERNAME>
+#act
+MESSAGEBOX 你已经是天下第一战圣(女)了，不能再申请！！
+Break
+
+#IF
+equal A70 <$USERNAME>
+#act
+MESSAGEBOX 你已经是天下第一法神(女)了，不能再申请！！
+Break
+
+#IF
+equal A71 <$USERNAME>
+#act
+MESSAGEBOX 你已经是天下第一道尊(女)了，不能再申请！！
+Break
+
+#IF
+CHECKJOB Warrior
+GENDER MAN
+#ACT
+Goto @申请检测
+#ELSEACT
+MESSAGEBOX 失败，只有男战士才能申请！
+Break
+
+[@申请检测]
+#IF
+NOT LARGE G2 <$MAXDC> 
+#ACT
+Goto @天下第一申请成功
+Break
+
+#IF
+NOT LARGE G2 <$MAXDC> 
+CHECKLEVELEX > <$STR(G60)>
+#ACT
+Goto @天下第一申请成功
+#ELSEACT
+MESSAGEBOX 申请失败，你的攻击力还没有超过他！
+Break
+
+
+[@天下第一申请成功]
+#IF
+#SAY
+恭喜你，申请成功！你现在可以对雕像进行维护、管理，以及\
+设定造形。\ \ \ \ \ \
+
+
+<关闭/@exit>\
+#ACT
+MOV A63 <$USERNAME>
+MOV G60 <$LEVEL>
+MOV G2 <$MAXDC>
+MOV A67 <$GUILDNAME>
+SetNpcImage 40 1 0
+CLEARNAMELIST ..\QuestDiary\数据文件\天下第一\男战士.txt
+addnamelist ..\QuestDiary\数据文件\天下第一\男战士.txt 
+SENDMSG 0 【公告】：[<$USERNAME>]成功申请了天下第一战圣(男)，申请时等级(<$STR(G60)>)，攻击力(<$STR(G2)>)。天下第一拥有上线1.2倍攻击特权！
+POWERRATE 120 65535
+Break
+
+
+
+[@天下第一更换形像]
+雕像的形象是根据人物当前的信息实时显示的。\
+雕像的衣服、武器和发型是根据你当前的装备情况来显示。\
+此外，你还可以自由把雕像设定为六种姿势。\
+请您自由打造雕像吧：\ \
+<攻击造形一/@攻击造形一>        <攻击造形二/@攻击造形二>        <攻击造形三/@攻击造形三>\ \
+<站立造形/@站立造形>          <走路造形/@走路造形>          <跑步造形/@跑步造形>\ \ 
+
+<关闭/@exit>\
+
+
+
+[@攻击造形一]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 240 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+
+
+[@攻击造形二]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 436 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+
+
+[@攻击造形三]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 514 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+
+
+[@站立造形]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 40 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+
+
+[@走路造形]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 107 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+
+
+[@跑步造形]
+#IF
+EQUAL A63 <$USERNAME>
+#ACT
+SetNpcImage 173 1 0
+MESSAGEBOX 恭喜，雕像打造成功！
+#elsesay
+[失败]\ \
+这座雕像不是您的哦！\
+Break
+

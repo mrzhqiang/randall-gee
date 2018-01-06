@@ -1,0 +1,22 @@
+[@main]
+#IF
+#SAY
+这里可以记录内测情况，\
+当正式开区的时候，可以凭借记录的帐号\
+来领取内测奖励\
+<记录名字/@几率>\
+
+
+
+[@几率]
+#IF
+check [55] 1
+CheckTextList ..\QuestDiary\标记数据\内测玩家.txt <$USERID>
+#ACT
+MESSAGEBOX 您的帐号已经记录在内了，请在正式开区的时候领取内测奖励。\
+#ELSEACT
+set [55] 1
+AddTextList ..\QuestDiary\标记数据\内测玩家.txt <$USERID>
+MESSAGEBOX \\记录帐号成功，请牢记自己的帐号密码！\当正式开区时，凭帐号领取奖励.
+CLOSE
+BREAK

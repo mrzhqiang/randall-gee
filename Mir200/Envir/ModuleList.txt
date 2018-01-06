@@ -1,0 +1,19 @@
+8d4063bc637018c835d2b45bb5ab4892|c:\program files (x86)\qvodplayer\qvodwebbase\1.0.0.47\qvodwebbase.dll|1
+9bd682de4ec56c61550a1de8dc18dfbe|c:\windows\system32\aticfx32.dll|1
+d02adf06c62ac91e2ecd478df3c9af6e|c:\windows\system32\atiumdag.dll|1
+d432bbec091ae334cdc035d831dc8482|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+c3adbb35a05b44bc877a895d273aa270|c:\windows\system32\espi11.dll|1
+b20ece064cdf03611d8775449dbafa68|c:\program files (x86)\qvodplayer\qvodwebbase\1.0.0.48\qvodwebbase.dll|1
+39c288564ed757cc3d0f9197f564a5e5|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+4edb407093232de2a95be40f8e4b5ddb|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+5e4cb6305ef0864b9564aa16a8a349be|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+9024f825437f0872bb1573eb0ecf9047|c:\windows\system32\xunyount.dll|1
+038c6096321ede2eaba5644e9e756ba3|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+1efc0fbfd040dde77fcfb0750848b6e2|c:\windows\system32\gamelsp.dll|1
+67e56aabfdc936f90e6c8fc7f5d5c4a2|c:\windows\system32\qqpinyin.ime|1
+842ba1e0dbc18fdd9c215b61ff4be8d0|c:\windows\system32\xunyount.dll|1
+d9fb5feb9a54ac8a931f7459da7c3091|c:\program files (x86)\baidu\baidupinyin\2.9.2.42\imefreetype.dll|1
+c2ee8e71683edc5c74a731ef8f7f30d7|c:\program files (x86)\baidu\baidupinyin\2.9.2.42\imepng.dll|1
+dbeb9d288c4cfd0718757871af8f785d|c:\program files (x86)\baidu\baidupinyin\2.9.2.42\imezlib.dll|1
+5d48a9c828cfe3038100d105105604a7|c:\windows\system32\qqpinyin.ime|1
+40fcf4c6f7599cc63b2211d60a1bb026|c:\program files (x86)\teamviewer\tv_w32.dll|1

@@ -8,3 +8,6 @@ Mir200/Envir/Npc_Data/
 Mir200/Log/
 Mir200/login_log/
 SelGate/Log/
+DBServer/FDB/RoleData.db
+LoginSrv/IDDB/Account.DB
+Mir200/M2Data/M2Data.DB

@@ -11,3 +11,10 @@ SelGate/Log/
 DBServer/FDB/RoleData.db
 LoginSrv/IDDB/Account.DB
 Mir200/M2Data/M2Data.DB
+.idea
+out/
+class/
+*.class
+*.iml
+兰达尔数据/~$人物等级属性.xlsx
+Mir200/magickey_log/

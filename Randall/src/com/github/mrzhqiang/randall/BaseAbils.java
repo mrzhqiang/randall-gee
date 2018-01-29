@@ -66,9 +66,9 @@ public class BaseAbils {
       line = change(line, "SC2_", "0");
       line = changeNumber(line, "MaxHP_", 100, 3);
       line = changeNumber(line, "MaxMP_", 50, 1);
-      line = change(line, "MaxWeight_", "1000");
-      line = change(line, "MaxWearWeight_", "1000");
-      line = change(line, "MaxHandWeight_", "1000");
+      line = change(line, "MaxWeight_", "10000");
+      line = change(line, "MaxWearWeight_", "10000");
+      line = change(line, "MaxHandWeight_", "10000");
     } else if (ZY == 2) {
       // 法师
       line = change(line, "AC1_", "1");
@@ -83,9 +83,9 @@ public class BaseAbils {
       line = change(line, "SC2_", "0");
       line = changeNumber(line, "MaxHP_", 100, 1);
       line = changeNumber(line, "MaxMP_", 50, 3);
-      line = change(line, "MaxWeight_", "1000");
-      line = change(line, "MaxWearWeight_", "1000");
-      line = change(line, "MaxHandWeight_", "1000");
+      line = change(line, "MaxWeight_", "10000");
+      line = change(line, "MaxWearWeight_", "10000");
+      line = change(line, "MaxHandWeight_", "10000");
     } else if (ZY == 3) {
       // 道士
       line = change(line, "AC1_", "1");
@@ -100,9 +100,9 @@ public class BaseAbils {
       line = change(line, "SC2_", "1");
       line = changeNumber(line, "MaxHP_", 100, 2);
       line = changeNumber(line, "MaxMP_", 50, 2);
-      line = change(line, "MaxWeight_", "1000");
-      line = change(line, "MaxWearWeight_", "1000");
-      line = change(line, "MaxHandWeight_", "1000");
+      line = change(line, "MaxWeight_", "10000");
+      line = change(line, "MaxWearWeight_", "10000");
+      line = change(line, "MaxHandWeight_", "10000");
     }
     return line;
   }

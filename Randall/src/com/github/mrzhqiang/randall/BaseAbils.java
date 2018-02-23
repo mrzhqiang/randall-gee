@@ -20,7 +20,7 @@ public class BaseAbils {
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
     String line = bufferedReader.readLine();
     while (line != null) {
-      // 只修改人物的职业属性，没有英雄的，暂不修改
+      // 只修改人物的职业属性，英雄暂不修改
       if (line.startsWith("[")) {
         if (line.contains("Hum_0")) {
           ZY = 1;
